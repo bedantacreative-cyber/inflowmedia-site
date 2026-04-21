@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflow Media — Content Machines for Founders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* === HOMEPAGE-ONLY STYLES === */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 88px;position:relative;overflow:hidden}
+#hCv{position:absolute;inset:0;z-index:0}
+.ftag{position:absolute;z-index:3;padding:9px 16px;border:1px solid var(--bdr);background:rgba(12,12,14,.78);backdrop-filter:blur(12px);font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.6);letter-spacing:.1em;animation:flt 7s ease-in-out infinite}
+.ftag.a{top:26%;right:10%;animation-delay:0s}
+.ftag.b{top:44%;right:21%;animation-delay:-2.5s}
+.ftag.c{top:34%;right:5%;animation-delay:-4.5s}
+.pip{display:inline-block;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-right:7px;vertical-align:middle}
+.h-con{position:relative;z-index:2}
+.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
+.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,11.5vw,185px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
+.h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+.h-ttl .hi{color:var(--acc)}
+.h-sub{max-width:500px;margin-top:30px;font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);opacity:0;animation:fup .9s forwards .7s}
+.h-ctas{margin-top:48px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .9s}
+.scr{position:absolute;bottom:40px;right:52px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi 1s forwards 1.6s}
+.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,107,43,.5);writing-mode:vertical-rl;text-transform:uppercase}
+.scr-ln{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--acc));animation:sp 2.2s ease-in-out infinite}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
+.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
+.sc-card:hover{background:#0f0f11}
+.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,43,.05),transparent);opacity:0;transition:opacity .3s}
+.sc-card:hover::after{opacity:1}
+.sc-n{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;color:rgba(255,107,43,.07);margin-bottom:-18px}
+.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
+.sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
+.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
+.sc-tag::before{content:'→';transition:transform .2s}
+.sc-card:hover .sc-tag::before{transform:translateX(5px)}
+.w-sec{padding:140px 52px;background:var(--sur)}
+.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+.proc-sec{padding:140px 52px}
+.res-sec{padding:140px 52px;position:relative}
+.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
+.svc-sec{padding:140px 52px}
+</style>
+
+<style>
+  section, .w-sec, .res-sec, .svc-sec, .cta-sec {
+    padding-top: 120px;
+  }
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<nav id="nav">
+  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/results">Results</a></li>
+    <!-- Add more nav items here if needed -->
+  </ul>
+  <!-- ✏️ EDIT: Replace # with your Calendly link -->
+  <a href="https://calendly.com/inflow_media/1on1" class="n-cta">Book a Call</a>
+</nav>
+
+<section class="cta-sec" id="contact">
+  <canvas id="ctaCv"></canvas>
+  <div class="cta-in rv">
+    <p class="cta-ey">// We Only Take 5 New Clients a Month</p>
+    <h2 class="cta-ttl">Ready to Go From Invisible to Inevitable?</h2>
+    <p class="cta-sub">We keep our client roster small so every brand gets our full attention. Spots are limited and we move fast.</p>
+    <!-- ✏️ EDIT: Replace # with your Calendly link -->
+    <a href="https://calendly.com/inflow_media/1on1" class="btn-p">Book Your Free Strategy Call</a>
+    <p class="cta-note">→ 30-minute call · We audit your content live on the call · No pitch deck</p>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW<span>.</span></div>
+      <p class="f-tag">Content distribution for coaches and founders who are done being invisible online.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="/podcast">Podcast Distribution</a></li>
+      <li><a href="/founders">Founder Content System</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="/work">Portfolio</a></li>
+      <li><a href="/results">Results</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <!-- ✏️ EDIT: Your real social links -->
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
+      <li><a href="#" target="_blank">X / Twitter</a></li>
+      <li><a href="#" target="_blank">YouTube</a></li>
+    </ul></div>
+  </div>
+  <div class="fb">
+    <span class="fc">© 2026 Inflow Media. All rights reserved.</span>
+    <span class="fc">@bedanta.exp</span>
+  </div>
+</footer>
+
+<script src="../shared.js"></script>
+</body>
+</html>
