@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inflow Media — Content Machines for Founders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* === HOMEPAGE-ONLY STYLES === */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 88px;position:relative;overflow:hidden}
+#hCv{position:absolute;inset:0;z-index:0}
+.ftag{position:absolute;z-index:3;padding:9px 16px;border:1px solid var(--bdr);background:rgba(12,12,14,.78);backdrop-filter:blur(12px);font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.6);letter-spacing:.1em;animation:flt 7s ease-in-out infinite}
+.ftag.a{top:26%;right:10%;animation-delay:0s}
+.ftag.b{top:44%;right:21%;animation-delay:-2.5s}
+.ftag.c{top:34%;right:5%;animation-delay:-4.5s}
+.pip{display:inline-block;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-right:7px;vertical-align:middle}
+.h-con{position:relative;z-index:2}
+.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
+.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,11.5vw,185px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
+.h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+.h-ttl .hi{color:var(--acc)}
+.h-sub{max-width:500px;margin-top:30px;font-size:15px;line-height:1.75;color:rgba(245,242,238,.5);opacity:0;animation:fup .9s forwards .7s}
+.h-ctas{margin-top:48px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .9s}
+.scr{position:absolute;bottom:40px;right:52px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi 1s forwards 1.6s}
+.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,107,43,.5);writing-mode:vertical-rl;text-transform:uppercase}
+.scr-ln{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--acc));animation:sp 2.2s ease-in-out infinite}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
+.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
+.sc-card:hover{background:#0f0f11}
+.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,43,.05),transparent);opacity:0;transition:opacity .3s}
+.sc-card:hover::after{opacity:1}
+.sc-n{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;color:rgba(255,107,43,.07);margin-bottom:-18px}
+.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
+.sc-d{font-size:13px;line-height:1.85;color:rgba(245,242,238,.5);position:relative;z-index:1}
+.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
+.sc-tag::before{content:'→';transition:transform .2s}
+.sc-card:hover .sc-tag::before{transform:translateX(5px)}
+.w-sec{padding:140px 52px;background:var(--sur)}
+.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
+.proc-sec{padding:140px 52px}
+.res-sec{padding:140px 52px;position:relative}
+.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
+.svc-sec{padding:140px 52px}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- ============================================================
+     NAV — Edit links here if you add pages
+     ============================================================ -->
+<nav id="nav">
+  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#results">Results</a></li>
+    <!-- Add more nav items here if needed -->
+  </ul>
+  <!-- ✏️ EDIT: Replace # with your Calendly link -->
+  <a href="#" class="n-cta">Book a Call</a>
+</nav>
+
+<!-- ============================================================
+     HERO SECTION
+     ✏️ EDIT: Change the 3 floating tags, headline, and sub-text
+     ============================================================ -->
+<section class="hero">
+  <canvas id="hCv"></canvas>
+
+  <!-- ✏️ EDIT: These 3 floating labels — your real proof points -->
+  <div class="ftag a"><span class="pip"></span>50M+ Views Generated</div>
+  <div class="ftag b"><span class="pip"></span>Short-Form Distribution</div>
+  <div class="ftag c"><span class="pip"></span>5K → 150K Followers</div>
+
+  <div class="h-con">
+    <!-- ✏️ EDIT: Your tagline -->
+    <p class="h-eye">// Content Infrastructure Agency</p>
+
+    <!-- ✏️ EDIT: Main headline — keep it short and punchy -->
+    <h1 class="h-ttl">Building<br><span class="ol">Content</span><br><span class="hi">Machines</span></h1>
+
+    <!-- ✏️ EDIT: One-liner description of who you serve -->
+    <p class="h-sub">Done-for-you short-form video, content repurposing, and distribution systems — built for founders at $500K–$5M ARR and emerging VC managers.</p>
+
+    <div class="h-ctas">
+      <!-- ✏️ EDIT: Replace # with your Calendly URL -->
+      <a href="#" class="btn-p">Book a Call</a>
+      <a href="#work" class="btn-g">See Our Work</a>
+    </div>
+  </div>
+  <div class="scr"><span>Scroll</span><div class="scr-ln"></div></div>
+</section>
+
+<!-- ============================================================
+     TICKER — scrolling client type labels
+     ✏️ EDIT: Replace these with your actual niches / client types
+     ============================================================ -->
+<div class="tk-w">
+  <div class="tk-t">
+    <div class="tk-i"><span class="td"></span>Business Coaches</div>
+    <div class="tk-i"><span class="td"></span>VC Funds</div>
+    <div class="tk-i"><span class="td"></span>SaaS Founders</div>
+    <div class="tk-i"><span class="td"></span>MedSpa Brands</div>
+    <div class="tk-i"><span class="td"></span>Roofing Contractors</div>
+    <div class="tk-i"><span class="td"></span>Angel Investors</div>
+    <div class="tk-i"><span class="td"></span>Growth Operators</div>
+    <div class="tk-i"><span class="td"></span>Startup Studios</div>
+    <!-- Duplicate below keeps ticker looping seamlessly — don't remove -->
+    <div class="tk-i"><span class="td"></span>Business Coaches</div>
+    <div class="tk-i"><span class="td"></span>VC Funds</div>
+    <div class="tk-i"><span class="td"></span>SaaS Founders</div>
+    <div class="tk-i"><span class="td"></span>MedSpa Brands</div>
+    <div class="tk-i"><span class="td"></span>Roofing Contractors</div>
+    <div class="tk-i"><span class="td"></span>Angel Investors</div>
+    <div class="tk-i"><span class="td"></span>Growth Operators</div>
+    <div class="tk-i"><span class="td"></span>Startup Studios</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     STATS BAR
+     ✏️ EDIT: Change data-t="NUMBER" and the label below it
+     ============================================================ -->
+<div class="stats">
+  <!-- Stat 1 -->
+  <div class="st rv">
+    <div class="s-n"><span class="cnt" data-t="50">0</span>M<span class="ac">+</span></div>
+    <div class="s-l">Organic Views Generated</div> <!-- ✏️ EDIT label -->
+  </div>
+  <!-- Stat 2 -->
+  <div class="st rv" style="transition-delay:.15s">
+    <div class="s-n"><span class="cnt" data-t="200">0</span><span class="ac">+</span></div>
+    <div class="s-l">Booked Calls for Clients</div> <!-- ✏️ EDIT label -->
+  </div>
+  <!-- Stat 3 -->
+  <div class="st rv" style="transition-delay:.3s">
+    <div class="s-n"><span class="cnt" data-t="30">0</span><span class="ac">+</span></div>
+    <div class="s-l">Clips Per Month Per Client</div> <!-- ✏️ EDIT label -->
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES — links to your 2 service pages
+     ✏️ EDIT: Titles, descriptions, and href links
+     ============================================================ -->
+<section class="svc-sec" id="services">
+  <div class="s-lbl">What We Do</div>
+  <div class="svc-grid">
+
+    <!-- Service 1 — links to podcast page -->
+    <a href="podcast-distribution.html" class="sc-card rv">
+      <div class="sc-n">01</div>
+      <h3 class="sc-ttl">Podcast Distribution</h3> <!-- ✏️ EDIT -->
+      <p class="sc-d">We turn your long-form podcast episodes into 30+ short-form clips per month and distribute them across Instagram, YouTube, and TikTok. Your show becomes a discovery machine.</p>
+      <div class="sc-tag">Explore Service</div>
+    </a>
+
+    <!-- Service 2 — links to founders page -->
+    <a href="founders-content.html" class="sc-card rv" style="transition-delay:.15s">
+      <div class="sc-n">02</div>
+      <h3 class="sc-ttl">Founder Content System</h3> <!-- ✏️ EDIT -->
+      <p class="sc-d">Done-for-you short-form video for founders and coaches. We build the content engine behind your personal brand so inbound leads find you.</p>
+      <div class="sc-tag">Explore Service</div>
+    </a>
+
+    <!-- Service 3 — optional, you can remove this card if only 2 services -->
+    <div class="sc-card rv" style="transition-delay:.3s">
+      <div class="sc-n">03</div>
+      <h3 class="sc-ttl">Distribution Engine</h3> <!-- ✏️ EDIT or remove -->
+      <p class="sc-d">We build and run the full posting, scheduling, and growth infrastructure behind your brand. Analytics, A/B testing, platform optimization — all handled.</p>
+      <div class="sc-tag">Multi-Platform · Analytics · Growth</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PORTFOLIO — VIDEO CARDS
+     ✏️ HOW TO ADD A VIDEO:
+       1. Upload to YouTube (can be Unlisted)
+       2. Copy the video URL, e.g. youtube.com/watch?v=ABC123XYZ
+       3. The VIDEO_ID is the part after v= → ABC123XYZ
+       4. Paste it into data-vid="YOUR_ID_HERE"
+       5. For thumbnail: change the URL in style="background-image:url(...)"
+          Use: https://img.youtube.com/vi/YOUR_ID_HERE/maxresdefault.jpg
+       6. Update the client name, title, and badges
+     ============================================================ -->
+<section class="w-sec" id="work">
+  <div class="w-hd rv">
+    <div><div class="s-lbl">Portfolio</div><h2 class="s-ttl">Selected <span class="ol">Work</span></h2></div>
+    <a href="#contact" class="btn-g">Work With Us →</a>
+  </div>
+
+  <div class="w-grid">
+
+    <!-- ✏️ VIDEO CARD 1 (large left) -->
+    <div class="wc wc1 rv" data-vid="REPLACE_WITH_YOUR_VIDEO_ID" data-idx="0">
+      <!-- ✏️ Add your thumbnail: style="background-image:url('https://img.youtube.com/vi/YOUR_ID/maxresdefault.jpg')" -->
+      <div class="wc-th tb1">
+        <div class="wc-th-in"><div>
+          <div class="mock-big">YOUR RESULT</div> <!-- ✏️ e.g. 5K → 150K -->
+          <div class="mock-sub">CLIENT TYPE · LOCATION</div> <!-- ✏️ -->
+        </div></div>
+      </div>
+      <div class="wc-ifr" id="if0"></div>
+      <div class="wc-ov"></div>
+      <div class="wc-play"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13"/></svg></div>
+      <div class="wc-meta">
+        <div class="wc-cl">Client Name · Location</div> <!-- ✏️ -->
+        <div class="wc-tl">Project Title Here</div> <!-- ✏️ -->
+        <div class="wc-bd"><span class="bdg">Stat 1</span><span class="bdg">Stat 2</span></div> <!-- ✏️ -->
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO CARD 2 -->
+    <div class="wc wc2 rv" style="transition-delay:.1s" data-vid="REPLACE_WITH_YOUR_VIDEO_ID" data-idx="1">
+      <div class="wc-th tb2">
+        <div class="wc-th-in"><div>
+          <div class="mock-big">YOUR RESULT</div>
+          <div class="mock-sub">CLIENT TYPE · LOCATION</div>
+        </div></div>
+      </div>
+      <div class="wc-ifr" id="if1"></div>
+      <div class="wc-ov"></div>
+      <div class="wc-play"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13"/></svg></div>
+      <div class="wc-meta">
+        <div class="wc-cl">Client Name · Location</div>
+        <div class="wc-tl">Project Title Here</div>
+        <div class="wc-bd"><span class="bdg">Stat 1</span><span class="bdg">Stat 2</span></div>
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO CARD 3 -->
+    <div class="wc wc3 rv" style="transition-delay:.2s" data-vid="REPLACE_WITH_YOUR_VIDEO_ID" data-idx="2">
+      <div class="wc-th tb3">
+        <div class="wc-th-in"><div>
+          <div class="mock-big">YOUR RESULT</div>
+          <div class="mock-sub">CLIENT TYPE · LOCATION</div>
+        </div></div>
+      </div>
+      <div class="wc-ifr" id="if2"></div>
+      <div class="wc-ov"></div>
+      <div class="wc-play"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13"/></svg></div>
+      <div class="wc-meta">
+        <div class="wc-cl">Client Name · Location</div>
+        <div class="wc-tl">Project Title Here</div>
+        <div class="wc-bd"><span class="bdg">Stat 1</span><span class="bdg">Stat 2</span></div>
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO CARD 4 -->
+    <div class="wc wc4 rv" style="transition-delay:.3s" data-vid="REPLACE_WITH_YOUR_VIDEO_ID" data-idx="3">
+      <div class="wc-th tb4">
+        <div class="wc-th-in"><div>
+          <div class="mock-big">YOUR RESULT</div>
+          <div class="mock-sub">CLIENT TYPE · LOCATION</div>
+        </div></div>
+      </div>
+      <div class="wc-ifr" id="if3"></div>
+      <div class="wc-ov"></div>
+      <div class="wc-play"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13"/></svg></div>
+      <div class="wc-meta">
+        <div class="wc-cl">Client Name · Location</div>
+        <div class="wc-tl">Project Title Here</div>
+        <div class="wc-bd"><span class="bdg">Stat 1</span><span class="bdg">Stat 2</span></div>
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO CARD 5 -->
+    <div class="wc wc5 rv" style="transition-delay:.4s" data-vid="REPLACE_WITH_YOUR_VIDEO_ID" data-idx="4">
+      <div class="wc-th tb5">
+        <div class="wc-th-in"><div>
+          <div class="mock-big">YOUR RESULT</div>
+          <div class="mock-sub">CLIENT TYPE · LOCATION</div>
+        </div></div>
+      </div>
+      <div class="wc-ifr" id="if4"></div>
+      <div class="wc-ov"></div>
+      <div class="wc-play"><svg width="14" height="14" viewBox="0 0 14 14"><polygon points="2,1 13,7 2,13"/></svg></div>
+      <div class="wc-meta">
+        <div class="wc-cl">Client Name · Location</div>
+        <div class="wc-tl">Project Title Here</div>
+        <div class="wc-bd"><span class="bdg">Stat 1</span><span class="bdg">Stat 2</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ✏️ EDIT: Replace every quote, name, role, result number
+     For photo: replace the letter inside .rc-av with:
+     <img src="URL_OR_FILENAME.jpg">
+     ============================================================ -->
+<section class="res-sec" id="results">
+  <div class="s-lbl">Social Proof</div>
+  <h2 class="s-ttl rv">Real <span class="ol">Results</span></h2>
+  <div class="res-grid">
+
+    <!-- ✏️ TESTIMONIAL 1 -->
+    <div class="rc rv">
+      <div class="rc-q">"YOUR REAL CLIENT QUOTE HERE — copy it directly from their DM or message."</div>
+      <div>
+        <div class="rc-r">150K</div> <!-- ✏️ Their result number -->
+        <div class="rc-rl">Followers grown from 5K</div> <!-- ✏️ What the number means -->
+      </div>
+      <div class="rc-au">
+        <div class="rc-av">J</div> <!-- ✏️ Replace letter with <img src="photo.jpg"> if you have their photo -->
+        <div>
+          <div class="rc-nm">Client First Name + Last Initial</div> <!-- ✏️ -->
+          <div class="rc-ro">Their Title · Location</div> <!-- ✏️ -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ✏️ TESTIMONIAL 2 -->
+    <div class="rc rv" style="transition-delay:.15s">
+      <div class="rc-q">"YOUR REAL CLIENT QUOTE HERE."</div>
+      <div>
+        <div class="rc-r">3X</div>
+        <div class="rc-rl">Inbound Leads in 60 Days</div>
+      </div>
+      <div class="rc-au">
+        <div class="rc-av">S</div>
+        <div>
+          <div class="rc-nm">Client Name</div>
+          <div class="rc-ro">Their Title · Location</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✏️ TESTIMONIAL 3 -->
+    <div class="rc rv" style="transition-delay:.3s">
+      <div class="rc-q">"YOUR REAL CLIENT QUOTE HERE."</div>
+      <div>
+        <div class="rc-r">200+</div>
+        <div class="rc-rl">Booked Calls via Content</div>
+      </div>
+      <div class="rc-au">
+        <div class="rc-av">R</div>
+        <div>
+          <div class="rc-nm">Client Name</div>
+          <div class="rc-ro">Their Title · Location</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✏️ TESTIMONIAL 4 -->
+    <div class="rc rv" style="transition-delay:.45s">
+      <div class="rc-q">"YOUR REAL CLIENT QUOTE HERE."</div>
+      <div>
+        <div class="rc-r">50M+</div>
+        <div class="rc-rl">Total Organic Views</div>
+      </div>
+      <div class="rc-au">
+        <div class="rc-av">A</div>
+        <div>
+          <div class="rc-nm">Client Name</div>
+          <div class="rc-ro">Their Title · Location</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     BOTTOM CTA
+     ✏️ EDIT: Replace # with your Calendly link
+     ============================================================ -->
+<section class="cta-sec" id="contact">
+  <canvas id="ctaCv"></canvas>
+  <div class="cta-in rv">
+    <p class="cta-ey">// Limited Spots Available</p>
+    <h2 class="cta-ttl">Let's Build Your Content Machine</h2>
+    <p class="cta-sub">We work with a small number of retainer clients so we can actually deliver. We may have a waitlist.</p>
+    <!-- ✏️ EDIT: Replace # with your Calendly link -->
+    <a href="#" class="btn-p">Book a Free Strategy Call</a>
+    <p class="cta-note">→ 30-minute call · No agency fluff · Just strategy</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ✏️ EDIT: Your social links and tagline
+     ============================================================ -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW<span>.</span></div>
+      <p class="f-tag">Building content machines for founders and investors who want to compound their reach.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="podcast-distribution.html">Podcast Distribution</a></li>
+      <li><a href="founders-content.html">Founder Content System</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="#work">Portfolio</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <!-- ✏️ EDIT: Your real social links -->
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
+      <li><a href="#" target="_blank">X / Twitter</a></li>
+      <li><a href="#" target="_blank">YouTube</a></li>
+    </ul></div>
+  </div>
+  <div class="fb">
+    <span class="fc">© 2026 Inflow Media. All rights reserved.</span>
+    <span class="fc">@bedanta.exp</span>
+  </div>
+</footer>
+
+<script>
+/* Hero particle canvas — homepage only */
+(()=>{
+  const cv=document.getElementById('hCv'),cx=cv.getContext('2d');
+  let W,H,pts=[],mo={x:-999,y:-999};
+  const rs=()=>{W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight};
+  rs();window.addEventListener('resize',rs);
+  document.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mo.x=e.clientX-r.left;mo.y=e.clientY-r.top});
+  class P{
+    constructor(){this.r()}
+    r(){this.x=Math.random()*W;this.y=Math.random()*H;this.sz=Math.random()*1.4+.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.35+.08;const v=Math.random();this.c=v>.75?'#ff6b2b':v>.5?'#ffaa5c':'#f5f2ee'}
+    tick(){const dx=mo.x-this.x,dy=mo.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){this.vx-=dx/d*.07;this.vy-=dy/d*.07}this.vx*=.98;this.vy*=.98;this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}
+    draw(){cx.globalAlpha=this.a;cx.fillStyle=this.c;cx.beginPath();cx.arc(this.x,this.y,this.sz,0,Math.PI*2);cx.fill()}
+  }
+  for(let i=0;i<160;i++)pts.push(new P());
+  function grid(){cx.globalAlpha=.018;cx.strokeStyle='#ff6b2b';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
+  function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#ff6b2b';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
+  function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(255,107,43,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
+  (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
+})();
+</script>
+<script src="shared.js"></script>
+</body>
+</html>

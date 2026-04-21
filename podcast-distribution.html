@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcast Distribution — Inflow Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* === SERVICE PAGE STYLES === */
+.svc-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 52px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--bdr)}
+.svc-hero::before{content:'01';position:absolute;top:80px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:280px;color:rgba(255,107,43,.04);line-height:1;pointer-events:none}
+.svc-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s}
+.svc-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,10vw,160px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .4s}
+.svc-h1 .hi{color:var(--acc)}
+.svc-h1 .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+.svc-tagline{max-width:560px;margin-top:28px;font-size:16px;line-height:1.75;color:rgba(245,242,238,.55);opacity:0;animation:fup .9s forwards .6s}
+.svc-cta-row{margin-top:44px;display:flex;gap:14px;opacity:0;animation:fup .9s forwards .8s}
+
+/* WHAT YOU GET - feature grid */
+.features-sec{padding:120px 52px;background:var(--sur)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut);margin-top:72px}
+.feat{background:var(--bg);padding:48px 36px;position:relative;overflow:hidden;transition:background .3s}
+.feat:hover{background:#0f0f11}
+.feat-icon{font-size:28px;margin-bottom:20px}
+.feat-num{font-family:'Bebas Neue',sans-serif;font-size:56px;color:rgba(255,107,43,.08);line-height:1;margin-bottom:-10px}
+.feat-ttl{font-size:19px;font-weight:800;margin-bottom:12px}
+.feat-d{font-size:13px;color:rgba(245,242,238,.5);line-height:1.85}
+
+/* PROCESS SECTION */
+.proc-sec{padding:120px 52px}
+
+/* VIDEO SHOWCASE — single reel player */
+.vid-sec{padding:120px 52px;background:var(--sur)}
+.vid-showcase{margin-top:64px;display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--mut)}
+.vid-main{position:relative;aspect-ratio:16/9;background:var(--muted);overflow:hidden}
+.vid-main iframe{width:100%;height:100%;border:none}
+.vid-info{background:var(--bg);padding:52px 44px;display:flex;flex-direction:column;justify-content:center;gap:28px}
+.vid-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase}
+.vid-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);line-height:1}
+.vid-desc{font-size:14px;color:rgba(245,242,238,.5);line-height:1.85}
+.vid-stats{display:flex;gap:32px}
+.vs-n{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--acc);line-height:1}
+.vs-l{font-family:'Space Mono',monospace;font-size:9px;color:rgba(245,242,238,.35);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+
+/* TESTIMONIAL — single featured */
+.testi-sec{padding:120px 52px}
+.testi-big{background:var(--sur);padding:72px 64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:64px}
+.tb-quote{font-size:22px;line-height:1.65;color:var(--wht);font-style:italic}
+.tb-quote::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--acc);line-height:.7;display:block;margin-bottom:8px}
+.tb-right{display:flex;flex-direction:column;gap:24px}
+.tb-result{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--acc);line-height:1}
+.tb-result-lbl{font-family:'Space Mono',monospace;font-size:11px;color:rgba(245,242,238,.4);letter-spacing:.14em;text-transform:uppercase;margin-top:-18px}
+.tb-author{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid var(--bdr)}
+.tb-av{width:52px;height:52px;border-radius:50%;background:var(--mut);overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--acc);flex-shrink:0}
+.tb-av img{width:100%;height:100%;object-fit:cover}
+.tb-nm{font-weight:700;font-size:16px}
+.tb-ro{font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.38);margin-top:3px}
+
+/* more testimonials */
+.more-testi{margin-top:2px;background:var(--mut)}
+
+/* PRICING HINT */
+.pricing-sec{padding:120px 52px;background:var(--sur)}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--mut);margin-top:64px}
+.pkg{background:var(--bg);padding:56px 44px;display:flex;flex-direction:column;gap:20px;position:relative}
+.pkg.featured{background:#120a04}
+.pkg-badge{font-family:'Space Mono',monospace;font-size:9px;color:var(--acc);letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.12);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content}
+.pkg-name{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--wht);line-height:1}
+.pkg-price{font-family:'Bebas Neue',sans-serif;font-size:64px;color:var(--acc);line-height:1}
+.pkg-period{font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.35);letter-spacing:.1em}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.pkg-list li{font-size:13px;color:rgba(245,242,238,.65);line-height:1.5;padding-left:20px;position:relative}
+.pkg-list li::before{content:'→';position:absolute;left:0;color:var(--acc);font-size:11px}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="podcast-distribution.html" class="active">Podcast</a></li>
+    <li><a href="founders-content.html">Founders</a></li>
+    <li><a href="index.html#results">Results</a></li>
+  </ul>
+  <!-- ✏️ EDIT: Replace # with your Calendly link -->
+  <a href="#" class="n-cta">Book a Call</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ✏️ EDIT: The tagline and sub-description
+     ============================================================ -->
+<section class="svc-hero">
+  <div class="svc-num">01 · Podcast Distribution</div>
+  <!-- ✏️ EDIT: Your headline for this service -->
+  <h1 class="svc-h1">Your Podcast.<br><span class="ol">Everywhere</span><br><span class="hi">It Matters.</span></h1>
+  <!-- ✏️ EDIT: One punchy line about what this service does -->
+  <p class="svc-tagline">We turn your long-form podcast episodes into 30+ short-form clips per month — distributed across Instagram Reels, YouTube Shorts, and TikTok. One recording session becomes a full month of content.</p>
+  <div class="svc-cta-row">
+    <!-- ✏️ EDIT: Replace # with Calendly -->
+    <a href="#" class="btn-p">Start Your Distribution</a>
+    <a href="#showcase" class="btn-g">See Examples</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT YOU GET — 6 feature cards
+     ✏️ EDIT: Each card title and description
+     ============================================================ -->
+<section class="features-sec">
+  <div class="s-lbl">What's Included</div>
+  <h2 class="s-ttl rv">Everything <span class="ol">Done For You</span></h2>
+  <div class="feat-grid">
+
+    <!-- ✏️ EDIT: Feature 1 -->
+    <div class="feat rv">
+      <div class="feat-num">01</div>
+      <h3 class="feat-ttl">Episode Editing</h3>
+      <p class="feat-d">Full audio and video editing of your podcast episode. Noise removal, color grade, dynamic cuts. Delivered in 48 hours.</p>
+    </div>
+
+    <!-- ✏️ EDIT: Feature 2 -->
+    <div class="feat rv" style="transition-delay:.1s">
+      <div class="feat-num">02</div>
+      <h3 class="feat-ttl">30+ Clips Per Episode</h3>
+      <p class="feat-d">We extract the sharpest 30-90 second moments. Every clip gets a hook rewrite, captions, and thumbnail — optimized for the platform it goes on.</p>
+    </div>
+
+    <!-- ✏️ EDIT: Feature 3 -->
+    <div class="feat rv" style="transition-delay:.2s">
+      <div class="feat-num">03</div>
+      <h3 class="feat-ttl">Platform-Native Formatting</h3>
+      <p class="feat-d">9:16 for Reels and Shorts. 1:1 for LinkedIn. 16:9 for YouTube. Each clip formatted for where it goes — not just cropped.</p>
+    </div>
+
+    <!-- ✏️ EDIT: Feature 4 -->
+    <div class="feat rv" style="transition-delay:.3s">
+      <div class="feat-num">04</div>
+      <h3 class="feat-ttl">Captions + Hooks</h3>
+      <p class="feat-d">Animated captions, rewritten hook lines for the first 3 seconds, and attention-designed subtitles. Retention-first.</p>
+    </div>
+
+    <!-- ✏️ EDIT: Feature 5 -->
+    <div class="feat rv" style="transition-delay:.4s">
+      <div class="feat-num">05</div>
+      <h3 class="feat-ttl">Posting Schedule</h3>
+      <p class="feat-d">We build and manage your full content calendar — best times, platform order, hashtag strategy. You approve. We post.</p>
+    </div>
+
+    <!-- ✏️ EDIT: Feature 6 -->
+    <div class="feat rv" style="transition-delay:.5s">
+      <div class="feat-num">06</div>
+      <h3 class="feat-ttl">Monthly Report</h3>
+      <p class="feat-d">Views, reach, top clips, follower growth, and engagement rate — every month. You always know what's working.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS — Process steps
+     ✏️ EDIT: Steps, titles, descriptions
+     ============================================================ -->
+<section class="proc-sec">
+  <div class="s-lbl">The Process</div>
+  <h2 class="s-ttl rv">From Recording<br><span class="ol">To Viral Clip</span></h2>
+  <div class="proc-list" style="margin-top:72px">
+
+    <div class="pr rv">
+      <div class="pr-n">01</div>
+      <div class="pr-ttl">You Record</div>
+      <div class="pr-d">Record your episode as you normally would. Send us the raw file — video or audio only. We handle everything from there. No extra work on your end.</div>
+    </div>
+
+    <div class="pr rv" style="transition-delay:.1s">
+      <div class="pr-n">02</div>
+      <div class="pr-ttl">We Edit + Clip</div>
+      <div class="pr-d">Our editors go through the full episode, pull the 30 best moments, rewrite hooks, add captions, and format for every platform. Delivered in a shared Google Drive folder within 5 business days.</div>
+    </div>
+
+    <div class="pr rv" style="transition-delay:.2s">
+      <div class="pr-n">03</div>
+      <div class="pr-ttl">You Approve</div>
+      <div class="pr-d">We send you a content calendar with every clip scheduled. You review, give feedback, or approve. One round of revisions included.</div>
+    </div>
+
+    <div class="pr rv" style="transition-delay:.3s">
+      <div class="pr-n">04</div>
+      <div class="pr-ttl">We Distribute</div>
+      <div class="pr-d">We post everything according to the calendar — across Instagram, YouTube Shorts, and TikTok. Analytics tracked weekly. You see results by the end of month one.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     VIDEO SHOWCASE — Your best podcast clip
+     ✏️ EDIT:
+       - Replace VIDEO_ID with your YouTube video ID
+       - Edit the title, description, and stats
+     ============================================================ -->
+<section class="vid-sec" id="showcase">
+  <div class="s-lbl">Example Work</div>
+  <h2 class="s-ttl rv">See It <span class="ol">In Action</span></h2>
+  <div class="vid-showcase rv">
+
+    <!-- ✏️ EDIT: Replace VIDEO_ID with your YouTube video ID -->
+    <div class="vid-main">
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+        allow="encrypted-media"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="vid-info">
+      <!-- ✏️ EDIT: Client type / niche -->
+      <div class="vid-label">Case Study · Podcast Repurposing</div>
+      <!-- ✏️ EDIT: Project headline -->
+      <div class="vid-title">How We Turned One Episode Into 50M Views</div>
+      <!-- ✏️ EDIT: Short description of the result -->
+      <div class="vid-desc">This client recorded one podcast per week. We repurposed each episode into 30 clips and distributed across platforms. Within 8 months, their podcast became their primary lead generation channel.</div>
+      <div class="vid-stats">
+        <div>
+          <!-- ✏️ EDIT: Real stat -->
+          <div class="vs-n">50M+</div>
+          <div class="vs-l">Total Views</div>
+        </div>
+        <div>
+          <!-- ✏️ EDIT: Real stat -->
+          <div class="vs-n">200+</div>
+          <div class="vs-l">Booked Calls</div>
+        </div>
+        <div>
+          <!-- ✏️ EDIT: Real stat -->
+          <div class="vs-n">8mo</div>
+          <div class="vs-l">Timeframe</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Second video if you have one — remove if not -->
+  <div class="vid-showcase rv" style="margin-top:14px">
+    <!-- ✏️ EDIT: Second example video -->
+    <div class="vid-info">
+      <div class="vid-label">Case Study · Podcast Clips</div>
+      <div class="vid-title">From Zero Shorts to 2M Views in 90 Days</div>
+      <div class="vid-desc">A business coach with an existing podcast but zero short-form presence. We built their Shorts channel from scratch using their back catalogue. 2M views, 8K new subscribers.</div>
+      <div class="vid-stats">
+        <div><div class="vs-n">2M</div><div class="vs-l">Views</div></div>
+        <div><div class="vs-n">8K</div><div class="vs-l">New Subs</div></div>
+        <div><div class="vs-n">90</div><div class="vs-l">Days</div></div>
+      </div>
+    </div>
+    <!-- ✏️ EDIT: Replace VIDEO_ID -->
+    <div class="vid-main">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED TESTIMONIAL
+     ✏️ EDIT: Quote, result, name, role
+     For photo: add <img src="filename.jpg"> inside .tb-av
+     ============================================================ -->
+<section class="testi-sec">
+  <div class="s-lbl">Client Result</div>
+  <h2 class="s-ttl rv">What They <span class="ol">Said</span></h2>
+  <div class="testi-big rv">
+    <div>
+      <!-- ✏️ EDIT: Real client quote — copy exact words from DM/message -->
+      <div class="tb-quote">Paste your real client quote here. The more specific it is, the more it converts. Mention the actual result or the feeling they had.</div>
+      <div class="tb-author" style="margin-top:32px">
+        <!-- ✏️ EDIT: Replace letter with photo if you have it -->
+        <div class="tb-av">B</div>
+        <div>
+          <div class="tb-nm">Client Full Name</div> <!-- ✏️ -->
+          <div class="tb-ro">Their Title · Company or Location</div> <!-- ✏️ -->
+        </div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <!-- ✏️ EDIT: The headline result number/stat -->
+      <div class="tb-result">150K</div>
+      <div class="tb-result-lbl">Followers grown in under a year</div> <!-- ✏️ -->
+      <p style="font-size:13px;color:rgba(245,242,238,.45);line-height:1.85">
+        <!-- ✏️ EDIT: One sentence context about the client and result -->
+        This client came to us with 5K followers and no short-form presence. Within 12 months of running the Podcast Distribution system, they hit 150K.
+      </p>
+    </div>
+  </div>
+
+  <!-- Additional smaller testimonials -->
+  <div class="res-grid more-testi" style="margin-top:0">
+    <div class="rc rv">
+      <!-- ✏️ EDIT -->
+      <div class="rc-q">"Second real client quote here."</div>
+      <div><div class="rc-r">3X</div><div class="rc-rl">Inbound Leads</div></div>
+      <div class="rc-au"><div class="rc-av">S</div><div><div class="rc-nm">Client Name</div><div class="rc-ro">Title · Location</div></div></div>
+    </div>
+    <div class="rc rv" style="transition-delay:.15s">
+      <!-- ✏️ EDIT -->
+      <div class="rc-q">"Third real client quote here."</div>
+      <div><div class="rc-r">30+</div><div class="rc-rl">Clips Per Month</div></div>
+      <div class="rc-au"><div class="rc-av">M</div><div><div class="rc-nm">Client Name</div><div class="rc-ro">Title · Location</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING (optional — remove this section if you don't want to show prices)
+     ✏️ EDIT: Package names, prices, features
+     ============================================================ -->
+<section class="pricing-sec">
+  <div class="s-lbl">Investment</div>
+  <h2 class="s-ttl rv">Simple <span class="ol">Pricing</span></h2>
+  <div class="pricing-grid rv">
+
+    <!-- Package 1 -->
+    <div class="pkg">
+      <div class="pkg-badge">Starter</div>
+      <div class="pkg-name">Clip + Distribute</div>
+      <!-- ✏️ EDIT: Your price -->
+      <div class="pkg-price">$XXX<span style="font-size:24px">/mo</span></div>
+      <ul class="pkg-list">
+        <!-- ✏️ EDIT: What's included at this tier -->
+        <li>Up to 2 episodes per month</li>
+        <li>20 clips per episode</li>
+        <li>Instagram + YouTube Shorts</li>
+        <li>Captions + hooks included</li>
+        <li>Monthly report</li>
+      </ul>
+      <a href="#" class="btn-g" style="margin-top:16px">Get Started →</a>
+    </div>
+
+    <!-- Package 2 — featured/recommended -->
+    <div class="pkg featured">
+      <div class="pkg-badge">Most Popular</div>
+      <div class="pkg-name">Full Distribution</div>
+      <!-- ✏️ EDIT: Your price -->
+      <div class="pkg-price">$XXX<span style="font-size:24px">/mo</span></div>
+      <ul class="pkg-list">
+        <!-- ✏️ EDIT: What's included at this tier -->
+        <li>Unlimited episodes per month</li>
+        <li>30+ clips per episode</li>
+        <li>Instagram, YouTube, TikTok, LinkedIn</li>
+        <li>Captions, hooks, thumbnails</li>
+        <li>Full posting calendar managed</li>
+        <li>Weekly analytics call</li>
+      </ul>
+      <a href="#" class="btn-p" style="margin-top:16px">Book a Call →</a>
+    </div>
+
+  </div>
+  <p style="margin-top:24px;font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.25);letter-spacing:.1em">
+    → Custom packages available for VC funds and high-volume creators. DM to discuss.
+  </p>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-sec" id="contact">
+  <canvas id="ctaCv"></canvas>
+  <div class="cta-in rv">
+    <p class="cta-ey">// Podcast Distribution</p>
+    <h2 class="cta-ttl">Ready to Scale Your Podcast?</h2>
+    <p class="cta-sub">One call. We'll audit your current show and show you exactly what we'd do with it. No pressure, no pitch deck.</p>
+    <!-- ✏️ EDIT: Replace # with Calendly -->
+    <a href="#" class="btn-p">Book a Free Strategy Call</a>
+    <p class="cta-note">→ 30-minute call · We come prepared with your content audit</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW<span>.</span></div>
+      <p class="f-tag">Building content machines for founders and investors.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="podcast-distribution.html">Podcast Distribution</a></li>
+      <li><a href="founders-content.html">Founder Content System</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="index.html#work">Portfolio</a></li>
+      <li><a href="index.html#results">Results</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
+      <li><a href="#" target="_blank">X / Twitter</a></li>
+      <li><a href="#" target="_blank">YouTube</a></li>
+    </ul></div>
+  </div>
+  <div class="fb"><span class="fc">© 2026 Inflow Media.</span><span class="fc">@bedanta.exp</span></div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

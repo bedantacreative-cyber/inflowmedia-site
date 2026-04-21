@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Founder Content System — Inflow Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.svc-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 52px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--bdr)}
+.svc-hero::before{content:'02';position:absolute;top:80px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:280px;color:rgba(255,107,43,.04);line-height:1;pointer-events:none}
+.svc-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s}
+.svc-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(60px,10vw,160px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .4s}
+.svc-h1 .hi{color:var(--acc)}
+.svc-h1 .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+.svc-tagline{max-width:560px;margin-top:28px;font-size:16px;line-height:1.75;color:rgba(245,242,238,.55);opacity:0;animation:fup .9s forwards .6s}
+.svc-cta-row{margin-top:44px;display:flex;gap:14px;opacity:0;animation:fup .9s forwards .8s}
+
+/* WHO IT'S FOR */
+.for-sec{padding:120px 52px;background:var(--sur)}
+.for-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--mut);margin-top:72px}
+.for-card{background:var(--bg);padding:52px 44px}
+.for-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
+.for-ttl{font-size:26px;font-weight:800;margin-bottom:16px}
+.for-d{font-size:13px;color:rgba(245,242,238,.5);line-height:1.9}
+.for-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.for-list li{font-size:13px;color:rgba(245,242,238,.65);padding-left:18px;position:relative}
+.for-list li::before{content:'✓';position:absolute;left:0;color:var(--acc);font-size:11px}
+
+/* FEATURES */
+.features-sec{padding:120px 52px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut);margin-top:72px}
+.feat{background:var(--bg);padding:48px 36px;position:relative;overflow:hidden;transition:background .3s}
+.feat:hover{background:#0f0f11}
+.feat-num{font-family:'Bebas Neue',sans-serif;font-size:56px;color:rgba(255,107,43,.08);line-height:1;margin-bottom:-10px}
+.feat-ttl{font-size:19px;font-weight:800;margin-bottom:12px}
+.feat-d{font-size:13px;color:rgba(245,242,238,.5);line-height:1.85}
+
+/* BEFORE / AFTER */
+.ba-sec{padding:120px 52px;background:var(--sur)}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--mut);margin-top:72px}
+.ba-card{background:var(--bg);padding:52px 44px}
+.ba-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px}
+.ba-card.before .ba-label{color:rgba(245,242,238,.3)}
+.ba-card.after .ba-label{color:var(--acc)}
+.ba-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.ba-list li{font-size:14px;line-height:1.6;color:rgba(245,242,238,.6);padding-left:20px;position:relative}
+.ba-card.before .ba-list li::before{content:'✗';position:absolute;left:0;color:rgba(245,242,238,.2)}
+.ba-card.after .ba-list li::before{content:'→';position:absolute;left:0;color:var(--acc)}
+
+/* VIDEO GRID for portfolio */
+.vid-sec{padding:120px 52px}
+.vid-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:64px}
+.vid-item{position:relative;aspect-ratio:9/16;background:var(--mut);overflow:hidden}
+.vid-item iframe{width:100%;height:100%;border:none;display:block}
+.vid-item-info{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(12,12,14,.95),transparent)}
+.vi-cl{font-family:'Space Mono',monospace;font-size:8px;color:var(--acc);letter-spacing:.14em;text-transform:uppercase}
+.vi-tl{font-size:14px;font-weight:800;margin-top:4px}
+
+/* TESTIMONIAL */
+.testi-sec{padding:120px 52px;background:var(--sur)}
+.testi-big{background:var(--bg);padding:72px 64px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:64px;border:1px solid var(--bdr)}
+.tb-quote{font-size:22px;line-height:1.65;color:var(--wht);font-style:italic}
+.tb-quote::before{content:'"';font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--acc);line-height:.7;display:block;margin-bottom:8px}
+.tb-right{display:flex;flex-direction:column;gap:24px}
+.tb-result{font-family:'Bebas Neue',sans-serif;font-size:80px;color:var(--acc);line-height:1}
+.tb-result-lbl{font-family:'Space Mono',monospace;font-size:11px;color:rgba(245,242,238,.4);letter-spacing:.14em;text-transform:uppercase;margin-top:-18px}
+.tb-author{display:flex;align-items:center;gap:16px;padding-top:28px;border-top:1px solid var(--bdr)}
+.tb-av{width:52px;height:52px;border-radius:50%;background:var(--mut);overflow:hidden;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--acc);flex-shrink:0}
+.tb-av img{width:100%;height:100%;object-fit:cover}
+.tb-nm{font-weight:700;font-size:16px}
+.tb-ro{font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.38);margin-top:3px}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-r" id="curR"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="podcast-distribution.html">Podcast</a></li>
+    <li><a href="founders-content.html" class="active">Founders</a></li>
+    <li><a href="index.html#results">Results</a></li>
+  </ul>
+  <!-- ✏️ EDIT: Replace # with Calendly -->
+  <a href="#" class="n-cta">Book a Call</a>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ✏️ EDIT: Headline and sub-description
+     ============================================================ -->
+<section class="svc-hero">
+  <div class="svc-num">02 · Founder Content System</div>
+  <!-- ✏️ EDIT: Your positioning statement -->
+  <h1 class="svc-h1">Your Brand.<br><span class="ol">Their Feed.</span><br><span class="hi">Every Day.</span></h1>
+  <!-- ✏️ EDIT: Who this is for and what it does -->
+  <p class="svc-tagline">Done-for-you short-form video for founders and coaches building a personal brand. We handle everything — scripting, editing, posting — so you stay focused on your business while content compounds in the background.</p>
+  <div class="svc-cta-row">
+    <!-- ✏️ EDIT: Replace # with Calendly -->
+    <a href="#" class="btn-p">Build My Content System</a>
+    <a href="#portfolio" class="btn-g">See Client Results</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO IT'S FOR
+     ✏️ EDIT: The two ideal client profiles
+     ============================================================ -->
+<section class="for-sec">
+  <div class="s-lbl">Who This Is For</div>
+  <h2 class="s-ttl rv">Built For <span class="ol">Two Types</span></h2>
+  <div class="for-grid">
+
+    <!-- Profile 1 -->
+    <div class="for-card rv">
+      <div class="for-label">Profile 01</div>
+      <!-- ✏️ EDIT: First client type -->
+      <div class="for-ttl">The Founder Building Inbound</div>
+      <p class="for-d">You're running a business at $500K–$5M ARR. You know content is the highest-leverage thing you're not doing. You're too busy to do it consistently but smart enough to know it compounds.</p>
+      <ul class="for-list">
+        <!-- ✏️ EDIT: Their situation / pain points -->
+        <li>No time to post consistently</li>
+        <li>Know your expertise is valuable but can't package it</li>
+        <li>Want inbound leads, not just outbound grind</li>
+        <li>Ready to invest in a system, not a freelancer</li>
+      </ul>
+    </div>
+
+    <!-- Profile 2 -->
+    <div class="for-card rv" style="transition-delay:.15s">
+      <div class="for-label">Profile 02</div>
+      <!-- ✏️ EDIT: Second client type -->
+      <div class="for-ttl">The Coach Going From Invisible to Authority</div>
+      <p class="for-d">You have the expertise, the offer, the results — but the algorithm doesn't know you exist yet. You need a content system that builds authority and fills your calendar.</p>
+      <ul class="for-list">
+        <!-- ✏️ EDIT: Their situation -->
+        <li>Proven offer but limited online presence</li>
+        <li>Getting clients through referrals only</li>
+        <li>Want to be the obvious choice in your niche</li>
+        <li>Ready to show up on video consistently</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT'S INCLUDED
+     ✏️ EDIT: Each feature card
+     ============================================================ -->
+<section class="features-sec">
+  <div class="s-lbl">The System</div>
+  <h2 class="s-ttl rv">What We <span class="ol">Build For You</span></h2>
+  <div class="feat-grid">
+
+    <div class="feat rv">
+      <div class="feat-num">01</div>
+      <h3 class="feat-ttl">Content Strategy</h3>
+      <p class="feat-d">ICP analysis, topic pillars, hook library, and a 90-day content roadmap. All built around your specific audience and offer before we shoot anything.</p>
+    </div>
+
+    <div class="feat rv" style="transition-delay:.1s">
+      <div class="feat-num">02</div>
+      <h3 class="feat-ttl">Script Writing</h3>
+      <p class="feat-d">We write every script. You record. We match your voice — not some generic "content creator" voice. Every script is built around a hook, a payoff, and a CTA.</p>
+    </div>
+
+    <div class="feat rv" style="transition-delay:.2s">
+      <div class="feat-num">03</div>
+      <h3 class="feat-ttl">Full Video Editing</h3>
+      <p class="feat-d">B-roll, captions, music, color grade, dynamic cuts. Platform-native — 9:16 for Reels and Shorts, edited for maximum retention in the first 3 seconds.</p>
+    </div>
+
+    <div class="feat rv" style="transition-delay:.3s">
+      <div class="feat-num">04</div>
+      <h3 class="feat-ttl">Posting & Scheduling</h3>
+      <p class="feat-d">We manage the posting calendar across Instagram, YouTube, and TikTok. Best times, right hashtags, platform-specific captions. Nothing falls through the cracks.</p>
+    </div>
+
+    <div class="feat rv" style="transition-delay:.4s">
+      <div class="feat-num">05</div>
+      <h3 class="feat-ttl">Performance Tracking</h3>
+      <p class="feat-d">Weekly check-ins on what's getting traction. We double down on what works and cut what doesn't. Your content gets smarter every month.</p>
+    </div>
+
+    <div class="feat rv" style="transition-delay:.5s">
+      <div class="feat-num">06</div>
+      <h3 class="feat-ttl">DM Conversion Support</h3>
+      <p class="feat-d">Content brings them in. We help you convert. We write reply frameworks so when a prospect DMs you from a reel, you know exactly what to say.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     BEFORE / AFTER
+     ✏️ EDIT: The before/after scenarios
+     ============================================================ -->
+<section class="ba-sec">
+  <div class="s-lbl">The Transformation</div>
+  <h2 class="s-ttl rv">Before & <span class="ol">After</span></h2>
+  <div class="ba-grid rv">
+
+    <div class="ba-card before">
+      <div class="ba-label">Before Inflow Media</div>
+      <ul class="ba-list">
+        <!-- ✏️ EDIT: Their real pain points -->
+        <li>Posting once a week, inconsistently, when you "have time"</li>
+        <li>Zero inbound — all clients come from referrals or cold outreach</li>
+        <li>Spending 3+ hours on one reel that gets 400 views</li>
+        <li>No idea what content is actually converting to clients</li>
+        <li>Your expertise is locked inside your head, not on the internet</li>
+        <li>Watching competitors with worse offers blow up</li>
+      </ul>
+    </div>
+
+    <div class="ba-card after">
+      <div class="ba-label">After Inflow Media</div>
+      <ul class="ba-list">
+        <!-- ✏️ EDIT: Their real results -->
+        <li>30+ pieces of content live every month, on autopilot</li>
+        <li>Inbound DMs from warm prospects who already trust you</li>
+        <li>Your time investment: 1 recording session per week</li>
+        <li>Clear data on which content books calls</li>
+        <li>You own your niche online — people find you first</li>
+        <li>A personal brand that compounds while you sleep</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     VIDEO PORTFOLIO — Short-form reel examples
+     ✏️ EDIT: Replace VIDEO_IDs with your real client reel IDs
+     Note: For vertical reels use Shorts IDs or Instagram embeds
+     ============================================================ -->
+<section class="vid-sec" id="portfolio">
+  <div class="s-lbl">Client Reels</div>
+  <h2 class="s-ttl rv">Work That <span class="ol">Converts</span></h2>
+  <div class="vid-grid rv">
+
+    <!-- ✏️ VIDEO 1: Replace VIDEO_ID -->
+    <div class="vid-item">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allow="encrypted-media" allowfullscreen></iframe>
+      <div class="vid-item-info">
+        <div class="vi-cl">Business Coach · USA</div>
+        <div class="vi-tl">Hook: "I grew 5K to 150K in 10 months doing this..."</div> <!-- ✏️ -->
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO 2: Replace VIDEO_ID -->
+    <div class="vid-item">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allow="encrypted-media" allowfullscreen></iframe>
+      <div class="vid-item-info">
+        <div class="vi-cl">SaaS Founder · India</div>
+        <div class="vi-tl">Hook: "The mistake killing your B2B content..."</div> <!-- ✏️ -->
+      </div>
+    </div>
+
+    <!-- ✏️ VIDEO 3: Replace VIDEO_ID -->
+    <div class="vid-item">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" allow="encrypted-media" allowfullscreen></iframe>
+      <div class="vid-item-info">
+        <div class="vi-cl">Executive Coach · UK</div>
+        <div class="vi-tl">Hook: "3 things top CEOs do that no one talks about"</div> <!-- ✏️ -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED TESTIMONIAL
+     ✏️ EDIT: Quote, result, name, photo
+     ============================================================ -->
+<section class="testi-sec">
+  <div class="s-lbl">Client Result</div>
+  <h2 class="s-ttl rv">Real <span class="ol">Words</span></h2>
+  <div class="testi-big rv">
+    <div>
+      <!-- ✏️ EDIT: Real client quote — copy exact words -->
+      <div class="tb-quote">Your real client quote here. Be specific. Don't paraphrase — use their exact words from the DM or message they sent you.</div>
+      <div class="tb-author" style="margin-top:32px">
+        <!-- ✏️ Add photo: <img src="clientphoto.jpg"> inside .tb-av -->
+        <div class="tb-av">B</div>
+        <div>
+          <div class="tb-nm">Client Name</div>
+          <div class="tb-ro">Title · Company or Location</div>
+        </div>
+      </div>
+    </div>
+    <div class="tb-right">
+      <!-- ✏️ EDIT: Big result number -->
+      <div class="tb-result">5K→150K</div>
+      <div class="tb-result-lbl">Followers in under 12 months</div>
+      <p style="font-size:13px;color:rgba(245,242,238,.45);line-height:1.85">
+        <!-- ✏️ EDIT: One sentence context about the client -->
+        Brief context: who they were before, what service they used, what the outcome was. Keep it concrete.
+      </p>
+    </div>
+  </div>
+
+  <!-- More testimonials below -->
+  <div class="res-grid" style="margin-top:2px;background:var(--mut)">
+    <div class="rc rv">
+      <div class="rc-q">"Second real quote here."</div>
+      <div><div class="rc-r">200+</div><div class="rc-rl">Booked Calls via Content</div></div>
+      <div class="rc-au"><div class="rc-av">R</div><div><div class="rc-nm">Client Name</div><div class="rc-ro">Title · Location</div></div></div>
+    </div>
+    <div class="rc rv" style="transition-delay:.15s">
+      <div class="rc-q">"Third real quote here."</div>
+      <div><div class="rc-r">3X</div><div class="rc-rl">Inbound Leads in 60 Days</div></div>
+      <div class="rc-au"><div class="rc-av">S</div><div><div class="rc-nm">Client Name</div><div class="rc-ro">Title · Location</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section style="padding:120px 52px">
+  <div class="s-lbl">How It Works</div>
+  <h2 class="s-ttl rv">From Zero to <span class="ol">Content Machine</span></h2>
+  <div class="proc-list" style="margin-top:72px">
+    <div class="pr rv"><div class="pr-n">01</div><div class="pr-ttl">Strategy Call</div><div class="pr-d">We audit your current brand, your ICP, your offer, and your competition. You get a full content strategy on the call — topic pillars, hook angles, platform priority, and a 30-day launch plan.</div></div>
+    <div class="pr rv" style="transition-delay:.1s"><div class="pr-n">02</div><div class="pr-ttl">Script + Record</div><div class="pr-d">We send you 4–8 scripts per month. You record on your phone or camera — we'll give you a simple setup guide if needed. Send us the raw footage. That's it from you.</div></div>
+    <div class="pr rv" style="transition-delay:.2s"><div class="pr-n">03</div><div class="pr-ttl">Edit + Approve</div><div class="pr-d">We edit, add captions, music, hooks. You review a Google Drive folder of finished videos. Approve or give one round of feedback. Usually takes less than 10 minutes of your time.</div></div>
+    <div class="pr rv" style="transition-delay:.3s"><div class="pr-n">04</div><div class="pr-ttl">Post + Grow</div><div class="pr-d">We post on the schedule, track performance, and report weekly. Month over month, your numbers grow and your content gets more dialled in. You focus on your business.</div></div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="cta-sec" id="contact">
+  <canvas id="ctaCv"></canvas>
+  <div class="cta-in rv">
+    <p class="cta-ey">// Founder Content System</p>
+    <h2 class="cta-ttl">Start Building Your Brand</h2>
+    <p class="cta-sub">One free strategy call. We'll build your content architecture live on the call — whether you work with us or not.</p>
+    <!-- ✏️ EDIT: Replace # with Calendly -->
+    <a href="#" class="btn-p">Book a Free Strategy Call</a>
+    <p class="cta-note">→ 30 minutes · Come with zero prep · We do the work on the call</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW<span>.</span></div>
+      <p class="f-tag">Building content machines for founders and investors.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="podcast-distribution.html">Podcast Distribution</a></li>
+      <li><a href="founders-content.html">Founder Content System</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="index.html#work">Portfolio</a></li>
+      <li><a href="index.html#results">Results</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
+      <li><a href="#" target="_blank">X / Twitter</a></li>
+      <li><a href="#" target="_blank">YouTube</a></li>
+    </ul></div>
+  </div>
+  <div class="fb"><span class="fc">© 2026 Inflow Media.</span><span class="fc">@bedanta.exp</span></div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>
