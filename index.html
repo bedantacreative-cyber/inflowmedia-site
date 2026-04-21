@@ -9,23 +9,51 @@
 <link rel="stylesheet" href="style.css">
 <style>
 /* === HOMEPAGE-ONLY STYLES === */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 88px;position:relative;overflow:hidden}
+
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:120px 64px 80px;
+  position:relative;
+  overflow:hidden;
+  gap:48px;
+}
 #hCv{position:absolute;inset:0;z-index:0}
-.ftag{position:absolute;z-index:3;padding:9px 16px;border:1px solid var(--bdr);background:rgba(12,12,14,.78);backdrop-filter:blur(12px);font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.6);letter-spacing:.1em;animation:flt 7s ease-in-out infinite}
-.ftag.a{top:26%;right:10%;animation-delay:0s}
-.ftag.b{top:44%;right:21%;animation-delay:-2.5s}
-.ftag.c{top:34%;right:5%;animation-delay:-4.5s}
-.pip{display:inline-block;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-right:7px;vertical-align:middle}
-.h-con{position:relative;z-index:2}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
-.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,11.5vw,185px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
+
+.h-con{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;}
+.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s;}
+.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6.5vw,88px);line-height:1.0;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:.01em;}
 .h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
 .h-ttl .hi{color:var(--acc)}
-.h-sub{max-width:500px;margin-top:30px;font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);opacity:0;animation:fup .9s forwards .7s}
-.h-ctas{margin-top:48px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .9s}
-.scr{position:absolute;bottom:40px;right:52px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi 1s forwards 1.6s}
-.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,107,43,.5);writing-mode:vertical-rl;text-transform:uppercase}
-.scr-ln{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--acc));animation:sp 2.2s ease-in-out infinite}
+.h-sub{max-width:440px;margin-top:24px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
+.h-ctas{margin-top:40px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .8s;}
+
+.h-right{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;opacity:0;animation:fup .9s forwards .6s;}
+
+.h-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(10px);padding:28px 32px;display:flex;align-items:center;gap:20px;transition:border-color .25s,background .25s;}
+.h-stat:hover{background:rgba(255,107,43,.07);border-color:rgba(255,107,43,.3);}
+.h-stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;}
+.h-stat-lbl{font-size:15px;font-weight:700;color:var(--wht);line-height:1.3;}
+.h-stat-sub{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-top:4px;}
+
+.h-trusted{margin-top:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);}
+.h-trusted-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+.h-trusted-names{display:flex;flex-wrap:wrap;gap:8px;}
+.h-name-pill{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.1);padding:5px 12px;letter-spacing:.06em;}
+
+.scr{position:absolute;bottom:32px;left:64px;z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
+.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(255,107,43,.45);text-transform:uppercase}
+.scr-ln{width:40px;height:1px;background:linear-gradient(to right,var(--acc),transparent)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:100px 32px 60px}
+  .h-ttl{font-size:clamp(44px,10vw,72px)}
+  .h-right{margin-top:8px}
+  .h-stat-num{font-size:40px;min-width:90px}
+}
+
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
 .sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
 .sc-card:hover{background:#0f0f11}
@@ -33,7 +61,7 @@
 .sc-card:hover::after{opacity:1}
 .sc-n{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;color:rgba(255,107,43,.07);margin-bottom:-18px}
 .sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
-.sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
+.sc-d{font-size:13px;line-height:1.85;color:rgba(245,242,238,.5);position:relative;z-index:1}
 .sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
 .sc-tag::before{content:'→';transition:transform .2s}
 .sc-card:hover .sc-tag::before{transform:translateX(5px)}
@@ -72,28 +100,56 @@
 <section class="hero">
   <canvas id="hCv"></canvas>
 
-  <!-- ✏️ EDIT: These 3 floating labels — your real proof points -->
-  <div class="ftag a"><span class="pip"></span>50M+ Organic Views</div>
-  <div class="ftag b"><span class="pip"></span>200+ Booked Calls for Clients</div>
-  <div class="ftag c"><span class="pip"></span>5K → 150K in Under a Year</div>
-
   <div class="h-con">
-    <!-- ✏️ EDIT: Your tagline -->
     <p class="h-eye">Content Systems & Podcast Distribution</p>
-
-    <!-- ✏️ EDIT: Main headline — keep it short and punchy -->
-    <h1 class="h-ttl">We Turn Coaches &amp; Founders<br><span class="ol">Into Content</span><br><span class="hi">That Grows.</span></h1>
-
-    <!-- ✏️ EDIT: One-liner description of who you serve -->
+    <h1 class="h-ttl">
+      We Turn Coaches<br>
+      &amp; Founders Into<br>
+      <span class="hi">Content That Grows.</span>
+    </h1>
     <p class="h-sub">Short-form video, podcast clips, and distribution — fully done for you. You run your business. We handle everything else.</p>
-
     <div class="h-ctas">
-      <!-- ✏️ EDIT: Replace # with your Calendly URL -->
       <a href="https://calendly.com/inflow_media/1on1" class="btn-p">Book a Call</a>
       <a href="/work" class="btn-g">See Our Work</a>
     </div>
   </div>
-  <div class="scr"><span>Scroll</span><div class="scr-ln"></div></div>
+
+  <div class="h-right">
+    <div class="h-stat">
+      <div class="h-stat-num">50M+</div>
+      <div class="h-stat-info">
+        <div class="h-stat-lbl">Organic Views Generated</div>
+        <div class="h-stat-sub">Across Instagram, YouTube & TikTok</div>
+      </div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">200+</div>
+      <div class="h-stat-info">
+        <div class="h-stat-lbl">Booked Calls Driven</div>
+        <div class="h-stat-sub">For coaches and founders we work with</div>
+      </div>
+    </div>
+    <div class="h-stat">
+      <div class="h-stat-num">5K→150K</div>
+      <div class="h-stat-info">
+        <div class="h-stat-lbl">Followers in Under a Year</div>
+        <div class="h-stat-sub">Organic growth, no paid ads</div>
+      </div>
+    </div>
+    <div class="h-trusted">
+      <div class="h-trusted-lbl">We work with</div>
+      <div class="h-trusted-names">
+        <span class="h-name-pill">Business Coaches</span>
+        <span class="h-name-pill">SaaS Founders</span>
+        <span class="h-name-pill">Online Coaches</span>
+        <span class="h-name-pill">Fitness Coaches</span>
+        <span class="h-name-pill">VC Funds</span>
+        <span class="h-name-pill">Consultants</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scr"><div class="scr-ln"></div><span>Scroll</span></div>
 </section>
 
 <!-- ============================================================
