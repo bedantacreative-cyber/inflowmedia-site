@@ -7,6 +7,7 @@
     { "source": "/results", "destination": "/results/index.html" },
     { "source": "/contact", "destination": "/contact/index.html" },
     { "source": "/podcast", "destination": "/podcast/index.html" },
-    { "source": "/founders", "destination": "/founders/index.html" }
+    { "source": "/founders", "destination": "/founders/index.html" },
+    { "source": "/case-studies/jeff", "destination": "/case-studies/jeff.html" }
   ]
 }
