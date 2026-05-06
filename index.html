@@ -75,112 +75,28 @@
 .res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
 .svc-sec{padding:140px 52px}
 
-/* VIDEO SHOWCASE SECTION */
-.vid-showcase-sec{
-  padding:100px 64px;
-  background:var(--sur);
-}
-.vs-header{
-  margin-bottom:56px;
-}
-.vs-ttl{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(40px,5.5vw,72px);
-  line-height:1.05;
-  color:var(--wht);
-  margin-bottom:16px;
-}
-.vs-accent{
-  color:var(--acc);
-}
-.vs-sub{
-  font-size:16px;
-  color:rgba(255,255,255,.55);
-  max-width:480px;
-  line-height:1.7;
-}
-.vs-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
-.vs-card{
-  cursor:pointer;
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;
-  aspect-ratio:9/16;
-  background:var(--mut);
-  transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s;
-}
-.vs-card:hover{
-  transform:translateY(-6px) scale(1.02);
-  box-shadow:0 24px 48px rgba(0,0,0,.5);
-}
-.vs-thumb{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-}
-.vs-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:opacity .3s;
-}
-.vs-thumb iframe{
-  width:100%;
-  height:100%;
-  border:none;
-  display:block;
-}
-.vs-play-btn{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:52px;
-  height:52px;
-  background:rgba(255,107,43,.9);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:transform .2s,background .2s;
-  backdrop-filter:blur(4px);
-}
-.vs-card:hover .vs-play-btn{
-  transform:translate(-50%,-50%) scale(1.1);
-  background:var(--acc);
-}
-.vs-card-label{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:40px 14px 14px;
-  background:linear-gradient(to top,rgba(5,5,7,.95) 0%,transparent 100%);
-}
-.vs-card-tag{
-  font-family:'Space Mono',monospace;
-  font-size:9px;
-  color:rgba(255,255,255,.7);
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  border:1px solid rgba(255,255,255,.2);
-  padding:4px 10px;
-  border-radius:20px;
-}
-.vs-cta-row{
-  margin-top:48px;
-  display:flex;
-  justify-content:center;
-}
+/* REEL CAROUSEL */
+.reel-sec{padding:100px 64px;background:var(--sur);overflow:hidden}
+.reel-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px}
+.reel-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1.05;color:var(--wht);margin-bottom:12px}
+.reel-acc{color:var(--acc)}
+.reel-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:420px;line-height:1.7}
+.reel-nav{display:flex;gap:10px;flex-shrink:0}
+.reel-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;cursor:none;transition:border-color .2s,color .2s,background .2s}
+.reel-btn:hover{border-color:var(--acc);color:var(--acc);background:rgba(255,107,43,.08)}
+.reel-track-wrap{overflow:hidden;margin:0 -64px;padding:0 64px 24px}
+.reel-track{display:flex;gap:16px;transition:transform .5s cubic-bezier(.25,.46,.45,.94);will-change:transform}
+.reel-card{flex:0 0 220px;position:relative}
+.reel-card-inner{border-radius:14px;overflow:hidden;position:relative;background:var(--mut);transition:transform .3s,box-shadow .3s}
+.reel-card-inner:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.55)}
+.reel-card-label{position:absolute;bottom:0;left:0;right:0;padding:32px 12px 12px;background:linear-gradient(to top,rgba(5,5,7,.95),transparent);border-radius:0 0 14px 14px}
+.reel-tag{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);padding:3px 9px;border-radius:20px}
+.reel-cta-row{margin-top:48px;display:flex;justify-content:center}
 @media(max-width:900px){
-  .vs-grid{grid-template-columns:repeat(2,1fr)}
-  .vid-showcase-sec{padding:64px 32px}
+  .reel-sec{padding:64px 24px}
+  .reel-track-wrap{margin:0 -24px;padding:0 24px 20px}
+  .reel-card{flex:0 0 160px}
+  .reel-header{flex-direction:column;align-items:flex-start;gap:20px}
 }
 </style>
 </head>
@@ -315,78 +231,133 @@
 </div>
 
 
-<!-- VIDEO SHOWCASE SECTION -->
-<section class="vid-showcase-sec">
-  <div class="vs-header">
-    <div class="s-lbl">Our Work</div>
-    <h2 class="vs-ttl">Curated <span class="vs-accent">Short Form</span> Content</h2>
-    <p class="vs-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
+<!-- CONTENT CAROUSEL SECTION -->
+<section class="reel-sec">
+  <div class="reel-header">
+    <div>
+      <div class="s-lbl">Our Work</div>
+      <h2 class="reel-ttl">Curated <span class="reel-acc">Short Form</span> Content</h2>
+      <p class="reel-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
+    </div>
+    <div class="reel-nav">
+      <button class="reel-btn" id="reelPrev" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="reel-btn" id="reelNext" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
   </div>
 
-  <div class="vs-grid">
+  <div class="reel-track-wrap">
+    <div class="reel-track" id="reelTrack">
 
-    <!-- VIDEO 1 -->
-    <!-- YouTube Short ID = -ZeY4kyNCic -->
-    <div class="vs-card" onclick="playShort(this, '-ZeY4kyNCic', 'vs-0')">
-      <div class="vs-thumb" id="vs-0">
-        <img src="https://img.youtube.com/vi/-ZeY4kyNCic/0.jpg" alt="Short form video 1">
-        <div class="vs-play-btn">
-          <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="3,2 16,9 3,16" fill="white"/></svg>
-        </div>
-        <div class="vs-card-label">
-          <span class="vs-card-tag">✏️ ADD YOUR LABEL</span>
+      <!-- CARD 1 — dcs6kys5m3 -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 1" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- VIDEO 2 -->
-    <!-- YouTube Short ID = 3d4oy8WJ_EQ -->
-    <div class="vs-card" onclick="playShort(this, '3d4oy8WJ_EQ', 'vs-1')">
-      <div class="vs-thumb" id="vs-1">
-        <img src="https://img.youtube.com/vi/3d4oy8WJ_EQ/0.jpg" alt="Short form video 2">
-        <div class="vs-play-btn">
-          <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="3,2 16,9 3,16" fill="white"/></svg>
-        </div>
-        <div class="vs-card-label">
-          <span class="vs-card-tag">Founder Content</span>
+      <!-- CARD 2 — c8gfvtqz2t -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 2" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- VIDEO 3 -->
-    <!-- YouTube Short ID = P6ZG5e4PrFY -->
-    <div class="vs-card" onclick="playShort(this, 'P6ZG5e4PrFY', 'vs-2')">
-      <div class="vs-thumb" id="vs-2">
-        <img src="https://img.youtube.com/vi/P6ZG5e4PrFY/0.jpg" alt="Short form video 3">
-        <div class="vs-play-btn">
-          <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="3,2 16,9 3,16" fill="white"/></svg>
-        </div>
-        <div class="vs-card-label">
-          <span class="vs-card-tag">Podcast Clip</span>
+      <!-- CARD 3 — p15i9zxadm -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 3" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- VIDEO 4 -->
-    <!-- YouTube Short ID = 8Hiwugb8x-4 -->
-    <div class="vs-card" onclick="playShort(this, '8Hiwugb8x-4', 'vs-3')">
-      <div class="vs-thumb" id="vs-3">
-        <img src="https://img.youtube.com/vi/8Hiwugb8x-4/0.jpg" alt="Short form video 4">
-        <div class="vs-play-btn">
-          <svg width="18" height="18" viewBox="0 0 18 18"><polygon points="3,2 16,9 3,16" fill="white"/></svg>
-        </div>
-        <div class="vs-card-label">
-          <span class="vs-card-tag">Brand Content</span>
+      <!-- CARD 4 — tawm9x9m72 -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 4" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- CARD 5 — 2v5xusf843 -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 5" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 — eis0xc0z6o -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 6" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 — 9o3ne6hf6r -->
+      <div class="reel-card">
+        <div class="reel-card-inner">
+          <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+              <iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 7" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
+            </div>
+          </div>
+          <div class="reel-card-label">
+            <span class="reel-tag">✏️ Your Label</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
-  <div class="vs-cta-row">
+  <div class="reel-cta-row">
     <a href="https://calendly.com/inflow_media/1on1" class="btn-p">Book a Strategy Call</a>
   </div>
 </section>
+<!-- END CONTENT CAROUSEL -->
 
 <!-- ============================================================
      SERVICES — links to your 2 service pages
@@ -683,22 +654,44 @@
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
 })();
 
-function playShort(card, videoId, thumbId) {
-  const thumb = document.getElementById(thumbId);
-  const img = thumb.querySelector('img');
-  const playBtn = thumb.querySelector('.vs-play-btn');
-  const label = thumb.querySelector('.vs-card-label');
-  if(thumb.querySelector('iframe')) return;
-  if(img) img.style.opacity = '0';
-  if(playBtn) playBtn.style.display = 'none';
-  if(label) label.style.display = 'none';
-  const iframe = document.createElement('iframe');
-  iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-  iframe.allow = 'autoplay; encrypted-media';
-  iframe.allowFullscreen = true;
-  iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-  thumb.appendChild(iframe);
-}
+/* REEL CAROUSEL */
+(function(){
+  const track = document.getElementById('reelTrack');
+  const prev = document.getElementById('reelPrev');
+  const next = document.getElementById('reelNext');
+  if(!track) return;
+  const cardW = () => track.querySelector('.reel-card').offsetWidth + 16;
+  let pos = 0;
+  let autoTimer;
+  const total = track.querySelectorAll('.reel-card').length;
+  const visible = () => Math.floor(track.parentElement.offsetWidth / cardW());
+  const maxPos = () => Math.max(0, total - visible());
+
+  function goTo(n){
+    pos = Math.max(0, Math.min(n, maxPos()));
+    track.style.transform = 'translateX(-' + (pos * cardW()) + 'px)';
+  }
+
+  function startAuto(){
+    autoTimer = setInterval(()=>{
+      pos >= maxPos() ? goTo(0) : goTo(pos + 1);
+    }, 2800);
+  }
+
+  function stopAuto(){ clearInterval(autoTimer); }
+
+  next.addEventListener('click',()=>{ stopAuto(); goTo(pos+1); startAuto(); });
+  prev.addEventListener('click',()=>{ stopAuto(); goTo(pos-1); startAuto(); });
+
+  /* pause auto scroll when user hovers over track */
+  track.addEventListener('mouseenter', stopAuto);
+  track.addEventListener('mouseleave', startAuto);
+
+  /* pause auto scroll when any iframe is focused/clicked */
+  document.addEventListener('blur', stopAuto, true);
+
+  startAuto();
+})();
 </script>
 <script src="shared.js"></script>
 </body>
