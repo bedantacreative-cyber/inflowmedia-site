@@ -2,56 +2,220 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/favicon.png">
-<meta name="theme-color" content="#ff6b2b">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inflow Media — Content Machines for Founders</title>
+<title>Our Work — Inflow Media</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
-/* === HOMEPAGE-ONLY STYLES === */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 88px;position:relative;overflow:hidden}
-#hCv{position:absolute;inset:0;z-index:0}
-.ftag{position:absolute;z-index:3;padding:9px 16px;border:1px solid var(--bdr);background:rgba(12,12,14,.78);backdrop-filter:blur(12px);font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.6);letter-spacing:.1em;animation:flt 7s ease-in-out infinite}
-.ftag.a{top:26%;right:10%;animation-delay:0s}
-.ftag.b{top:44%;right:21%;animation-delay:-2.5s}
-.ftag.c{top:34%;right:5%;animation-delay:-4.5s}
-.pip{display:inline-block;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-right:7px;vertical-align:middle}
-.h-con{position:relative;z-index:2}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
-.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,11.5vw,185px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
-.h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
-.h-ttl .hi{color:var(--acc)}
-.h-sub{max-width:500px;margin-top:30px;font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);opacity:0;animation:fup .9s forwards .7s}
-.h-ctas{margin-top:48px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .9s}
-.scr{position:absolute;bottom:40px;right:52px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi 1s forwards 1.6s}
-.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(255,107,43,.5);writing-mode:vertical-rl;text-transform:uppercase}
-.scr-ln{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--acc));animation:sp 2.2s ease-in-out infinite}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
-.sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,43,.05),transparent);opacity:0;transition:opacity .3s}
-.sc-card:hover::after{opacity:1}
-.sc-n{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;color:rgba(255,107,43,.07);margin-bottom:-18px}
-.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
-.sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
-.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
-.sc-tag::before{content:'→';transition:transform .2s}
-.sc-card:hover .sc-tag::before{transform:translateX(5px)}
-.w-sec{padding:140px 52px;background:var(--sur)}
-.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
-.proc-sec{padding:140px 52px}
-.res-sec{padding:140px 52px;position:relative}
-.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
-.svc-sec{padding:140px 52px}
-</style>
+body{background:#0c0c0e;color:#f5f2ee}
 
-<style>
-  section, .w-sec, .res-sec, .svc-sec, .cta-sec {
-    padding-top: 120px;
-  }
+/* PAGE HERO */
+.work-hero{
+  padding:140px 64px 64px;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.work-hero-label{
+  font-family:'Space Mono',monospace;
+  font-size:10px;color:#ff6b2b;
+  letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.work-hero-ttl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(56px,9vw,120px);
+  line-height:.95;color:#fff;
+}
+.work-hero-ttl span{
+  -webkit-text-stroke:1.5px #fff;
+  color:transparent;
+}
+.work-hero-sub{
+  max-width:480px;margin-top:20px;
+  font-size:16px;line-height:1.75;
+  color:rgba(255,255,255,.55);
+}
+
+/* SHORT FORM SECTION */
+.sf-sec{
+  padding:80px 0;
+  background:#141416;
+  overflow:hidden;
+}
+.sf-header{
+  padding:0 64px;
+  margin-bottom:44px;
+}
+.sf-ttl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,60px);
+  line-height:1.05;color:#fff;
+  margin-bottom:10px;
+}
+.sf-acc{color:#ff6b2b}
+.sf-sub{
+  font-size:15px;
+  color:rgba(255,255,255,.5);
+  max-width:460px;line-height:1.7;
+}
+
+/* MARQUEE */
+.marquee-wrap{overflow:hidden;width:100%}
+.marquee-track{
+  display:flex;
+  gap:14px;
+  width:max-content;
+  animation:marqueeScroll 30s linear infinite;
+}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marqueeScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.sf-card{
+  flex:0 0 210px;
+  aspect-ratio:9/16;
+  border-radius:14px;
+  overflow:hidden;
+  background:#1e1e22;
+  position:relative;
+  flex-shrink:0;
+}
+.sf-card iframe{
+  width:100%;height:100%;
+  border:none;display:block;
+}
+.sf-cta{
+  padding:0 64px;
+  margin-top:44px;
+  display:flex;
+  justify-content:center;
+}
+
+/* PODCAST SECTION */
+.pod-sec{
+  padding:100px 64px;
+  background:#0c0c0e;
+}
+.pod-sec-label{
+  font-family:'Space Mono',monospace;
+  font-size:10px;color:#ff6b2b;
+  letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:16px;
+  display:flex;align-items:center;gap:14px;
+}
+.pod-sec-label::after{
+  content:'';flex:1;height:1px;
+  background:rgba(255,255,255,.07);
+  max-width:160px;
+}
+.pod-sec-ttl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,6vw,80px);
+  line-height:1;color:#fff;
+  margin-bottom:56px;
+}
+.pod-sec-ttl span{
+  -webkit-text-stroke:1.5px #fff;
+  color:transparent;
+}
+
+.pod-card{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:56px;
+  align-items:center;
+  background:#141416;
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;
+  overflow:hidden;
+  padding:0;
+}
+.pod-video{
+  position:relative;
+  aspect-ratio:16/9;
+  background:#1e1e22;
+}
+.pod-video iframe{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  border:none;
+}
+.pod-info{
+  padding:48px 48px 48px 0;
+  display:flex;flex-direction:column;gap:18px;
+}
+.pod-badge{
+  font-family:'Space Mono',monospace;
+  font-size:9px;color:#ff6b2b;
+  letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(255,107,43,.12);
+  border:1px solid rgba(255,107,43,.25);
+  padding:4px 12px;
+  display:inline-block;width:fit-content;
+}
+.pod-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(28px,3.5vw,44px);
+  line-height:1.05;color:#fff;
+}
+.pod-desc{
+  font-size:14px;
+  color:rgba(255,255,255,.55);
+  line-height:1.85;
+}
+.pod-stats{
+  display:flex;gap:28px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.ps-n{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:40px;color:#ff6b2b;line-height:1;
+}
+.ps-l{
+  font-family:'Space Mono',monospace;
+  font-size:9px;color:rgba(255,255,255,.35);
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-top:3px;
+}
+
+/* BOTTOM CTA */
+.work-cta{
+  padding:120px 64px;
+  text-align:center;
+  background:#141416;
+  border-top:1px solid rgba(255,255,255,.07);
+}
+.work-cta-ttl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,7vw,96px);
+  line-height:.95;color:#fff;
+  margin-bottom:20px;
+}
+.work-cta-sub{
+  font-size:16px;color:rgba(255,255,255,.5);
+  max-width:420px;margin:0 auto 40px;
+  line-height:1.75;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .work-hero{padding:120px 24px 48px}
+  .sf-header{padding:0 24px}
+  .sf-cta{padding:0 24px}
+  .sf-card{flex:0 0 150px}
+  .pod-sec{padding:64px 24px}
+  .pod-card{grid-template-columns:1fr}
+  .pod-info{padding:0 24px 32px}
+  .work-cta{padding:80px 24px}
+}
+
+/* SHARED UTILS */
+.btn-p{background:#ff6b2b;color:#fff;padding:15px 36px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:transform .2s,box-shadow .2s,background .2s;font-family:'Syne',sans-serif}
+.btn-p:hover{background:#ffaa5c;transform:translateY(-3px);box-shadow:0 14px 44px rgba(255,107,43,.4)}
+.btn-g{color:#fff;text-decoration:none;display:inline-block;padding:15px 36px;font-size:13px;letter-spacing:.07em;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);font-family:'Syne',sans-serif;transition:border-color .2s}
+.btn-g:hover{border-color:rgba(255,255,255,.3)}
 </style>
 </head>
 <body>
@@ -60,30 +224,33 @@
 <div class="cur-r" id="curR"></div>
 
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <a href="../index.html" class="n-logo" style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:#fff;text-decoration:none">INFLOW<span style="color:#ff6b2b">.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
-    <li><a href="/work">Work</a></li>
+    <li><a href="/work" class="active">Work</a></li>
     <li><a href="/results">Results</a></li>
-    <!-- Add more nav items here if needed -->
   </ul>
-  <!-- ✏️ EDIT: Replace # with your Calendly link -->
   <a href="https://calendly.com/inflow_media/1on1" class="n-cta">Book a Call</a>
 </nav>
 
-<!-- ══ SHORT FORM SHOWCASE ══ -->
+<!-- PAGE HERO -->
+<div class="work-hero">
+  <div class="work-hero-label">Portfolio</div>
+  <h1 class="work-hero-ttl">Our <span>Work</span></h1>
+  <p class="work-hero-sub">Short form content, podcast production, and distribution — built for coaches, founders, and growing brands.</p>
+</div>
+
+<!-- SHORT FORM SHOWCASE -->
 <section class="sf-sec">
   <div class="sf-header">
-    <div>
-      <div class="s-lbl">Our Work</div>
-      <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
-      <p class="sf-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
-    </div>
+    <div class="s-lbl" style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:14px">Short Form<span style="flex:1;height:1px;background:rgba(255,255,255,.07);max-width:120px;display:block"></span></div>
+    <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
+    <p class="sf-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
   </div>
 
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <!-- original set -->
+      <!-- original 7 -->
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
@@ -91,7 +258,7 @@
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
-      <!-- exact duplicate set for seamless loop — do not remove -->
+      <!-- duplicate for seamless loop -->
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
       <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
@@ -107,11 +274,12 @@
   </div>
 </section>
 
-<!-- ══ PODCAST PORTFOLIO ══ -->
+<!-- PODCAST PORTFOLIO -->
 <section class="pod-sec">
-  <div class="s-lbl">Long Form</div>
-  <h2 class="s-ttl rv">Podcast <span class="ol">Portfolio</span></h2>
-  <div class="pod-inner rv">
+  <div class="pod-sec-label">Long Form</div>
+  <h2 class="pod-sec-ttl">Podcast <span>Portfolio</span></h2>
+
+  <div class="pod-card">
     <div class="pod-video">
       <iframe
         src="https://www.youtube.com/embed/NkSVmV8br_Y?rel=0&modestbranding=1"
@@ -120,53 +288,37 @@
       </iframe>
     </div>
     <div class="pod-info">
-      <div class="pod-label">Podcast Edit</div>
+      <div class="pod-badge">Podcast Edit</div>
       <div class="pod-title">Full Podcast Production and Distribution</div>
       <div class="pod-desc">End-to-end podcast editing, colour grade, captions and multi-platform distribution. This episode was clipped into 30 short form videos and distributed across Instagram, YouTube Shorts and TikTok.</div>
       <div class="pod-stats">
-        <div>
-          <div class="pod-stat-n">30+</div>
-          <div class="pod-stat-l">Clips Made</div>
-        </div>
-        <div>
-          <div class="pod-stat-n">3</div>
-          <div class="pod-stat-l">Platforms</div>
-        </div>
-        <div>
-          <div class="pod-stat-n">48h</div>
-          <div class="pod-stat-l">Turnaround</div>
-        </div>
+        <div><div class="ps-n">30+</div><div class="ps-l">Clips Made</div></div>
+        <div><div class="ps-n">3</div><div class="ps-l">Platforms</div></div>
+        <div><div class="ps-n">48h</div><div class="ps-l">Turnaround</div></div>
       </div>
-      <a href="https://calendly.com/inflow_media/1on1" class="btn-p" style="margin-top:8px;display:inline-block">Start Your Podcast System</a>
+      <a href="https://calendly.com/inflow_media/1on1" class="btn-p" style="margin-top:8px">Start Your Podcast System</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="ft">
-    <div>
-      <div class="f-log">INFLOW<span>.</span></div>
-      <p class="f-tag">Content distribution for coaches and founders who are done being invisible online.</p>
+<!-- BOTTOM CTA -->
+<section class="work-cta">
+  <h2 class="work-cta-ttl">Want Results Like These?</h2>
+  <p class="work-cta-sub">One strategy call. We audit your brand and build your content roadmap live on the call.</p>
+  <a href="https://calendly.com/inflow_media/1on1" class="btn-p">Book a Free Strategy Call</a>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:60px 64px 40px;border-top:1px solid rgba(255,255,255,.07)">
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:#fff">INFLOW<span style="color:#ff6b2b">.</span></div>
+    <div style="display:flex;gap:32px">
+      <a href="/services" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-family:'Syne',sans-serif">Services</a>
+      <a href="/work" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-family:'Syne',sans-serif">Work</a>
+      <a href="/results" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-family:'Syne',sans-serif">Results</a>
+      <a href="https://instagram.com/bedanta.exp" target="_blank" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-family:'Syne',sans-serif">Instagram</a>
     </div>
-    <div class="f-col"><h4>Services</h4><ul>
-      <li><a href="/podcast">Podcast Distribution</a></li>
-      <li><a href="/founders">Founder Content System</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Company</h4><ul>
-      <li><a href="/work">Portfolio</a></li>
-      <li><a href="/results">Results</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Connect</h4><ul>
-      <!-- ✏️ EDIT: Your real social links -->
-      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
-      <li><a href="#" target="_blank">X / Twitter</a></li>
-      <li><a href="#" target="_blank">YouTube</a></li>
-    </ul></div>
-  </div>
-  <div class="fb">
-    <span class="fc">© 2026 Inflow Media. All rights reserved.</span>
-    <span class="fc">@bedanta.exp</span>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.2)">© 2026 Inflow Media</div>
   </div>
 </footer>
 
