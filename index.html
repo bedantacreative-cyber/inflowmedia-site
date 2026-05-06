@@ -75,41 +75,41 @@
 .res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
 .svc-sec{padding:140px 52px}
 
-/* REEL CAROUSEL */
-.reel-sec{padding:80px 64px;background:var(--sur);overflow:hidden}
-.reel-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
-.reel-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:1.05;color:var(--wht);margin-bottom:10px}
-.reel-acc{color:var(--acc)}
-.reel-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:400px;line-height:1.7}
-.reel-nav{display:flex;gap:10px;flex-shrink:0;align-items:center}
-.reel-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,color .2s,background .2s;flex-shrink:0}
-.reel-btn:hover{border-color:var(--acc);color:var(--acc);background:rgba(255,107,43,.08)}
-.reel-track-outer{overflow:hidden;margin:0 -64px;padding:0 64px 8px;cursor:grab}
-.reel-track-outer:active{cursor:grabbing}
-.reel-track{display:flex;gap:14px;will-change:transform;user-select:none}
-.reel-card{flex:0 0 200px;border-radius:14px;overflow:hidden;background:var(--mut);aspect-ratio:9/16;position:relative;pointer-events:none}
-.reel-card.loaded{pointer-events:all}
-.reel-card iframe{width:100%;height:100%;border:none;display:block;border-radius:14px}
-.reel-cta-row{margin-top:40px;display:flex;justify-content:center}
+/* ── SHORT FORM MARQUEE ── */
+.sf-sec{padding:80px 0;background:var(--sur);overflow:hidden}
+.sf-header{padding:0 64px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
+.sf-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:1.05;color:var(--wht);margin-bottom:10px}
+.sf-acc{color:var(--acc)}
+.sf-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:400px;line-height:1.7}
+.sf-cta{padding:0 64px;margin-top:44px;display:flex;justify-content:center}
 
-/* PODCAST SECTION */
+.marquee-wrap{overflow:hidden;width:100%}
+.marquee-track{display:flex;gap:14px;width:max-content;animation:marqueeScroll 28s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes marqueeScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.sf-card{flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative;flex-shrink:0}
+.sf-card iframe{width:100%;height:100%;border:none;display:block}
+
+/* ── PODCAST SECTION ── */
 .pod-sec{padding:80px 64px;background:var(--bg)}
-.pod-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;margin-top:48px}
+.pod-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:center;margin-top:48px}
 .pod-video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--mut)}
 .pod-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.pod-info{display:flex;flex-direction:column;gap:20px}
+.pod-info{display:flex;flex-direction:column;gap:18px}
 .pod-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase}
-.pod-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,52px);line-height:1.05;color:var(--wht)}
+.pod-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);line-height:1.05;color:var(--wht)}
 .pod-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.8}
-.pod-stats{display:flex;gap:28px;padding-top:20px;border-top:1px solid var(--bdr)}
-.pod-stat-n{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--acc);line-height:1}
+.pod-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--bdr)}
+.pod-stat-n{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--acc);line-height:1}
 .pod-stat-l{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
 @media(max-width:900px){
-  .reel-sec{padding:56px 24px}
-  .reel-track-outer{margin:0 -24px;padding:0 24px 8px}
-  .reel-card{flex:0 0 150px}
-  .reel-header{flex-direction:column;align-items:flex-start;gap:16px}
+  .sf-header{padding:0 24px}
+  .sf-cta{padding:0 24px}
+  .sf-card{flex:0 0 150px}
   .pod-sec{padding:56px 24px}
   .pod-inner{grid-template-columns:1fr}
 }
@@ -246,42 +246,43 @@
 </div>
 
 
-<!-- SHORT FORM CAROUSEL -->
-<section class="reel-sec">
-  <div class="reel-header">
+<!-- ══ SHORT FORM SHOWCASE ══ -->
+<section class="sf-sec">
+  <div class="sf-header">
     <div>
       <div class="s-lbl">Our Work</div>
-      <h2 class="reel-ttl">Curated <span class="reel-acc">Short Form</span> Content</h2>
-      <p class="reel-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
-    </div>
-    <div class="reel-nav">
-      <button class="reel-btn" id="reelPrev" aria-label="Previous">
-        <svg width="16" height="16" viewBox="0 0 18 18"><polyline points="11,3 5,9 11,15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="reel-btn" id="reelNext" aria-label="Next">
-        <svg width="16" height="16" viewBox="0 0 18 18"><polyline points="7,3 13,9 7,15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
+      <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
+      <p class="sf-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
     </div>
   </div>
 
-  <div class="reel-track-outer" id="reelOuter">
-    <div class="reel-track" id="reelTrack">
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
-      <div class="reel-card loaded"><iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false" allow="autoplay;fullscreen" allowfullscreen></iframe></div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- original set -->
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <!-- exact duplicate set for seamless loop — do not remove -->
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
+      <div class="sf-card"><iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=false" allow="fullscreen" allowfullscreen></iframe></div>
     </div>
   </div>
 
-  <div class="reel-cta-row">
+  <div class="sf-cta">
     <a href="https://calendly.com/inflow_media/1on1" class="btn-p">Book a Strategy Call</a>
   </div>
 </section>
 
-<!-- PODCAST PORTFOLIO -->
+<!-- ══ PODCAST PORTFOLIO ══ -->
 <section class="pod-sec">
   <div class="s-lbl">Long Form</div>
   <h2 class="s-ttl rv">Podcast <span class="ol">Portfolio</span></h2>
@@ -295,10 +296,8 @@
     </div>
     <div class="pod-info">
       <div class="pod-label">Podcast Edit</div>
-      <!-- ✏️ EDIT: Your podcast title -->
       <div class="pod-title">Full Podcast Production and Distribution</div>
-      <!-- ✏️ EDIT: One line about this project -->
-      <div class="pod-desc">End-to-end podcast editing, colour grade, captions, and multi-platform distribution. This episode was clipped into 30 short form videos and distributed across Instagram, YouTube Shorts, and TikTok.</div>
+      <div class="pod-desc">End-to-end podcast editing, colour grade, captions and multi-platform distribution. This episode was clipped into 30 short form videos and distributed across Instagram, YouTube Shorts and TikTok.</div>
       <div class="pod-stats">
         <div>
           <div class="pod-stat-n">30+</div>
@@ -613,118 +612,6 @@
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
 })();
 
-/* REEL CAROUSEL — auto scroll + drag + loop */
-(function(){
-  const outer = document.getElementById('reelOuter');
-  const track = document.getElementById('reelTrack');
-  const btnPrev = document.getElementById('reelPrev');
-  const btnNext = document.getElementById('reelNext');
-  if(!track || !outer) return;
-
-  /* duplicate cards for infinite loop */
-  const origCards = Array.from(track.children);
-  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
-  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
-
-  const GAP = 14;
-  const getCardW = () => track.querySelector('.reel-card').offsetWidth + GAP;
-  const origLen = origCards.length;
-
-  let currentX = 0;
-  let targetX = 0;
-  let rafId = null;
-  let autoId = null;
-  let isDragging = false;
-  let dragStartX = 0;
-  let dragStartTarget = 0;
-
-  function setX(x, instant){
-    currentX = instant ? x : currentX;
-    targetX = x;
-    track.style.transition = instant ? 'none' : '';
-    track.style.transform = 'translateX(' + (-x) + 'px)';
-  }
-
-  function clampLoop(){
-    const total = getCardW() * origLen;
-    if(targetX >= total * 2) { targetX -= total; currentX -= total; setX(targetX, true); }
-    if(targetX < 0)           { targetX += total; currentX += total; setX(targetX, true); }
-  }
-
-  /* auto advance */
-  function startAuto(){
-    stopAuto();
-    autoId = setInterval(()=>{
-      targetX += getCardW();
-      clampLoop();
-      track.style.transition = 'transform 0.6s cubic-bezier(.25,.46,.45,.94)';
-      track.style.transform = 'translateX(' + (-targetX) + 'px)';
-    }, 2600);
-  }
-  function stopAuto(){ clearInterval(autoId); }
-
-  /* arrow buttons */
-  btnNext.addEventListener('click',()=>{
-    stopAuto();
-    targetX += getCardW();
-    clampLoop();
-    track.style.transition = 'transform 0.5s cubic-bezier(.25,.46,.45,.94)';
-    track.style.transform = 'translateX(' + (-targetX) + 'px)';
-    startAuto();
-  });
-  btnPrev.addEventListener('click',()=>{
-    stopAuto();
-    targetX -= getCardW();
-    clampLoop();
-    track.style.transition = 'transform 0.5s cubic-bezier(.25,.46,.45,.94)';
-    track.style.transform = 'translateX(' + (-targetX) + 'px)';
-    startAuto();
-  });
-
-  /* drag to scroll */
-  outer.addEventListener('mousedown', e=>{
-    isDragging = true;
-    dragStartX = e.clientX;
-    dragStartTarget = targetX;
-    stopAuto();
-    track.style.transition = 'none';
-  });
-  window.addEventListener('mousemove', e=>{
-    if(!isDragging) return;
-    const dx = dragStartX - e.clientX;
-    targetX = dragStartTarget + dx;
-    track.style.transform = 'translateX(' + (-targetX) + 'px)';
-  });
-  window.addEventListener('mouseup', ()=>{
-    if(!isDragging) return;
-    isDragging = false;
-    clampLoop();
-    startAuto();
-  });
-
-  /* touch drag */
-  outer.addEventListener('touchstart', e=>{
-    dragStartX = e.touches[0].clientX;
-    dragStartTarget = targetX;
-    stopAuto();
-    track.style.transition = 'none';
-  },{passive:true});
-  outer.addEventListener('touchmove', e=>{
-    const dx = dragStartX - e.touches[0].clientX;
-    targetX = dragStartTarget + dx;
-    track.style.transform = 'translateX(' + (-targetX) + 'px)';
-  },{passive:true});
-  outer.addEventListener('touchend', ()=>{
-    clampLoop();
-    startAuto();
-  });
-
-  /* pause on hover */
-  outer.addEventListener('mouseenter', stopAuto);
-  outer.addEventListener('mouseleave', startAuto);
-
-  startAuto();
-})();
 </script>
 <script src="shared.js"></script>
 </body>
