@@ -89,8 +89,6 @@
 .reel-card{flex:0 0 220px;position:relative}
 .reel-card-inner{border-radius:14px;overflow:hidden;position:relative;background:var(--mut);transition:transform .3s,box-shadow .3s}
 .reel-card-inner:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.55)}
-.reel-card-label{position:absolute;bottom:0;left:0;right:0;padding:32px 12px 12px;background:linear-gradient(to top,rgba(5,5,7,.95),transparent);border-radius:0 0 14px 14px}
-.reel-tag{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);padding:3px 9px;border-radius:20px}
 .reel-cta-row{margin-top:48px;display:flex;justify-content:center}
 @media(max-width:900px){
   .reel-sec{padding:64px 24px}
@@ -260,9 +258,6 @@
               <iframe src="https://fast.wistia.net/embed/iframe/dcs6kys5m3?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 1" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
           </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
-          </div>
         </div>
       </div>
 
@@ -273,9 +268,6 @@
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
               <iframe src="https://fast.wistia.net/embed/iframe/c8gfvtqz2t?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 2" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
-          </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
           </div>
         </div>
       </div>
@@ -288,9 +280,6 @@
               <iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 3" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
           </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
-          </div>
         </div>
       </div>
 
@@ -301,9 +290,6 @@
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
               <iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 4" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
-          </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
           </div>
         </div>
       </div>
@@ -316,9 +302,6 @@
               <iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 5" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
           </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
-          </div>
         </div>
       </div>
 
@@ -330,9 +313,6 @@
               <iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 6" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
           </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
-          </div>
         </div>
       </div>
 
@@ -343,9 +323,6 @@
             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
               <iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=true&playButton=true&muted=false" title="Inflow Media Reel 7" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe>
             </div>
-          </div>
-          <div class="reel-card-label">
-            <span class="reel-tag">✏️ Your Label</span>
           </div>
         </div>
       </div>
@@ -660,35 +637,63 @@
   const prev = document.getElementById('reelPrev');
   const next = document.getElementById('reelNext');
   if(!track) return;
+
+  /* Clone all cards and append for seamless loop */
+  const cards = Array.from(track.querySelectorAll('.reel-card'));
+  cards.forEach(c => track.appendChild(c.cloneNode(true)));
+
   const cardW = () => track.querySelector('.reel-card').offsetWidth + 16;
+  const totalCards = track.querySelectorAll('.reel-card').length;
+  const originalCount = totalCards / 2;
   let pos = 0;
   let autoTimer;
-  const total = track.querySelectorAll('.reel-card').length;
-  const visible = () => Math.floor(track.parentElement.offsetWidth / cardW());
-  const maxPos = () => Math.max(0, total - visible());
+  let isTransitioning = false;
 
-  function goTo(n){
-    pos = Math.max(0, Math.min(n, maxPos()));
+  function goTo(n, animate){
+    if(isTransitioning) return;
+    pos = n;
+    track.style.transition = animate === false
+      ? 'none'
+      : 'transform .5s cubic-bezier(.25,.46,.45,.94)';
     track.style.transform = 'translateX(-' + (pos * cardW()) + 'px)';
   }
 
+  /* seamless loop — when we reach cloned section, jump back silently */
+  track.addEventListener('transitionend', ()=>{
+    isTransitioning = false;
+    if(pos >= originalCount){
+      goTo(pos - originalCount, false);
+    }
+    if(pos < 0){
+      goTo(pos + originalCount, false);
+    }
+  });
+
   function startAuto(){
+    clearInterval(autoTimer);
     autoTimer = setInterval(()=>{
-      pos >= maxPos() ? goTo(0) : goTo(pos + 1);
-    }, 2800);
+      isTransitioning = true;
+      goTo(pos + 1, true);
+    }, 2600);
   }
 
   function stopAuto(){ clearInterval(autoTimer); }
 
-  next.addEventListener('click',()=>{ stopAuto(); goTo(pos+1); startAuto(); });
-  prev.addEventListener('click',()=>{ stopAuto(); goTo(pos-1); startAuto(); });
+  next.addEventListener('click',()=>{
+    stopAuto();
+    isTransitioning = true;
+    goTo(pos + 1, true);
+    startAuto();
+  });
+  prev.addEventListener('click',()=>{
+    stopAuto();
+    isTransitioning = true;
+    goTo(pos - 1, true);
+    startAuto();
+  });
 
-  /* pause auto scroll when user hovers over track */
   track.addEventListener('mouseenter', stopAuto);
   track.addEventListener('mouseleave', startAuto);
-
-  /* pause auto scroll when any iframe is focused/clicked */
-  document.addEventListener('blur', stopAuto, true);
 
   startAuto();
 })();
