@@ -6,7 +6,7 @@
 <link rel="apple-touch-icon" href="/favicon.png">
 <meta name="theme-color" content="#ff6b2b">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inflow Media — Content Machines for Founders</title>
+<title>Inflow Media House — Content Systems for Coaches and Founders</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -27,7 +27,7 @@
 
 .h-con{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;}
 .h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s;}
-.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6.5vw,88px);line-height:1.0;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:.01em;}
+.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.8vw,68px);line-height:1.0;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:.01em;}
 .h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
 .h-ttl .hi{color:var(--acc)}
 .h-sub{max-width:440px;margin-top:24px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
@@ -35,17 +35,25 @@
 
 .h-right{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;opacity:0;animation:fup .9s forwards .6s;}
 
-.h-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(10px);padding:28px 32px;display:flex;align-items:center;gap:20px;transition:border-color .25s,background .25s;}
-.h-stat:hover{background:rgba(255,107,43,.07);border-color:rgba(255,107,43,.3);}
-.h-stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;}
+.h-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(10px);padding:28px 32px;display:flex;align-items:center;gap:20px;transition:border-color .25s,background .25s;}
+.h-stat:hover{background:rgba(255,107,43,.07);border-color:rgba(255,107,43,.3);box-shadow:inset 3px 0 0 rgba(255,107,43,.6);}
+.h-stat-num{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;letter-spacing:-.02em;}
 .h-stat-lbl{font-size:15px;font-weight:700;color:var(--wht);line-height:1.3;}
 .h-stat-sub{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-top:4px;}
 
 .h-trusted{margin-top:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);}
 .h-trusted-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
 .h-trusted-names{display:flex;flex-wrap:wrap;gap:8px;}
-.h-name-pill{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.1);padding:5px 12px;letter-spacing:.06em;}
+.h-name-pill{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:5px 12px;letter-spacing:.06em;transition:border-color .2s,background .2s;}
+.h-name-pill:hover{border-color:rgba(255,107,43,.4);background:rgba(255,107,43,.06);}
 
+.hero::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,107,43,.4),transparent);
+  z-index:3;
+}
 .scr{position:absolute;bottom:32px;left:64px;z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
 .scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(255,107,43,.45);text-transform:uppercase}
 .scr-ln{width:40px;height:1px;background:linear-gradient(to right,var(--acc),transparent)}
@@ -124,7 +132,7 @@
      NAV — Edit links here if you add pages
      ============================================================ -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <a href="index.html" class="n-logo">INFLOW MEDIA HOUSE<span style="color:#ff6b2b">.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>
@@ -562,7 +570,7 @@
 <footer>
   <div class="ft">
     <div>
-      <div class="f-log">INFLOW<span>.</span></div>
+      <div class="f-log">INFLOW MEDIA HOUSE<span style="color:#ff6b2b">.</span></div>
       <p class="f-tag">Done-for-you content systems and distribution for coaches, founders, and growing brands.</p>
     </div>
     <div class="f-col"><h4>Services</h4><ul>
@@ -601,8 +609,8 @@
     tick(){const dx=mo.x-this.x,dy=mo.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){this.vx-=dx/d*.07;this.vy-=dy/d*.07}this.vx*=.98;this.vy*=.98;this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}
     draw(){cx.globalAlpha=this.a;cx.fillStyle=this.c;cx.beginPath();cx.arc(this.x,this.y,this.sz,0,Math.PI*2);cx.fill()}
   }
-  for(let i=0;i<160;i++)pts.push(new P());
-  function grid(){cx.globalAlpha=.018;cx.strokeStyle='#ff6b2b';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
+  for(let i=0;i<80;i++)pts.push(new P());
+  function grid(){cx.globalAlpha=.008;cx.strokeStyle='#ff6b2b';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
   function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#ff6b2b';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
   function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(255,107,43,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
