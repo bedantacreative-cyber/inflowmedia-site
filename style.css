@@ -149,3 +149,17 @@ footer{padding:80px 52px 44px;border-top:1px solid var(--bdr)}
 ::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--acc);border-radius:2px}
+
+/* ---- SCARCITY / SPOTS PILL ---- */
+.cta-spots{display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.7);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,107,43,.3);padding:8px 18px;margin-bottom:24px;background:rgba(255,107,43,.06)}
+.spot-pulse{width:7px;height:7px;border-radius:50%;background:#ff6b2b;flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,107,43,.5)}50%{box-shadow:0 0 0 6px rgba(255,107,43,0)}}
+
+/* ---- RESULTS BG WATERMARK ---- */
+.res-sec-bg-word{position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1;z-index:0}
+
+/* ---- PROCESS SECTION RESPONSIVE ---- */
+@media(max-width:900px){
+  .pr{grid-template-columns:48px 1fr;gap:20px}
+  .pr-n{font-size:48px}
+}
