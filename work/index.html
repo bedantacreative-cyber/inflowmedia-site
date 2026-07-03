@@ -164,6 +164,15 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
   footer{padding:32px 24px}
   .f-links{display:none}
 }
+.saas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
+.saas-card{position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);cursor:none;transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s}
+.saas-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 28px 60px rgba(0,0,0,.65);border-color:rgba(255,107,43,.25)}
+.saas-card iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+.saas-label{position:absolute;bottom:0;left:0;right:0;padding:32px 14px 12px;background:linear-gradient(to top,rgba(12,12,14,.96) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
+.saas-card:hover .saas-label{opacity:1;transform:translateY(0)}
+.saas-tag{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.18);padding:3px 10px;border-radius:20px}
+@media(max-width:960px){.saas-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.saas-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -190,10 +199,17 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 
 <!-- SHORT FORM VIDEOS -->
 <section class="sec-wrap">
-  <div class="sec-label">Short Form</div>
-  <h2 class="sec-ttl">Curated <span class="ol">Short Form</span> Content</h2>
+  <div class="sec-label">Curated Short Form Content</div>
+  <h2 class="sec-ttl">Content That <span class="ol">Converts</span></h2>
 
   <div class="sf-grid">
+
+    <div class="sf-card rv">
+      <div class="wistia-wrap">
+        <iframe src="https://fast.wistia.net/embed/iframe/shkf73hlu3?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-label"><span class="sf-tag">Content That Converts</span></div>
+    </div>
 
     <!-- VIDEO 1 — k663omfq1u (the new one) -->
     <div class="sf-card rv">
@@ -259,6 +275,34 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
       <div class="sf-label"><span class="sf-tag">Reel Production</span></div>
     </div>
 
+  </div>
+</section>
+
+<section class="sec-wrap dark">
+  <div class="sec-label">SaaS and Motion Graphics</div>
+  <h2 class="sec-ttl">Videos That <span class="ol">Sell Products</span></h2>
+  <p style="font-size:15px;color:rgba(255,255,255,.5);max-width:520px;line-height:1.75;margin-top:-24px;margin-bottom:0">Explainer videos, product demos, and motion graphics built for SaaS founders and growing brands.</p>
+  <div class="saas-grid">
+    <div class="saas-card rv">
+      <iframe src="https://fast.wistia.net/embed/iframe/737zf4a5ue?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen></iframe>
+      <div class="saas-label"><span class="saas-tag">SaaS Video</span></div>
+    </div>
+    <div class="saas-card rv" style="transition-delay:.08s">
+      <iframe src="https://fast.wistia.net/embed/iframe/16o66aqxfu?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen></iframe>
+      <div class="saas-label"><span class="saas-tag">Product Demo</span></div>
+    </div>
+    <div class="saas-card rv" style="transition-delay:.16s">
+      <iframe src="https://fast.wistia.net/embed/iframe/crcr81oeg6?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen></iframe>
+      <div class="saas-label"><span class="saas-tag">Motion Graphics</span></div>
+    </div>
+    <div class="saas-card rv" style="transition-delay:.24s">
+      <iframe src="https://fast.wistia.net/embed/iframe/x8kxs06p0s?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen></iframe>
+      <div class="saas-label"><span class="saas-tag">SaaS Explainer</span></div>
+    </div>
+    <div class="saas-card rv" style="transition-delay:.32s">
+      <iframe src="https://fast.wistia.net/embed/iframe/d58oohs551?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen></iframe>
+      <div class="saas-label"><span class="saas-tag">Product Video</span></div>
+    </div>
   </div>
 </section>
 
@@ -447,7 +491,7 @@ const cur=document.getElementById('cur'),curR=document.getElementById('curR');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
 (function t(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.sf-card').forEach(el=>{
+document.querySelectorAll('a,button,.sf-card,.saas-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px';curR.style.borderColor='rgba(255,107,43,.7)'});
   el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px';curR.style.borderColor='rgba(255,107,43,.45)'});
 });
