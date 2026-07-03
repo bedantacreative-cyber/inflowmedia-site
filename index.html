@@ -121,6 +121,92 @@
   .pod-sec{padding:56px 24px}
   .pod-inner{grid-template-columns:1fr}
 }
+
+/* ── LOGO / TRUST WALL ── */
+.logo-sec{padding:56px 64px;background:var(--bg);border-bottom:1px solid var(--bdr)}
+.logo-lbl{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-bottom:32px}
+.logo-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.logo-pill{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:rgba(255,255,255,.4);border:1px solid var(--bdr);padding:13px 26px;transition:color .25s,border-color .25s}
+.logo-pill:hover{color:var(--wht);border-color:rgba(255,107,43,.35)}
+
+/* ── PROBLEMS WE SOLVE ── */
+.prob-sec{padding:140px 52px;background:var(--sur)}
+.prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mut);margin-top:64px}
+.prob-card{background:var(--bg);padding:44px 44px;display:flex;gap:24px;align-items:flex-start}
+.prob-x{font-family:'Bebas Neue',sans-serif;font-size:34px;color:rgba(255,107,43,.35);flex-shrink:0;line-height:1}
+.prob-ttl{font-size:17px;font-weight:800;margin-bottom:10px}
+.prob-d{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.5)}
+
+/* ── CONTENT DEPARTMENT ── */
+.dept-sec{padding:140px 52px}
+.dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--mut);margin-top:64px}
+.dept-card{background:var(--bg);padding:36px 18px;text-align:center;transition:background .3s}
+.dept-card:hover{background:#0f0f11}
+.dept-ic{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--acc);margin-bottom:14px}
+.dept-role{font-size:12px;font-weight:700;letter-spacing:.01em;line-height:1.4}
+
+/* ── REPURPOSING WHEEL ── */
+.wheel-sec{padding:160px 52px;background:var(--sur);overflow:hidden}
+.wheel-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:24px}
+.wheel-stage{position:relative;width:100%;aspect-ratio:1;max-width:460px;margin:0 auto}
+.wheel-ring{position:absolute;inset:0;border:1px dashed rgba(255,107,43,.28);border-radius:50%;animation:spin 34s linear infinite}
+.wheel-ring2{position:absolute;inset:13%;border:1px solid rgba(255,255,255,.07);border-radius:50%;animation:spinRev2 50s linear infinite}
+.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 70px rgba(255,107,43,.45);z-index:3}
+.wheel-hub b{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;line-height:1.1}
+.wheel-hub span{font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.85);letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
+.wheel-node{position:absolute;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:var(--bg);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--wht);text-align:center;padding:6px;z-index:2;transition:border-color .25s,color .25s}
+.wheel-node:hover{border-color:rgba(255,107,43,.5);color:var(--acc)}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spinRev2{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
+.wheel-info{display:flex;flex-direction:column;gap:20px}
+
+/* ── SPOTLIGHT ── */
+.spot-sec{padding:120px 52px;background:linear-gradient(135deg,rgba(255,107,43,.08),rgba(12,12,14,1) 60%);border-top:1px solid rgba(255,107,43,.15);border-bottom:1px solid rgba(255,107,43,.15);position:relative}
+.spot-inner{max-width:760px}
+.spot-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,107,43,.3);padding:6px 16px;margin-bottom:24px}
+.spot-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,68px);line-height:1.05;margin-bottom:20px;color:#fff}
+.spot-d{font-size:15px;line-height:1.85;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:600px}
+
+/* ── TIER CARDS ── */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
+.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative}
+.tier-card.feat{background:#0f0f11}
+.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#fff;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px}
+.tier-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+.tier-ttl{font-family:'Bebas Neue',sans-serif;font-size:34px;color:#fff;margin-bottom:12px}
+.tier-for{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:28px}
+.tier-feats{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
+.tier-feats li{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start}
+.tier-feats li::before{content:'—';color:var(--acc);flex-shrink:0}
+
+/* ── THE GOAL ── */
+.goal-sec{padding:160px 52px;text-align:center;background:var(--sur)}
+.goal-txt{max-width:900px;margin:0 auto;font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.2vw,54px);line-height:1.25;color:rgba(255,255,255,.92)}
+.goal-txt .hi{color:var(--acc)}
+.goal-txt .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+
+/* ── FAQ ── */
+.faq-sec{padding:140px 52px;max-width:900px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--bdr);padding:28px 0}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17px;font-weight:800;color:#fff}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--acc);transition:transform .3s;flex-shrink:0}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-a{font-size:14px;line-height:1.85;color:rgba(255,255,255,.55);margin-top:16px;max-width:700px}
+
+@media(max-width:900px){
+  .prob-grid{grid-template-columns:1fr}
+  .dept-grid{grid-template-columns:repeat(2,1fr)}
+  .wheel-wrap{grid-template-columns:1fr}
+  .wheel-stage{max-width:340px}
+  .wheel-node{width:64px;height:64px;font-size:8.5px}
+  .wheel-hub{width:92px;height:92px}
+  .tier-grid{grid-template-columns:1fr}
+  .logo-sec{padding:44px 24px}
+  .prob-sec,.dept-sec,.wheel-sec,.goal-sec{padding:90px 24px}
+  .faq-sec{padding:90px 24px}
+  .spot-sec{padding:80px 24px}
+}
 </style>
 </head>
 <body>
@@ -232,6 +318,22 @@
 </div>
 
 <!-- ============================================================
+     TRUST WALL — real clients + niches we serve
+     ✏️ EDIT: Swap in more client handles as your roster grows
+     ============================================================ -->
+<section class="logo-sec">
+  <div class="logo-lbl">Trusted By Coaches, Founders &amp; Creators</div>
+  <div class="logo-strip">
+    <span class="logo-pill">@build4life_coaching</span>
+    <span class="logo-pill">Ben Clark — UK</span>
+    <span class="logo-pill">Joey Fitness</span>
+    <span class="logo-pill">SaaS Founders</span>
+    <span class="logo-pill">Online Coaches</span>
+    <span class="logo-pill">VC Funds</span>
+  </div>
+</section>
+
+<!-- ============================================================
      STATS BAR
      ✏️ EDIT: Change data-t="NUMBER" and the label below it
      ============================================================ -->
@@ -253,6 +355,45 @@
   </div>
 </div>
 
+
+<!-- ============================================================
+     PROBLEMS WE SOLVE
+     ============================================================ -->
+<section class="prob-sec">
+  <div class="s-lbl">Problems We Solve</div>
+  <h2 class="s-ttl rv">You Have The Expertise. <span class="ol">Not The Output.</span></h2>
+
+  <div class="prob-grid">
+    <div class="prob-card rv">
+      <div class="prob-x">01</div>
+      <div>
+        <div class="prob-ttl">You know content matters — you just don't have time to make it</div>
+        <div class="prob-d">Between clients, sales calls, and running the business, sitting down to script and shoot never wins the priority fight. Months go by. The feed goes quiet.</div>
+      </div>
+    </div>
+    <div class="prob-card rv" style="transition-delay:.1s">
+      <div class="prob-x">02</div>
+      <div>
+        <div class="prob-ttl">You're posting inconsistently and watching growth stall</div>
+        <div class="prob-d">Three reels one week, nothing for a month. The algorithm punishes inconsistency — and so does your pipeline of inbound leads.</div>
+      </div>
+    </div>
+    <div class="prob-card rv" style="transition-delay:.2s">
+      <div class="prob-x">03</div>
+      <div>
+        <div class="prob-ttl">You're paying an editor but still writing every script yourself</div>
+        <div class="prob-d">Editing was never the bottleneck. Strategy, hooks, and structure were. A half-outsourced workflow still leaves the hardest part on your plate.</div>
+      </div>
+    </div>
+    <div class="prob-card rv" style="transition-delay:.3s">
+      <div class="prob-x">04</div>
+      <div>
+        <div class="prob-ttl">Great expertise, invisible online presence</div>
+        <div class="prob-d">You could out-teach anyone in your niche in a room. Online, a competitor with half your knowledge and a content system is winning your future clients.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      PROCESS SECTION
@@ -298,12 +439,44 @@
   </div>
 </section>
 
+<!-- ============================================================
+     CONTENT PRODUCTION, SYSTEMATIZED
+     ============================================================ -->
+<section class="dept-sec">
+  <div class="s-lbl">How We're Built</div>
+  <h2 class="s-ttl rv" style="margin-bottom:24px">Content Production, <span class="ol">Systematized.</span></h2>
+  <p class="rv" style="max-width:560px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.55)">Not a single freelancer juggling your account between other clients. A dedicated content department — strategy, scripting, editing, and distribution — running on repeat every single month.</p>
+
+  <div class="dept-grid">
+    <div class="dept-card rv">
+      <div class="dept-ic">01</div>
+      <div class="dept-role">Content Strategist</div>
+    </div>
+    <div class="dept-card rv" style="transition-delay:.08s">
+      <div class="dept-ic">02</div>
+      <div class="dept-role">Scriptwriter</div>
+    </div>
+    <div class="dept-card rv" style="transition-delay:.16s">
+      <div class="dept-ic">03</div>
+      <div class="dept-role">Video Editor</div>
+    </div>
+    <div class="dept-card rv" style="transition-delay:.24s">
+      <div class="dept-ic">04</div>
+      <div class="dept-role">Thumbnail &amp; Caption Design</div>
+    </div>
+    <div class="dept-card rv" style="transition-delay:.32s">
+      <div class="dept-ic">05</div>
+      <div class="dept-role">Distribution Manager</div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ SHORT FORM SHOWCASE ══ -->
 <section class="sf-sec">
   <div class="sf-header">
     <div>
       <div class="s-lbl">Our Work</div>
-      <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
+      <h2 class="sf-ttl">Your Footage Into <span class="sf-acc">World-Class Edits</span> That Go Viral</h2>
       <p class="sf-sub">Done-for-you short form videos built for coaches and founders. Scripts, edits, captions — everything handled.</p>
     </div>
   </div>
@@ -334,6 +507,60 @@
   </div>
 </section>
 
+<!-- ============================================================
+     HIGH-LEVEL REPURPOSING — one recording, every platform
+     ============================================================ -->
+<section class="wheel-sec">
+  <div class="s-lbl">The Content Flywheel</div>
+  <h2 class="s-ttl rv" style="margin-bottom:24px">High-Level <span class="ol">Repurposing.</span></h2>
+
+  <div class="wheel-wrap">
+    <div class="wheel-stage rv">
+      <div class="wheel-ring"></div>
+      <div class="wheel-ring2"></div>
+      <div class="wheel-hub"><b>1</b><span>Recording</span></div>
+      <div class="wheel-node" style="top:8%;left:50%">Instagram Reels</div>
+      <div class="wheel-node" style="top:27.2%;left:88%">TikTok</div>
+      <div class="wheel-node" style="top:72.8%;left:88%">YouTube Shorts</div>
+      <div class="wheel-node" style="top:92%;left:50%">LinkedIn</div>
+      <div class="wheel-node" style="top:72.8%;left:12%">X / Twitter</div>
+      <div class="wheel-node" style="top:27.2%;left:12%">YouTube Long-Form</div>
+    </div>
+    <div class="wheel-info rv" style="transition-delay:.15s">
+      <p style="font-size:15px;line-height:1.85;color:rgba(255,255,255,.6);max-width:440px">One recording session becomes weeks of content. We cut every session into the format each platform actually rewards — vertical, horizontal, captioned, native — so your one hour on camera compounds into consistent presence everywhere your audience scrolls.</p>
+      <a href="/work" class="btn-g" style="width:fit-content">See Repurposed Content</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LONG FORM PRODUCTION
+     ============================================================ -->
+<section class="pod-sec">
+  <div class="s-lbl">Long-Form Production</div>
+  <h2 class="s-ttl rv" style="margin-bottom:8px">Long Form That <span class="ol">Sets The Standard.</span></h2>
+  <div class="pod-inner">
+    <div class="pod-video rv">
+      <iframe src="https://www.youtube.com/embed/NkSVmV8br_Y?rel=0&modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="pod-info rv" style="transition-delay:.15s">
+      <div class="pod-label">Podcasts &amp; Long-Form</div>
+      <div class="pod-title">Full-Length Episodes, Produced End-to-End</div>
+      <div class="pod-desc">From a single recording, we deliver a fully edited long-form episode, a trailer cut for discovery, and a full month of short-form clips pulled straight from the conversation. Colour graded, captioned, and ready to publish — no scrubbing through footage on your end.</div>
+      <div class="pod-stats">
+        <div>
+          <div class="pod-stat-n">3</div>
+          <div class="pod-stat-l">Formats Per Episode</div>
+        </div>
+        <div>
+          <div class="pod-stat-n">DFY</div>
+          <div class="pod-stat-l">Full Production</div>
+        </div>
+      </div>
+      <a href="/podcast" class="btn-g" style="width:fit-content;margin-top:8px">See Podcast Production</a>
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      SERVICES — links to your 2 service pages
@@ -405,32 +632,66 @@
 
   </div>
 </section>
+
+<!-- ============================================================
+     INFLOW SPOTLIGHT — launch content micro-offer
+     ============================================================ -->
+<section class="spot-sec">
+  <div class="spot-inner">
+    <div class="spot-badge rv">Inflow Spotlight</div>
+    <h2 class="spot-ttl rv" style="transition-delay:.1s">Launch Content For The Moment You Only Get Once.</h2>
+    <p class="spot-d rv" style="transition-delay:.2s">Dropping a new offer, raising a round, or stepping into the spotlight as the face of your brand for the first time? Spotlight is a focused, one-time production sprint — a launch trailer, founder story piece, and a week of clipped distribution content — built to make your moment land everywhere at once.</p>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p rv" style="transition-delay:.3s">Talk to Us About Spotlight</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     THREE WAYS TO WORK WITH US — named service tiers
+     ✏️ EDIT: Titles, descriptions, features, and href links
+     ============================================================ -->
 <section class="svc-sec" id="services">
-  <div class="s-lbl">Services</div>
-  <div class="svc-grid">
+  <div class="s-lbl">Three Ways To Work With Us</div>
+  <h2 class="s-ttl rv" style="margin-bottom:64px">Pick The System <span class="ol">Built For You.</span></h2>
 
-    <!-- Service 1 — links to podcast page -->
-    <a href="/podcast" class="sc-card rv">
-      <div class="sc-n">01</div>
-      <h3 class="sc-ttl">For Coaches and Founders</h3> <!-- ✏️ EDIT -->
-      <p class="sc-d">Scripts, edits, captions, thumbnails, and posting. A complete content team built around your offer, attracting your ideal clients every single month.</p>
-      <div class="sc-tag">Explore Service</div>
-    </a>
+  <div class="tier-grid">
 
-    <!-- Service 2 — links to founders page -->
-    <a href="/founders" class="sc-card rv" style="transition-delay:.15s">
-      <div class="sc-n">02</div>
-      <h3 class="sc-ttl">For Podcasters and Creators</h3> <!-- ✏️ EDIT -->
-      <p class="sc-d">We clip your long-form episodes into 30 plus short-form videos per month and distribute them across every platform. One recording session becomes a full month of content.</p>
-      <div class="sc-tag">Explore Service</div>
-    </a>
+    <div class="tier-card rv">
+      <div class="tier-n">01 — The Core System</div>
+      <h3 class="tier-ttl">Content System</h3>
+      <p class="tier-for">For coaches and founders building a personal brand from scratch.</p>
+      <ul class="tier-feats">
+        <li>Strategy call &amp; content pillar build</li>
+        <li>Scripts written for you every month</li>
+        <li>Edits, captions, and thumbnails included</li>
+        <li>Monthly performance review call</li>
+      </ul>
+      <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
+    </div>
 
-    <!-- Service 3 — optional, you can remove this card if only 2 services -->
-    <div class="sc-card rv" style="transition-delay:.3s">
-      <div class="sc-n">03</div>
-      <h3 class="sc-ttl">Not Sure Which Fits?</h3> <!-- ✏️ EDIT or remove -->
-      <p class="sc-d">Book a free strategy call and we will tell you exactly which system fits your brand, your audience, and your goals. No obligation.</p>
-      <div class="sc-tag">Book a Call</div>
+    <div class="tier-card feat rv" style="transition-delay:.15s">
+      <div class="tier-tag">Most Popular</div>
+      <div class="tier-n">02 — The Podcast System</div>
+      <h3 class="tier-ttl">Podcast &amp; Creator</h3>
+      <p class="tier-for">For podcasters and creators sitting on hours of unused footage.</p>
+      <ul class="tier-feats">
+        <li>30+ short-form clips delivered monthly</li>
+        <li>Full episode edit + trailer cut</li>
+        <li>Multi-platform distribution handled</li>
+        <li>Guest pipeline production support</li>
+      </ul>
+      <a href="/podcast" class="btn-p" style="text-align:center">Explore Service</a>
+    </div>
+
+    <div class="tier-card rv" style="transition-delay:.3s">
+      <div class="tier-n">03 — Custom Build</div>
+      <h3 class="tier-ttl">Not Sure Which Fits?</h3>
+      <p class="tier-for">For brands needing a volume, format mix, or scope outside the standard systems.</p>
+      <ul class="tier-feats">
+        <li>Free strategy call, no obligation</li>
+        <li>Custom volume &amp; format scoping</li>
+        <li>We tell you exactly what fits your goals</li>
+      </ul>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-g" style="text-align:center">Book a Call</a>
     </div>
 
   </div>
@@ -573,6 +834,40 @@
   <div style="text-align:center;margin-top:52px">
     <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#ff6b2b';this.style.color='#ff6b2b'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View All Case Studies →</a>
   </div>
+</section>
+
+<!-- ============================================================
+     THE GOAL
+     ============================================================ -->
+<section class="goal-sec">
+  <div class="s-lbl" style="justify-content:center">The Goal</div>
+  <p class="goal-txt rv">We don't want to be your agency. <span class="ol">We want to be</span> the content department you <span class="hi">never have to think about.</span></p>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ✏️ EDIT: Add/edit questions and answers
+     ============================================================ -->
+<section class="faq-sec">
+  <div class="s-lbl">FAQ</div>
+  <h2 class="s-ttl rv" style="margin-bottom:24px">Questions, <span class="ol">Answered.</span></h2>
+
+  <details class="faq-item rv" open>
+    <summary>Who is this actually for?</summary>
+    <p class="faq-a">Coaches, founders, and podcasters who already have expertise and an audience worth growing, but no time or in-house team to turn that expertise into consistent content. If you're pre-offer or looking for a one-off video, this isn't the right fit.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>What's the commitment?</summary>
+    <p class="faq-a">A 3-month minimum engagement. Content systems compound — the first month builds the strategy and rhythm, and results show up as the system runs. We're not built for one-off drops.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>How fast will I see results?</summary>
+    <p class="faq-a">Most clients see their first meaningful jump in views and inbound messages within 30–60 days. Follower and lead growth compounds from there — see our <a href="/results" style="color:var(--acc)">results page</a> for real client numbers.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>Do I need to film anything myself?</summary>
+    <p class="faq-a">Yes — you're the talent. We handle everything around you: scripting, editing, captions, thumbnails, and distribution. Most clients spend under an hour a week on camera.</p>
+  </details>
 </section>
 
 <section class="cta-sec" id="contact">
