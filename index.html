@@ -359,40 +359,65 @@
 <!-- ============================================================
      PROBLEMS WE SOLVE
      ============================================================ -->
-<section class="prob-sec">
-  <div class="s-lbl">Problems We Solve</div>
-  <h2 class="s-ttl rv">You Have The Expertise. <span class="ol">Not The Output.</span></h2>
+<section style="padding:100px 64px;background:#0c0c0e;overflow:hidden;position:relative">
 
-  <div class="prob-grid">
-    <div class="prob-card rv">
-      <div class="prob-x">01</div>
-      <div>
-        <div class="prob-ttl">You know content matters — you just don't have time to make it</div>
-        <div class="prob-d">Between clients, sales calls, and running the business, sitting down to script and shoot never wins the priority fight. Months go by. The feed goes quiet.</div>
-      </div>
-    </div>
-    <div class="prob-card rv" style="transition-delay:.1s">
-      <div class="prob-x">02</div>
-      <div>
-        <div class="prob-ttl">You're posting inconsistently and watching growth stall</div>
-        <div class="prob-d">Three reels one week, nothing for a month. The algorithm punishes inconsistency — and so does your pipeline of inbound leads.</div>
-      </div>
-    </div>
-    <div class="prob-card rv" style="transition-delay:.2s">
-      <div class="prob-x">03</div>
-      <div>
-        <div class="prob-ttl">You're paying an editor but still writing every script yourself</div>
-        <div class="prob-d">Editing was never the bottleneck. Strategy, hooks, and structure were. A half-outsourced workflow still leaves the hardest part on your plate.</div>
-      </div>
-    </div>
-    <div class="prob-card rv" style="transition-delay:.3s">
-      <div class="prob-x">04</div>
-      <div>
-        <div class="prob-ttl">Great expertise, invisible online presence</div>
-        <div class="prob-d">You could out-teach anyone in your niche in a room. Online, a competitor with half your knowledge and a content system is winning your future clients.</div>
-      </div>
-    </div>
+  <!-- Background grid lines -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,43,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,43,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
+
+  <!-- Center text -->
+  <div style="text-align:center;position:relative;z-index:2;margin-bottom:72px">
+    <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px">Problems We Solve</div>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);line-height:.95;color:#fff">You Have The <span style="color:#ff6b2b">Expertise.</span><br>We Build The <span style="-webkit-text-stroke:1.5px #fff;color:transparent">Output.</span></h2>
+    <p style="font-size:16px;color:rgba(255,255,255,.5);max-width:420px;margin:20px auto 0;line-height:1.75">We become your in-house content team. You focus on your business. We handle everything else.</p>
   </div>
+
+  <!-- Problem cards grid -->
+  <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1e1e22;position:relative;z-index:2">
+
+    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
+      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">⏰</div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 01</div>
+        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">No time to create content consistently</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Between clients, calls, and running your business — content never wins the priority fight. The feed goes quiet.</div>
+      </div>
+    </div>
+
+    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
+      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">📉</div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 02</div>
+        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Posting inconsistently and watching growth stall</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Three reels one week, nothing for a month. The algorithm punishes inconsistency — and so does your inbound pipeline.</div>
+      </div>
+    </div>
+
+    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
+      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">✂️</div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 03</div>
+        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Paying an editor but still writing every script yourself</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Editing was never the bottleneck. Strategy, hooks, and structure were. A half-outsourced workflow leaves the hardest part on your plate.</div>
+      </div>
+    </div>
+
+    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
+      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">👻</div>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 04</div>
+        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Great expertise but invisible online</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">You could out-teach anyone in your niche. Online, a competitor with half your knowledge and a content system is winning your future clients.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Solution strip -->
+  <div style="margin-top:2px;background:#ff6b2b;padding:32px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:2">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,36px);color:#fff;line-height:1">We solve all four. Done for you. Starting day one.</div>
+    <a href="https://cal.com/inflowmediahouse/30min" style="background:#fff;color:#ff6b2b;padding:14px 28px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;font-family:'Syne',sans-serif;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='#f5f2ee'" onmouseout="this.style.background='#fff'">Book a Strategy Call</a>
+  </div>
+
 </section>
 
 
