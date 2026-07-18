@@ -4,42 +4,29 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#ff6b2b">
+<meta name="theme-color" content="#c9a35c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Our Work — Inflow Media House</title>
+<title>Our Work — Storytelling for Startups and Founders | Inflow Media House</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#0c0c0e;color:#fff;font-family:'Syne',sans-serif;overflow-x:hidden;cursor:none}
-.cur{position:fixed;width:10px;height:10px;background:#ff6b2b;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s}
-.cur-r{position:fixed;width:38px;height:38px;border:1.5px solid rgba(255,107,43,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 52px;display:flex;align-items:center;justify-content:space-between;background:rgba(12,12,14,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
-.n-logo{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:#fff;text-decoration:none}
-.n-logo span{color:#ff6b2b}
-.n-links{display:flex;gap:36px;list-style:none}
-.n-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
-.n-links a:hover,.n-links a.active{color:#fff}
-.n-cta{background:#ff6b2b;color:#fff;padding:10px 26px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;font-family:'Syne',sans-serif;transition:background .2s}
-.n-cta:hover{background:#ffaa5c}
+body{cursor:none}
 
 /* PAGE HERO */
 .pg-hero{padding:140px 64px 72px;border-bottom:1px solid rgba(255,255,255,.07)}
-.pg-label{font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
-.pg-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,9vw,120px);line-height:.93;color:#fff}
-.pg-ttl .ol{-webkit-text-stroke:1.5px #fff;color:transparent}
+.pg-label{font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+.pg-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,9vw,120px);line-height:.93;color:#fff}
+.pg-ttl .ol{color:#c9a35c;font-style:italic}
 .pg-sub{max-width:520px;margin-top:20px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.5)}
 
 /* SECTION LABELS */
 .sec-wrap{padding:80px 64px}
 .sec-wrap.dark{background:#141416}
-.sec-label{font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.sec-label{font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:14px}
 .sec-label::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);max-width:100px}
-.sec-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.5vw,60px);line-height:1;margin-bottom:48px;color:#fff}
-.sec-ttl .ol{-webkit-text-stroke:1.5px #fff;color:transparent}
+.sec-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,60px);line-height:1;margin-bottom:48px;color:#fff}
+.sec-ttl .ol{color:#c9a35c;font-style:italic}
 
 /* SHORT FORM GRID */
 .sf-grid{
@@ -64,7 +51,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 52px;display:f
 .sf-card:hover{
   transform:translateY(-8px) scale(1.015);
   box-shadow:0 28px 60px rgba(0,0,0,.65);
-  border-color:rgba(255,107,43,.25);
+  border-color:rgba(201,163,92,.25);
 }
 
 /* Wistia iframe fills the card */
@@ -112,15 +99,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 52px;display:f
   overflow:hidden;
   transition:border-color .3s;
 }
-.lf-card:hover{border-color:rgba(255,107,43,.2)}
+.lf-card:hover{border-color:rgba(201,163,92,.2)}
 .lf-video{position:relative;aspect-ratio:16/9;background:#1e1e22}
 .lf-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 .lf-info{padding:44px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center}
-.lf-badge{font-family:'Space Mono',monospace;font-size:9px;color:#ff6b2b;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content}
-.lf-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,2.5vw,36px);line-height:1.05;color:#fff}
+.lf-badge{font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content}
+.lf-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);line-height:1.05;color:#fff}
 .lf-desc{font-size:14px;color:rgba(255,255,255,.5);line-height:1.85}
 .lf-stats{display:flex;gap:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)}
-.lf-stat-n{font-family:'Bebas Neue',sans-serif;font-size:32px;color:#ff6b2b;line-height:1}
+.lf-stat-n{font-family:'Cormorant Garamond',serif;font-size:32px;color:#c9a35c;line-height:1}
 .lf-stat-l{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
 /* CTA */
@@ -132,33 +119,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 52px;display:f
 }
 .work-cta::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(255,107,43,.06) 0%,transparent 70%);
+  background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(201,163,92,.06) 0%,transparent 70%);
   pointer-events:none;
 }
-.wc-eye{font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
-.wc-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,92px);line-height:.93;margin-bottom:18px;color:#fff}
+.wc-eye{font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
+.wc-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7vw,92px);line-height:.93;margin-bottom:18px;color:#fff}
 .wc-sub{font-size:15px;color:rgba(255,255,255,.5);max-width:400px;margin:0 auto 32px;line-height:1.75}
 .wc-note{margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.1em}
 
 /* FOOTER */
 footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.f-logo{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;color:#fff;text-decoration:none}
-.f-logo span{color:#ff6b2b}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:17px;letter-spacing:2px;color:#fff;text-decoration:none}
+.f-logo span{color:#c9a35c}
 .f-links{display:flex;gap:28px}
-.f-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13px;font-family:'Syne',sans-serif;transition:color .2s}
-.f-links a:hover{color:#ff6b2b}
+.f-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;transition:color .2s}
+.f-links a:hover{color:#c9a35c}
 .f-copy{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.18)}
-
-.btn-p{background:#ff6b2b;color:#fff;padding:15px 36px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:transform .2s,box-shadow .2s,background .2s;font-family:'Syne',sans-serif}
-.btn-p:hover{background:#ffaa5c;transform:translateY(-3px);box-shadow:0 14px 44px rgba(255,107,43,.4)}
-
-.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.rv.in{opacity:1;transform:translateY(0)}
 
 /* RESPONSIVE */
 @media(max-width:1100px){.sf-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:960px){
-  nav{padding:18px 24px}
   .pg-hero{padding:120px 24px 56px}
   .sec-wrap{padding:60px 24px}
   .sf-grid{grid-template-columns:repeat(2,1fr)}
@@ -169,7 +149,7 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 }
 .saas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:48px}
 .saas-card{position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);cursor:none;transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s}
-.saas-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 28px 60px rgba(0,0,0,.65);border-color:rgba(255,107,43,.25)}
+.saas-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 28px 60px rgba(0,0,0,.65);border-color:rgba(201,163,92,.25)}
 .saas-card iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
 .saas-label{position:absolute;bottom:0;left:0;right:0;padding:32px 14px 12px;background:linear-gradient(to top,rgba(12,12,14,.96) 0%,transparent 100%);transform:translateY(4px);opacity:0;transition:opacity .3s,transform .3s;pointer-events:none}
 .saas-card:hover .saas-label{opacity:1;transform:translateY(0)}
@@ -183,8 +163,8 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 <div class="cur" id="cur"></div>
 <div class="cur-r" id="curR"></div>
 
-<nav>
-  <a href="../index.html" class="n-logo">INFLOW MEDIA HOUSE<span>.</span></a>
+<nav id="nav">
+  <a href="../index.html" class="n-logo">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work" class="active">Work</a></li>
@@ -197,7 +177,7 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 <div class="pg-hero">
   <div class="pg-label">Portfolio</div>
   <h1 class="pg-ttl">Our <span class="ol">Work</span></h1>
-  <p class="pg-sub">Short form content, podcast production, and ad creatives built for coaches, founders, and growing brands.</p>
+  <p class="pg-sub">Launch films, podcast production, and product storytelling — a look at the craft behind the numbers.</p>
 </div>
 
 <!-- SHORT FORM VIDEOS -->
@@ -314,10 +294,10 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 <section class="sec-wrap dark">
   <div class="sec-label">Case Study</div>
   <h2 class="sec-ttl">Jeff Kloepping · <span class="ol">200K Followers</span></h2>
-  <a href="/case-studies/jeff" style="display:grid;grid-template-columns:1fr 1fr;background:#0c0c0e;border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(255,107,43,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
+  <a href="/case-studies/jeff" style="display:grid;grid-template-columns:1fr 1fr;background:#0c0c0e;border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .3s" onmouseover="this.style.borderColor='rgba(201,163,92,.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,.07)'">
     <div style="padding:52px 48px;border-right:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;gap:16px">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#ff6b2b;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content">Case Study · Women's Fat Loss Coach</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4vw,56px);line-height:1.05;color:#fff">From 5K to 200K Followers in 10 Months</div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content">Case Study · Women's Fat Loss Coach</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);line-height:1.05;color:#fff">From 5K to 200K Followers in 10 Months</div>
       <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.85">Done-for-you content system. Zero paid ads. Jeff went from invisible to the most recognised fat loss coach on Instagram while spending less than 1 hour a week on content.</div>
       <div style="display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)">
         <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0">
@@ -328,23 +308,23 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
           <div style="font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);margin-top:2px">Women's Fat Loss Coach · @build4life_coaching</div>
         </div>
       </div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.12em;text-transform:uppercase;margin-top:4px">Read Full Case Study →</div>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.12em;text-transform:uppercase;margin-top:4px">Read Full Case Study →</div>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:#1e1e22">
       <div style="background:#0c0c0e;padding:36px 28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#ff6b2b;line-height:1">200K</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#c9a35c;line-height:1">200K</div>
         <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Followers</div>
       </div>
       <div style="background:#0c0c0e;padding:36px 28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#ff6b2b;line-height:1">10M+</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#c9a35c;line-height:1">10M+</div>
         <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Organic Views</div>
       </div>
       <div style="background:#0c0c0e;padding:36px 28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#ff6b2b;line-height:1">88+</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#c9a35c;line-height:1">88+</div>
         <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Calls Booked</div>
       </div>
       <div style="background:#0c0c0e;padding:36px 28px">
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#ff6b2b;line-height:1">91%</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#c9a35c;line-height:1">91%</div>
         <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:6px">Revenue Growth</div>
       </div>
     </div>
@@ -358,20 +338,20 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
   <h2 class="sec-ttl">Joey · <span class="ol">3X Results</span></h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;background:#0c0c0e;border:1px solid rgba(255,255,255,.07);border-radius:14px;overflow:hidden">
     <div style="padding:44px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#ff6b2b;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content">Client Case Study · Fitness Coach</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3vw,44px);line-height:1.05;color:#fff">How Joey Got 3X Results and 86K Views in 10 Days</div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content">Client Case Study · Fitness Coach</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);line-height:1.05;color:#fff">How Joey Got 3X Results and 86K Views in 10 Days</div>
       <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.85">Ad creative strategy combined with short form content production. One reel hit 86K views within 10 days. The ad creative system alone tripled his results without increasing ad spend.</div>
       <div style="display:flex;gap:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)">
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">86K</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">86K</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Views · 10 Days</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">3X</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">3X</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Results</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">$0</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">$0</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Ad Spend</div>
         </div>
       </div>
@@ -405,25 +385,25 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
       </iframe>
     </div>
     <div style="padding:44px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#ff6b2b;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content">Video Testimonial · UK Fat Loss Coach</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3vw,44px);line-height:1.05;color:#fff">Ben Clark on Working With Inflow Media House</div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content">Video Testimonial · UK Fat Loss Coach</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);line-height:1.05;color:#fff">Ben Clark on Working With Inflow Media House</div>
       <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.85">Ben is a UK-based fat loss coach targeting professional men. We built his full done-for-you content system including scripted Instagram Reels, comment-triggered auto-DM CTAs, and a complete distribution pipeline.</div>
       <div style="display:flex;gap:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)">
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">7</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">7</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Scripted Reels</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">DFY</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">DFY</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Full System</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">UK</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">UK</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Market</div>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:14px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)">
-        <div style="width:44px;height:44px;border-radius:50%;background:#1e1e22;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:20px;color:#ff6b2b;flex-shrink:0">B</div>
+        <div style="width:44px;height:44px;border-radius:50%;background:#1e1e22;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;color:#c9a35c;flex-shrink:0">B</div>
         <div>
           <div style="font-weight:700;font-size:14px;color:#fff">Ben Clark</div>
           <div style="font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);margin-top:2px">Fat Loss Coach · UK · @benclarkcoaching</div>
@@ -447,20 +427,20 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
       </iframe>
     </div>
     <div style="padding:44px 40px;display:flex;flex-direction:column;gap:16px;justify-content:center">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#ff6b2b;letter-spacing:.16em;text-transform:uppercase;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.25);padding:4px 12px;display:inline-block;width:fit-content">Podcast Production · The Brand Builders</div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,2.5vw,36px);line-height:1.05;color:#fff">Full Guest Pipeline Production and Distribution</div>
+      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content">Podcast Production · The Brand Builders</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,36px);line-height:1.05;color:#fff">Full Guest Pipeline Production and Distribution</div>
       <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.85">Trailer, short form clips, and full episode — complete guest pipeline. Video editing, colour grade, captions, and multi-platform distribution handled end to end.</div>
       <div style="display:flex;gap:28px;padding-top:16px;border-top:1px solid rgba(255,255,255,.07)">
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">3</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">3</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Content Formats</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">DFY</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">DFY</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Full Production</div>
         </div>
         <div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:#ff6b2b;line-height:1">48h</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;color:#c9a35c;line-height:1">48h</div>
           <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Turnaround</div>
         </div>
       </div>
@@ -471,11 +451,11 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
 
 <!-- CTA -->
 <section class="work-cta rv">
-  <p class="wc-eye">// Want Results Like These?</p>
-  <h2 class="wc-ttl">Let's Build<br>Your Content.</h2>
-  <p class="wc-sub">One strategy call. We audit your brand and build your content roadmap live. No pitch deck, no pressure.</p>
-  <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Free Strategy Call</a>
-  <p class="wc-note">30 minute call · We come prepared with your full content audit</p>
+  <p class="wc-eye">Work With Us</p>
+  <h2 class="wc-ttl">Let's Build<br>Your <em style="color:#c9a35c">Story.</em></h2>
+  <p class="wc-sub">One call. We look at what you've built and show you exactly what it takes to make it land — live on the call.</p>
+  <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+  <p class="wc-note">30-minute call · We come prepared having looked at your work · No pitch deck</p>
 </section>
 
 <footer>
@@ -489,17 +469,13 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
   <span class="f-copy">© 2026 Inflow Media House</span>
 </footer>
 
+<script src="../shared.js"></script>
 <script>
-const cur=document.getElementById('cur'),curR=document.getElementById('curR');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function t(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.sf-card,.saas-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px';curR.style.borderColor='rgba(255,107,43,.7)'});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px';curR.style.borderColor='rgba(255,107,43,.45)'});
+document.querySelectorAll('.sf-card,.saas-card').forEach(el=>{
+  const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px';curR.style.borderColor='rgba(201,163,92,.7)'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px';curR.style.borderColor='rgba(201,163,92,.45)'});
 });
-const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.05});
-document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 </script>
 </body>
 </html>
