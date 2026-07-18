@@ -14,38 +14,25 @@
 /* === HOMEPAGE-ONLY STYLES === */
 
 .hero{
-  min-height:100vh;
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  min-height:92vh;
+  display:flex;
+  flex-direction:column;
   align-items:center;
-  padding:120px 64px 80px;
+  justify-content:center;
+  text-align:center;
+  padding:140px 32px 100px;
   position:relative;
   overflow:hidden;
-  gap:48px;
 }
 #hCv{position:absolute;inset:0;z-index:0}
 
-.h-con{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s;}
-.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,5.6vw,80px);line-height:1.08;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
+.h-con{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:760px;}
+.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fup .8s forwards .2s;}
+.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,6.2vw,88px);line-height:1.1;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
 .h-ttl .ol{color:var(--wht);font-style:normal}
 .h-ttl .hi{color:var(--acc);font-style:italic}
-.h-sub{max-width:440px;margin-top:24px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
-.h-ctas{margin-top:40px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .8s;}
-
-.h-right{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;opacity:0;animation:fup .9s forwards .6s;}
-
-.h-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(10px);padding:28px 32px;display:flex;align-items:center;gap:20px;transition:border-color .25s,background .25s;}
-.h-stat:hover{background:rgba(201,163,92,.07);border-color:rgba(201,163,92,.3);box-shadow:inset 3px 0 0 rgba(201,163,92,.6);}
-.h-stat-num{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;letter-spacing:-.02em;}
-.h-stat-lbl{font-size:15px;font-weight:700;color:var(--wht);line-height:1.3;}
-.h-stat-sub{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-top:4px;}
-
-.h-trusted{margin-top:8px;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);}
-.h-trusted-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
-.h-trusted-names{display:flex;flex-wrap:wrap;gap:8px;}
-.h-name-pill{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:5px 12px;letter-spacing:.06em;transition:border-color .2s,background .2s;}
-.h-name-pill:hover{border-color:rgba(201,163,92,.4);background:rgba(201,163,92,.06);}
+.h-sub{max-width:520px;margin:28px auto 0;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
+.h-ctas{margin-top:44px;display:flex;gap:14px;align-items:center;justify-content:center;opacity:0;animation:fup .9s forwards .8s;}
 
 .hero::after{
   content:'';
@@ -54,15 +41,21 @@
   background:linear-gradient(90deg,transparent,rgba(201,163,92,.4),transparent);
   z-index:3;
 }
-.scr{position:absolute;bottom:32px;left:64px;z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
+.scr{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
 .scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(201,163,92,.45);text-transform:uppercase}
 .scr-ln{width:40px;height:1px;background:linear-gradient(to right,var(--acc),transparent)}
 
+/* ── QUIET TRUST STRIP (after hero, no numbers) ── */
+.trust-strip{padding:36px 32px;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);text-align:center}
+.trust-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+.trust-names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.trust-pill{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,.55);padding:4px 4px;transition:color .2s}
+.trust-pill:hover{color:var(--acc)}
+.trust-dot{color:rgba(255,255,255,.2);margin:0 2px}
+
 @media(max-width:900px){
-  .hero{grid-template-columns:1fr;padding:100px 32px 60px}
-  .h-ttl{font-size:clamp(44px,10vw,72px)}
-  .h-right{margin-top:8px}
-  .h-stat-num{font-size:40px;min-width:90px}
+  .hero{padding:110px 24px 70px}
+  .h-ttl{font-size:clamp(40px,10vw,64px)}
 }
 
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
@@ -268,65 +261,74 @@
     </div>
   </div>
 
-  <div class="h-right">
-    <div class="h-stat">
-      <div class="h-stat-num">50M+</div>
-      <div class="h-stat-info">
-        <div class="h-stat-lbl">Organic Views Generated</div>
-        <div class="h-stat-sub">Instagram, YouTube Shorts and TikTok</div>
-      </div>
-    </div>
-    <div class="h-stat">
-      <div class="h-stat-num">200+</div>
-      <div class="h-stat-info">
-        <div class="h-stat-lbl">Booked Calls Driven</div>
-        <div class="h-stat-sub">Across founder and brand campaigns</div>
-      </div>
-    </div>
-    <div class="h-stat">
-      <div class="h-stat-num">5K→200K</div>
-      <div class="h-stat-info">
-        <div class="h-stat-lbl">Followers in Under a Year</div>
-        <div class="h-stat-sub">One client. Twelve months. Zero paid ads.</div>
-      </div>
-    </div>
-    <div class="h-trusted">
-      <div class="h-trusted-lbl">We work with</div>
-      <div class="h-trusted-names">
-        <span class="h-name-pill">Startup Founders</span>
-        <span class="h-name-pill">SaaS Companies</span>
-        <span class="h-name-pill">Venture-Backed Teams</span>
-        <span class="h-name-pill">Podcast Hosts</span>
-        <span class="h-name-pill">Content-Led Brands</span>
-      </div>
-    </div>
-  </div>
-
   <div class="scr"><div class="scr-ln"></div><span>Scroll</span></div>
 </section>
 
 <!-- ============================================================
-     STATS BAR
-     ✏️ EDIT: Change data-t="NUMBER" and the label below it
+     TRUST STRIP — who we work with, no numbers, quiet
      ============================================================ -->
-<div class="stats">
-  <!-- Stat 1 -->
-  <div class="st rv">
-    <div class="s-n"><span class="cnt" data-t="50">0</span>M<span class="ac">+</span></div>
-    <div class="s-l">Organic Views</div> <!-- ✏️ EDIT label -->
+<section class="trust-strip">
+  <div class="trust-lbl">We Work With</div>
+  <div class="trust-names">
+    <span class="trust-pill">Startup Founders</span><span class="trust-dot">·</span>
+    <span class="trust-pill">SaaS Companies</span><span class="trust-dot">·</span>
+    <span class="trust-pill">Venture-Backed Teams</span><span class="trust-dot">·</span>
+    <span class="trust-pill">Podcast Hosts</span><span class="trust-dot">·</span>
+    <span class="trust-pill">Content-Led Brands</span>
   </div>
-  <!-- Stat 2 -->
-  <div class="st rv" style="transition-delay:.15s">
-    <div class="s-n"><span class="cnt" data-t="200">0</span><span class="ac">+</span></div>
-    <div class="s-l">Booked Calls Driven</div> <!-- ✏️ EDIT label -->
-  </div>
-  <!-- Stat 3 -->
-  <div class="st rv" style="transition-delay:.3s">
-    <div class="s-n"><span class="cnt" data-t="30">0</span><span class="ac">+</span></div>
-    <div class="s-l">Clips Delivered Monthly</div> <!-- ✏️ EDIT label -->
-  </div>
-</div>
+</section>
 
+<!-- ============================================================
+     THREE WAYS TO WORK WITH US — named service tiers
+     ✏️ EDIT: Titles, descriptions, features, and href links
+     ============================================================ -->
+<section class="svc-sec" id="services">
+  <div class="s-lbl">What We Do</div>
+  <h2 class="s-ttl rv" style="margin-bottom:64px">Three Ways To <span class="ol">Work With Us.</span></h2>
+
+  <div class="tier-grid">
+
+    <div class="tier-card rv">
+      <div class="tier-n">01 — Launch</div>
+      <h3 class="tier-ttl">Launch Films</h3>
+      <p class="tier-for">For founders with a raise, a product drop, or a moment that needs to land right.</p>
+      <ul class="tier-feats">
+        <li>Ideation, scripting &amp; storyboard</li>
+        <li>Full launch film production</li>
+        <li>Product walkthrough or explainer cut</li>
+        <li>Delivered ready for investors and press</li>
+      </ul>
+      <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
+    </div>
+
+    <div class="tier-card feat rv" style="transition-delay:.15s">
+      <div class="tier-tag">Most Popular</div>
+      <div class="tier-n">02 — Grow</div>
+      <h3 class="tier-ttl">Podcast &amp; Distribution</h3>
+      <p class="tier-for">For founders sitting on hours of unused podcast or interview footage.</p>
+      <ul class="tier-feats">
+        <li>Podcast post-production, full episode</li>
+        <li>30+ short-form clips delivered monthly</li>
+        <li>Multi-platform distribution strategy</li>
+        <li>Guest pipeline production support</li>
+      </ul>
+      <a href="/podcast" class="btn-p" style="text-align:center">Explore Service</a>
+    </div>
+
+    <div class="tier-card rv" style="transition-delay:.3s">
+      <div class="tier-n">03 — Scale</div>
+      <h3 class="tier-ttl">Not Sure Which Fits?</h3>
+      <p class="tier-for">For teams needing a volume, format mix, or scope outside the standard systems.</p>
+      <ul class="tier-feats">
+        <li>Free strategy call, no obligation</li>
+        <li>Custom volume &amp; format scoping</li>
+        <li>We tell you exactly what fits your goals</li>
+      </ul>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-g" style="text-align:center">Book a Call</a>
+    </div>
+
+  </div>
+</section>
 
 <!-- ============================================================
      WHY IT WORKS — outcome-framed authority section
@@ -544,58 +546,6 @@
     <h2 class="spot-ttl rv" style="transition-delay:.1s">Launch Content For The Moment You Only Get Once.</h2>
     <p class="spot-d rv" style="transition-delay:.2s">Dropping a new offer, raising a round, or stepping into the spotlight as the face of your brand for the first time? Spotlight is a focused, one-time production sprint — a launch trailer, founder story piece, and a week of clipped distribution content — built to make your moment land everywhere at once.</p>
     <a href="https://cal.com/inflowmediahouse/30min" class="btn-p rv" style="transition-delay:.3s">Talk to Us About Spotlight</a>
-  </div>
-</section>
-
-<!-- ============================================================
-     THREE WAYS TO WORK WITH US — named service tiers
-     ✏️ EDIT: Titles, descriptions, features, and href links
-     ============================================================ -->
-<section class="svc-sec" id="services">
-  <div class="s-lbl">Three Ways To Work With Us</div>
-  <h2 class="s-ttl rv" style="margin-bottom:64px">Pick The System <span class="ol">Built For You.</span></h2>
-
-  <div class="tier-grid">
-
-    <div class="tier-card rv">
-      <div class="tier-n">01 — Launch</div>
-      <h3 class="tier-ttl">Launch Films</h3>
-      <p class="tier-for">For founders with a raise, a product drop, or a moment that needs to land right.</p>
-      <ul class="tier-feats">
-        <li>Ideation, scripting &amp; storyboard</li>
-        <li>Full launch film production</li>
-        <li>Product walkthrough or explainer cut</li>
-        <li>Delivered ready for investors and press</li>
-      </ul>
-      <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
-    </div>
-
-    <div class="tier-card feat rv" style="transition-delay:.15s">
-      <div class="tier-tag">Most Popular</div>
-      <div class="tier-n">02 — Grow</div>
-      <h3 class="tier-ttl">Podcast &amp; Distribution</h3>
-      <p class="tier-for">For founders sitting on hours of unused podcast or interview footage.</p>
-      <ul class="tier-feats">
-        <li>Podcast post-production, full episode</li>
-        <li>30+ short-form clips delivered monthly</li>
-        <li>Multi-platform distribution strategy</li>
-        <li>Guest pipeline production support</li>
-      </ul>
-      <a href="/podcast" class="btn-p" style="text-align:center">Explore Service</a>
-    </div>
-
-    <div class="tier-card rv" style="transition-delay:.3s">
-      <div class="tier-n">03 — Scale</div>
-      <h3 class="tier-ttl">Not Sure Which Fits?</h3>
-      <p class="tier-for">For teams needing a volume, format mix, or scope outside the standard systems.</p>
-      <ul class="tier-feats">
-        <li>Free strategy call, no obligation</li>
-        <li>Custom volume &amp; format scoping</li>
-        <li>We tell you exactly what fits your goals</li>
-      </ul>
-      <a href="https://cal.com/inflowmediahouse/30min" class="btn-g" style="text-align:center">Book a Call</a>
-    </div>
-
   </div>
 </section>
 
