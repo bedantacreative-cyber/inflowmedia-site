@@ -3,6 +3,38 @@
    Runs on every page. Don't touch unless you know JS.
    ============================================================ */
 
+/* ---- MOBILE NAV ---- */
+(function(){
+  const nav = document.getElementById('nav');
+  if(!nav) return;
+  const links = nav.querySelector('.n-links');
+  const cta = nav.querySelector('.n-cta');
+  if(!links) return;
+  const burger = document.createElement('button');
+  burger.className = 'n-burger';
+  burger.setAttribute('aria-label','Toggle menu');
+  burger.innerHTML = '<span></span><span></span><span></span>';
+  nav.insertBefore(burger, cta || null);
+  if(cta){
+    const li = document.createElement('li');
+    const mCta = cta.cloneNode(true);
+    mCta.classList.add('n-cta-mobile');
+    li.appendChild(mCta);
+    links.appendChild(li);
+  }
+  function closeMenu(){
+    burger.classList.remove('open');
+    links.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  }
+  burger.addEventListener('click',()=>{
+    const isOpen = links.classList.toggle('open');
+    burger.classList.toggle('open',isOpen);
+    document.body.classList.toggle('nav-open',isOpen);
+  });
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+})();
+
 /* ---- CURSOR ---- */
 const cur = document.getElementById('cur');
 const curR = document.getElementById('curR');
