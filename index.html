@@ -162,9 +162,12 @@
 
 /* ── TIER CARDS ── */
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative}
+.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .tier-card.feat{background:#0f0f11}
-.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px}
+.tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .4s;pointer-events:none;background:radial-gradient(320px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.14),transparent 70%)}
+.tier-card:hover::before{opacity:1}
+.tier-card > *{position:relative;z-index:1}
+.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;z-index:2}
 .tier-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
 .tier-ttl{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;margin-bottom:12px}
 .tier-for{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:28px}
@@ -301,8 +304,7 @@
       <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
     </div>
 
-    <div class="tier-card feat rv" style="transition-delay:.15s">
-      <div class="tier-tag">Most Popular</div>
+    <div class="tier-card rv" style="transition-delay:.15s">
       <div class="tier-n">02 — Grow</div>
       <h3 class="tier-ttl">Podcast &amp; Distribution</h3>
       <p class="tier-for">For founders sitting on hours of unused podcast or interview footage.</p>
@@ -312,7 +314,7 @@
         <li>Multi-platform distribution strategy</li>
         <li>Guest pipeline production support</li>
       </ul>
-      <a href="/podcast" class="btn-p" style="text-align:center">Explore Service</a>
+      <a href="/podcast" class="btn-g" style="text-align:center">Explore Service</a>
     </div>
 
     <div class="tier-card rv" style="transition-delay:.3s">
@@ -699,6 +701,15 @@
   function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(201,163,92,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
 })();
+
+/* Cursor-follow glow on tier cards */
+document.querySelectorAll('.tier-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
 
 </script>
 <script src="shared.js"></script>
