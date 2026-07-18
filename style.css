@@ -41,6 +41,7 @@ nav.sc{background:rgba(12,12,14,.9);backdrop-filter:blur(20px);border-bottom-col
 .n-burger.open span:nth-child(2){opacity:0}
 .n-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .n-links li{list-style:none}
+.n-links .n-cta-mobile{display:none}
 body.nav-open{overflow:hidden}
 
 @media(max-width:900px){
@@ -58,7 +59,7 @@ body.nav-open{overflow:hidden}
   }
   .n-links.open{transform:translateX(0)}
   .n-links a{font-size:17px}
-  .n-links .n-cta-mobile{margin-top:8px}
+  .n-links .n-cta-mobile{display:inline-block;margin-top:8px}
 }
 
 /* ---- BUTTONS ---- */
