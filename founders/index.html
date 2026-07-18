@@ -76,6 +76,16 @@
 .tb-ro{font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.38);margin-top:3px}
 .n-logo{font-size:17px}
 .sf-card:hover{transform:translateY(-6px) scale(1.015);box-shadow:0 28px 60px rgba(0,0,0,.65);border-color:rgba(201,163,92,.25)}
+
+/* FAQ */
+.faq-sec{padding:120px 52px;max-width:900px;margin:0 auto}
+.faq-item{border-bottom:1px solid var(--bdr);padding:28px 0}
+.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17px;font-weight:800;color:#fff}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--acc);transition:transform .3s;flex-shrink:0}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-a{font-size:14px;line-height:1.85;color:rgba(255,255,255,.55);margin-top:16px;max-width:700px}
+@media(max-width:900px){.faq-sec{padding:80px 24px}}
 </style>
 </head>
 <body>
@@ -240,6 +250,35 @@
     <div class="pr rv" style="transition-delay:.2s"><div class="pr-n">03</div><div class="pr-ttl">Production &amp; Edit</div><div class="pr-d">You show up and record or appear. We handle production, editing, sound, and captions — investor-grade, delivered on schedule.</div></div>
     <div class="pr rv" style="transition-delay:.3s"><div class="pr-n">04</div><div class="pr-ttl">Distribution &amp; Review</div><div class="pr-d">We publish, track what's landing, and refine the narrative monthly. The system compounds — you focus on the company.</div></div>
   </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq-sec">
+  <div class="s-lbl">FAQ</div>
+  <h2 class="s-ttl rv" style="margin-bottom:24px">Common <span class="ol">Questions</span></h2>
+
+  <details class="faq-item rv" open>
+    <summary>What's the minimum commitment?</summary>
+    <p class="faq-a">3 months. Narrative consistency doesn't show up in investor conversations or customer decisions in 30 days — the system needs time to compound before it's worth judging.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>Do I have to be on camera myself?</summary>
+    <p class="faq-a">For founder-led content, yes — investors and customers respond to a real person, not a brand account. We handle everything around you: strategy, scripts, editing, and distribution.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>How much of my time does this actually take?</summary>
+    <p class="faq-a">Most founders spend under 2 hours a month — one recording session, one review call. We handle the strategy, scripting, editing, and posting around that.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>Can you guarantee results?</summary>
+    <p class="faq-a">No, and anyone who guarantees follower counts or inbound volume is selling you something. We can guarantee the strategy, the cadence, and a system that compounds — the same one behind our clients' organic growth.</p>
+  </details>
+  <details class="faq-item rv">
+    <summary>What if I don't have a big audience yet?</summary>
+    <p class="faq-a">That's exactly when narrative consistency matters most — you're building the story before you need it, not scrambling to write one mid-raise.</p>
+  </details>
 </section>
 
 <!-- BOTTOM CTA -->
