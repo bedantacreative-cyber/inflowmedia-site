@@ -100,9 +100,9 @@ if(ctaCv){
   rs();window.addEventListener('resize',rs);
   (function lp(){cx.clearRect(0,0,W,H);t+=.004;const ox=W/2,oy=H/2;
     [[200,.9],[310,1.3],[430,.6],[560,1.0]].forEach(([r,sp],i)=>{
-      cx.globalAlpha=.055;cx.strokeStyle='#ff6b2b';cx.lineWidth=.8;cx.setLineDash([3,14]);
+      cx.globalAlpha=.055;cx.strokeStyle='#c9a35c';cx.lineWidth=.8;cx.setLineDash([3,14]);
       cx.beginPath();cx.arc(ox,oy,r,0,Math.PI*2);cx.stroke();
-      const a=t*sp+i*1.5;cx.globalAlpha=.55;cx.fillStyle='#ff6b2b';cx.setLineDash([]);
+      const a=t*sp+i*1.5;cx.globalAlpha=.55;cx.fillStyle='#c9a35c';cx.setLineDash([]);
       cx.beginPath();cx.arc(ox+Math.cos(a)*r,oy+Math.sin(a)*r,2.5,0,Math.PI*2);cx.fill();
     });
   requestAnimationFrame(lp)})();

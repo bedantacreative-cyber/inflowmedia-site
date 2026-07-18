@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#ff6b2b">
+<meta name="theme-color" content="#c9a35c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inflow Media House — Storytelling &amp; Media Partners for Startups and Founders</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
 /* === HOMEPAGE-ONLY STYLES === */
@@ -27,17 +27,17 @@
 
 .h-con{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;}
 .h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:20px;opacity:0;animation:fup .8s forwards .2s;}
-.h-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4.8vw,68px);line-height:1.0;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:.01em;}
-.h-ttl .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
-.h-ttl .hi{color:var(--acc)}
+.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,5.6vw,80px);line-height:1.08;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
+.h-ttl .ol{color:var(--wht);font-style:normal}
+.h-ttl .hi{color:var(--acc);font-style:italic}
 .h-sub{max-width:440px;margin-top:24px;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
 .h-ctas{margin-top:40px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .8s;}
 
 .h-right{position:relative;z-index:2;display:flex;flex-direction:column;gap:20px;opacity:0;animation:fup .9s forwards .6s;}
 
 .h-stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(10px);padding:28px 32px;display:flex;align-items:center;gap:20px;transition:border-color .25s,background .25s;}
-.h-stat:hover{background:rgba(255,107,43,.07);border-color:rgba(255,107,43,.3);box-shadow:inset 3px 0 0 rgba(255,107,43,.6);}
-.h-stat-num{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;letter-spacing:-.02em;}
+.h-stat:hover{background:rgba(201,163,92,.07);border-color:rgba(201,163,92,.3);box-shadow:inset 3px 0 0 rgba(201,163,92,.6);}
+.h-stat-num{font-family:'Cormorant Garamond',serif;font-size:44px;color:var(--acc);line-height:1;flex-shrink:0;min-width:120px;letter-spacing:-.02em;}
 .h-stat-lbl{font-size:15px;font-weight:700;color:var(--wht);line-height:1.3;}
 .h-stat-sub{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.08em;margin-top:4px;}
 
@@ -45,17 +45,17 @@
 .h-trusted-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
 .h-trusted-names{display:flex;flex-wrap:wrap;gap:8px;}
 .h-name-pill{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);padding:5px 12px;letter-spacing:.06em;transition:border-color .2s,background .2s;}
-.h-name-pill:hover{border-color:rgba(255,107,43,.4);background:rgba(255,107,43,.06);}
+.h-name-pill:hover{border-color:rgba(201,163,92,.4);background:rgba(201,163,92,.06);}
 
 .hero::after{
   content:'';
   position:absolute;
   top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(255,107,43,.4),transparent);
+  background:linear-gradient(90deg,transparent,rgba(201,163,92,.4),transparent);
   z-index:3;
 }
 .scr{position:absolute;bottom:32px;left:64px;z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
-.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(255,107,43,.45);text-transform:uppercase}
+.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(201,163,92,.45);text-transform:uppercase}
 .scr-ln{width:40px;height:1px;background:linear-gradient(to right,var(--acc),transparent)}
 
 @media(max-width:900px){
@@ -68,9 +68,9 @@
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
 .sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
 .sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,107,43,.05),transparent);opacity:0;transition:opacity .3s}
+.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,92,.05),transparent);opacity:0;transition:opacity .3s}
 .sc-card:hover::after{opacity:1}
-.sc-n{font-family:'Bebas Neue',sans-serif;font-size:76px;line-height:1;color:rgba(255,107,43,.07);margin-bottom:-18px}
+.sc-n{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;color:rgba(201,163,92,.07);margin-bottom:-18px}
 .sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
 .sc-d{font-size:13px;line-height:1.85;color:rgba(245,242,238,.5);position:relative;z-index:1}
 .sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
@@ -80,13 +80,13 @@
 .w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
 .proc-sec{padding:140px 52px}
 .res-sec{padding:140px 52px;position:relative}
-.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,107,43,.025);pointer-events:none;line-height:1}
+.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Cormorant Garamond',serif;font-size:180px;color:rgba(201,163,92,.025);pointer-events:none;line-height:1}
 .svc-sec{padding:140px 52px}
 
 /* ── SHORT FORM MARQUEE ── */
 .sf-sec{padding:80px 0;background:var(--sur);overflow:hidden}
 .sf-header{padding:0 64px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
-.sf-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:1.05;color:var(--wht);margin-bottom:10px}
+.sf-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);line-height:1.05;color:var(--wht);margin-bottom:10px}
 .sf-acc{color:var(--acc)}
 .sf-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:400px;line-height:1.7}
 .sf-cta{padding:0 64px;margin-top:44px;display:flex;justify-content:center}
@@ -108,10 +108,10 @@
 .pod-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
 .pod-info{display:flex;flex-direction:column;gap:18px}
 .pod-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase}
-.pod-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,48px);line-height:1.05;color:var(--wht)}
+.pod-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);line-height:1.05;color:var(--wht)}
 .pod-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.8}
 .pod-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--bdr)}
-.pod-stat-n{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--acc);line-height:1}
+.pod-stat-n{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--acc);line-height:1}
 .pod-stat-l{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
 
 @media(max-width:900px){
@@ -126,14 +126,14 @@
 .logo-sec{padding:56px 64px;background:var(--bg);border-bottom:1px solid var(--bdr)}
 .logo-lbl{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-bottom:32px}
 .logo-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.logo-pill{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:rgba(255,255,255,.4);border:1px solid var(--bdr);padding:13px 26px;transition:color .25s,border-color .25s}
-.logo-pill:hover{color:var(--wht);border-color:rgba(255,107,43,.35)}
+.logo-pill{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:1px;color:rgba(255,255,255,.4);border:1px solid var(--bdr);padding:13px 26px;transition:color .25s,border-color .25s}
+.logo-pill:hover{color:var(--wht);border-color:rgba(201,163,92,.35)}
 
 /* ── PROBLEMS WE SOLVE ── */
 .prob-sec{padding:140px 52px;background:var(--sur)}
 .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mut);margin-top:64px}
 .prob-card{background:var(--bg);padding:44px 44px;display:flex;gap:24px;align-items:flex-start}
-.prob-x{font-family:'Bebas Neue',sans-serif;font-size:34px;color:rgba(255,107,43,.35);flex-shrink:0;line-height:1}
+.prob-x{font-family:'Cormorant Garamond',serif;font-size:34px;color:rgba(201,163,92,.35);flex-shrink:0;line-height:1}
 .prob-ttl{font-size:17px;font-weight:800;margin-bottom:10px}
 .prob-d{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.5)}
 
@@ -142,38 +142,38 @@
 .dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--mut);margin-top:64px}
 .dept-card{background:var(--bg);padding:36px 18px;text-align:center;transition:background .3s}
 .dept-card:hover{background:#0f0f11}
-.dept-ic{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--acc);margin-bottom:14px}
+.dept-ic{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--acc);margin-bottom:14px}
 .dept-role{font-size:12px;font-weight:700;letter-spacing:.01em;line-height:1.4}
 
 /* ── REPURPOSING WHEEL ── */
 .wheel-sec{padding:160px 52px;background:var(--sur);overflow:hidden}
 .wheel-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:24px}
 .wheel-stage{position:relative;width:100%;aspect-ratio:1;max-width:460px;margin:0 auto}
-.wheel-ring{position:absolute;inset:0;border:1px dashed rgba(255,107,43,.28);border-radius:50%;animation:spin 34s linear infinite}
+.wheel-ring{position:absolute;inset:0;border:1px dashed rgba(201,163,92,.28);border-radius:50%;animation:spin 34s linear infinite}
 .wheel-ring2{position:absolute;inset:13%;border:1px solid rgba(255,255,255,.07);border-radius:50%;animation:spinRev2 50s linear infinite}
-.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 70px rgba(255,107,43,.45);z-index:3}
-.wheel-hub b{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;line-height:1.1}
+.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 70px rgba(201,163,92,.45);z-index:3}
+.wheel-hub b{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;line-height:1.1}
 .wheel-hub span{font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.85);letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
 .wheel-node{position:absolute;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:var(--bg);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--wht);text-align:center;padding:6px;z-index:2;transition:border-color .25s,color .25s}
-.wheel-node:hover{border-color:rgba(255,107,43,.5);color:var(--acc)}
+.wheel-node:hover{border-color:rgba(201,163,92,.5);color:var(--acc)}
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes spinRev2{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
 .wheel-info{display:flex;flex-direction:column;gap:20px}
 
 /* ── SPOTLIGHT ── */
-.spot-sec{padding:120px 52px;background:linear-gradient(135deg,rgba(255,107,43,.08),rgba(12,12,14,1) 60%);border-top:1px solid rgba(255,107,43,.15);border-bottom:1px solid rgba(255,107,43,.15);position:relative}
+.spot-sec{padding:120px 52px;background:linear-gradient(135deg,rgba(201,163,92,.08),rgba(12,12,14,1) 60%);border-top:1px solid rgba(201,163,92,.15);border-bottom:1px solid rgba(201,163,92,.15);position:relative}
 .spot-inner{max-width:760px}
-.spot-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,107,43,.3);padding:6px 16px;margin-bottom:24px}
-.spot-ttl{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,5vw,68px);line-height:1.05;margin-bottom:20px;color:#fff}
+.spot-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(201,163,92,.3);padding:6px 16px;margin-bottom:24px}
+.spot-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,68px);line-height:1.05;margin-bottom:20px;color:#fff}
 .spot-d{font-size:15px;line-height:1.85;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:600px}
 
 /* ── TIER CARDS ── */
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
 .tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative}
 .tier-card.feat{background:#0f0f11}
-.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#fff;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px}
+.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px}
 .tier-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
-.tier-ttl{font-family:'Bebas Neue',sans-serif;font-size:34px;color:#fff;margin-bottom:12px}
+.tier-ttl{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;margin-bottom:12px}
 .tier-for{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:28px}
 .tier-feats{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
 .tier-feats li{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start}
@@ -181,16 +181,16 @@
 
 /* ── THE GOAL ── */
 .goal-sec{padding:160px 52px;text-align:center;background:var(--sur)}
-.goal-txt{max-width:900px;margin:0 auto;font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4.2vw,54px);line-height:1.25;color:rgba(255,255,255,.92)}
-.goal-txt .hi{color:var(--acc)}
-.goal-txt .ol{-webkit-text-stroke:1.5px var(--wht);color:transparent}
+.goal-txt{max-width:900px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.2vw,54px);line-height:1.3;color:rgba(255,255,255,.92)}
+.goal-txt .hi{color:var(--acc);font-style:italic}
+.goal-txt .ol{color:var(--wht);font-style:normal}
 
 /* ── FAQ ── */
 .faq-sec{padding:140px 52px;max-width:900px;margin:0 auto}
 .faq-item{border-bottom:1px solid var(--bdr);padding:28px 0}
 .faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17px;font-weight:800;color:#fff}
 .faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--acc);transition:transform .3s;flex-shrink:0}
+.faq-item summary::after{content:'+';font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--acc);transition:transform .3s;flex-shrink:0}
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-a{font-size:14px;line-height:1.85;color:rgba(255,255,255,.55);margin-top:16px;max-width:700px}
 
@@ -237,7 +237,7 @@
      NAV — Edit links here if you add pages
      ============================================================ -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW MEDIA HOUSE<span style="color:#ff6b2b">.</span></a>
+  <a href="index.html" class="n-logo">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>
@@ -362,10 +362,10 @@
 <section style="padding:80px 0;background:#0c0c0e;overflow:hidden;border-top:1px solid rgba(255,255,255,.07)">
   <div class="mob-hd mob-px" style="padding:0 64px;margin-bottom:40px;display:flex;justify-content:space-between;align-items:flex-end">
     <div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px">Curated Short Form Content</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1;color:#fff">Content That <span style="-webkit-text-stroke:1.5px #fff;color:transparent">Converts</span></h2>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px">Curated Short Form Content</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);line-height:1;color:#fff">Content That <span style="color:#c9a35c;font-style:italic">Converts</span></h2>
     </div>
-    <a href="/work" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.1);padding:12px 20px;white-space:nowrap;transition:border-color .2s,color .2s" onmouseover="this.style.borderColor='rgba(255,107,43,.4)';this.style.color='#ff6b2b'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.4)'">View All Work →</a>
+    <a href="/work" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.1);padding:12px 20px;white-space:nowrap;transition:border-color .2s,color .2s" onmouseover="this.style.borderColor='rgba(201,163,92,.4)';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.4)'">View All Work →</a>
   </div>
 
   <div style="overflow:hidden;width:100%">
@@ -429,37 +429,37 @@
 <section class="mob-sec" style="padding:80px 64px;background:#141416;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)">
   <div class="mob-hd" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
     <div>
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px">Launch &amp; Product Storytelling</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:1;color:#fff">Built For <span style="-webkit-text-stroke:1.5px #fff;color:transparent">Startups and Funds</span></h2>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px">Launch &amp; Product Storytelling</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,64px);line-height:1;color:#fff">Built For <span style="color:#c9a35c;font-style:italic">Startups and Funds</span></h2>
     </div>
-    <a href="/work" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.1);padding:12px 20px;transition:border-color .2s,color .2s;white-space:nowrap" onmouseover="this.style.borderColor='rgba(255,107,43,.4)';this.style.color='#ff6b2b'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.4)'">View All Work →</a>
+    <a href="/work" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.1);padding:12px 20px;transition:border-color .2s,color .2s;white-space:nowrap" onmouseover="this.style.borderColor='rgba(201,163,92,.4)';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.color='rgba(255,255,255,.4)'">View All Work →</a>
   </div>
 
   <div class="mob-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
 
-    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(255,107,43,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
+    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(201,163,92,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
       <iframe src="https://fast.wistia.net/embed/iframe/737zf4a5ue?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
     </div>
 
-    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(255,107,43,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
+    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(201,163,92,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
       <iframe src="https://fast.wistia.net/embed/iframe/16o66aqxfu?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
     </div>
 
-    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(255,107,43,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
+    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(201,163,92,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
       <iframe src="https://fast.wistia.net/embed/iframe/crcr81oeg6?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
     </div>
 
-    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(255,107,43,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
+    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(201,163,92,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
       <iframe src="https://fast.wistia.net/embed/iframe/x8kxs06p0s?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
     </div>
 
-    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(255,107,43,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
+    <div style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s,border-color .3s" onmouseover="this.style.transform='translateY(-6px) scale(1.015)';this.style.boxShadow='0 28px 60px rgba(0,0,0,.65)';this.style.borderColor='rgba(201,163,92,.25)'" onmouseout="this.style.transform='';this.style.boxShadow='';this.style.borderColor='rgba(255,255,255,.06)'">
       <iframe src="https://fast.wistia.net/embed/iframe/d58oohs551?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
     </div>
 
     <!-- View all work card -->
-    <a href="/work" style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(255,107,43,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-decoration:none;transition:background .3s,border-color .3s" onmouseover="this.style.background='rgba(255,107,43,.08)';this.style.borderColor='rgba(255,107,43,.4)'" onmouseout="this.style.background='#1a1a1e';this.style.borderColor='rgba(255,107,43,.2)'">
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#ff6b2b;line-height:1">View All Work</div>
+    <a href="/work" style="position:relative;border-radius:12px;overflow:hidden;background:#1a1a1e;aspect-ratio:16/9;border:1px solid rgba(201,163,92,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-decoration:none;transition:background .3s,border-color .3s" onmouseover="this.style.background='rgba(201,163,92,.08)';this.style.borderColor='rgba(201,163,92,.4)'" onmouseout="this.style.background='#1a1a1e';this.style.borderColor='rgba(201,163,92,.2)'">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:32px;color:#c9a35c;line-height:1">View All Work</div>
       <div style="font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase">Short Form · Podcast · SaaS →</div>
     </a>
 
@@ -473,12 +473,12 @@
 <section class="mob-sec" style="padding:100px 64px;background:#0c0c0e;overflow:hidden;position:relative">
 
   <!-- Background grid lines -->
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,43,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,43,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,163,92,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,163,92,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
 
   <!-- Center text -->
   <div style="text-align:center;position:relative;z-index:2;margin-bottom:72px">
-    <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px">Problems We Solve</div>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,7vw,96px);line-height:.95;color:#fff">You're Building The <span style="color:#ff6b2b">Product.</span><br>We Build The <span style="-webkit-text-stroke:1.5px #fff;color:transparent">Story.</span></h2>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px">Problems We Solve</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,96px);line-height:.95;color:#fff">You're Building The <span style="color:#c9a35c;font-style:italic">Product.</span><br>We Build The <span style="color:#c9a35c;font-style:italic">Story.</span></h2>
     <p style="font-size:16px;color:rgba(255,255,255,.5);max-width:420px;margin:20px auto 0;line-height:1.75">We become the media team you don't have time to hire. You focus on the product and the raise. We handle everything that gets it seen.</p>
   </div>
 
@@ -486,36 +486,36 @@
   <div class="mob-grid-2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1e1e22;position:relative;z-index:2">
 
     <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">⏰</div>
+      <div style="width:52px;height:52px;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">⏰</div>
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 01</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,163,92,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 01</div>
         <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">You're heads-down building — and nobody outside your cap table knows it</div>
         <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Between product, hiring, and the raise, storytelling never wins the priority fight. Great work stays invisible.</div>
       </div>
     </div>
 
     <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🚀</div>
+      <div style="width:52px;height:52px;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🚀</div>
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 02</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,163,92,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 02</div>
         <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Your launch has one shot — and no in-house team to produce it</div>
         <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Product Hunt day, funding announcement, the demo that closes the round — these moments don't get a second take.</div>
       </div>
     </div>
 
     <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🎯</div>
+      <div style="width:52px;height:52px;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🎯</div>
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 03</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,163,92,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 03</div>
         <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">You need investor-grade storytelling, not another Canva deck</div>
         <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">A polished narrative signals you can execute. A generic explainer video signals the opposite — to investors and customers both.</div>
       </div>
     </div>
 
     <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="width:52px;height:52px;background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">👻</div>
+      <div style="width:52px;height:52px;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">👻</div>
       <div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:11px;color:rgba(255,107,43,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 04</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:rgba(201,163,92,.5);letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px">Problem 04</div>
         <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Every hour on content is an hour not spent on product or the raise</div>
         <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">You could out-explain any competitor in a room. Online, a founder with half your traction and a content system is winning the attention you need.</div>
       </div>
@@ -524,9 +524,9 @@
   </div>
 
   <!-- Solution strip -->
-  <div class="mob-solve-strip" style="margin-top:2px;background:#ff6b2b;padding:32px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:2">
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,36px);color:#fff;line-height:1">We solve all four. Done for you. Starting day one.</div>
-    <a href="https://cal.com/inflowmediahouse/30min" style="background:#fff;color:#ff6b2b;padding:14px 28px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;font-family:'Syne',sans-serif;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='#f5f2ee'" onmouseout="this.style.background='#fff'">Book a Call</a>
+  <div class="mob-solve-strip" style="margin-top:2px;background:#c9a35c;padding:32px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:2">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);color:#fff;line-height:1">We solve all four. Done for you. Starting day one.</div>
+    <a href="https://cal.com/inflowmediahouse/30min" style="background:#fff;color:#c9a35c;padding:14px 28px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='#f5f2ee'" onmouseout="this.style.background='#fff'">Book a Call</a>
   </div>
 
 </section>
@@ -540,18 +540,18 @@
 
         <!-- SVG rings -->
         <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 460 460">
-          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(255,107,43,.12)" stroke-width="1" stroke-dasharray="6 12"/>
-          <circle cx="230" cy="230" r="130" fill="none" stroke="rgba(255,107,43,.07)" stroke-width="1" stroke-dasharray="4 10"/>
+          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(201,163,92,.12)" stroke-width="1" stroke-dasharray="6 12"/>
+          <circle cx="230" cy="230" r="130" fill="none" stroke="rgba(201,163,92,.07)" stroke-width="1" stroke-dasharray="4 10"/>
         </svg>
 
         <!-- Center circle -->
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:#ff6b2b;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;box-shadow:0 0 80px rgba(255,107,43,.5)">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:52px;color:#fff;line-height:1">1</div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:#c9a35c;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;box-shadow:0 0 80px rgba(201,163,92,.5)">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#fff;line-height:1">1</div>
           <div style="font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.7);letter-spacing:.14em;text-transform:uppercase">Recording</div>
         </div>
 
         <!-- INSTAGRAM — top center (0deg) -->
-        <div style="position:absolute;top:calc(50% - 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% - 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig1)" stroke-width="2"/>
             <circle cx="12" cy="12" r="4" stroke="url(#ig1)" stroke-width="2"/>
@@ -562,7 +562,7 @@
         </div>
 
         <!-- TIKTOK — top right (60deg) -->
-        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.33 6.33 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
           </svg>
@@ -570,7 +570,7 @@
         </div>
 
         <!-- YOUTUBE SHORTS — bottom right (120deg) -->
-        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000">
             <path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/>
           </svg>
@@ -578,7 +578,7 @@
         </div>
 
         <!-- LINKEDIN — bottom center (180deg) -->
-        <div style="position:absolute;top:calc(50% + 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% + 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2">
             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
           </svg>
@@ -586,7 +586,7 @@
         </div>
 
         <!-- X / TWITTER — bottom left (240deg) -->
-        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.622 5.905-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
@@ -594,7 +594,7 @@
         </div>
 
         <!-- YOUTUBE LONG-FORM — top left (300deg) -->
-        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(255,107,43,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
+        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
           <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000">
             <path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/>
           </svg>
@@ -606,15 +606,15 @@
 
     <!-- RIGHT — text -->
     <div style="display:flex;flex-direction:column;gap:24px">
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.22em;text-transform:uppercase">One Recording. Every Platform.</div>
-      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,6vw,80px);line-height:.95;color:#fff">High-Level <span style="-webkit-text-stroke:1.5px #fff;color:transparent">Repurposing.</span></h2>
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase">One Recording. Every Platform.</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,80px);line-height:.95;color:#fff">High-Level <span style="color:#c9a35c;font-style:italic">Repurposing.</span></h2>
       <p style="font-size:16px;color:rgba(255,255,255,.55);line-height:1.8;max-width:440px">One recording session becomes weeks of content. We cut every session into the format each platform rewards — vertical, horizontal, captioned, native — so your one hour on camera compounds into consistent presence everywhere your audience scrolls.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-        <div style="background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.1em;text-transform:uppercase">30+ Clips Per Episode</div>
-        <div style="background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.1em;text-transform:uppercase">6 Platforms</div>
-        <div style="background:rgba(255,107,43,.1);border:1px solid rgba(255,107,43,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#ff6b2b;letter-spacing:.1em;text-transform:uppercase">Zero Extra Work</div>
+        <div style="background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.1em;text-transform:uppercase">30+ Clips Per Episode</div>
+        <div style="background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.1em;text-transform:uppercase">6 Platforms</div>
+        <div style="background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.1em;text-transform:uppercase">Zero Extra Work</div>
       </div>
-      <a href="/work" style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;color:#ff6b2b;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,107,43,.3);padding:14px 24px;width:fit-content;transition:background .2s" onmouseover="this.style.background='rgba(255,107,43,.1)'" onmouseout="this.style.background='transparent'">See Repurposed Content →</a>
+      <a href="/work" style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;color:#c9a35c;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,163,92,.3);padding:14px 24px;width:fit-content;transition:background .2s" onmouseover="this.style.background='rgba(201,163,92,.1)'" onmouseout="this.style.background='transparent'">See Repurposed Content →</a>
     </div>
 
   </div>
@@ -754,7 +754,7 @@
   </div>
 
   <div style="text-align:center;margin-top:52px">
-    <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#ff6b2b';this.style.color='#ff6b2b'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View Full Case Studies →</a>
+    <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#c9a35c';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View Full Case Studies →</a>
   </div>
 </section>
 
@@ -811,7 +811,7 @@
 <footer>
   <div class="ft">
     <div>
-      <div class="f-log">INFLOW MEDIA HOUSE<span style="color:#ff6b2b">.</span></div>
+      <div class="f-log">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></div>
       <p class="f-tag">Storytelling and media partners for startups, founders, and venture-backed teams.</p>
     </div>
     <div class="f-col"><h4>Services</h4><ul>
@@ -846,14 +846,14 @@
   document.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mo.x=e.clientX-r.left;mo.y=e.clientY-r.top});
   class P{
     constructor(){this.r()}
-    r(){this.x=Math.random()*W;this.y=Math.random()*H;this.sz=Math.random()*1.4+.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.35+.08;const v=Math.random();this.c=v>.75?'#ff6b2b':v>.5?'#ffaa5c':'#f5f2ee'}
+    r(){this.x=Math.random()*W;this.y=Math.random()*H;this.sz=Math.random()*1.4+.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.35+.08;const v=Math.random();this.c=v>.75?'#c9a35c':v>.5?'#e0c07f':'#f5f2ee'}
     tick(){const dx=mo.x-this.x,dy=mo.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){this.vx-=dx/d*.07;this.vy-=dy/d*.07}this.vx*=.98;this.vy*=.98;this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}
     draw(){cx.globalAlpha=this.a;cx.fillStyle=this.c;cx.beginPath();cx.arc(this.x,this.y,this.sz,0,Math.PI*2);cx.fill()}
   }
   for(let i=0;i<80;i++)pts.push(new P());
-  function grid(){cx.globalAlpha=.008;cx.strokeStyle='#ff6b2b';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
-  function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#ff6b2b';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
-  function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(255,107,43,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
+  function grid(){cx.globalAlpha=.008;cx.strokeStyle='#c9a35c';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
+  function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#c9a35c';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
+  function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(201,163,92,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
 })();
 
