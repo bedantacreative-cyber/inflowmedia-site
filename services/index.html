@@ -24,8 +24,9 @@
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
 .sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
 .sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,92,.05),transparent);opacity:0;transition:opacity .3s}
+.sc-card::after{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.28),transparent 65%)}
 .sc-card:hover::after{opacity:1}
+.sc-card > *{position:relative;z-index:1}
 .sc-n{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;color:rgba(201,163,92,.07);margin-bottom:-18px}
 .sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
 .sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
@@ -73,7 +74,7 @@
   <div class="h-con">
     <p class="h-eye">What We Do</p>
     <h1 class="h-ttl"><span class="ol">Media Built For</span> <span class="hi">Startups and Funds.</span></h1>
-    <p class="h-sub">Three ways to work with us — from an ongoing founder-led content strategy to podcast distribution and custom builds. Pick the one that matches where you are.</p>
+    <p class="h-sub">Three ways to work with us — an ongoing founder-led content strategy, podcast systems and distribution, or a launch film for the moment you only get once. Pick the one that matches where you are.</p>
   </div>
 </section>
 
@@ -97,11 +98,11 @@
       <div class="sc-tag">Explore Service</div>
     </a>
 
-    <!-- Service 3 — custom scoping call -->
+    <!-- Service 3 — product launch -->
     <a href="https://cal.com/inflowmediahouse/30min" class="sc-card rv" style="transition-delay:.3s">
       <div class="sc-n">03</div>
-      <h3 class="sc-ttl">Custom Build</h3>
-      <p class="sc-d">For teams needing a volume, format mix, or scope outside the standard systems. Free strategy call — we tell you exactly what fits your goals, no obligation.</p>
+      <h3 class="sc-ttl">Product Launch Films and Motion Graphics</h3>
+      <p class="sc-d">For SaaS founders and startups who need a launch video that actually converts. Trailers, explainers, and motion graphics built for high-stakes launches.</p>
       <div class="sc-tag">Book a Call</div>
     </a>
 
@@ -145,5 +146,14 @@
 </footer>
 
 <script src="../shared.js"></script>
+<script>
+document.querySelectorAll('.sc-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
+</script>
 </body>
 </html>

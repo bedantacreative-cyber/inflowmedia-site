@@ -162,9 +162,12 @@
 
 /* ── TIER CARDS ── */
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative}
+.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .tier-card.feat{background:#0f0f11}
-.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px}
+.tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.28),transparent 65%)}
+.tier-card:hover::before{opacity:1}
+.tier-card > *{position:relative;z-index:1}
+.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;z-index:2}
 .tier-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
 .tier-ttl{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;margin-bottom:12px}
 .tier-for{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:28px}
@@ -251,10 +254,11 @@
   <div class="h-con">
     <p class="h-eye">Storytelling &amp; Media Partners for Startups and Founders</p>
     <h1 class="h-ttl">
-      <span class="ol">The Story</span> Behind<br>
-      Startups <span class="hi">Worth Watching.</span>
+      Content Infrastructure for<br>
+      <span class="ol">Operators in</span><br>
+      <span class="hi">Tech and Venture.</span>
     </h1>
-    <p class="h-sub">We produce launch films, podcast content, and founder-led media that make investors lean in and customers pay attention — before, during, and after your raise.</p>
+    <p class="h-sub">We build content systems and distribution, produce podcasts, and craft launch films — so the right people find you before you have to find them.</p>
     <div class="h-ctas">
       <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
       <a href="/work" class="btn-g">See Our Work</a>
@@ -284,50 +288,52 @@
      ============================================================ -->
 <section class="svc-sec" id="services">
   <div class="s-lbl">What We Do</div>
-  <h2 class="s-ttl rv" style="margin-bottom:64px">Three Ways To <span class="ol">Work With Us.</span></h2>
+  <h2 class="s-ttl rv" style="margin-bottom:64px">What We <span class="ol">Build</span> For You.</h2>
 
-  <div class="tier-grid">
+<div class="tier-grid">
 
-    <div class="tier-card rv">
-      <div class="tier-n">01 — Strategy</div>
-      <h3 class="tier-ttl">Founder-Led Content Strategy</h3>
-      <p class="tier-for">For founders who want to become the recognizable voice of their company — not just visible on launch day.</p>
-      <ul class="tier-feats">
-        <li>Content strategy &amp; narrative built around you</li>
-        <li>Scripts written for every appearance</li>
-        <li>Ongoing production — a system, not a sprint</li>
-        <li>Positions you as the authority investors trust</li>
-      </ul>
-      <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
-    </div>
-
-    <div class="tier-card feat rv" style="transition-delay:.15s">
-      <div class="tier-tag">Most Popular</div>
-      <div class="tier-n">02 — Grow</div>
-      <h3 class="tier-ttl">Podcast &amp; Distribution</h3>
-      <p class="tier-for">For founders sitting on hours of unused podcast or interview footage.</p>
-      <ul class="tier-feats">
-        <li>Podcast post-production, full episode</li>
-        <li>30+ short-form clips delivered monthly</li>
-        <li>Multi-platform distribution strategy</li>
-        <li>Guest pipeline production support</li>
-      </ul>
-      <a href="/podcast" class="btn-p" style="text-align:center">Explore Service</a>
-    </div>
-
-    <div class="tier-card rv" style="transition-delay:.3s">
-      <div class="tier-n">03 — Scale</div>
-      <h3 class="tier-ttl">Not Sure Which Fits?</h3>
-      <p class="tier-for">For teams needing a volume, format mix, or scope outside the standard systems.</p>
-      <ul class="tier-feats">
-        <li>Free strategy call, no obligation</li>
-        <li>Custom volume &amp; format scoping</li>
-        <li>We tell you exactly what fits your goals</li>
-      </ul>
-      <a href="https://cal.com/inflowmediahouse/30min" class="btn-g" style="text-align:center">Book a Call</a>
-    </div>
-
+  <!-- CARD 1 — Founder-Led Content -->
+  <div class="tier-card rv">
+    <div class="tier-n">01 — Founder Content</div>
+    <h3 class="tier-ttl">Founder-Led Content System and Distribution</h3>
+    <p class="tier-for">For founders who want to become the recognisable voice in their space — not just visible on launch day. We handle strategy, scripting, production, and distribution.</p>
+    <ul class="tier-feats">
+      <li>Content strategy and narrative built around you</li>
+      <li>Scripts written for every piece</li>
+      <li>Full production and multi-platform distribution</li>
+      <li>Positions you as the authority investors and clients trust</li>
+    </ul>
+    <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
   </div>
+
+  <!-- CARD 2 — Podcast System -->
+  <div class="tier-card rv" style="transition-delay:.15s">
+    <div class="tier-n">02 — Podcast</div>
+    <h3 class="tier-ttl">Podcast System and Distribution for VCs and GPs</h3>
+    <p class="tier-for">For VCs, GPs, and operators sitting on unused podcast footage. We turn every episode into a full content engine — clips, distribution, and audience growth.</p>
+    <ul class="tier-feats">
+      <li>Full podcast post-production, every episode</li>
+      <li>30+ short-form clips distributed monthly</li>
+      <li>Multi-platform distribution strategy</li>
+      <li>Guest pipeline production support</li>
+    </ul>
+    <a href="/podcast" class="btn-g" style="text-align:center">Explore Service</a>
+  </div>
+
+  <!-- CARD 3 — Product Launch -->
+  <div class="tier-card rv" style="transition-delay:.3s">
+    <div class="tier-n">03 — Launch</div>
+    <h3 class="tier-ttl">Product Launch Films and Motion Graphics</h3>
+    <p class="tier-for">For SaaS founders and startups who need a launch video that actually converts. We produce trailers, explainers, and motion graphics built for high-stakes launches.</p>
+    <ul class="tier-feats">
+      <li>Product launch trailers and demo videos</li>
+      <li>Motion graphics and SaaS explainers</li>
+      <li>Custom scope — we fit the format to the launch</li>
+    </ul>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p" style="text-align:center">Book a Call</a>
+  </div>
+
+</div>
 </section>
 
 <!-- ============================================================
@@ -699,6 +705,15 @@
   function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(201,163,92,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
   (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
 })();
+
+/* Cursor-follow glow on tier cards */
+document.querySelectorAll('.tier-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
 
 </script>
 <script src="shared.js"></script>
