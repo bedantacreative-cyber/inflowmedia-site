@@ -26,11 +26,11 @@
 }
 #hCv{position:absolute;inset:0;z-index:0}
 
-.h-con{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:760px;}
+.h-con{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:980px;}
 .h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fup .8s forwards .2s;}
-.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,6.2vw,88px);line-height:1.1;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
-.h-ttl .ol{color:var(--wht);font-style:normal}
-.h-ttl .hi{color:var(--acc);font-style:italic}
+.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4.4vw,60px);line-height:1.2;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
+.h-ttl .ol{color:var(--wht);font-style:normal;display:block;white-space:nowrap}
+.h-ttl .hi{color:var(--acc);font-style:italic;display:block;white-space:nowrap}
 .h-sub{max-width:520px;margin:28px auto 0;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
 .h-ctas{margin-top:44px;display:flex;gap:14px;align-items:center;justify-content:center;opacity:0;animation:fup .9s forwards .8s;}
 
@@ -55,7 +55,8 @@
 
 @media(max-width:900px){
   .hero{padding:110px 24px 70px}
-  .h-ttl{font-size:clamp(40px,10vw,64px)}
+  .h-ttl{font-size:clamp(30px,7.5vw,48px)}
+  .h-ttl .ol,.h-ttl .hi{white-space:normal}
 }
 
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
@@ -254,11 +255,10 @@
   <div class="h-con">
     <p class="h-eye">Storytelling &amp; Media Partners for Startups and Founders</p>
     <h1 class="h-ttl">
-      Content Infrastructure for<br>
-      <span class="ol">Operators in</span><br>
-      <span class="hi">Tech and Venture.</span>
+      <span class="ol">Content Infrastructure for Operators</span><br>
+      <span class="hi">in Tech and Venture.</span>
     </h1>
-    <p class="h-sub">We build content systems and distribution, produce podcasts, and craft launch films — so the right people find you before you have to find them.</p>
+    <p class="h-sub">We run the full pipeline, from production through distribution, so what you make actually reaches the people worth reaching.</p>
     <div class="h-ctas">
       <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
       <a href="/work" class="btn-g">See Our Work</a>
@@ -586,20 +586,20 @@
 
   <div class="s-lbl">Track Record</div>
   <h2 class="s-ttl rv" style="margin-bottom:24px">Real Growth. <span class="ol">Zero Fluff.</span></h2>
-  <p class="rv" style="max-width:560px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:64px">We're early in our founder and startup work — most of our track record so far comes from building organic growth systems for content-led brands. The production quality and process are the same either way. Here's what that work has driven.</p>
+  <p class="rv" style="max-width:560px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:64px">Three years of building organic growth and brand presence, on repeatable systems, not one-off wins. Here's what that work has produced.</p>
 
   <div class="stats" style="margin-bottom:2px">
     <div class="st rv">
-      <div class="s-n"><span class="cnt" data-t="50">0</span>M<span class="ac">+</span></div>
-      <div class="s-l">Organic Views Generated</div>
+      <div class="s-n"><span class="cnt" data-t="200">0</span>M<span class="ac">+</span></div>
+      <div class="s-l">Views Generated</div>
     </div>
     <div class="st rv" style="transition-delay:.15s">
-      <div class="s-n"><span class="cnt" data-t="200">0</span><span class="ac">+</span></div>
-      <div class="s-l">Booked Calls Driven</div>
+      <div class="s-n"><span class="cnt" data-t="3000">0</span><span class="ac">+</span></div>
+      <div class="s-l">Videos Created</div>
     </div>
     <div class="st rv" style="transition-delay:.3s">
-      <div class="s-n">40<span class="ac">×</span></div>
-      <div class="s-l">Peak Follower Growth, 12 Months</div>
+      <div class="s-n"><span class="cnt" data-t="3">0</span><span class="ac">+</span></div>
+      <div class="s-l">Years in Brand Building</div>
     </div>
   </div>
 
@@ -675,7 +675,7 @@
     <div class="f-col"><h4>Connect</h4><ul>
       <!-- ✏️ EDIT: Your real social links -->
       <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
-      <li><a href="#" target="_blank">X / Twitter</a></li>
+      <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
       <li><a href="#" target="_blank">YouTube</a></li>
     </ul></div>
   </div>
