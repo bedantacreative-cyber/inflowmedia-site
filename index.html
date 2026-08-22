@@ -94,6 +94,9 @@
 }
 .sf-card{flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative;flex-shrink:0}
 .sf-card iframe{width:100%;height:100%;border:none;display:block}
+.sf-card wistia-player{width:100%;height:100%;display:block}
+.sf-card-label{position:absolute;bottom:0;left:0;right:0;padding:32px 12px 12px;background:linear-gradient(to top,rgba(12,12,14,.96) 0%,transparent 100%);pointer-events:none;z-index:2}
+.sf-card-tag{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.7);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);padding:3px 10px;border-radius:20px}
 
 /* ── PODCAST SECTION ── */
 .pod-sec{padding:80px 64px;background:var(--bg)}
@@ -309,6 +312,34 @@
 
   <div style="text-align:center;margin-top:52px">
     <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#c9a35c';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View Full Case Studies →</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     SHORT FORM VIDEOS — auto-scrolling marquee
+     ✏️ ADD VIDEOS: paste a .sf-card block inside .marquee-track below.
+       Tag the first 3 cards' .sf-card-tag as "Content Production".
+       For a seamless loop, duplicate the full set of cards once
+       (the track scrolls exactly -50%, so two copies = no visible seam).
+     ============================================================ -->
+<section class="sf-sec">
+  <div class="sf-header">
+    <div>
+      <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
+      <p class="sf-sub">A look at the content systems in motion.</p>
+    </div>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <!-- ✏️ Example card:
+      <div class="sf-card">
+        <script src="https://fast.wistia.com/embed/YOUR_ID.js" async type="module"></script>
+        <style>wistia-player[media-id='YOUR_ID']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/YOUR_ID/swatch'); display: block; filter: blur(5px); }</style>
+        <wistia-player media-id="YOUR_ID" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+      -->
+    </div>
   </div>
 </section>
 
