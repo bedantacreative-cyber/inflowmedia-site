@@ -67,6 +67,11 @@ body{cursor:none}
   border:none;
   display:block;
 }
+.sf-card .wistia-wrap wistia-player{
+  width:100%;
+  height:100%;
+  display:block;
+}
 
 /* Hover overlay label */
 .sf-label{
@@ -185,17 +190,35 @@ footer{padding:44px 64px;border-top:1px solid rgba(255,255,255,.07);display:flex
   <div class="sec-label">Curated Short Form Content</div>
   <h2 class="sec-ttl">Content That <span class="ol">Converts</span></h2>
 
+  <script src="https://fast.wistia.com/player.js" async></script>
+
   <div class="sf-grid">
 
-    <!-- ✏️ ADD NEW SHORT FORM VIDEOS HERE
-         Copy this block per video:
     <div class="sf-card rv">
       <div class="wistia-wrap">
-        <iframe src="https://fast.wistia.net/embed/iframe/YOUR_ID?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+        <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
+        <style>wistia-player[media-id='shkf73hlu3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shkf73hlu3/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
+        <wistia-player media-id="shkf73hlu3" aspect="0.5625"></wistia-player>
       </div>
-      <div class="sf-label"><span class="sf-tag">Your Tag</span></div>
     </div>
-    -->
+
+    <div class="sf-card rv" style="transition-delay:.07s">
+      <div class="wistia-wrap">
+        <script src="https://fast.wistia.com/embed/0z4hef9zy8.js" async type="module"></script>
+        <style>wistia-player[media-id='0z4hef9zy8']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/0z4hef9zy8/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
+        <wistia-player media-id="0z4hef9zy8" aspect="0.5625"></wistia-player>
+      </div>
+    </div>
+
+    <div class="sf-card rv" style="transition-delay:.14s">
+      <div class="wistia-wrap">
+        <script src="https://fast.wistia.com/embed/2vlj9l31yc.js" async type="module"></script>
+        <style>wistia-player[media-id='2vlj9l31yc']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2vlj9l31yc/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
+        <wistia-player media-id="2vlj9l31yc" aspect="0.5625"></wistia-player>
+      </div>
+    </div>
+
+    <!-- ✏️ ADD MORE SHORT FORM VIDEOS HERE — copy a .sf-card block above per video -->
 
   </div>
 </section>
