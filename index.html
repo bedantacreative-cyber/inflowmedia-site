@@ -329,16 +329,48 @@
       <p class="sf-sub">A look at the content systems in motion.</p>
     </div>
   </div>
+  <script src="https://fast.wistia.com/player.js" async></script>
   <div class="marquee-wrap">
     <div class="marquee-track">
-      <!-- ✏️ Example card:
+
+      <!-- set 1 -->
       <div class="sf-card">
-        <script src="https://fast.wistia.com/embed/YOUR_ID.js" async type="module"></script>
-        <style>wistia-player[media-id='YOUR_ID']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/YOUR_ID/swatch'); display: block; filter: blur(5px); }</style>
-        <wistia-player media-id="YOUR_ID" aspect="0.5625"></wistia-player>
+        <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
+        <style>wistia-player[media-id='shkf73hlu3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shkf73hlu3/swatch'); display: block; filter: blur(5px); }</style>
+        <wistia-player media-id="shkf73hlu3" aspect="0.5625"></wistia-player>
         <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
       </div>
-      -->
+      <div class="sf-card">
+        <script src="https://fast.wistia.com/embed/0z4hef9zy8.js" async type="module"></script>
+        <style>wistia-player[media-id='0z4hef9zy8']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/0z4hef9zy8/swatch'); display: block; filter: blur(5px); }</style>
+        <wistia-player media-id="0z4hef9zy8" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+      <div class="sf-card">
+        <script src="https://fast.wistia.com/embed/2vlj9l31yc.js" async type="module"></script>
+        <style>wistia-player[media-id='2vlj9l31yc']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2vlj9l31yc/swatch'); display: block; filter: blur(5px); }</style>
+        <wistia-player media-id="2vlj9l31yc" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+
+      <!-- set 2 (duplicate — required for the seamless -50% marquee loop) -->
+      <div class="sf-card" aria-hidden="true">
+        <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
+        <wistia-player media-id="shkf73hlu3" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+      <div class="sf-card" aria-hidden="true">
+        <script src="https://fast.wistia.com/embed/0z4hef9zy8.js" async type="module"></script>
+        <wistia-player media-id="0z4hef9zy8" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+      <div class="sf-card" aria-hidden="true">
+        <script src="https://fast.wistia.com/embed/2vlj9l31yc.js" async type="module"></script>
+        <wistia-player media-id="2vlj9l31yc" aspect="0.5625"></wistia-player>
+        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
+      </div>
+
+      <!-- ✏️ ADD MORE: paste new .sf-card blocks in BOTH set 1 and set 2 (duplicate), keeping them identical and in the same order, so the marquee loop stays seamless -->
     </div>
   </div>
 </section>
