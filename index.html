@@ -85,13 +85,8 @@
 .sf-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:400px;line-height:1.7}
 .sf-cta{padding:0 64px;margin-top:44px;display:flex;justify-content:center}
 
-.marquee-wrap{overflow:hidden;width:100%}
-.marquee-track{display:flex;gap:14px;width:max-content;animation:marqueeScroll 28s linear infinite}
-.marquee-track:hover{animation-play-state:paused}
-@keyframes marqueeScroll{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
+.marquee-wrap{width:100%;padding:0 64px}
+.marquee-track{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
 .sf-card{flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative;flex-shrink:0}
 .sf-card iframe{width:100%;height:100%;border:none;display:block}
 .sf-card wistia-player{width:100%;height:100%;display:block}
@@ -316,11 +311,8 @@
 </section>
 
 <!-- ============================================================
-     SHORT FORM VIDEOS — auto-scrolling marquee
+     SHORT FORM VIDEOS — static row, wraps on smaller screens
      ✏️ ADD VIDEOS: paste a .sf-card block inside .marquee-track below.
-       Tag the first 3 cards' .sf-card-tag as "Content Production".
-       For a seamless loop, duplicate the full set of cards once
-       (the track scrolls exactly -50%, so two copies = no visible seam).
      ============================================================ -->
 <section class="sf-sec">
   <div class="sf-header">
@@ -333,7 +325,6 @@
   <div class="marquee-wrap">
     <div class="marquee-track">
 
-      <!-- set 1 -->
       <div class="sf-card">
         <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
         <style>wistia-player[media-id='shkf73hlu3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shkf73hlu3/swatch'); display: block; filter: blur(5px); }</style>
@@ -353,24 +344,7 @@
         <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
       </div>
 
-      <!-- set 2 (duplicate — required for the seamless -50% marquee loop) -->
-      <div class="sf-card" aria-hidden="true">
-        <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
-        <wistia-player media-id="shkf73hlu3" aspect="0.5625"></wistia-player>
-        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
-      </div>
-      <div class="sf-card" aria-hidden="true">
-        <script src="https://fast.wistia.com/embed/0z4hef9zy8.js" async type="module"></script>
-        <wistia-player media-id="0z4hef9zy8" aspect="0.5625"></wistia-player>
-        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
-      </div>
-      <div class="sf-card" aria-hidden="true">
-        <script src="https://fast.wistia.com/embed/2vlj9l31yc.js" async type="module"></script>
-        <wistia-player media-id="2vlj9l31yc" aspect="0.5625"></wistia-player>
-        <div class="sf-card-label"><span class="sf-card-tag">Content Production</span></div>
-      </div>
-
-      <!-- ✏️ ADD MORE: paste new .sf-card blocks in BOTH set 1 and set 2 (duplicate), keeping them identical and in the same order, so the marquee loop stays seamless -->
+      <!-- ✏️ ADD MORE: paste new .sf-card blocks here -->
     </div>
   </div>
 </section>
