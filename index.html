@@ -86,8 +86,8 @@
 .sf-cta{padding:0 64px;margin-top:44px;display:flex;justify-content:center}
 
 .marquee-wrap{width:100%;padding:0 64px}
-.marquee-track{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.sf-card{flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative;flex-shrink:0}
+.marquee-track{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sf-card{aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative}
 .sf-card iframe{width:100%;height:100%;border:none;display:block}
 .sf-card wistia-player{width:100%;height:100%;display:block}
 .sf-card-label{position:absolute;bottom:0;left:0;right:0;padding:32px 12px 12px;background:linear-gradient(to top,rgba(12,12,14,.96) 0%,transparent 100%);pointer-events:none;z-index:2}
@@ -109,9 +109,13 @@
 @media(max-width:900px){
   .sf-header{padding:0 24px}
   .sf-cta{padding:0 24px}
-  .sf-card{flex:0 0 150px}
+  .marquee-wrap{padding:0 24px}
+  .marquee-track{grid-template-columns:repeat(2,1fr)}
   .pod-sec{padding:56px 24px}
   .pod-inner{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .marquee-track{grid-template-columns:1fr}
 }
 
 /* ── LOGO / TRUST WALL ── */
@@ -232,7 +236,7 @@
      NAV — Edit links here if you add pages
      ============================================================ -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></a>
+  <a href="index.html" class="n-logo">INFLOW<span style="color:#c9a35c">.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>
