@@ -24,7 +24,16 @@
   position:relative;
   overflow:hidden;
 }
-#hCv{position:absolute;inset:0;z-index:0}
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:
+    radial-gradient(680px 420px at 50% 0%, rgba(201,163,92,.10), transparent 70%),
+    radial-gradient(500px 500px at 88% 12%, rgba(201,163,92,.05), transparent 65%);
+  pointer-events:none;
+}
 
 .h-con{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:980px;}
 .h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fup .8s forwards .2s;}
@@ -163,7 +172,8 @@
 
 /* ── TIER CARDS ── */
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:background .35s}
+.tier-card:hover{background:#0d0d0f}
 .tier-card.feat{background:#0f0f11}
 .tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.28),transparent 65%)}
 .tier-card:hover::before{opacity:1}
@@ -250,7 +260,6 @@
      ✏️ EDIT: Change the 3 floating tags, headline, and sub-text
      ============================================================ -->
 <section class="hero">
-  <canvas id="hCv"></canvas>
 
   <div class="h-con">
     <p class="h-eye">Storytelling &amp; Media Partners for Startups and Founders</p>
@@ -309,6 +318,63 @@
 
   <div style="text-align:center;margin-top:52px">
     <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#c9a35c';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View Full Case Studies →</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     SHORT FORM VIDEOS MARQUEE
+     ============================================================ -->
+<section class="sf-sec">
+  <div class="sf-header">
+    <div>
+      <h2 class="sf-ttl">Curated <span class="sf-acc">Short Form</span> Content</h2>
+      <p class="sf-sub">Done-for-you short form videos built for coaches, founders, and growing brands.</p>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+
+      <div style="flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#1a1a1e;position:relative;flex-shrink:0">
+        <iframe src="https://fast.wistia.net/embed/iframe/0z4hef9zy8?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+
+      <!-- Duplicate set for seamless loop — do not remove -->
+      <div style="flex:0 0 200px;aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:#1a1a1e;position:relative;flex-shrink:0">
+        <iframe src="https://fast.wistia.net/embed/iframe/0z4hef9zy8?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/p15i9zxadm?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/tawm9x9m72?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/2v5xusf843?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/eis0xc0z6o?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+      <div class="sf-card">
+        <iframe src="https://fast.wistia.net/embed/iframe/9o3ne6hf6r?videoFoam=true&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&fitStrategy=fill" allow="fullscreen" allowfullscreen></iframe>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -652,26 +718,6 @@
 </footer>
 
 <script>
-/* Hero particle canvas — homepage only */
-(()=>{
-  const cv=document.getElementById('hCv'),cx=cv.getContext('2d');
-  let W,H,pts=[],mo={x:-999,y:-999};
-  const rs=()=>{W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight};
-  rs();window.addEventListener('resize',rs);
-  document.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mo.x=e.clientX-r.left;mo.y=e.clientY-r.top});
-  class P{
-    constructor(){this.r()}
-    r(){this.x=Math.random()*W;this.y=Math.random()*H;this.sz=Math.random()*1.4+.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.35+.08;const v=Math.random();this.c=v>.75?'#c9a35c':v>.5?'#e0c07f':'#f5f2ee'}
-    tick(){const dx=mo.x-this.x,dy=mo.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){this.vx-=dx/d*.07;this.vy-=dy/d*.07}this.vx*=.98;this.vy*=.98;this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}
-    draw(){cx.globalAlpha=this.a;cx.fillStyle=this.c;cx.beginPath();cx.arc(this.x,this.y,this.sz,0,Math.PI*2);cx.fill()}
-  }
-  for(let i=0;i<80;i++)pts.push(new P());
-  function grid(){cx.globalAlpha=.008;cx.strokeStyle='#c9a35c';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
-  function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#c9a35c';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
-  function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(201,163,92,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
-  (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
-})();
-
 /* Cursor-follow glow on tier cards */
 document.querySelectorAll('.tier-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{
