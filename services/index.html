@@ -21,7 +21,8 @@
 .sc-card::after{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(168,130,62,.12),transparent 65%)}
 .sc-card:hover::after{opacity:1}
 .sc-card > *{position:relative;z-index:1}
-.sc-n{font-family:var(--ff-d);font-weight:600;font-size:15px;color:var(--acc-ink);margin-bottom:18px}
+.sc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.sc-n{font-family:var(--ff-d);font-weight:600;font-size:14px;color:var(--fg3)}
 .sc-ttl{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.25;color:var(--fg);margin-bottom:12px}
 .sc-d{font-size:15px;line-height:1.7;color:var(--fg2);flex:1}
 .sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--fg)}
@@ -59,7 +60,7 @@
 
     <!-- Service 1 — links to founders page -->
     <a href="/founders" class="sc-card rv">
-      <div class="sc-n">01</div>
+      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div class="sc-n">01</div></div>
       <h3 class="sc-ttl">Founder-Led Content Strategy</h3>
       <p class="sc-d">For founders who want to become the recognizable voice of their company — not just visible on launch day. Strategy, scripting, and production built around your narrative, on an ongoing cadence.</p>
       <div class="sc-tag">Explore Service</div>
@@ -67,7 +68,7 @@
 
     <!-- Service 2 — links to podcast page -->
     <a href="/podcast" class="sc-card rv" style="transition-delay:.12s">
-      <div class="sc-n">02</div>
+      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8.5 22h7"/></svg></div><div class="sc-n">02</div></div>
       <h3 class="sc-ttl">Podcast &amp; Distribution</h3>
       <p class="sc-d">For founders sitting on hours of unused podcast or interview footage. Full episode post-production, 30+ short-form clips monthly, and a multi-platform distribution strategy.</p>
       <div class="sc-tag">Explore Service</div>
@@ -75,7 +76,7 @@
 
     <!-- Service 3 — product launch -->
     <a href="https://cal.com/inflowmediahouse/30min" class="sc-card rv" style="transition-delay:.24s">
-      <div class="sc-n">03</div>
+      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 6L3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M6.2 5.3l3.1 3.9M12.4 3.4l3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="sc-n">03</div></div>
       <h3 class="sc-ttl">Product Launch Films and Motion Graphics</h3>
       <p class="sc-d">For SaaS founders and startups who need a launch video that actually converts. Trailers, explainers, and motion graphics built for high-stakes launches.</p>
       <div class="sc-tag">Book a Call</div>
