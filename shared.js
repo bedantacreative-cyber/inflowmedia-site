@@ -1,5 +1,5 @@
 /* ============================================================
-   INFLOW MEDIA — SHARED JAVASCRIPT
+   INFLOW MEDIA: SHARED JAVASCRIPT
    Runs on every page. Don't touch unless you know JS.
    ============================================================ */
 
