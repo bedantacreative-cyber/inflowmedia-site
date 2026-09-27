@@ -4,117 +4,81 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#c9a35c">
+<meta name="theme-color" content="#FAFAFA">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Results — Real Growth, Real Numbers | Inflow Media House</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
-/* === HOMEPAGE-ONLY STYLES === */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 52px 88px;position:relative;overflow:hidden}
-#hCv{position:absolute;inset:0;z-index:0}
-.ftag{position:absolute;z-index:3;padding:9px 16px;border:1px solid var(--bdr);background:rgba(12,12,14,.78);backdrop-filter:blur(12px);font-family:'Space Mono',monospace;font-size:10px;color:rgba(245,242,238,.6);letter-spacing:.1em;animation:flt 7s ease-in-out infinite}
-.ftag.a{top:26%;right:10%;animation-delay:0s}
-.ftag.b{top:44%;right:21%;animation-delay:-2.5s}
-.ftag.c{top:34%;right:5%;animation-delay:-4.5s}
-.pip{display:inline-block;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-right:7px;vertical-align:middle}
-.h-con{position:relative;z-index:2}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
-.h-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(68px,11.5vw,185px);line-height:.9;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
-.h-ttl .ol{color:var(--acc);font-style:italic}
-.h-ttl .hi{color:var(--acc)}
-.h-sub{max-width:500px;margin-top:30px;font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);opacity:0;animation:fup .9s forwards .7s}
-.h-ctas{margin-top:48px;display:flex;gap:14px;align-items:center;opacity:0;animation:fup .9s forwards .9s}
-.scr{position:absolute;bottom:40px;right:52px;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fi 1s forwards 1.6s}
-.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;color:rgba(201,163,92,.5);writing-mode:vertical-rl;text-transform:uppercase}
-.scr-ln{width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--acc));animation:sp 2.2s ease-in-out infinite}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
-.sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,92,.05),transparent);opacity:0;transition:opacity .3s}
-.sc-card:hover::after{opacity:1}
-.sc-n{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;color:rgba(201,163,92,.07);margin-bottom:-18px}
-.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
-.sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
-.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
-.sc-tag::before{content:'→';transition:transform .2s}
-.sc-card:hover .sc-tag::before{transform:translateX(5px)}
-.w-sec{padding:140px 52px;background:var(--sur)}
-.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
-.proc-sec{padding:140px 52px}
-.res-sec{padding:140px 52px;position:relative}
-.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Cormorant Garamond',serif;font-size:180px;color:rgba(201,163,92,.025);pointer-events:none;line-height:1}
-.svc-sec{padding:140px 52px}
-</style>
-
-<style>
-  section, .w-sec, .res-sec, .svc-sec, .cta-sec {
-    padding-top: 120px;
-  }
+/* === RESULTS PAGE === */
+.page-top{padding-top:160px}
+.vt{display:grid;grid-template-columns:300px 1fr;overflow:hidden;margin-bottom:16px}
+.vt-vid{position:relative;aspect-ratio:9/16;background:#111}
+.vt-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+.vt-info{padding:48px;display:flex;flex-direction:column;gap:18px;justify-content:center;align-items:flex-start}
+.badge{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.25);border-radius:999px;padding:5px 14px}
+.vt-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.08;letter-spacing:-.03em;color:var(--fg)}
+.vt-d{font-size:15.5px;color:var(--fg2);line-height:1.7;max-width:520px}
+.vt-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--bdr);align-self:stretch}
+.vt-n{font-family:var(--ff-d);font-weight:600;font-size:34px;letter-spacing:-.03em;color:var(--acc);line-height:1}
+.vt-l{font-size:13px;color:var(--fg3);margin-top:6px}
+.rc.soon{opacity:.5;box-shadow:none;background:var(--mut)}
+.cs-vid{position:relative;aspect-ratio:9/16;width:100%;max-width:360px;margin:0 auto;border-radius:var(--r);overflow:hidden;background:#111;box-shadow:var(--sh-h)}
+.cs-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+@media(max-width:900px){
+  .page-top{padding-top:120px}
+  .vt{grid-template-columns:1fr}
+  .vt-vid{max-width:340px;width:100%;margin:24px auto 0;border-radius:var(--r);overflow:hidden}
+  .vt-info{padding:28px 24px}
+}
 </style>
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
-
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span style="color:#c9a35c">.</span></a>
+  <a href="/" class="n-logo">INFLOW<span>.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>
-    <li><a href="/results">Results</a></li>
-    <!-- Add more nav items here if needed -->
+    <li><a href="/results" class="active">Results</a></li>
   </ul>
-  <!-- ✏️ EDIT: Replace # with your Calendly link -->
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
-<section class="res-sec" id="results">
-  <div class="s-lbl">Social Proof</div>
-  <h2 class="s-ttl rv">What Clients <span class="ol">Say</span></h2>
+<section class="sec page-top" id="results">
+  <div class="sec-hd">
+    <div class="s-lbl">Social Proof</div>
+    <h1 class="s-ttl rv">What Clients <span class="ol">Say</span></h1>
+  </div>
 
-<div class="rv" style="margin-bottom:2px">
-  <div style="background:#141416;border:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:1fr 1.2fr;gap:0;overflow:hidden">
-    
-    <!-- Ben's video -->
-    <div style="position:relative;aspect-ratio:9/16;background:#1e1e22;max-height:500px">
+  <!-- Featured video testimonial -->
+  <div class="vt card rv">
+    <div class="vt-vid">
       <iframe
         src="https://fast.wistia.net/embed/iframe/7o3m8zv9tm?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=true&fullscreenButton=true&playbar=true"
         title="Ben Testimonial"
         allow="autoplay; fullscreen"
         allowtransparency="true"
         frameborder="0"
-        scrolling="no"
-        style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block">
+        scrolling="no">
       </iframe>
     </div>
-
-    <!-- Info side -->
-    <div style="padding:52px 48px;display:flex;flex-direction:column;gap:20px;justify-content:center">
-      <div style="font-family:'Space Mono',monospace;font-size:9px;color:#c9a35c;letter-spacing:.16em;text-transform:uppercase;background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.25);padding:4px 12px;display:inline-block;width:fit-content">Video Testimonial · Fat Loss Coach · UK</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);line-height:1.05;color:#fff">What Ben Clark Said About Working With Us</div>
-      <div style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.85">Ben Clark is a UK-based fat loss coach targeting professional men. Watch his unfiltered take on what working with Inflow Media House actually looked like.</div>
-      <div style="display:flex;gap:28px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07)">
-        <div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#c9a35c;line-height:1">DFY</div>
-          <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Content System</div>
-        </div>
-        <div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#c9a35c;line-height:1">7</div>
-          <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Scripted Reels</div>
-        </div>
-        <div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:40px;color:#c9a35c;line-height:1">UK</div>
-          <div style="font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.32);letter-spacing:.1em;text-transform:uppercase;margin-top:4px">Market</div>
-        </div>
+    <div class="vt-info">
+      <div class="badge">Video Testimonial · Fat Loss Coach · UK</div>
+      <div class="vt-ttl">What Ben Clark Said About Working With Us</div>
+      <div class="vt-d">Ben Clark is a UK-based fat loss coach targeting professional men. Watch his unfiltered take on what working with Inflow Media House actually looked like.</div>
+      <div class="vt-stats">
+        <div><div class="vt-n">DFY</div><div class="vt-l">Content System</div></div>
+        <div><div class="vt-n">7</div><div class="vt-l">Scripted Reels</div></div>
+        <div><div class="vt-n">UK</div><div class="vt-l">Market</div></div>
       </div>
-      <a href="https://cal.com/inflowmediahouse/30min" style="background:#c9a35c;color:#fff;padding:14px 28px;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;display:inline-block;font-family:'DM Sans',sans-serif;width:fit-content;margin-top:8px;transition:background .2s" onmouseover="this.style.background='#e0c07f'" onmouseout="this.style.background='#c9a35c'">Book a Strategy Call</a>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Strategy Call</a>
     </div>
-
   </div>
-</div>
 
   <div class="res-grid">
 
@@ -125,7 +89,7 @@
         <div class="rc-rl">Followers · Organic · Zero Paid Ads</div>
       </div>
       <div class="rc-au">
-        <div class="rc-av" style="overflow:hidden;padding:0"><img src="../case-studies/jeff-photo.jpg" alt="Jeff" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="rc-av"><img src="../case-studies/jeff-photo.jpg" alt="Jeff"></div>
         <div>
           <div class="rc-nm">Jeff Kloepping</div>
           <div class="rc-ro">Women's Fat Loss Coach · @build4life_coaching</div>
@@ -133,14 +97,14 @@
       </div>
     </div>
 
-    <div class="rc rv" style="transition-delay:.15s">
+    <div class="rc rv" style="transition-delay:.12s">
       <div class="rc-q">"I really loved the ad creative strategy — it alone got me 3x results. And the reel hit 86K views within 10 days of us working together."</div>
       <div>
         <div class="rc-r">86K</div>
         <div class="rc-rl">Views in 10 Days · 3X Ad Creative Results</div>
       </div>
       <div class="rc-au">
-        <div class="rc-av" style="overflow:hidden;padding:0"><img src="../case-studies/joey-photo.jpg" alt="Joey" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+        <div class="rc-av"><img src="../case-studies/joey-photo.jpg" alt="Joey"></div>
         <div>
           <div class="rc-nm">Joey</div>
           <div class="rc-ro">Fitness Coach · Client</div>
@@ -148,7 +112,7 @@
       </div>
     </div>
 
-    <div class="rc rv" style="transition-delay:.3s;opacity:.4">
+    <div class="rc soon">
       <div class="rc-q">"More client results coming soon."</div>
       <div>
         <div class="rc-r">↑</div>
@@ -163,7 +127,7 @@
       </div>
     </div>
 
-    <div class="rc rv" style="transition-delay:.45s;opacity:.4">
+    <div class="rc soon">
       <div class="rc-q">"Results compound month over month when the system is built right."</div>
       <div>
         <div class="rc-r">↑</div>
@@ -181,26 +145,24 @@
   </div>
 </section>
 
-<!-- CASE STUDY VIDEO SECTION -->
-<section style="padding:80px 64px;background:#141416;border-top:1px solid rgba(255,255,255,.07)">
-  <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:12px">Case Study Video</div>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,60px);line-height:1;color:#fff;margin-bottom:40px">Watch Joey's <span style="color:#c9a35c;font-style:italic">Success</span></h2>
-  
-  <div class="proof-imgs" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
-    <div class="proof-img sq" style="overflow:hidden;position:relative;aspect-ratio:9/16;max-width:360px;margin:0 auto;border-radius:12px;border:1px solid rgba(255,255,255,.07);background:#1a1a1e">
-      <iframe
-        src="https://fast.wistia.net/embed/iframe/txuhxe1ph7?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&fullscreenButton=true&playbar=false"
-        allow="fullscreen" allowfullscreen
-        style="position:absolute;inset:0;width:100%;height:100%;border:none">
-      </iframe>
-    </div>
+<!-- CASE STUDY VIDEO -->
+<section class="sec alt">
+  <div class="sec-hd">
+    <div class="s-lbl">Case Study Video</div>
+    <h2 class="s-ttl rv">Watch Joey's <span class="hi">Success</span></h2>
+  </div>
+  <div class="cs-vid rv">
+    <iframe
+      src="https://fast.wistia.net/embed/iframe/txuhxe1ph7?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&fullscreenButton=true&playbar=false"
+      allow="fullscreen" allowfullscreen>
+    </iframe>
   </div>
 </section>
 
 <footer>
   <div class="ft">
     <div>
-      <div class="f-log">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></div>
+      <div class="f-log">INFLOW MEDIA HOUSE<span>.</span></div>
       <p class="f-tag">Storytelling and media partners for startups, founders, and venture-backed teams.</p>
     </div>
     <div class="f-col"><h4>Services</h4><ul>
@@ -213,7 +175,6 @@
       <li><a href="/contact">Contact</a></li>
     </ul></div>
     <div class="f-col"><h4>Connect</h4><ul>
-      <!-- ✏️ EDIT: Your real social links -->
       <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
       <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
       <li><a href="#" target="_blank">YouTube</a></li>

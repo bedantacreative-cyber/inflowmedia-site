@@ -16,12 +16,6 @@
 <style>
 /* === HOMEPAGE-ONLY STYLES === */
 
-/* Section scaffold — content column capped at 1180px, centered */
-.sec{padding:120px max(24px,calc((100% - 1180px)/2));position:relative}
-.alt{background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
-.sec-hd{max-width:720px;margin:0 auto 56px;text-align:center}
-.sec-hd .s-sub{margin:18px auto 0}
-
 /* ── HERO ── */
 .hero-h{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 110px;position:relative;overflow:hidden}
 .hero-h::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
@@ -55,7 +49,7 @@
 .prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .prob-card{background:var(--sur);border:1px solid var(--bdr);border-radius:var(--r);padding:36px;display:flex;gap:20px;align-items:flex-start;box-shadow:var(--sh);transition:box-shadow .4s var(--ease),border-color .25s}
 .prob-card:hover{box-shadow:var(--sh-h);border-color:var(--bdr2)}
-.prob-n{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;color:var(--acc);flex-shrink:0;min-width:36px;line-height:1.3}
+.prob-n{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;color:var(--acc-ink);flex-shrink:0;min-width:36px;line-height:1.3}
 .prob-ttl{font-family:var(--ff-d);font-weight:600;font-size:19px;letter-spacing:-.015em;line-height:1.3;color:var(--fg);margin-bottom:10px}
 .prob-d{font-size:15px;line-height:1.7;color:var(--fg2)}
 .solve{margin-top:16px;background:#0A0A0A;border-radius:20px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
@@ -70,18 +64,18 @@
 .tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(168,130,62,.12),transparent 65%)}
 .tier-card:hover::before{opacity:1}
 .tier-card > *{position:relative;z-index:1}
-.tier-n{font-size:13px;font-weight:600;color:var(--acc);margin-bottom:16px}
+.tier-n{font-size:13px;font-weight:600;color:var(--acc-ink);margin-bottom:16px}
 .tier-ttl{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.25;color:var(--fg);margin-bottom:12px}
 .tier-for{font-size:15px;color:var(--fg2);line-height:1.65;margin-bottom:24px}
 .tier-feats{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1;padding-top:24px;border-top:1px solid var(--bdr)}
 .tier-feats li{font-size:14.5px;line-height:1.5;color:var(--fg2);display:flex;gap:10px;align-items:flex-start}
-.tier-feats li::before{content:'✓';color:var(--acc);font-weight:700;flex-shrink:0}
+.tier-feats li::before{content:'✓';color:var(--acc-ink);font-weight:700;flex-shrink:0}
 .tier-card .btn-p,.tier-card .btn-g{width:100%}
 
 /* ── MECHANISM (dark band) ── */
 .sec.dark{overflow:hidden}
-.mech{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.mech-stage{display:flex;align-items:center;justify-content:center}
+.mech{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.mech-stage{display:flex;align-items:center;justify-content:center;min-width:0}
 .orb-node{position:absolute;width:86px;height:86px;border-radius:50%;background:#161616;border:1px solid rgba(212,175,106,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4}
 .orb-node span{font-family:var(--ff-b);font-size:8px;font-weight:600;color:rgba(255,255,255,.62);letter-spacing:.02em;text-align:center;text-transform:uppercase;line-height:1.3}
 .mech-copy{display:flex;flex-direction:column;align-items:flex-start;gap:20px}
@@ -100,20 +94,8 @@
 .goal-txt .g{color:var(--fg3)}
 .goal-txt .hi{color:var(--acc)}
 
-/* ── FAQ ── */
-.faq-wrap{max-width:820px;margin:0 auto}
-.faq-item{background:var(--sur);border:1px solid var(--bdr);border-radius:14px;padding:22px 26px;margin-bottom:12px;transition:border-color .25s}
-.faq-item[open]{border-color:var(--bdr2)}
-.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--ff-d);font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--fg)}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--mut);font-family:var(--ff-b);font-size:18px;font-weight:500;color:var(--fg2);transition:transform .3s var(--ease);flex-shrink:0}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-a{font-size:15.5px;line-height:1.75;color:var(--fg2);margin-top:14px;max-width:700px}
-
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
-  .sec{padding:80px 20px}
-  .sec-hd{margin-bottom:40px}
   .hero-h{min-height:auto;padding:128px 20px 80px}
   .hero-ttl{font-size:clamp(32px,8vw,46px)}
   .hero-ttl .l1,.hero-ttl .l2{white-space:normal}
@@ -121,7 +103,7 @@
   .prob-grid,.tier-grid{grid-template-columns:1fr}
   .prob-card{padding:28px 24px}
   .solve{flex-direction:column;align-items:flex-start;padding:28px 24px}
-  .mech{grid-template-columns:1fr;gap:24px}
+  .mech{grid-template-columns:minmax(0,1fr);gap:24px}
   #orbitWheel{transform:scale(.6) !important;margin:-90px 0 !important}
   .spot{padding:40px 24px}
 }
@@ -136,7 +118,7 @@
      NAV — Edit links here if you add pages
      ============================================================ -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span>.</span></a>
+  <a href="/" class="n-logo">INFLOW<span>.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>

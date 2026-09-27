@@ -4,67 +4,40 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#c9a35c">
+<meta name="theme-color" content="#FAFAFA">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Services — Founder-Led Content Strategy &amp; Distribution | Inflow Media House</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
-/* === HOMEPAGE-ONLY STYLES === */
-.hero{min-height:52vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 32px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--bdr)}
-#hCv{position:absolute;inset:0;z-index:0}
-.h-con{position:relative;z-index:2;max-width:720px}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:28px;opacity:0;animation:fup .8s forwards .3s}
-.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(52px,7.5vw,120px);line-height:1.05;color:var(--wht);opacity:0;animation:fup .9s forwards .5s}
-.h-ttl .ol{color:var(--wht);font-style:normal}
-.h-ttl .hi{color:var(--acc);font-style:italic}
-.h-sub{max-width:500px;margin:24px auto 0;font-size:16px;line-height:1.8;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .7s}
-.h-ctas{margin-top:40px;display:flex;gap:14px;align-items:center;justify-content:center;opacity:0;animation:fup .9s forwards .9s}
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
-.sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.28),transparent 65%)}
+/* === SERVICES PAGE === */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sc-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .25s}
+.sc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:var(--bdr2)}
+.sc-card::after{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(168,130,62,.12),transparent 65%)}
 .sc-card:hover::after{opacity:1}
 .sc-card > *{position:relative;z-index:1}
-.sc-n{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;color:rgba(201,163,92,.07);margin-bottom:-18px}
-.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
-.sc-d{font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);position:relative;z-index:1}
-.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
-.sc-tag::before{content:'→';transition:transform .2s}
-.sc-card:hover .sc-tag::before{transform:translateX(5px)}
-.w-sec{padding:140px 52px;background:var(--sur)}
-.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
-.proc-sec{padding:140px 52px}
-.res-sec{padding:140px 52px;position:relative}
-.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Cormorant Garamond',serif;font-size:180px;color:rgba(201,163,92,.025);pointer-events:none;line-height:1}
-.svc-sec{padding:140px 52px}
-.n-logo{font-size:17px}
-@media(max-width:900px){
-  .hero{padding:110px 24px 60px;min-height:auto}
-  .svc-sec{padding:80px 24px}
-  .svc-grid{grid-template-columns:1fr}
-}
-</style>
-
-<style>
-  section, .w-sec, .res-sec, .svc-sec, .cta-sec {
-    padding-top: 120px;
-  }
+.sc-n{font-family:var(--ff-d);font-weight:600;font-size:15px;color:var(--acc-ink);margin-bottom:18px}
+.sc-ttl{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.25;color:var(--fg);margin-bottom:12px}
+.sc-d{font-size:15px;line-height:1.7;color:var(--fg2);flex:1}
+.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--fg)}
+.sc-tag::after{content:'→';transition:transform .3s var(--ease)}
+.sc-card:hover .sc-tag::after{transform:translateX(4px)}
+@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
-
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span style="color:#c9a35c">.</span></a>
+  <a href="/" class="n-logo">INFLOW<span>.</span></a>
   <ul class="n-links">
     <li><a href="/services" class="active">Services</a></li>
     <li><a href="/work">Work</a></li>
     <li><a href="/results">Results</a></li>
-    <!-- Add more nav items here if needed -->
   </ul>
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
@@ -78,8 +51,10 @@
   </div>
 </section>
 
-<section class="svc-sec" id="services">
-  <div class="s-lbl">Three Ways To Work With Us</div>
+<section class="sec" id="services">
+  <div class="sec-hd">
+    <div class="s-lbl">Three Ways To Work With Us</div>
+  </div>
   <div class="svc-grid">
 
     <!-- Service 1 — links to founders page -->
@@ -91,7 +66,7 @@
     </a>
 
     <!-- Service 2 — links to podcast page -->
-    <a href="/podcast" class="sc-card rv" style="transition-delay:.15s">
+    <a href="/podcast" class="sc-card rv" style="transition-delay:.12s">
       <div class="sc-n">02</div>
       <h3 class="sc-ttl">Podcast &amp; Distribution</h3>
       <p class="sc-d">For founders sitting on hours of unused podcast or interview footage. Full episode post-production, 30+ short-form clips monthly, and a multi-platform distribution strategy.</p>
@@ -99,7 +74,7 @@
     </a>
 
     <!-- Service 3 — product launch -->
-    <a href="https://cal.com/inflowmediahouse/30min" class="sc-card rv" style="transition-delay:.3s">
+    <a href="https://cal.com/inflowmediahouse/30min" class="sc-card rv" style="transition-delay:.24s">
       <div class="sc-n">03</div>
       <h3 class="sc-ttl">Product Launch Films and Motion Graphics</h3>
       <p class="sc-d">For SaaS founders and startups who need a launch video that actually converts. Trailers, explainers, and motion graphics built for high-stakes launches.</p>
@@ -109,12 +84,14 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section style="padding:120px 64px;text-align:center;background:#141416;border-top:1px solid var(--bdr)">
-  <p style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px">Not Sure Which Fits?</p>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(36px,5vw,64px);line-height:1.05;color:#fff;margin-bottom:18px">Let's Talk It <span style="color:#c9a35c;font-style:italic">Through.</span></h2>
-  <p style="font-size:15px;color:rgba(255,255,255,.5);max-width:420px;margin:0 auto 32px;line-height:1.75">One call. We look at your stage, your product, and your next moment, and tell you exactly what it takes to make it land.</p>
-  <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+<!-- CTA (dark band) -->
+<section class="cta-sec">
+  <div class="cta-in rv">
+    <p class="cta-ey">Not Sure Which Fits?</p>
+    <h2 class="cta-ttl">Let's Talk It <span style="color:var(--acc)">Through.</span></h2>
+    <p class="cta-sub">One call. We look at your stage, your product, and your next moment, and tell you exactly what it takes to make it land.</p>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+  </div>
 </section>
 
 <footer>
@@ -133,7 +110,6 @@
       <li><a href="/contact">Contact</a></li>
     </ul></div>
     <div class="f-col"><h4>Connect</h4><ul>
-      <!-- ✏️ EDIT: Your real social links -->
       <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
       <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
       <li><a href="#" target="_blank">YouTube</a></li>
