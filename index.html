@@ -98,18 +98,51 @@
 .mech-tags{display:flex;gap:10px;flex-wrap:wrap}
 .mech-tags span{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.22);border-radius:999px;padding:7px 14px}
 
-/* ── SPOTLIGHT ── */
-.spot{position:relative;overflow:hidden;background:linear-gradient(135deg,#FBF4E6,#FFFFFF 65%);border:1px solid rgba(168,130,62,.25);border-radius:28px;padding:64px;box-shadow:var(--sh)}
-.spot::after{content:'';position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(201,163,92,.22),transparent 65%);pointer-events:none}
-.spot > *{position:relative;z-index:1}
-.spot-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(30px,3.6vw,46px);line-height:1.08;letter-spacing:-.03em;color:var(--fg);max-width:720px;margin-bottom:18px}
-.spot-d{font-size:16.5px;line-height:1.7;color:var(--fg2);max-width:640px;margin-bottom:32px}
+/* ── THE SYSTEM — four connected steps ── */
+.sys{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
+.sys::before{content:'';position:absolute;top:54px;left:12%;right:12%;height:1px;background:repeating-linear-gradient(90deg,rgba(168,130,62,.45) 0 6px,transparent 6px 12px);z-index:0}
+.sys-step{position:relative;z-index:1;background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:28px 26px;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.sys-step:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
+.sys-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.sys-n{font-size:12px;font-weight:600;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.2);border-radius:999px;padding:3px 10px}
+.sys-ttl{font-family:var(--ff-d);font-weight:600;font-size:19px;letter-spacing:-.015em;color:var(--fg);margin-bottom:8px}
+.sys-d{font-size:14.5px;line-height:1.65;color:var(--fg2)}
+
+/* ── LONG FORM ── */
+.lf{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);background:var(--sur);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:var(--sh)}
+.lf-vid{position:relative;aspect-ratio:16/9;background:#EDECEA}
+.lf-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.lf-info{padding:40px;display:flex;flex-direction:column;gap:16px;justify-content:center;align-items:flex-start}
+.lf-badge{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.22);border-radius:999px;padding:5px 14px}
+.lf-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.03em;color:var(--fg)}
+.lf-d{font-size:15px;line-height:1.7;color:var(--fg2)}
+.lf-stats{display:flex;gap:28px;padding-top:18px;border-top:1px solid var(--bdr);align-self:stretch}
+.lf-n{font-family:var(--ff-d);font-weight:600;font-size:30px;letter-spacing:-.03em;color:var(--acc);line-height:1}
+.lf-l{font-size:13px;color:var(--fg3);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+.chips span{font-size:14px;font-weight:500;color:var(--fg2);background:var(--sur);border:1px solid var(--bdr);border-radius:999px;padding:8px 16px}
+
+/* ── LAUNCH FILMS — bento showcase ── */
+.launch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:40px}
+.lv{position:relative;border-radius:var(--r);overflow:hidden;background:#EDECEA;aspect-ratio:16/9;outline:5px solid #fff;box-shadow:0 0 0 6px var(--bdr),0 22px 44px -24px rgba(0,0,0,.28);transition:transform .5s var(--ease)}
+.lv:hover{transform:translateY(-3px)}
+.lv iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+.lv.big{grid-column:span 4;grid-row:span 2;aspect-ratio:auto}
+.lv.sm{grid-column:span 2}
+.lv.half{grid-column:span 3}
+.lv-tag{position:absolute;left:12px;top:12px;z-index:2;font-size:11.5px;font-weight:600;color:var(--fg);background:rgba(255,255,255,.9);border-radius:999px;padding:4px 11px;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.launch-cta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:40px}
 
 /* ── THE GOAL ── */
 .goal{text-align:center}
 .goal-txt{max-width:920px;margin:0 auto;font-family:var(--ff-d);font-weight:500;font-size:clamp(28px,3.8vw,50px);line-height:1.18;letter-spacing:-.035em;color:var(--fg)}
 .goal-txt .g{color:var(--fg3)}
 .goal-txt .hi{color:var(--acc);background:linear-gradient(transparent 72%,rgba(201,163,92,.22) 72%);padding:0 .08em}
+.fn-lbl{margin-top:56px;font-size:14px;font-weight:500;color:var(--fg3)}
+.fn-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;max-width:1000px;margin:18px auto 0}
+.fn{background:var(--sur);box-shadow:var(--sh);border:1px solid var(--bdr);border-radius:16px;padding:22px 12px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:border-color .25s,transform .5s var(--ease)}
+.fn:hover{border-color:rgba(168,130,62,.35);transform:translateY(-3px)}
+.fn span{font-size:14px;font-weight:600;color:var(--fg)}
 
 /* ── FAQ — two columns, sticky intro ── */
 .faq-2{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:start}
@@ -128,9 +161,22 @@
   .solve{flex-direction:column;align-items:flex-start;padding:26px 22px}
   .mech{grid-template-columns:minmax(0,1fr);gap:24px}
   #orbitWheel{transform:scale(.6) !important;margin:-90px 0 !important}
-  .spot{padding:40px 24px}
   .faq-2{grid-template-columns:1fr;gap:32px}
   .faq-side{position:static}
+  .sys{grid-template-columns:1fr 1fr}
+  .sys::before{display:none}
+  .lf{grid-template-columns:1fr}
+  .lf-info{padding:28px 22px}
+  .launch-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .lv.big{grid-column:1/-1;grid-row:auto;aspect-ratio:16/9}
+  .lv.sm,.lv.half{grid-column:span 1}
+  .fn-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:560px){
+  .sys{grid-template-columns:1fr}
+  .launch-grid{grid-template-columns:1fr}
+  .lv{outline-width:3px;box-shadow:0 0 0 4px var(--bdr),0 16px 32px -18px rgba(0,0,0,.28)}
+  .fn-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:480px){
   .marquee-track{grid-template-columns:repeat(3,105px);gap:12px}
@@ -220,10 +266,55 @@
 </section>
 
 <!-- ============================================================
+     THE SYSTEM — how the content pipeline runs
+     ============================================================ -->
+<section class="sec alt">
+  <div class="sec-hd">
+    <div class="s-lbl">The System</div>
+    <h2 class="s-ttl rv">One Pipeline. <span class="ol">Every Step Handled.</span></h2>
+    <p class="s-sub rv">Strategy, scripting, production, and distribution, run as one system, so you publish consistently at the level your brand demands.</p>
+  </div>
+  <div class="sys">
+    <div class="sys-step rv">
+      <div class="sys-top">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+        <span class="sys-n">Step 01</span>
+      </div>
+      <div class="sys-ttl">Strategy</div>
+      <div class="sys-d">We audit your narrative, audience, and goals, and build the content pillars before anything gets scripted.</div>
+    </div>
+    <div class="sys-step rv" style="transition-delay:.08s">
+      <div class="sys-top">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+        <span class="sys-n">Step 02</span>
+      </div>
+      <div class="sys-ttl">Scripting</div>
+      <div class="sys-d">Every piece scripted in your voice around a clear point of view — podcasts, video, launches, social.</div>
+    </div>
+    <div class="sys-step rv" style="transition-delay:.16s">
+      <div class="sys-top">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2.5"/><path d="M16 10.5l6-3.5v10l-6-3.5z"/></svg></div>
+        <span class="sys-n">Step 03</span>
+      </div>
+      <div class="sys-ttl">Production</div>
+      <div class="sys-d">You show up and record. We handle production, editing, sound, captions, and motion graphics.</div>
+    </div>
+    <div class="sys-step rv" style="transition-delay:.24s">
+      <div class="sys-top">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div>
+        <span class="sys-n">Step 04</span>
+      </div>
+      <div class="sys-ttl">Distribution</div>
+      <div class="sys-d">We publish everywhere that matters, track what lands, and refine the plan every month.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      CONTENT THAT CONVERTS — short-form videos
      ✏️ ADD VIDEOS: paste a .sf-card block inside .marquee-track below.
      ============================================================ -->
-<section class="sec alt">
+<section class="sec">
   <div class="sec-hd">
     <div class="s-lbl">Selected Work</div>
     <h2 class="s-ttl rv">Content That <span class="ol">Converts</span></h2>
@@ -254,7 +345,7 @@
 <!-- ============================================================
      PROBLEMS WE SOLVE
      ============================================================ -->
-<section class="sec">
+<section class="sec alt">
   <div class="sec-hd">
     <div class="s-lbl">Problems We Solve</div>
     <h2 class="s-ttl rv">You're Building The <span class="hi">Product.</span><br>We Build The <span class="hi">Story.</span></h2>
@@ -306,7 +397,7 @@
      WHAT WE DO — three service tiers
      ✏️ EDIT: Titles, descriptions, features, and href links
      ============================================================ -->
-<section class="sec alt" id="services">
+<section class="sec" id="services">
   <div class="sec-hd">
     <div class="s-lbl">What We Do</div>
     <h2 class="s-ttl rv">What We <span class="ol">Build</span> For You.</h2>
@@ -370,7 +461,7 @@
 <!-- ============================================================
      THE MECHANISM — one recording, six platforms
      ============================================================ -->
-<section class="sec mech-sec">
+<section class="sec alt mech-sec">
   <div class="mech">
 
     <!-- LEFT — orbit wheel, scroll-reveal rotation -->
@@ -455,14 +546,72 @@
 </section>
 
 <!-- ============================================================
-     INFLOW SPOTLIGHT — launch content micro-offer
+     LONG FORM — podcast production
      ============================================================ -->
-<section class="sec alt">
-  <div class="spot rv">
+<section class="sec">
+  <div class="sec-hd">
+    <div class="s-lbl">Long Form</div>
+    <h2 class="s-ttl rv">Podcast <span class="ol">Production</span></h2>
+    <p class="s-sub rv">Full episodes, trailers, and short-form clips, produced and distributed end to end.</p>
+  </div>
+  <div class="lf rv">
+    <div class="lf-vid">
+      <iframe src="https://www.youtube.com/embed/NkSVmV8br_Y?rel=0&modestbranding=1" title="The Brand Builders podcast" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="lf-info">
+      <div class="lf-badge">Podcast Production · The Brand Builders</div>
+      <div class="lf-ttl">Full Guest Pipeline Production and Distribution</div>
+      <div class="lf-d">Trailer, short form clips, and full episode — complete guest pipeline. Video editing, colour grade, captions, and multi-platform distribution handled end to end.</div>
+      <div class="lf-stats">
+        <div><div class="lf-n">3</div><div class="lf-l">Content Formats</div></div>
+        <div><div class="lf-n">DFY</div><div class="lf-l">Full Production</div></div>
+        <div><div class="lf-n">48h</div><div class="lf-l">Turnaround</div></div>
+      </div>
+      <a href="/podcast" class="btn-g">Explore the Podcast Service</a>
+    </div>
+  </div>
+  <div class="chips rv">
+    <span>Full Episodes</span><span>Trailers</span><span>Short-Form Clips</span><span>Multi-Platform Distribution</span>
+  </div>
+</section>
+
+<!-- ============================================================
+     INFLOW SPOTLIGHT — launch films showcase
+     ✏️ ADD A LAUNCH VIDEO: copy a .lv block (use class "sm" or "half")
+     ============================================================ -->
+<section class="sec alt" id="launch">
+  <div class="sec-hd">
     <div class="s-lbl">Inflow Spotlight</div>
-    <h2 class="spot-ttl">Launch Content For The Moment You Only Get Once.</h2>
-    <p class="spot-d">Dropping a new offer, raising a round, or stepping into the spotlight as the face of your brand for the first time? Spotlight is a focused, one-time production sprint — a launch trailer, founder story piece, and a week of clipped distribution content — built to make your moment land everywhere at once.</p>
+    <h2 class="s-ttl rv">Launch Content For The Moment <span class="hi">You Only Get Once.</span></h2>
+    <p class="s-sub rv">Dropping a new offer, raising a round, or stepping into the spotlight as the face of your brand for the first time? Spotlight is a focused, one-time production sprint — a launch trailer, founder story piece, and a week of clipped distribution content — built to make your moment land everywhere at once.</p>
+  </div>
+
+  <div class="launch-grid">
+    <div class="lv big rv">
+      <span class="lv-tag">SaaS Launch Video</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/737zf4a5ue?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="SaaS launch video" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv sm rv" style="transition-delay:.08s">
+      <span class="lv-tag">Product Demo</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/16o66aqxfu?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Product demo" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv sm rv" style="transition-delay:.16s">
+      <span class="lv-tag">Motion Graphics</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/crcr81oeg6?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Motion graphics" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv half rv">
+      <span class="lv-tag">SaaS Explainer</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/x8kxs06p0s?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="SaaS explainer" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv half rv" style="transition-delay:.08s">
+      <span class="lv-tag">Product Video</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/d58oohs551?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Product video" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="launch-cta">
     <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Talk to Us About Spotlight</a>
+    <a href="/work" class="btn-g">See All Work</a>
   </div>
 </section>
 
@@ -472,6 +621,15 @@
 <section class="sec goal">
   <div class="s-lbl">The Goal</div>
   <p class="goal-txt rv"><span class="g">We don't want to be your agency.</span> We want to be the media team you <span class="hi">never had to hire.</span></p>
+  <p class="fn-lbl">Everything a media team does — handled.</p>
+  <div class="fn-grid">
+    <div class="fn rv"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><span>Strategy</span></div>
+    <div class="fn rv" style="transition-delay:.05s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div><span>Scripting</span></div>
+    <div class="fn rv" style="transition-delay:.1s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3z"/><circle cx="12" cy="13" r="3"/></svg></div><span>Shot Planning</span></div>
+    <div class="fn rv" style="transition-delay:.15s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div><span>Editing</span></div>
+    <div class="fn rv" style="transition-delay:.2s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span>Motion Graphics</span></div>
+    <div class="fn rv" style="transition-delay:.25s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div><span>Distribution</span></div>
+  </div>
 </section>
 
 <!-- ============================================================
