@@ -14,27 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
 <style>
-/* === RESULTS PAGE === */
 .page-top{padding-top:160px}
-.vt{display:grid;grid-template-columns:300px 1fr;overflow:hidden;margin-bottom:16px}
-.vt-vid{position:relative;aspect-ratio:9/16;background:#EDECEA}
-.vt-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
-.vt-info{padding:48px;display:flex;flex-direction:column;gap:18px;justify-content:center;align-items:flex-start}
-.badge{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.25);border-radius:999px;padding:5px 14px}
-.vt-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(28px,3.2vw,42px);line-height:1.08;letter-spacing:-.03em;color:var(--fg)}
-.vt-d{font-size:15.5px;color:var(--fg2);line-height:1.7;max-width:520px}
-.vt-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--bdr);align-self:stretch}
-.vt-n{font-family:var(--ff-d);font-weight:600;font-size:34px;letter-spacing:-.03em;color:var(--acc);line-height:1}
-.vt-l{font-size:13px;color:var(--fg3);margin-top:6px}
-.rc.soon{opacity:.5;box-shadow:none;background:var(--mut)}
-.cs-vid{position:relative;aspect-ratio:9/16;width:100%;max-width:360px;margin:0 auto;border-radius:var(--r);overflow:hidden;background:#EDECEA;box-shadow:var(--sh-h)}
-.cs-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-@media(max-width:900px){
-  .page-top{padding-top:120px}
-  .vt{grid-template-columns:1fr}
-  .vt-vid{max-width:340px;width:100%;margin:24px auto 0;border-radius:var(--r);overflow:hidden}
-  .vt-info{padding:28px 24px}
-}
+@media(max-width:900px){.page-top{padding-top:120px}}
 </style>
 </head>
 <body>
@@ -49,113 +30,20 @@
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
+<!-- ============================================================
+     CLIENT TESTIMONIALS — video
+     ✏️ ADD A VIDEO: replace a <div class="vt-slot">…</div> block with
+       <div class="vt-card"><iframe src="https://play.gumlet.io/embed/YOUR_ID?embed_platform=gumlet" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+     ============================================================ -->
 <section class="sec page-top" id="results">
   <div class="sec-hd">
-    <div class="s-lbl">Social Proof</div>
+    <div class="s-lbl">Client Testimonials</div>
     <h1 class="s-ttl rv">What Clients <span class="ol">Say</span></h1>
   </div>
-
-  <!-- Featured video testimonial -->
-  <div class="vt card rv">
-    <div class="vt-vid">
-      <iframe
-        src="https://fast.wistia.net/embed/iframe/7o3m8zv9tm?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=true&fullscreenButton=true&playbar=true"
-        title="Ben Testimonial"
-        allow="autoplay; fullscreen"
-        allowtransparency="true"
-        frameborder="0"
-        scrolling="no">
-      </iframe>
-    </div>
-    <div class="vt-info">
-      <div class="badge">Video Testimonial · Fat Loss Coach · UK</div>
-      <div class="vt-ttl">What Ben Clark Said About Working With Us</div>
-      <div class="vt-d">Ben Clark is a UK-based fat loss coach targeting professional men. Watch his unfiltered take on what working with Inflow Media House actually looked like.</div>
-      <div class="vt-stats">
-        <div><div class="vt-n">DFY</div><div class="vt-l">Content System</div></div>
-        <div><div class="vt-n">7</div><div class="vt-l">Scripted Reels</div></div>
-        <div><div class="vt-n">UK</div><div class="vt-l">Market</div></div>
-      </div>
-      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Strategy Call</a>
-    </div>
-  </div>
-
-  <div class="res-grid">
-
-    <div class="rc rv">
-      <div class="rc-q">"This system didn't just grow my followers, it turned content into a lead-generating engine. I finally feel my expertise is reaching the people who need it most."</div>
-      <div>
-        <div class="rc-r">5K → 200K</div>
-        <div class="rc-rl">Followers · Organic · Zero Paid Ads</div>
-      </div>
-      <div class="rc-au">
-        <div class="rc-av"><img src="../case-studies/jeff-photo.jpg" alt="Jeff"></div>
-        <div>
-          <div class="rc-nm">Jeff Kloepping</div>
-          <div class="rc-ro">Women's Fat Loss Coach · @build4life_coaching</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="rc rv" style="transition-delay:.12s">
-      <div class="rc-q">"I really loved the ad creative strategy — it alone got me 3x results. And the reel hit 86K views within 10 days of us working together."</div>
-      <div>
-        <div class="rc-r">86K</div>
-        <div class="rc-rl">Views in 10 Days · 3X Ad Creative Results</div>
-      </div>
-      <div class="rc-au">
-        <div class="rc-av"><img src="../case-studies/joey-photo.jpg" alt="Joey"></div>
-        <div>
-          <div class="rc-nm">Joey</div>
-          <div class="rc-ro">Fitness Coach · Client</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="rc soon">
-      <div class="rc-q">"More client results coming soon."</div>
-      <div>
-        <div class="rc-r">↑</div>
-        <div class="rc-rl">Next case study in progress</div>
-      </div>
-      <div class="rc-au">
-        <div class="rc-av">?</div>
-        <div>
-          <div class="rc-nm">Coming Soon</div>
-          <div class="rc-ro">New case study in progress</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="rc soon">
-      <div class="rc-q">"Results compound month over month when the system is built right."</div>
-      <div>
-        <div class="rc-r">↑</div>
-        <div class="rc-rl">Next case study in progress</div>
-      </div>
-      <div class="rc-au">
-        <div class="rc-av">?</div>
-        <div>
-          <div class="rc-nm">Coming Soon</div>
-          <div class="rc-ro">New case study in progress</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CASE STUDY VIDEO -->
-<section class="sec alt">
-  <div class="sec-hd">
-    <div class="s-lbl">Case Study Video</div>
-    <h2 class="s-ttl rv">Watch Joey's <span class="hi">Success</span></h2>
-  </div>
-  <div class="cs-vid rv">
-    <iframe
-      src="https://fast.wistia.net/embed/iframe/txuhxe1ph7?videoFoam=true&autoPlay=false&controlsVisibleOnLoad=false&fullscreenButton=true&playbar=false"
-      allow="fullscreen" allowfullscreen>
-    </iframe>
+  <div class="vt-grid">
+    <div class="vt-slot rv"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.08s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.16s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
   </div>
 </section>
 

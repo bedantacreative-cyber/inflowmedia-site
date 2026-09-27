@@ -37,10 +37,12 @@
 .h-note{margin-top:18px;font-size:13px;color:var(--fg3);opacity:0;animation:fi 1s forwards .9s}
 
 /* ── TRUST STRIP ── */
-.trust{padding:32px 24px;background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px}
-.trust-lbl{font-size:13px;font-weight:500;color:var(--fg3)}
-.trust-names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.trust-names span{font-size:14px;font-weight:500;color:var(--fg2);background:var(--bg);border:1px solid var(--bdr);border-radius:999px;padding:8px 16px}
+.trust{padding:44px 24px;background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
+.trust-lbl{font-size:14px;font-weight:500;color:var(--fg3)}
+.logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 56px}
+.yc{display:inline-flex;align-items:center;gap:10px}
+.yc svg{width:36px;height:36px;border-radius:6px}
+.yc span{font-family:var(--ff-d);font-weight:600;font-size:26px;letter-spacing:-.025em;color:var(--fg)}
 
 /* ── TRACK RECORD ── */
 .st .ico{margin-bottom:28px}
@@ -108,20 +110,6 @@
 .sys-ttl{font-family:var(--ff-d);font-weight:600;font-size:19px;letter-spacing:-.015em;color:var(--fg);margin-bottom:8px}
 .sys-d{font-size:14.5px;line-height:1.65;color:var(--fg2)}
 
-/* ── LONG FORM ── */
-.lf{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);background:var(--sur);border:1px solid var(--bdr);border-radius:24px;overflow:hidden;box-shadow:var(--sh)}
-.lf-vid{position:relative;aspect-ratio:16/9;background:#EDECEA}
-.lf-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.lf-info{padding:40px;display:flex;flex-direction:column;gap:16px;justify-content:center;align-items:flex-start}
-.lf-badge{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.22);border-radius:999px;padding:5px 14px}
-.lf-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(24px,2.4vw,32px);line-height:1.12;letter-spacing:-.03em;color:var(--fg)}
-.lf-d{font-size:15px;line-height:1.7;color:var(--fg2)}
-.lf-stats{display:flex;gap:28px;padding-top:18px;border-top:1px solid var(--bdr);align-self:stretch}
-.lf-n{font-family:var(--ff-d);font-weight:600;font-size:30px;letter-spacing:-.03em;color:var(--acc);line-height:1}
-.lf-l{font-size:13px;color:var(--fg3);margin-top:6px}
-.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
-.chips span{font-size:14px;font-weight:500;color:var(--fg2);background:var(--sur);border:1px solid var(--bdr);border-radius:999px;padding:8px 16px}
-
 /* ── LAUNCH FILMS — bento showcase ── */
 .launch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:40px}
 .lv{position:relative;border-radius:var(--r);overflow:hidden;background:#EDECEA;aspect-ratio:16/9;outline:5px solid #fff;box-shadow:0 0 0 6px var(--bdr),0 22px 44px -24px rgba(0,0,0,.28);transition:transform .5s var(--ease)}
@@ -165,8 +153,6 @@
   .faq-side{position:static}
   .sys{grid-template-columns:1fr 1fr}
   .sys::before{display:none}
-  .lf{grid-template-columns:1fr}
-  .lf-info{padding:28px 22px}
   .launch-grid{grid-template-columns:1fr 1fr;gap:14px}
   .lv.big{grid-column:1/-1;grid-row:auto;aspect-ratio:16/9}
   .lv.sm,.lv.half{grid-column:span 1}
@@ -219,16 +205,16 @@
 </section>
 
 <!-- ============================================================
-     TRUST STRIP — who we work with
+     TRUSTED BY — logo band
+     ✏️ ADD LOGOS: drop more logos inside .logos (keep them ~32px tall)
      ============================================================ -->
 <section class="trust">
-  <div class="trust-lbl">We work with</div>
-  <div class="trust-names">
-    <span>Startup Founders</span>
-    <span>SaaS Companies</span>
-    <span>Venture-Backed Teams</span>
-    <span>Podcast Hosts</span>
-    <span>Content-Led Brands</span>
+  <p class="trust-lbl">Trusted by startups backed by</p>
+  <div class="logos">
+    <span class="yc" role="img" aria-label="Y Combinator">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#FB651E"/><path d="M9.3 7.5h3.1l3.6 7.1 3.6-7.1h3.1l-5.2 9.8v7.2h-3v-7.2z" fill="#fff"/></svg>
+      <span>Combinator</span>
+    </span>
   </div>
 </section>
 
@@ -546,40 +532,10 @@
 </section>
 
 <!-- ============================================================
-     LONG FORM — podcast production
-     ============================================================ -->
-<section class="sec">
-  <div class="sec-hd">
-    <div class="s-lbl">Long Form</div>
-    <h2 class="s-ttl rv">Podcast <span class="ol">Production</span></h2>
-    <p class="s-sub rv">Full episodes, trailers, and short-form clips, produced and distributed end to end.</p>
-  </div>
-  <div class="lf rv">
-    <div class="lf-vid">
-      <iframe src="https://www.youtube.com/embed/NkSVmV8br_Y?rel=0&modestbranding=1" title="The Brand Builders podcast" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="lf-info">
-      <div class="lf-badge">Podcast Production · The Brand Builders</div>
-      <div class="lf-ttl">Full Guest Pipeline Production and Distribution</div>
-      <div class="lf-d">Trailer, short form clips, and full episode — complete guest pipeline. Video editing, colour grade, captions, and multi-platform distribution handled end to end.</div>
-      <div class="lf-stats">
-        <div><div class="lf-n">3</div><div class="lf-l">Content Formats</div></div>
-        <div><div class="lf-n">DFY</div><div class="lf-l">Full Production</div></div>
-        <div><div class="lf-n">48h</div><div class="lf-l">Turnaround</div></div>
-      </div>
-      <a href="/podcast" class="btn-g">Explore the Podcast Service</a>
-    </div>
-  </div>
-  <div class="chips rv">
-    <span>Full Episodes</span><span>Trailers</span><span>Short-Form Clips</span><span>Multi-Platform Distribution</span>
-  </div>
-</section>
-
-<!-- ============================================================
      INFLOW SPOTLIGHT — launch films showcase
      ✏️ ADD A LAUNCH VIDEO: copy a .lv block (use class "sm" or "half")
      ============================================================ -->
-<section class="sec alt" id="launch">
+<section class="sec" id="launch">
   <div class="sec-hd">
     <div class="s-lbl">Inflow Spotlight</div>
     <h2 class="s-ttl rv">Launch Content For The Moment <span class="hi">You Only Get Once.</span></h2>
@@ -618,7 +574,7 @@
 <!-- ============================================================
      THE GOAL
      ============================================================ -->
-<section class="sec goal">
+<section class="sec alt goal">
   <div class="s-lbl">The Goal</div>
   <p class="goal-txt rv"><span class="g">We don't want to be your agency.</span> We want to be the media team you <span class="hi">never had to hire.</span></p>
   <p class="fn-lbl">Everything a media team does — handled.</p>
@@ -629,6 +585,23 @@
     <div class="fn rv" style="transition-delay:.15s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.1 15.9M14.5 14.5L20 20M8.1 8.1L12 12"/></svg></div><span>Editing</span></div>
     <div class="fn rv" style="transition-delay:.2s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span>Motion Graphics</span></div>
     <div class="fn rv" style="transition-delay:.25s"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div><span>Distribution</span></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CLIENT TESTIMONIALS — video
+     ✏️ ADD A VIDEO: replace a <div class="vt-slot">…</div> block with
+       <div class="vt-card"><iframe src="https://play.gumlet.io/embed/YOUR_ID?embed_platform=gumlet" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+     ============================================================ -->
+<section class="sec" id="testimonials">
+  <div class="sec-hd">
+    <div class="s-lbl">Client Testimonials</div>
+    <h2 class="s-ttl rv">In Their <span class="ol">Words.</span></h2>
+  </div>
+  <div class="vt-grid">
+    <div class="vt-slot rv"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.08s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.16s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
   </div>
 </section>
 
