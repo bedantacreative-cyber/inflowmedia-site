@@ -1,5 +1,5 @@
 /* ============================================================
-   INFLOW MEDIA — SHARED JAVASCRIPT
+   INFLOW MEDIA: SHARED JAVASCRIPT
    Runs on every page. Don't touch unless you know JS.
    ============================================================ */
 
@@ -35,16 +35,19 @@
   links.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 })();
 
-/* ---- CURSOR ---- */
+/* ---- CURSOR ---- (retired in the light theme; only runs if a page still
+   has the #cur/#curR elements AND they're visible) */
 const cur = document.getElementById('cur');
 const curR = document.getElementById('curR');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
-(function t(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(t)})();
-document.querySelectorAll('a,button,.wc,.sc-card,.pr,.svc-row').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px';curR.style.borderColor='rgba(255,107,43,.7)'});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px';curR.style.borderColor='rgba(255,107,43,.45)'});
-});
+if(cur && curR && getComputedStyle(cur).display !== 'none'){
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+  (function t(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(t)})();
+  document.querySelectorAll('a,button,.wc,.sc-card,.pr,.svc-row').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';curR.style.width='56px';curR.style.height='56px'});
+    el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';curR.style.width='38px';curR.style.height='38px'});
+  });
+}
 
 /* ---- NAV SCROLL ---- */
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>60));

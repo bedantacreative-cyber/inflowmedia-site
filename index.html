@@ -4,261 +4,158 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#c9a35c">
+<meta name="theme-color" content="#FAFAFA">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inflow Media House — Storytelling &amp; Media Partners for Startups and Founders</title>
+<title>Inflow Media House | Content Infrastructure for Operators in Tech and Venture</title>
+<meta name="description" content="Content infrastructure for operators in tech and venture. We run the full pipeline, from production through distribution.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-/* === HOMEPAGE-ONLY STYLES === */
+/* === HOMEPAGE === */
 
-.hero{
-  min-height:92vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:140px 32px 100px;
-  position:relative;
-  overflow:hidden;
-}
-#hCv{position:absolute;inset:0;z-index:0}
+/* Hero */
+.hero-h{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 100px;position:relative;overflow:hidden}
+.hero-h::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(10,10,10,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.055) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 15%,transparent 72%);
+          mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 15%,transparent 72%)}
+.hero-h::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(720px 360px at 50% 0%,rgba(168,130,62,.16),transparent 70%),
+  radial-gradient(420px 320px at 12% 60%,rgba(201,163,92,.10),transparent 70%),
+  radial-gradient(420px 320px at 88% 55%,rgba(201,163,92,.08),transparent 70%)}
+.hero-h .h-con{max-width:1180px}
+.hero-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(34px,4.6vw,66px);line-height:1.04;letter-spacing:-.04em;color:var(--fg);opacity:0;animation:fup .9s var(--ease) forwards .15s}
+.hero-ttl .l1{display:block;white-space:nowrap}
+.hero-ttl .l2{display:block;white-space:nowrap;color:var(--acc)}
+.hero-h .h-sub{max-width:540px}
 
-.h-con{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;max-width:980px;}
-.h-eye{font-family:'Space Mono',monospace;font-size:11px;color:var(--acc);letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fup .8s forwards .2s;}
-.h-ttl{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(26px,4.4vw,60px);line-height:1.2;color:var(--wht);opacity:0;animation:fup .9s forwards .4s;letter-spacing:0;}
-.h-ttl .ol{color:var(--wht);font-style:normal;display:block;white-space:nowrap}
-.h-ttl .hi{color:var(--acc);font-style:italic;display:block;white-space:nowrap}
-.h-sub{max-width:520px;margin:28px auto 0;font-size:16px;line-height:1.75;color:rgba(255,255,255,.65);opacity:0;animation:fup .9s forwards .6s;}
-.h-ctas{margin-top:44px;display:flex;gap:14px;align-items:center;justify-content:center;opacity:0;animation:fup .9s forwards .8s;}
+/* Trusted by */
+.trust{padding:40px 24px;background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.trust-lbl{font-size:14px;font-weight:500;color:var(--fg3)}
+.logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 56px}
+.yc{display:inline-flex;align-items:center;gap:10px}
+.yc svg{width:36px;height:36px;border-radius:6px}
+.yc span{font-family:var(--ff-d);font-weight:600;font-size:26px;letter-spacing:-.025em;color:var(--fg)}
 
-.hero::after{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,163,92,.4),transparent);
-  z-index:3;
-}
-.scr{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;display:flex;align-items:center;gap:10px;opacity:0;animation:fi 1s forwards 1.4s;}
-.scr span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;color:rgba(201,163,92,.45);text-transform:uppercase}
-.scr-ln{width:40px;height:1px;background:linear-gradient(to right,var(--acc),transparent)}
+/* Stats: bare numbers, no boxes */
+.stats-sec{padding-top:88px;padding-bottom:88px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);max-width:960px;margin:0 auto}
+.stat{text-align:center;padding:8px 24px}
+.stat + .stat{border-left:1px solid var(--bdr2)}
+.stat .s-n{font-size:clamp(44px,5.4vw,76px)}
+.stat .s-l{margin-top:10px}
 
-/* ── QUIET TRUST STRIP (after hero, no numbers) ── */
-.trust-strip{padding:36px 32px;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);text-align:center}
-.trust-lbl{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
-.trust-names{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.trust-pill{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,.55);padding:4px 4px;transition:color .2s}
-.trust-pill:hover{color:var(--acc)}
-.trust-dot{color:rgba(255,255,255,.2);margin:0 2px}
-
-@media(max-width:900px){
-  .hero{padding:110px 24px 70px}
-  .h-ttl{font-size:clamp(30px,7.5vw,48px)}
-  .h-ttl .ol,.h-ttl .hi{white-space:normal}
-}
-
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.sc-card{background:var(--bg);padding:52px 40px;position:relative;overflow:hidden;transition:background .3s;text-decoration:none;color:inherit;display:block}
-.sc-card:hover{background:#0f0f11}
-.sc-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,163,92,.05),transparent);opacity:0;transition:opacity .3s}
-.sc-card:hover::after{opacity:1}
-.sc-n{font-family:'Cormorant Garamond',serif;font-size:76px;line-height:1;color:rgba(201,163,92,.07);margin-bottom:-18px}
-.sc-ttl{font-size:22px;font-weight:800;margin-bottom:14px;position:relative;z-index:1}
-.sc-d{font-size:13px;line-height:1.85;color:rgba(245,242,238,.5);position:relative;z-index:1}
-.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.1em;text-transform:uppercase;position:relative;z-index:1}
-.sc-tag::before{content:'→';transition:transform .2s}
-.sc-card:hover .sc-tag::before{transform:translateX(5px)}
-.w-sec{padding:140px 52px;background:var(--sur)}
-.w-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:64px}
-.proc-sec{padding:140px 52px}
-.res-sec{padding:140px 52px;position:relative}
-.res-sec::before{content:'RESULTS';position:absolute;top:56px;right:52px;font-family:'Cormorant Garamond',serif;font-size:180px;color:rgba(201,163,92,.025);pointer-events:none;line-height:1}
-.svc-sec{padding:140px 52px}
-
-/* ── SHORT FORM MARQUEE ── */
-.sf-sec{padding:80px 0;background:var(--sur);overflow:hidden}
-.sf-header{padding:0 64px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px}
-.sf-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,60px);line-height:1.05;color:var(--wht);margin-bottom:10px}
-.sf-acc{color:var(--acc)}
-.sf-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:400px;line-height:1.7}
-.sf-cta{padding:0 64px;margin-top:44px;display:flex;justify-content:center}
-
-.marquee-wrap{width:100%;padding:0 64px}
-.marquee-track{display:grid;grid-template-columns:repeat(3,260px);justify-content:center;gap:28px}
-.sf-card{aspect-ratio:9/16;border-radius:14px;overflow:hidden;background:var(--mut);position:relative}
+/* Short-form videos */
+.marquee-track{display:grid;grid-template-columns:repeat(3,260px);justify-content:center;gap:32px}
+.sf-card{aspect-ratio:9/16;border-radius:var(--r);overflow:hidden;background:#EDECEA;position:relative;outline:6px solid #fff;box-shadow:0 0 0 7px var(--bdr),0 24px 48px -24px rgba(0,0,0,.28);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.sf-card:hover{transform:translateY(-4px);box-shadow:0 0 0 7px var(--bdr2),0 32px 60px -26px rgba(0,0,0,.34)}
 .sf-card iframe{width:100%;height:100%;border:none;display:block}
 .sf-card wistia-player{width:100%;height:100%;display:block}
-.sf-card-label{position:absolute;bottom:0;left:0;right:0;padding:32px 12px 12px;background:linear-gradient(to top,rgba(12,12,14,.96) 0%,transparent 100%);pointer-events:none;z-index:2}
-.sf-card-tag{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.7);letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.2);padding:3px 10px;border-radius:20px}
 
-/* ── PODCAST SECTION ── */
-.pod-sec{padding:80px 64px;background:var(--bg)}
-.pod-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:52px;align-items:center;margin-top:48px}
-.pod-video{position:relative;aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:var(--mut)}
-.pod-video iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
-.pod-info{display:flex;flex-direction:column;gap:18px}
-.pod-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase}
-.pod-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);line-height:1.05;color:var(--wht)}
-.pod-desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.8}
-.pod-stats{display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--bdr)}
-.pod-stat-n{font-family:'Cormorant Garamond',serif;font-size:38px;color:var(--acc);line-height:1}
-.pod-stat-l{font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.35);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+/* Problems: four compact tiles */
+.prob-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prob{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.prob:hover{transform:translateY(-3px);box-shadow:var(--sh-h)}
+.prob-t{font-family:var(--ff-d);font-weight:600;font-size:17px;letter-spacing:-.015em;line-height:1.35;color:var(--fg)}
+.solve{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 24px;margin-top:44px}
+.solve-t{font-family:var(--ff-d);font-weight:600;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.025em;color:var(--fg)}
 
-@media(max-width:900px){
-  .sf-header{padding:0 24px}
-  .sf-cta{padding:0 24px}
-  .marquee-wrap{padding:0 24px}
-  .marquee-track{grid-template-columns:repeat(3,180px);gap:18px}
-  .pod-sec{padding:56px 24px}
-  .pod-inner{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .marquee-track{grid-template-columns:repeat(3,105px);gap:10px}
-}
-
-/* ── LOGO / TRUST WALL ── */
-.logo-sec{padding:56px 64px;background:var(--bg);border-bottom:1px solid var(--bdr)}
-.logo-lbl{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.2em;text-transform:uppercase;text-align:center;margin-bottom:32px}
-.logo-strip{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
-.logo-pill{font-family:'Cormorant Garamond',serif;font-size:20px;letter-spacing:1px;color:rgba(255,255,255,.4);border:1px solid var(--bdr);padding:13px 26px;transition:color .25s,border-color .25s}
-.logo-pill:hover{color:var(--wht);border-color:rgba(201,163,92,.35)}
-
-/* ── PROBLEMS WE SOLVE ── */
-.prob-sec{padding:140px 52px;background:var(--sur)}
-.prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--mut);margin-top:64px}
-.prob-card{background:var(--bg);padding:44px 44px;display:flex;gap:24px;align-items:flex-start}
-.prob-x{font-family:'Cormorant Garamond',serif;font-size:34px;color:rgba(201,163,92,.35);flex-shrink:0;line-height:1}
-.prob-ttl{font-size:17px;font-weight:800;margin-bottom:10px}
-.prob-d{font-size:13.5px;line-height:1.8;color:rgba(255,255,255,.5)}
-
-/* ── CONTENT DEPARTMENT ── */
-.dept-sec{padding:140px 52px}
-.dept-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--mut);margin-top:64px}
-.dept-card{background:var(--bg);padding:36px 18px;text-align:center;transition:background .3s}
-.dept-card:hover{background:#0f0f11}
-.dept-ic{font-family:'Cormorant Garamond',serif;font-size:30px;color:var(--acc);margin-bottom:14px}
-.dept-role{font-size:12px;font-weight:700;letter-spacing:.01em;line-height:1.4}
-
-/* ── REPURPOSING WHEEL ── */
-.wheel-sec{padding:160px 52px;background:var(--sur);overflow:hidden}
-.wheel-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:24px}
-.wheel-stage{position:relative;width:100%;aspect-ratio:1;max-width:460px;margin:0 auto}
-.wheel-ring{position:absolute;inset:0;border:1px dashed rgba(201,163,92,.28);border-radius:50%;animation:spin 34s linear infinite}
-.wheel-ring2{position:absolute;inset:13%;border:1px solid rgba(255,255,255,.07);border-radius:50%;animation:spinRev2 50s linear infinite}
-.wheel-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;background:var(--acc);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 70px rgba(201,163,92,.45);z-index:3}
-.wheel-hub b{font-family:'Cormorant Garamond',serif;font-size:22px;color:#fff;line-height:1.1}
-.wheel-hub span{font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.85);letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
-.wheel-node{position:absolute;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:var(--bg);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.03em;color:var(--wht);text-align:center;padding:6px;z-index:2;transition:border-color .25s,color .25s}
-.wheel-node:hover{border-color:rgba(201,163,92,.5);color:var(--acc)}
-@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes spinRev2{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
-.wheel-info{display:flex;flex-direction:column;gap:20px}
-
-/* ── SPOTLIGHT ── */
-.spot-sec{padding:120px 52px;background:linear-gradient(135deg,rgba(201,163,92,.08),rgba(12,12,14,1) 60%);border-top:1px solid rgba(201,163,92,.15);border-bottom:1px solid rgba(201,163,92,.15);position:relative}
-.spot-inner{max-width:760px}
-.spot-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(201,163,92,.3);padding:6px 16px;margin-bottom:24px}
-.spot-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,5vw,68px);line-height:1.05;margin-bottom:20px;color:#fff}
-.spot-d{font-size:15px;line-height:1.85;color:rgba(255,255,255,.6);margin-bottom:36px;max-width:600px}
-
-/* ── TIER CARDS ── */
-.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--mut)}
-.tier-card{background:var(--bg);padding:48px 40px;display:flex;flex-direction:column;position:relative;overflow:hidden}
-.tier-card.feat{background:#0f0f11}
-.tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(201,163,92,.28),transparent 65%)}
+/* Services */
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier-card{background:var(--sur);border:1px solid var(--bdr);border-radius:24px;padding:32px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:relative;overflow:hidden;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .25s}
+.tier-card:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:var(--bdr2)}
+.tier-card::before{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(168,130,62,.12),transparent 65%)}
 .tier-card:hover::before{opacity:1}
 .tier-card > *{position:relative;z-index:1}
-.tier-tag{position:absolute;top:0;right:0;background:var(--acc);color:#0a0906;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;z-index:2}
-.tier-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--acc);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
-.tier-ttl{font-family:'Cormorant Garamond',serif;font-size:34px;color:#fff;margin-bottom:12px}
-.tier-for{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:28px}
-.tier-feats{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px;flex:1}
-.tier-feats li{font-size:13px;color:rgba(255,255,255,.7);display:flex;gap:10px;align-items:flex-start}
-.tier-feats li::before{content:'—';color:var(--acc);flex-shrink:0}
+.tier-card .ico{margin-bottom:8px}
+.tier-ttl{font-family:var(--ff-d);font-weight:600;font-size:21px;letter-spacing:-.02em;line-height:1.25;color:var(--fg)}
+.tier-for{font-size:15.5px;color:var(--fg2);line-height:1.6;flex:1;margin-bottom:10px}
+.tier-card .btn-p,.tier-card .btn-g{width:100%}
+.tier-card .btn-p{justify-content:space-between}
 
-/* ── THE GOAL ── */
-.goal-sec{padding:160px 52px;text-align:center;background:var(--sur)}
-.goal-txt{max-width:900px;margin:0 auto;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,4.2vw,54px);line-height:1.3;color:rgba(255,255,255,.92)}
-.goal-txt .hi{color:var(--acc);font-style:italic}
-.goal-txt .ol{color:var(--wht);font-style:normal}
+/* One story, everywhere: orbit */
+.mech-sec{overflow:hidden}
+.mech{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.mech-stage{display:flex;align-items:center;justify-content:center;min-width:0;background:radial-gradient(circle at center,rgba(168,130,62,.12),transparent 62%)}
+.orb-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:124px;height:124px;border-radius:50%;background:linear-gradient(145deg,#EBD3A0,#C9A35C);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;box-shadow:0 0 0 8px rgba(255,255,255,.9),0 0 0 9px rgba(168,130,62,.25),0 24px 60px -10px rgba(168,130,62,.55)}
+.orb-core b{font-family:var(--ff-d);font-weight:600;font-size:48px;letter-spacing:-.04em;color:#2B2110;line-height:1}
+.orb-core span{font-size:9px;font-weight:600;color:#3D2F16;letter-spacing:.1em;text-transform:uppercase}
+.orb-node{position:absolute;width:86px;height:86px;border-radius:50%;background:#fff;border:1px solid rgba(168,130,62,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4;box-shadow:0 12px 28px -14px rgba(0,0,0,.22)}
+.orb-node span{font-size:8px;font-weight:600;color:var(--fg2);letter-spacing:.02em;text-align:center;text-transform:uppercase;line-height:1.3}
+.mech-copy{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
 
-/* ── FAQ ── */
-.faq-sec{padding:140px 52px;max-width:900px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--bdr);padding:28px 0}
-.faq-item summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:17px;font-weight:800;color:#fff}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:'+';font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--acc);transition:transform .3s;flex-shrink:0}
-.faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-a{font-size:14px;line-height:1.85;color:rgba(255,255,255,.55);margin-top:16px;max-width:700px}
+/* Launch showcase: bento */
+.launch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.lv{position:relative;border-radius:var(--r);overflow:hidden;background:#EDECEA;aspect-ratio:16/9;outline:5px solid #fff;box-shadow:0 0 0 6px var(--bdr),0 22px 44px -24px rgba(0,0,0,.28);transition:transform .5s var(--ease)}
+.lv:hover{transform:translateY(-3px)}
+.lv iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
+.lv.big{grid-column:span 4;grid-row:span 2;aspect-ratio:auto}
+.lv.sm{grid-column:span 2}
+.lv.half{grid-column:span 3}
+.lv-tag{position:absolute;left:12px;top:12px;z-index:2;font-size:11.5px;font-weight:600;color:var(--fg);background:rgba(255,255,255,.92);border-radius:999px;padding:4px 11px;pointer-events:none;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.center-cta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:44px}
+
+/* The goal */
+.goal{text-align:center}
+.goal-txt{max-width:920px;margin:0 auto;font-family:var(--ff-d);font-weight:500;font-size:clamp(28px,3.8vw,50px);line-height:1.18;letter-spacing:-.035em;color:var(--fg)}
+.goal-txt .g{color:var(--fg3)}
+.goal-txt .hi{color:var(--acc);background:linear-gradient(transparent 72%,rgba(201,163,92,.22) 72%);padding:0 .08em}
+
+/* FAQ */
+.faq-2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.faq-side{position:sticky;top:120px;display:flex;flex-direction:column;align-items:flex-start;gap:28px}
 
 @media(max-width:900px){
-  .prob-grid{grid-template-columns:1fr}
-  .dept-grid{grid-template-columns:repeat(2,1fr)}
-  .wheel-wrap{grid-template-columns:1fr}
-  .wheel-stage{max-width:340px}
-  .wheel-node{width:64px;height:64px;font-size:8.5px}
-  .wheel-hub{width:92px;height:92px}
+  .hero-h{min-height:auto;padding:128px 20px 80px}
+  .hero-ttl{font-size:clamp(32px,8vw,46px)}
+  .hero-ttl .l1,.hero-ttl .l2{white-space:normal}
+  .stats-sec{padding-top:64px;padding-bottom:64px}
+  .stat{padding:8px 10px}
+  .marquee-track{grid-template-columns:repeat(3,180px);gap:20px}
+  .prob-row{grid-template-columns:1fr 1fr}
   .tier-grid{grid-template-columns:1fr}
-  .logo-sec{padding:44px 24px}
-  .prob-sec,.dept-sec,.wheel-sec,.goal-sec{padding:90px 24px}
-  .faq-sec{padding:90px 24px}
-  .spot-sec{padding:80px 24px}
-}
-
-/* ── MOBILE FIXES for inline-styled sections added later ── */
-@media(max-width:900px){
-  .mob-sec{padding:64px 24px !important}
-  .mob-px{padding-left:24px !important;padding-right:24px !important}
-  .mob-hd{align-items:flex-start !important;gap:16px !important}
-  .mob-hd h2{font-size:clamp(30px,8vw,44px) !important}
-  .mob-grid-2,.mob-grid-3{grid-template-columns:1fr !important}
-  .mob-solve-strip{flex-direction:column !important;align-items:flex-start !important;padding:28px 24px !important}
-  .mob-orbit-wrap{grid-template-columns:1fr !important;gap:24px !important}
-  .mob-orbit-stage{width:100% !important;min-height:0 !important;justify-content:center !important}
+  .mech{grid-template-columns:minmax(0,1fr);gap:24px}
   #orbitWheel{transform:scale(.6) !important;margin:-90px 0 !important}
-  .mob-feat-test{grid-template-columns:1fr !important}
-  .mob-feat-test > div:first-child{aspect-ratio:16/10 !important;max-height:280px !important}
-  .mob-feat-test > div:last-child{padding:32px 24px !important}
+  .launch-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .lv.big{grid-column:1/-1;grid-row:auto;aspect-ratio:16/9}
+  .lv.sm,.lv.half{grid-column:span 1}
+  .faq-2{grid-template-columns:1fr;gap:28px}
+  .faq-side{position:static}
 }
-@media(max-width:480px){
-  .mob-grid-3{gap:10px !important}
+@media(max-width:560px){
+  .stat-row{grid-template-columns:1fr;gap:28px}
+  .stat + .stat{border-left:none;border-top:1px solid var(--bdr);padding-top:28px}
+  .marquee-track{grid-template-columns:repeat(3,105px);gap:12px}
+  .sf-card{outline-width:3px;box-shadow:0 0 0 4px var(--bdr),0 16px 32px -18px rgba(0,0,0,.28)}
+  .prob-row{grid-template-columns:1fr}
+  .launch-grid{grid-template-columns:1fr}
+  .lv{outline-width:3px;box-shadow:0 0 0 4px var(--bdr),0 16px 32px -18px rgba(0,0,0,.28)}
 }
 </style>
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-r" id="curR"></div>
-
-<!-- ============================================================
-     NAV — Edit links here if you add pages
-     ============================================================ -->
 <nav id="nav">
-  <a href="index.html" class="n-logo">INFLOW<span style="color:#c9a35c">.</span></a>
+  <a href="/" class="n-logo">INFLOW<span>.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/work">Work</a></li>
     <li><a href="/results">Results</a></li>
-    <!-- Add more nav items here if needed -->
   </ul>
-  <!-- ✏️ EDIT: Replace # with your Calendly link -->
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
-<!-- ============================================================
-     HERO SECTION
-     ✏️ EDIT: Change the 3 floating tags, headline, and sub-text
-     ============================================================ -->
-<section class="hero">
-  <canvas id="hCv"></canvas>
-
+<!-- HERO -->
+<section class="hero-h">
   <div class="h-con">
-    <p class="h-eye">Storytelling &amp; Media Partners for Startups and Founders</p>
-    <h1 class="h-ttl">
-      <span class="ol">Content Infrastructure for Operators</span>
-      <span class="hi">in Tech and Venture.</span>
+    <h1 class="hero-ttl">
+      <span class="l1">Content Infrastructure for Operators</span>
+      <span class="l2">in Tech and Venture.</span>
     </h1>
     <p class="h-sub">We run the full pipeline, from production through distribution, so what you make actually reaches the people worth reaching.</p>
     <div class="h-ctas">
@@ -266,301 +163,319 @@
       <a href="/work" class="btn-g">See Our Work</a>
     </div>
   </div>
-
-  <div class="scr"><div class="scr-ln"></div><span>Scroll</span></div>
 </section>
 
-<!-- ============================================================
-     TRUST STRIP — who we work with, no numbers, quiet
-     ============================================================ -->
-<section class="trust-strip">
-  <div class="trust-lbl">We Work With</div>
-  <div class="trust-names">
-    <span class="trust-pill">Startup Founders</span><span class="trust-dot">·</span>
-    <span class="trust-pill">SaaS Companies</span><span class="trust-dot">·</span>
-    <span class="trust-pill">Venture-Backed Teams</span><span class="trust-dot">·</span>
-    <span class="trust-pill">Podcast Hosts</span><span class="trust-dot">·</span>
-    <span class="trust-pill">Content-Led Brands</span>
+<!-- TRUSTED BY
+     ✏️ ADD LOGOS: drop more logos inside .logos (keep them ~32px tall) -->
+<section class="trust">
+  <p class="trust-lbl">Trusted by startups backed by</p>
+  <div class="logos">
+    <span class="yc" role="img" aria-label="Y Combinator">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#FB651E"/><path d="M9.3 7.5h3.1l3.6 7.1 3.6-7.1h3.1l-5.2 9.8v7.2h-3v-7.2z" fill="#fff"/></svg>
+      <span>Combinator</span>
+    </span>
   </div>
 </section>
 
-<!-- ============================================================
-     TESTIMONIALS / SOCIAL PROOF — real client results
-     ============================================================ -->
-<section class="res-sec" id="results" style="padding:120px 52px;position:relative">
-  <div class="res-sec-bg-word">TRACK RECORD</div>
-
-  <div class="s-lbl">Track Record</div>
-  <h2 class="s-ttl rv" style="margin-bottom:24px">Real Growth. <span class="ol">Zero Fluff.</span></h2>
-  <p class="rv" style="max-width:560px;font-size:15px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:64px">Three years of building organic growth and brand presence, on repeatable systems, not one-off wins. Here's what that work has produced.</p>
-
-  <div class="stats" style="margin-bottom:2px">
-    <div class="st rv">
+<!-- STATS -->
+<section class="sec stats-sec" id="results">
+  <div class="stat-row">
+    <div class="stat rv">
       <div class="s-n"><span class="cnt" data-t="200">0</span>M<span class="ac">+</span></div>
       <div class="s-l">Views Generated</div>
     </div>
-    <div class="st rv" style="transition-delay:.15s">
+    <div class="stat rv" style="transition-delay:.1s">
       <div class="s-n"><span class="cnt" data-t="3000">0</span><span class="ac">+</span></div>
       <div class="s-l">Videos Created</div>
     </div>
-    <div class="st rv" style="transition-delay:.3s">
+    <div class="stat rv" style="transition-delay:.2s">
       <div class="s-n"><span class="cnt" data-t="3">0</span><span class="ac">+</span></div>
       <div class="s-l">Years in Brand Building</div>
     </div>
   </div>
+</section>
 
-  <div style="text-align:center;margin-top:52px">
-    <a href="/results" style="font-family:'Space Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:12px 24px;transition:all .2s;display:inline-block" onmouseover="this.style.borderColor='#c9a35c';this.style.color='#c9a35c'" onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.4)'">View Full Case Studies →</a>
+<!-- CONTENT THAT CONVERTS
+     ✏️ ADD VIDEOS: paste a .sf-card block inside .marquee-track -->
+<section class="sec alt">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">Content That <span class="ol">Converts</span></h2>
+  </div>
+  <div class="marquee-track">
+    <div class="sf-card">
+      <iframe src="https://play.gumlet.io/embed/6a8c48cfc427de134538d38b?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="sf-card">
+      <iframe src="https://play.gumlet.io/embed/6a8c444ec427de134538b74b?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="sf-card">
+      <iframe src="https://play.gumlet.io/embed/6a8c444e28f2c759010f3f94?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="sf-card" style="grid-column:1/-1;aspect-ratio:16/9">
+      <iframe src="https://play.gumlet.io/embed/6a8c444eb6df33640456c965?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <!-- ✏️ ADD MORE: paste new .sf-card blocks here -->
   </div>
 </section>
 
-<!-- ============================================================
-     SHORT FORM VIDEOS — static row, wraps on smaller screens
-     ✏️ ADD VIDEOS: paste a .sf-card block inside .marquee-track below.
-     ============================================================ -->
-<section class="sf-sec">
-  <div class="sf-header">
-    <div>
-      <h2 class="sf-ttl">Content That <span class="sf-acc">Converts</span></h2>
-      <p class="sf-sub">A look at the content systems in motion.</p>
+<!-- PROBLEMS WE SOLVE -->
+<section class="sec">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">You're Building The <span class="hi">Product.</span><br>We Build The <span class="hi">Story.</span></h2>
+  </div>
+  <div class="prob-row">
+    <div class="prob rv">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3l18 18"/><path d="M10.6 5.1A10.4 10.4 0 0 1 12 5c6.4 0 10 7 10 7a17.7 17.7 0 0 1-2.2 3.1M6.6 6.6C3.8 8.3 2 12 2 12s3.6 7 10 7a9.7 9.7 0 0 0 5.4-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg></div>
+      <div class="prob-t">Great work nobody outside your cap table sees</div>
+    </div>
+    <div class="prob rv" style="transition-delay:.06s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg></div>
+      <div class="prob-t">One shot at launch, no team to produce it</div>
+    </div>
+    <div class="prob rv" style="transition-delay:.12s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/><path d="M15 7h5v5"/></svg></div>
+      <div class="prob-t">Investor-grade storytelling, not another Canva deck</div>
+    </div>
+    <div class="prob rv" style="transition-delay:.18s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
+      <div class="prob-t">Every hour on content is an hour off the product</div>
     </div>
   </div>
-  <script src="https://fast.wistia.com/player.js" async></script>
-  <div class="marquee-wrap">
-    <div class="marquee-track">
+  <div class="solve rv">
+    <div class="solve-t">We solve all four. Done for you.</div>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+  </div>
+</section>
 
-      <div class="sf-card">
-        <iframe src="https://play.gumlet.io/embed/6a8c48cfc427de134538d38b?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-      </div>
-      <div class="sf-card">
-        <iframe src="https://play.gumlet.io/embed/6a8c444ec427de134538b74b?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-      </div>
-      <div class="sf-card">
-        <iframe src="https://play.gumlet.io/embed/6a8c444e28f2c759010f3f94?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-      </div>
-
-      <div class="sf-card" style="grid-column:1/-1;aspect-ratio:16/9">
-        <iframe src="https://play.gumlet.io/embed/6a8c444eb6df33640456c965?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-      </div>
-
-      <!-- ✏️ ADD MORE: paste new .sf-card blocks here -->
+<!-- WHAT WE DO -->
+<section class="sec alt" id="services">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">What We <span class="ol">Build</span> For You.</h2>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card rv">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+      <h3 class="tier-ttl">Founder-Led Content System and Distribution</h3>
+      <p class="tier-for">Become the recognisable voice in your space.</p>
+      <a href="/founders" class="btn-g">Explore Service</a>
+    </div>
+    <div class="tier-card rv" style="transition-delay:.1s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8.5 22h7"/></svg></div>
+      <h3 class="tier-ttl">Podcast System and Distribution for VCs and GPs</h3>
+      <p class="tier-for">Every episode becomes a full content engine.</p>
+      <a href="/podcast" class="btn-g">Explore Service</a>
+    </div>
+    <div class="tier-card rv" style="transition-delay:.2s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 6L3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M6.2 5.3l3.1 3.9M12.4 3.4l3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <h3 class="tier-ttl">Product Launch Films and Motion Graphics</h3>
+      <p class="tier-for">Launch videos built to actually convert.</p>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     PROBLEMS WE SOLVE
-     ============================================================ -->
-<section class="mob-sec" style="padding:100px 64px;background:#0c0c0e;overflow:hidden;position:relative">
-
-  <!-- Background grid lines -->
-  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(201,163,92,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,163,92,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
-
-  <!-- Center text -->
-  <div style="text-align:center;position:relative;z-index:2;margin-bottom:72px">
-    <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px">Problems We Solve</div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,96px);line-height:.95;color:#fff">You're Building The <span style="color:#c9a35c;font-style:italic">Product.</span><br>We Build The <span style="color:#c9a35c;font-style:italic">Story.</span></h2>
-    <p style="font-size:16px;color:rgba(255,255,255,.5);max-width:420px;margin:20px auto 0;line-height:1.75">We become the media team you don't have time to hire. You focus on the product and the raise. We handle everything that gets it seen.</p>
+<!-- HOW IT WORKS -->
+<section class="sec">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">One Pipeline. <span class="ol">Every Step Handled.</span></h2>
   </div>
-
-  <!-- Problem cards grid -->
-  <div class="mob-grid-2" style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:#1e1e22;position:relative;z-index:2">
-
-    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:rgba(201,163,92,.4);flex-shrink:0;line-height:1;min-width:44px">01</div>
-      <div>
-        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">You're heads-down building — and nobody outside your cap table knows it</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Between product, hiring, and the raise, storytelling never wins the priority fight. Great work stays invisible.</div>
-      </div>
+  <div class="steps">
+    <div class="step rv">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <div class="step-n">01</div>
+      <div class="step-t">Strategy</div>
+      <div class="step-d">Pillars and narrative, before any script.</div>
     </div>
-
-    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:rgba(201,163,92,.4);flex-shrink:0;line-height:1;min-width:44px">02</div>
-      <div>
-        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Your launch has one shot — and no in-house team to produce it</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">Product Hunt day, funding announcement, the demo that closes the round — these moments don't get a second take.</div>
-      </div>
+    <div class="step rv" style="transition-delay:.08s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+      <div class="step-n">02</div>
+      <div class="step-t">Scripting</div>
+      <div class="step-d">Written in your voice, every piece.</div>
     </div>
-
-    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:rgba(201,163,92,.4);flex-shrink:0;line-height:1;min-width:44px">03</div>
-      <div>
-        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">You need investor-grade storytelling, not another Canva deck</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">A polished narrative signals you can execute. A generic explainer video signals the opposite — to investors and customers both.</div>
-      </div>
+    <div class="step rv" style="transition-delay:.16s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2.5"/><path d="M16 10.5l6-3.5v10l-6-3.5z"/></svg></div>
+      <div class="step-n">03</div>
+      <div class="step-t">Production</div>
+      <div class="step-d">You record. We edit, caption, and polish.</div>
     </div>
-
-    <div style="background:#0c0c0e;padding:48px 44px;display:flex;gap:24px;align-items:flex-start;transition:background .3s" onmouseover="this.style.background='#0f0f11'" onmouseout="this.style.background='#0c0c0e'">
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:rgba(201,163,92,.4);flex-shrink:0;line-height:1;min-width:44px">04</div>
-      <div>
-        <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3">Every hour on content is an hour not spent on product or the raise</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.45);line-height:1.8">You could out-explain any competitor in a room. Online, a founder with half your traction and a content system is winning the attention you need.</div>
-      </div>
+    <div class="step rv" style="transition-delay:.24s">
+      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></div>
+      <div class="step-n">04</div>
+      <div class="step-t">Distribution</div>
+      <div class="step-d">Published everywhere that matters.</div>
     </div>
-
   </div>
-
-  <!-- Solution strip -->
-  <div class="mob-solve-strip" style="margin-top:2px;background:#c9a35c;padding:32px 44px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;position:relative;z-index:2">
-    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);color:#fff;line-height:1">We solve all four. Done for you. Starting day one.</div>
-    <a href="https://cal.com/inflowmediahouse/30min" style="background:#fff;color:#c9a35c;padding:14px 28px;font-weight:800;font-size:13px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:background .2s" onmouseover="this.style.background='#f5f2ee'" onmouseout="this.style.background='#fff'">Book a Call</a>
-  </div>
-
 </section>
 
-<!-- ============================================================
-     THREE WAYS TO WORK WITH US — named service tiers
-     ✏️ EDIT: Titles, descriptions, features, and href links
-     ============================================================ -->
-<section class="svc-sec" id="services">
-  <div class="s-lbl">What We Do</div>
-  <h2 class="s-ttl rv" style="margin-bottom:64px">What We <span class="ol">Build</span> For You.</h2>
-
-<div class="tier-grid">
-
-  <!-- CARD 1 — Founder-Led Content -->
-  <div class="tier-card rv">
-    <div class="tier-n">01 — Founder Content</div>
-    <h3 class="tier-ttl">Founder-Led Content System and Distribution</h3>
-    <p class="tier-for">For founders who want to become the recognisable voice in their space — not just visible on launch day. We handle strategy, scripting, production, and distribution.</p>
-    <ul class="tier-feats">
-      <li>Content strategy and narrative built around you</li>
-      <li>Scripts written for every piece</li>
-      <li>Full production and multi-platform distribution</li>
-      <li>Positions you as the authority investors and clients trust</li>
-    </ul>
-    <a href="/founders" class="btn-g" style="text-align:center">Explore Service</a>
-  </div>
-
-  <!-- CARD 2 — Podcast System -->
-  <div class="tier-card rv" style="transition-delay:.15s">
-    <div class="tier-n">02 — Podcast</div>
-    <h3 class="tier-ttl">Podcast System and Distribution for VCs and GPs</h3>
-    <p class="tier-for">For VCs, GPs, and operators sitting on unused podcast footage. We turn every episode into a full content engine — clips, distribution, and audience growth.</p>
-    <ul class="tier-feats">
-      <li>Full podcast post-production, every episode</li>
-      <li>30+ short-form clips distributed monthly</li>
-      <li>Multi-platform distribution strategy</li>
-      <li>Guest pipeline production support</li>
-    </ul>
-    <a href="/podcast" class="btn-g" style="text-align:center">Explore Service</a>
-  </div>
-
-  <!-- CARD 3 — Product Launch -->
-  <div class="tier-card rv" style="transition-delay:.3s">
-    <div class="tier-n">03 — Launch</div>
-    <h3 class="tier-ttl">Product Launch Films and Motion Graphics</h3>
-    <p class="tier-for">For SaaS founders and startups who need a launch video that actually converts. We produce trailers, explainers, and motion graphics built for high-stakes launches.</p>
-    <ul class="tier-feats">
-      <li>Product launch trailers and demo videos</li>
-      <li>Motion graphics and SaaS explainers</li>
-      <li>Custom scope — we fit the format to the launch</li>
-    </ul>
-    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p" style="text-align:center">Book a Call</a>
-  </div>
-
-</div>
-</section>
-
-
-
-
-<section class="mob-sec" style="padding:100px 64px;background:#141416;overflow:hidden;position:relative">
-  <div class="mob-orbit-wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
-
-    <!-- LEFT — orbit wheel, centered, scroll-reveal rotation -->
-    <div class="mob-orbit-stage" style="display:flex;align-items:center;justify-content:center">
+<!-- ONE STORY, EVERYWHERE -->
+<section class="sec alt mech-sec">
+  <div class="mech">
+    <div class="mech-stage">
       <div id="orbitWheel" style="position:relative;width:460px;height:460px;opacity:0;transform:rotate(-120deg) scale(0.8);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.4s cubic-bezier(.16,1,.3,1)">
-
-        <!-- SVG rings -->
-        <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 460 460">
-          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(201,163,92,.12)" stroke-width="1" stroke-dasharray="6 12"/>
-          <circle cx="230" cy="230" r="130" fill="none" stroke="rgba(201,163,92,.07)" stroke-width="1" stroke-dasharray="4 10"/>
+        <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 460 460" aria-hidden="true">
+          <circle cx="230" cy="230" r="200" fill="none" stroke="rgba(168,130,62,.35)" stroke-width="1" stroke-dasharray="6 12"/>
+          <circle cx="230" cy="230" r="130" fill="none" stroke="rgba(168,130,62,.22)" stroke-width="1" stroke-dasharray="4 10"/>
         </svg>
-
-        <!-- Center circle -->
-        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:#c9a35c;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:5;box-shadow:0 0 80px rgba(201,163,92,.5)">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;color:#fff;line-height:1">1</div>
-          <div style="font-family:'Space Mono',monospace;font-size:8px;color:rgba(255,255,255,.7);letter-spacing:.14em;text-transform:uppercase">Recording</div>
+        <div class="orb-core"><b>1</b><span>Recording</span></div>
+        <div class="orb-node" style="top:calc(50% - 200px - 43px);left:calc(50% - 43px)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig1)" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="url(#ig1)" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="#bc1888"/><defs><linearGradient id="ig1" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs></svg>
+          <span>Instagram<br>Reels</span>
         </div>
-
-        <!-- INSTAGRAM — top center (0deg) -->
-        <div style="position:absolute;top:calc(50% - 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="url(#ig1)" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4" stroke="url(#ig1)" stroke-width="2"/>
-            <circle cx="17.5" cy="6.5" r="1.2" fill="#bc1888"/>
-            <defs><linearGradient id="ig1" x1="2" y1="22" x2="22" y2="2" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase;line-height:1.3">Instagram<br>Reels</span>
+        <div class="orb-node" style="top:calc(50% - 100px - 43px);left:calc(50% + 173px - 43px)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#141414" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.33 6.33 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          <span>TikTok</span>
         </div>
-
-        <!-- TIKTOK — top right (60deg) -->
-        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-6.33 6.33 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.17 8.17 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase">TikTok</span>
+        <div class="orb-node" style="top:calc(50% + 100px - 43px);left:calc(50% + 173px - 43px)">
+          <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000" aria-hidden="true"><path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/></svg>
+          <span>YouTube<br>Shorts</span>
         </div>
-
-        <!-- YOUTUBE SHORTS — bottom right (120deg) -->
-        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% + 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000">
-            <path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase;line-height:1.3">YouTube<br>Shorts</span>
+        <div class="orb-node" style="top:calc(50% + 200px - 43px);left:calc(50% - 43px)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
         </div>
-
-        <!-- LINKEDIN — bottom center (180deg) -->
-        <div style="position:absolute;top:calc(50% + 200px - 43px);left:calc(50% - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase">LinkedIn</span>
+        <div class="orb-node" style="top:calc(50% + 100px - 43px);left:calc(50% - 173px - 43px)">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#141414" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.622 5.905-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X / Twitter</span>
         </div>
-
-        <!-- X / TWITTER — bottom left (240deg) -->
-        <div style="position:absolute;top:calc(50% + 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.622 5.905-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase">X / Twitter</span>
+        <div class="orb-node" style="top:calc(50% - 100px - 43px);left:calc(50% - 173px - 43px)">
+          <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000" aria-hidden="true"><path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/></svg>
+          <span>YouTube<br>Long-Form</span>
         </div>
-
-        <!-- YOUTUBE LONG-FORM — top left (300deg) -->
-        <div style="position:absolute;top:calc(50% - 100px - 43px);left:calc(50% - 173px - 43px);width:86px;height:86px;border-radius:50%;background:#1a1a1e;border:1px solid rgba(201,163,92,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;z-index:4">
-          <svg width="22" height="16" viewBox="0 0 24 17" fill="#FF0000">
-            <path d="M23.5 2.5S23.2.7 22.4 0C21.4-1 20.3-.9 19.8-.9 16.5-1.1 12-1.1 12-1.1s-4.5 0-7.8.2C3.7-.9 2.6-1 1.6 0 .8.7.5 2.5.5 2.5S.2 4.6.2 6.7v2C.2 10.8.5 12.9.5 12.9s.3 1.8 1.1 2.5c1 1 2.4.9 3 1C6.7 16.6 12 16.7 12 16.7s4.5 0 7.8-.2c.5-.1 1.6 0 2.6-1 .8-.7 1.1-2.5 1.1-2.5s.3-2.1.3-4.2v-2C23.8 4.6 23.5 2.5 23.5 2.5zM9.7 11.5V5.2l6.6 3.2-6.6 3.1z"/>
-          </svg>
-          <span style="font-family:'Space Mono',monospace;font-size:6.5px;color:rgba(255,255,255,.55);letter-spacing:.04em;text-align:center;text-transform:uppercase;line-height:1.3">YouTube<br>Long-Form</span>
-        </div>
-
       </div>
     </div>
-
-    <!-- RIGHT — text -->
-    <div style="display:flex;flex-direction:column;gap:24px">
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.22em;text-transform:uppercase">The Mechanism</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(44px,6vw,80px);line-height:.95;color:#fff">One Story, <span style="color:#c9a35c;font-style:italic">Everywhere.</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,.55);line-height:1.8;max-width:440px">Reputation isn't built by one great video — it's built by being seen consistently, in the format each platform actually rewards. One recording session becomes weeks of proof that you're moving, everywhere the people who matter are already looking.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-        <div style="background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.1em;text-transform:uppercase">6 Platforms, One Session</div>
-        <div style="background:rgba(201,163,92,.1);border:1px solid rgba(201,163,92,.2);padding:8px 16px;font-family:'Space Mono',monospace;font-size:10px;color:#c9a35c;letter-spacing:.1em;text-transform:uppercase">Compounding, Not One-Off</div>
-      </div>
-      <a href="/work" style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Mono',monospace;font-size:11px;color:#c9a35c;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(201,163,92,.3);padding:14px 24px;width:fit-content;transition:background .2s" onmouseover="this.style.background='rgba(201,163,92,.1)'" onmouseout="this.style.background='transparent'">See the Work →</a>
+    <div class="mech-copy">
+      <h2 class="s-ttl">One Story, <span class="hi">Everywhere.</span></h2>
+      <p class="s-sub">One recording becomes weeks of content across six platforms.</p>
     </div>
-
   </div>
 </section>
 
-<!-- Scroll reveal rotation script for orbit wheel -->
+<!-- LAUNCH FILMS
+     ✏️ ADD A LAUNCH VIDEO: copy a .lv block (class "sm" or "half") -->
+<section class="sec" id="launch">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">Launch Content For The Moment <span class="hi">You Only Get Once.</span></h2>
+  </div>
+  <div class="launch-grid">
+    <div class="lv big rv">
+      <span class="lv-tag">SaaS Launch Video</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/737zf4a5ue?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="SaaS launch video" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv sm rv" style="transition-delay:.08s">
+      <span class="lv-tag">Product Demo</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/16o66aqxfu?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Product demo" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv sm rv" style="transition-delay:.16s">
+      <span class="lv-tag">Motion Graphics</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/crcr81oeg6?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Motion graphics" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv half rv">
+      <span class="lv-tag">SaaS Explainer</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/x8kxs06p0s?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="SaaS explainer" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="lv half rv" style="transition-delay:.08s">
+      <span class="lv-tag">Product Video</span>
+      <iframe src="https://fast.wistia.net/embed/iframe/d58oohs551?silentAutoPlay=false&playbar=false&controlsVisibleOnLoad=false&fullscreenButton=true&autoPlay=false&endVideoBehavior=reset&wmode=transparent&plugin[requireEmail]=false&chromeless=false&doNotTrack=false&playerColor=141414" title="Product video" allow="fullscreen" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="center-cta">
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Plan Your Launch</a>
+    <a href="/work" class="btn-g">See All Work</a>
+  </div>
+</section>
+
+<!-- THE GOAL -->
+<section class="sec alt goal">
+  <p class="goal-txt rv"><span class="g">We don't want to be your agency.</span> We want to be the media team you <span class="hi">never had to hire.</span></p>
+</section>
+
+<!-- CLIENT TESTIMONIALS (video)
+     ✏️ ADD A VIDEO: replace a <div class="vt-slot">...</div> block with
+       <div class="vt-card"><iframe src="https://play.gumlet.io/embed/YOUR_ID?embed_platform=gumlet" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div> -->
+<section class="sec" id="testimonials">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">In Their <span class="ol">Words.</span></h2>
+  </div>
+  <div class="vt-grid">
+    <div class="vt-slot rv"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.08s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+    <div class="vt-slot rv" style="transition-delay:.16s"><div class="vt-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></svg></div><span>Video testimonial</span></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec alt">
+  <div class="faq-2">
+    <div class="faq-side">
+      <h2 class="s-ttl rv">Questions, <span class="ol">Answered.</span></h2>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-g">Ask Us on a Call</a>
+    </div>
+    <div>
+      <details class="faq-item" open>
+        <summary>Who is this for?</summary>
+        <p class="faq-a">Founders and startup teams with a launch, a raise, or a story that needs to land. Plus podcasters sitting on unused footage.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you only work with funded startups?</summary>
+        <p class="faq-a">No. Bootstrapped, pre-seed, or funded. What matters is a story worth telling well.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the commitment?</summary>
+        <p class="faq-a">Launch projects are a single sprint. Ongoing content systems run on a 3 month minimum so they have time to compound.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need to be on camera?</summary>
+        <p class="faq-a">For founder content, yes. We handle everything around you: scripts, shoots, editing, and distribution.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" id="contact">
+  <canvas id="ctaCv"></canvas>
+  <div class="cta-in rv">
+    <h2 class="cta-ttl">Ready to Tell a Story Worth Funding?</h2>
+    <p class="cta-sub">One call. We'll show you exactly what it takes.</p>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW MEDIA HOUSE<span>.</span></div>
+      <p class="f-tag">Content infrastructure for operators in tech and venture.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="/founders">Founder Content</a></li>
+      <li><a href="/podcast">Podcast Distribution</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/results">Results</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
+      <li><a href="#" target="_blank">YouTube</a></li>
+    </ul></div>
+  </div>
+  <div class="fb">
+    <span class="fc">© 2026 Inflow Media House</span>
+    <span class="fc">@bedanta.exp</span>
+  </div>
+</footer>
+
 <script>
+/* Orbit wheel: rotate into place when scrolled into view */
 (function(){
   const wheel = document.getElementById('orbitWheel');
   if(!wheel) return;
-  const obs = new IntersectionObserver((entries) => {
+  const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if(e.isIntersecting) {
+      if(e.isIntersecting){
         wheel.style.opacity = '1';
         wheel.style.transform = 'rotate(0deg) scale(1)';
         obs.unobserve(wheel);
@@ -569,146 +484,8 @@
   }, { threshold: 0.25 });
   obs.observe(wheel);
 })();
-</script>
 
-
-
-
-<!-- ============================================================
-     INFLOW SPOTLIGHT — launch content micro-offer
-     ============================================================ -->
-<section class="spot-sec">
-  <div class="spot-inner">
-    <div class="spot-badge rv">Inflow Spotlight</div>
-    <h2 class="spot-ttl rv" style="transition-delay:.1s">Launch Content For The Moment You Only Get Once.</h2>
-    <p class="spot-d rv" style="transition-delay:.2s">Dropping a new offer, raising a round, or stepping into the spotlight as the face of your brand for the first time? Spotlight is a focused, one-time production sprint — a launch trailer, founder story piece, and a week of clipped distribution content — built to make your moment land everywhere at once.</p>
-    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p rv" style="transition-delay:.3s">Talk to Us About Spotlight</a>
-  </div>
-</section>
-
-<!-- ============================================================
-     PORTFOLIO — VIDEO CARDS
-     ✏️ HOW TO ADD A VIDEO:
-       1. Upload to YouTube (can be Unlisted)
-       2. Copy the video URL, e.g. youtube.com/watch?v=ABC123XYZ
-       3. The VIDEO_ID is the part after v= → ABC123XYZ
-       4. Paste it into data-vid="YOUR_ID_HERE"
-       5. For thumbnail: change the URL in style="background-image:url(...)"
-          Use: https://img.youtube.com/vi/YOUR_ID_HERE/maxresdefault.jpg
-       6. Update the client name, title, and badges
-     ============================================================ -->
-
-<!-- ============================================================
-     TESTIMONIALS
-     ✏️ EDIT: Replace every quote, name, role, result number
-     For photo: replace the letter inside .rc-av with:
-     <img src="URL_OR_FILENAME.jpg">
-     ============================================================ -->
-
-<!-- ============================================================
-     BOTTOM CTA
-     ✏️ EDIT: Replace # with your Calendly link
-     ============================================================ -->
-
-<!-- ============================================================
-     THE GOAL
-     ============================================================ -->
-<section class="goal-sec">
-  <div class="s-lbl" style="justify-content:center">The Goal</div>
-  <p class="goal-txt rv">We don't want to be your agency. <span class="ol">We want to be</span> the media team you <span class="hi">never had to hire.</span></p>
-</section>
-
-<!-- ============================================================
-     FAQ
-     ✏️ EDIT: Add/edit questions and answers
-     ============================================================ -->
-<section class="faq-sec">
-  <div class="s-lbl">FAQ</div>
-  <h2 class="s-ttl rv" style="margin-bottom:24px">Questions, <span class="ol">Answered.</span></h2>
-
-  <details class="faq-item rv" open>
-    <summary>Who is this actually for?</summary>
-    <p class="faq-a">Founders and startup teams with a launch, a raise, or a product moment that needs to land — plus podcasters and creators sitting on unused footage. If you're pre-product or looking for a single one-off edit, this isn't the right fit.</p>
-  </details>
-  <details class="faq-item rv">
-    <summary>Do you only work with funded startups?</summary>
-    <p class="faq-a">No. We work with founders at any stage — bootstrapped, pre-seed, or funded. What matters is that you have a product or story worth telling well.</p>
-  </details>
-  <details class="faq-item rv">
-    <summary>What's the commitment?</summary>
-    <p class="faq-a">Launch projects are scoped as a single production sprint. Ongoing content systems (podcast, ongoing distribution) run on a 3-month minimum so the system has time to compound.</p>
-  </details>
-  <details class="faq-item rv">
-    <summary>Do I need to be on camera myself?</summary>
-    <p class="faq-a">For founder-led content, yes — investors and customers respond to a real person. We handle everything around you: scripting, shot planning, editing, and distribution.</p>
-  </details>
-</section>
-
-<section class="cta-sec" id="contact">
-  <canvas id="ctaCv"></canvas>
-  <div class="cta-in rv">
-    <p class="cta-ey">Work With Us</p>
-    <h2 class="cta-ttl">Ready to Tell a Story Worth Funding?</h2>
-    <p class="cta-sub">One call. We look at your product, your stage, and your next big moment, and show you exactly what it takes to make it land — live on the call.</p>
-    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
-    <p class="cta-note">30-minute call · We come prepared having looked at your product · No pitch deck</p>
-  </div>
-</section>
-
-<!-- ============================================================
-     FOOTER
-     ✏️ EDIT: Your social links and tagline
-     ============================================================ -->
-<footer>
-  <div class="ft">
-    <div>
-      <div class="f-log">INFLOW MEDIA HOUSE<span style="color:#c9a35c">.</span></div>
-      <p class="f-tag">Storytelling and media partners for startups, founders, and venture-backed teams.</p>
-    </div>
-    <div class="f-col"><h4>Services</h4><ul>
-      <li><a href="/podcast">Podcast Distribution</a></li>
-      <li><a href="/founders">Founder-Led Content Strategy</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Company</h4><ul>
-      <li><a href="/work">Portfolio</a></li>
-      <li><a href="/results">Results</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul></div>
-    <div class="f-col"><h4>Connect</h4><ul>
-      <!-- ✏️ EDIT: Your real social links -->
-      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram @bedanta.exp</a></li>
-      <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
-      <li><a href="#" target="_blank">YouTube</a></li>
-    </ul></div>
-  </div>
-  <div class="fb">
-    <span class="fc">© 2026 Inflow Media. All rights reserved.</span>
-    <span class="fc">@bedanta.exp</span>
-  </div>
-</footer>
-
-<script>
-/* Hero particle canvas — homepage only */
-(()=>{
-  const cv=document.getElementById('hCv'),cx=cv.getContext('2d');
-  let W,H,pts=[],mo={x:-999,y:-999};
-  const rs=()=>{W=cv.width=cv.offsetWidth;H=cv.height=cv.offsetHeight};
-  rs();window.addEventListener('resize',rs);
-  document.addEventListener('mousemove',e=>{const r=cv.getBoundingClientRect();mo.x=e.clientX-r.left;mo.y=e.clientY-r.top});
-  class P{
-    constructor(){this.r()}
-    r(){this.x=Math.random()*W;this.y=Math.random()*H;this.sz=Math.random()*1.4+.3;this.vx=(Math.random()-.5)*.25;this.vy=(Math.random()-.5)*.25;this.a=Math.random()*.35+.08;const v=Math.random();this.c=v>.75?'#c9a35c':v>.5?'#e0c07f':'#f5f2ee'}
-    tick(){const dx=mo.x-this.x,dy=mo.y-this.y,d=Math.sqrt(dx*dx+dy*dy);if(d<110){this.vx-=dx/d*.07;this.vy-=dy/d*.07}this.vx*=.98;this.vy*=.98;this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>W||this.y<0||this.y>H)this.r()}
-    draw(){cx.globalAlpha=this.a;cx.fillStyle=this.c;cx.beginPath();cx.arc(this.x,this.y,this.sz,0,Math.PI*2);cx.fill()}
-  }
-  for(let i=0;i<80;i++)pts.push(new P());
-  function grid(){cx.globalAlpha=.008;cx.strokeStyle='#c9a35c';cx.lineWidth=.5;const s=88;for(let x=0;x<W;x+=s){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke()}for(let y=0;y<H;y+=s){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke()}}
-  function lns(){for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<85){cx.globalAlpha=(1-d/85)*.07;cx.strokeStyle='#c9a35c';cx.lineWidth=.4;cx.beginPath();cx.moveTo(pts[i].x,pts[i].y);cx.lineTo(pts[j].x,pts[j].y);cx.stroke()}}}
-  function glow(){if(mo.x>0&&mo.x<W){const g=cx.createRadialGradient(mo.x,mo.y,0,mo.x,mo.y,180);g.addColorStop(0,'rgba(201,163,92,.06)');g.addColorStop(1,'transparent');cx.globalAlpha=1;cx.fillStyle=g;cx.fillRect(0,0,W,H)}}
-  (function lp(){cx.clearRect(0,0,W,H);grid();lns();glow();pts.forEach(p=>{p.tick();p.draw()});requestAnimationFrame(lp)})();
-})();
-
-/* Cursor-follow glow on tier cards */
+/* Cursor-follow glow on service cards */
 document.querySelectorAll('.tier-card').forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const r=card.getBoundingClientRect();
@@ -716,7 +493,6 @@ document.querySelectorAll('.tier-card').forEach(card=>{
     card.style.setProperty('--my',(e.clientY-r.top)+'px');
   });
 });
-
 </script>
 <script src="shared.js"></script>
 </body>
