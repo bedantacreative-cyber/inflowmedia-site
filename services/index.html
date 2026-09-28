@@ -15,20 +15,17 @@
 <link rel="stylesheet" href="../style.css">
 <style>
 /* === SERVICES PAGE === */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sc-card{background:var(--sur);border:1px solid var(--bdr);border-radius:20px;padding:36px 32px;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .25s}
-.sc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-h);border-color:var(--bdr2)}
-.sc-card::after{content:'';position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .35s;pointer-events:none;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(168,130,62,.12),transparent 65%)}
-.sc-card:hover::after{opacity:1}
-.sc-card > *{position:relative;z-index:1}
-.sc-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.sc-n{font-family:var(--ff-d);font-weight:600;font-size:14px;color:var(--fg3)}
-.sc-ttl{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.02em;line-height:1.25;color:var(--fg);margin-bottom:12px}
-.sc-d{font-size:15px;line-height:1.7;color:var(--fg2);flex:1}
-.sc-tag{margin-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--fg)}
-.sc-tag::after{content:'→';transition:transform .3s var(--ease)}
-.sc-card:hover .sc-tag::after{transform:translateX(4px)}
-@media(max-width:900px){.svc-grid{grid-template-columns:1fr}}
+.sv-hero{position:relative;overflow:hidden;text-align:center;padding:176px 24px 104px;border-bottom:1px solid var(--bdr);
+  background:radial-gradient(900px 420px at 50% -10%,rgba(168,130,62,.10),transparent 70%)}
+.sv-hero::before{content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(10,10,10,.09) 1px,transparent 1px);background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse 55% 70% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 55% 70% at 50% 40%,#000,transparent 75%)}
+.sv-hero .h-con{margin:0 auto}
+.sv-hero .h-ttl .ol{color:var(--fg3)}
+.sv-proof{margin-top:44px;display:inline-flex;align-items:center;gap:12px;font-size:13.5px;font-weight:500;color:var(--fg3);opacity:0;animation:fup .9s var(--ease) forwards .75s}
+.sv-proof .yc{display:inline-flex;align-items:center;gap:7px}
+.sv-proof .yc svg{width:22px;height:22px;border-radius:4px}
+.sv-proof .yc span{font-size:17px;color:var(--fg)}
 </style>
 </head>
 <body>
@@ -43,47 +40,83 @@
 </nav>
 
 <!-- PAGE HERO -->
-<section class="hero">
+<section class="sv-hero">
   <div class="h-con">
-        <h1 class="h-ttl"><span class="ol">Media Built For</span> <span class="hi">Startups and Funds.</span></h1>
-    <p class="h-sub">Three ways to work with us. Pick the one that fits where you are.</p>
+    <span class="h-eye">Services</span>
+    <h1 class="h-ttl">Media Built For<br><span class="ol">Startups and Funds.</span></h1>
+    <p class="h-sub">Three ways to work with us. One team behind all of them.</p>
+    <div class="h-ctas">
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+      <a href="#services" class="btn-g">See Services</a>
+    </div>
+    <div class="sv-proof">Trusted by startups backed by
+      <span class="yc" role="img" aria-label="Y Combinator"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#FB651E"/><path d="M9.3 7.5h3.1l3.6 7.1 3.6-7.1h3.1l-5.2 9.8v7.2h-3v-7.2z" fill="#fff"/></svg><span>Combinator</span></span>
+    </div>
   </div>
 </section>
 
+<!-- SERVICES: same cards as the homepage -->
 <section class="sec" id="services">
-  <div class="svc-grid">
-
-    <!-- Service 1: links to founders page -->
-    <a href="/founders" class="sc-card rv">
-      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><div class="sc-n">01</div></div>
-      <h3 class="sc-ttl">Founder-Led Content Strategy</h3>
-      <p class="sc-d">Become the recognizable voice of your company, month after month.</p>
-      <div class="sc-tag">Explore Service</div>
-    </a>
-
-    <!-- Service 2: links to podcast page -->
-    <a href="/podcast" class="sc-card rv" style="transition-delay:.12s">
-      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8.5 22h7"/></svg></div><div class="sc-n">02</div></div>
-      <h3 class="sc-ttl">Podcast &amp; Distribution</h3>
-      <p class="sc-d">Full episodes, 30+ clips a month, and distribution handled.</p>
-      <div class="sc-tag">Explore Service</div>
-    </a>
-
-    <!-- Service 3: product launch -->
-    <a href="https://cal.com/inflowmediahouse/30min" class="sc-card rv" style="transition-delay:.24s">
-      <div class="sc-head"><div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 6L3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M6.2 5.3l3.1 3.9M12.4 3.4l3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div class="sc-n">03</div></div>
-      <h3 class="sc-ttl">Product Launch Films and Motion Graphics</h3>
-      <p class="sc-d">Trailers, explainers, and motion graphics built to convert.</p>
-      <div class="sc-tag">Book a Call</div>
-    </a>
-
+  <div class="sec-hd">
+    <span class="eyebrow rv">What we build</span>
+    <h2 class="s-ttl rv">Three Ways to <span class="ol">Work With Us.</span></h2>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card rv">
+      <div class="tv" aria-hidden="true"><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl li">in</span></div><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl x">X</span></div><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl yt"></span></div></div>
+      <h3 class="tier-ttl">Founder-Led Content System and Distribution</h3>
+      <p class="tier-for">Become the recognisable voice in your space.</p>
+      <a href="/founders" class="btn-g">Explore Service</a>
+    </div>
+    <div class="tier-card rv" style="transition-delay:.1s">
+      <div class="tv tv-pod" aria-hidden="true"><span class="tv-chip">30+ clips / month</span><div class="wave"><i style="--h:0.35;--d:0.00"></i><i style="--h:0.6;--d:0.09"></i><i style="--h:0.9;--d:0.18"></i><i style="--h:0.5;--d:0.27"></i><i style="--h:0.75;--d:0.36"></i><i style="--h:1;--d:0.45"></i><i style="--h:0.55;--d:0.54"></i><i style="--h:0.8;--d:0.63"></i><i style="--h:0.4;--d:0.72"></i><i style="--h:0.95;--d:0.81"></i><i style="--h:0.65;--d:0.90"></i><i style="--h:0.45;--d:0.99"></i><i style="--h:0.85;--d:1.08"></i><i style="--h:0.5;--d:1.17"></i><i style="--h:0.7;--d:1.26"></i><i style="--h:0.3;--d:1.35"></i></div><span class="tv-arrow"></span><div class="clips"><i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i></div></div>
+      <h3 class="tier-ttl">Podcast System and Distribution for VCs and GPs</h3>
+      <p class="tier-for">Every episode becomes a full content engine.</p>
+      <a href="/podcast" class="btn-g">Explore Service</a>
+    </div>
+    <div class="tier-card rv" style="transition-delay:.2s">
+      <div class="tv tv-launch" aria-hidden="true"><div class="player"><div class="scr"><span class="tag">LAUNCH DAY</span><span class="play"></span></div><div class="bar"><i></i></div></div></div>
+      <h3 class="tier-ttl">Product Launch Films and Motion Graphics</h3>
+      <p class="tier-for">Launch videos built to actually convert.</p>
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+    </div>
   </div>
 </section>
 
-<!-- CTA (dark band) -->
-<section class="cta-sec">
+<!-- HOW IT RUNS (dark band) -->
+<section class="sec dark-band">
+  <div class="sec-hd">
+    <span class="eyebrow rv">How it runs</span>
+    <h2 class="s-ttl rv">Everything Handled. <span class="ol">End to End.</span></h2>
+  </div>
+  <div class="flow rv">
+    <div class="flow-i"><div class="flow-n">01</div><div class="flow-t">Strategy</div><p class="flow-d">We find the angle worth owning.</p></div>
+    <div class="flow-i"><div class="flow-n">02</div><div class="flow-t">Production</div><p class="flow-d">Scripts, shoots and edits, done for you.</p></div>
+    <div class="flow-i"><div class="flow-n">03</div><div class="flow-t">Distribution</div><p class="flow-d">Clipped and posted where it counts.</p></div>
+    <div class="flow-i"><div class="flow-n">04</div><div class="flow-t">Reporting</div><p class="flow-d">Clear numbers, every month.</p></div>
+  </div>
+</section>
+
+<!-- WHAT EVERY ENGAGEMENT INCLUDES -->
+<section class="sec">
+  <div class="sec-hd">
+    <span class="eyebrow rv">In every plan</span>
+    <h2 class="s-ttl rv">No Gaps. <span class="ol">No Handoffs.</span></h2>
+  </div>
+  <div class="cells rv">
+    <div class="cell"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>One point of contact</div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13 7l4 4"/></svg>Scripting and editing</div>
+    <div class="cell"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Content calendar</div>
+    <div class="cell"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Platform native formats</div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>Distribution handled</div>
+    <div class="cell"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>Monthly reporting</div>
+  </div>
+</section>
+
+<!-- CTA (dark) -->
+<section class="cta-dark">
   <div class="cta-in rv">
-        <h2 class="cta-ttl">Let's Talk It <span style="color:var(--acc)">Through.</span></h2>
+    <h2 class="cta-ttl">Work With Us.</h2>
     <p class="cta-sub">One call. We'll tell you exactly what fits.</p>
     <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
   </div>
@@ -116,14 +149,5 @@
 </footer>
 
 <script src="../shared.js"></script>
-<script>
-document.querySelectorAll('.sc-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    card.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-});
-</script>
 </body>
 </html>
