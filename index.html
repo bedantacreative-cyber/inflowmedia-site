@@ -17,7 +17,7 @@
 <style>
 /* === HOMEPAGE === */
 
-/* Hero: dark, cinematic, animated (canvas light trails orbiting a lens) */
+/* Hero: dark, cinematic, animated (canvas streaks rushing past a rocket) */
 .hx{position:relative;min-height:100vh;min-height:100svh;background:#030405;color:#fff;overflow:hidden;display:flex;flex-direction:column;padding:130px max(24px,calc((100% - 1180px)/2)) 0}
 #heroCv{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
 .hx::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
@@ -37,24 +37,18 @@
 .hx .btn-g{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.22);box-shadow:none}
 .hx .btn-g:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
 
-/* The lens */
+/* The rocket */
 .hx-visual{display:flex;align-items:center;justify-content:center;opacity:0;animation:fi 1.4s forwards .35s}
-.lens-wrap{position:relative;width:min(30vw,380px);aspect-ratio:1;animation:lensFloat 8s ease-in-out infinite}
-@keyframes lensFloat{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-16px) rotate(3deg)}}
-.lens{position:absolute;inset:0;border-radius:50%;
-  background:conic-gradient(from 200deg,#5E4720,#EAD29B,#8A6A2E,#F6E6BF,#4F3B1A,#C9A35C,#7A5C27,#E3C88E,#5E4720);
-  box-shadow:0 0 0 1px rgba(255,255,255,.1),0 50px 100px -30px rgba(0,0,0,.95),0 0 140px -20px rgba(217,184,116,.45)}
-.lens::before{content:'';position:absolute;inset:5.5%;border-radius:50%;background:radial-gradient(circle,#0B0A08 60%,#211B10 72%,#050505 100%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 10px 24px rgba(255,255,255,.05)}
-.lens::after{content:'';position:absolute;inset:11%;border-radius:50%;border:1px dashed rgba(217,184,116,.28);animation:irisSpin 60s linear infinite reverse}
-.lens-glass{position:absolute;inset:17%;border-radius:50%;overflow:hidden;background:radial-gradient(circle,#1F1709 0%,#0A0806 46%,#020202 74%);box-shadow:inset 0 0 44px rgba(0,0,0,.95),0 0 0 1px rgba(217,184,116,.3)}
-.iris{position:absolute;inset:4%;width:92%;height:92%;animation:irisSpin 34s linear infinite}
-@keyframes irisSpin{to{transform:rotate(360deg)}}
-.lens-core{position:absolute;left:50%;top:50%;width:26%;height:26%;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#FFF6DD 0%,#EAC67C 26%,rgba(217,184,116,.28) 56%,transparent 72%);animation:corePulse 3.8s ease-in-out infinite}
-@keyframes corePulse{0%,100%{opacity:.75;transform:translate(-50%,-50%) scale(.92)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.08)}}
-.lens-hl{position:absolute;inset:17%;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse 46% 30% at 33% 25%,rgba(255,255,255,.26),transparent 70%),radial-gradient(ellipse 16% 9% at 67% 73%,rgba(255,255,255,.12),transparent 70%)}
-.lens-sweep{position:absolute;inset:17%;border-radius:50%;overflow:hidden;pointer-events:none}
-.lens-sweep::after{content:'';position:absolute;top:-20%;bottom:-20%;width:34%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,240,205,.16),transparent);transform:skewX(-14deg);animation:sweep 6s ease-in-out infinite 1.5s}
-@keyframes sweep{0%{left:-60%}55%,100%{left:130%}}
+.rocket-wrap{position:relative;width:min(38vw,500px);aspect-ratio:1;margin:-40px -20px -40px 0;animation:rocketFloat 6s ease-in-out infinite}
+@keyframes rocketFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,-14px)}}
+.rocket{position:absolute;inset:0;width:100%;height:100%;transform:rotate(40deg);overflow:visible;animation:rumble .18s linear infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.7))}
+@keyframes rumble{0%,100%{translate:0 0}25%{translate:.4px -.3px}50%{translate:-.3px .4px}75%{translate:.3px .3px}}
+.flame{transform-box:fill-box;transform-origin:50% 0;animation:flicker .12s ease-in-out infinite alternate}
+.flame.inner{animation-duration:.09s}
+@keyframes flicker{from{transform:scaleY(.86) scaleX(1.04)}to{transform:scaleY(1.1) scaleX(.95)}}
+.port-core{animation:portPulse 3.2s ease-in-out infinite}
+@keyframes portPulse{0%,100%{opacity:.7}50%{opacity:1}}
+.rocket-glow{position:absolute;left:18%;bottom:10%;width:46%;height:46%;border-radius:50%;background:radial-gradient(circle,rgba(234,190,110,.38),transparent 65%);filter:blur(12px);pointer-events:none}
 
 /* Trusted by (bottom of hero) */
 .hx-trust{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px;padding:26px 0 32px;margin-top:36px;border-top:1px solid rgba(255,255,255,.09)}
@@ -173,7 +167,7 @@
   .hx{min-height:auto;padding:110px 20px 0}
   .hx-in{grid-template-columns:1fr;gap:26px}
   .hx-visual{order:-1}
-  .lens-wrap{width:min(58vw,250px)}
+  .rocket-wrap{width:min(62vw,260px)}
   .hx .hero-ttl{font-size:clamp(30px,7.6vw,44px)}
   .hx .hero-ttl .l1,.hx .hero-ttl .l2{white-space:normal}
   .hx-trust{margin-top:44px}
@@ -212,7 +206,7 @@
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
-<!-- HERO: dark and cinematic. Canvas light trails orbit the lens (see script at the bottom).
+<!-- HERO: dark and cinematic. Canvas streaks rush past the rocket (see script at the bottom).
      ✏️ ADD LOGOS: drop more logos inside .hx-trust (keep them ~30px tall) -->
 <section class="hx">
   <canvas id="heroCv" aria-hidden="true"></canvas>
@@ -229,19 +223,56 @@
       </div>
     </div>
     <div class="hx-visual" aria-hidden="true">
-      <div class="lens-wrap">
-        <div class="lens"></div>
-        <div class="lens-glass">
-          <svg class="iris" viewBox="-50 -50 100 100">
-            <defs><clipPath id="irisClip"><circle r="48"/></clipPath></defs>
-            <g clip-path="url(#irisClip)" fill="none" stroke="rgba(217,184,116,.42)" stroke-width=".7"><line x1="16" y1="0" x2="-14" y2="51.96"/><line x1="8" y1="13.856" x2="-52" y2="13.856"/><line x1="-8" y1="13.856" x2="-38" y2="-38.1"/><line x1="-16" y1="0" x2="14" y2="-51.96"/><line x1="-8" y1="-13.856" x2="52" y2="-13.856"/><line x1="8" y1="-13.856" x2="38" y2="38.1"/></g>
-            <polygon points="16,0 8,13.856 -8,13.856 -16,0 -8,-13.856 8,-13.856" fill="rgba(217,184,116,.06)" stroke="rgba(234,210,155,.7)" stroke-width=".8"/>
-            <circle r="48" fill="none" stroke="rgba(217,184,116,.3)" stroke-width=".6"/>
-          </svg>
-          <div class="lens-core"></div>
-        </div>
-        <div class="lens-hl"></div>
-        <div class="lens-sweep"></div>
+      <div class="rocket-wrap">
+        <div class="rocket-glow"></div>
+        <svg class="rocket" viewBox="0 0 200 440">
+          <defs>
+            <linearGradient id="rkBody" x1="0" x2="1">
+              <stop offset="0" stop-color="#121110"/><stop offset=".22" stop-color="#3B362F"/>
+              <stop offset=".42" stop-color="#9C978D"/><stop offset=".55" stop-color="#5A544B"/>
+              <stop offset=".82" stop-color="#26221D"/><stop offset="1" stop-color="#0D0C0A"/>
+            </linearGradient>
+            <linearGradient id="rkGold" x1="0" x2="1">
+              <stop offset="0" stop-color="#5E4720"/><stop offset=".35" stop-color="#F3E1B5"/>
+              <stop offset=".55" stop-color="#C9A35C"/><stop offset="1" stop-color="#4F3B1A"/>
+            </linearGradient>
+            <linearGradient id="rkFin" x1="0" x2="1">
+              <stop offset="0" stop-color="#1A1713"/><stop offset=".5" stop-color="#3C352C"/><stop offset="1" stop-color="#14120F"/>
+            </linearGradient>
+            <radialGradient id="rkGlass" cx=".38" cy=".35" r=".75">
+              <stop offset="0" stop-color="#3A2E18"/><stop offset=".55" stop-color="#0B0906"/><stop offset="1" stop-color="#020202"/>
+            </radialGradient>
+            <radialGradient id="rkCore"><stop offset="0" stop-color="#FFF6DD"/><stop offset=".4" stop-color="#EAC67C"/><stop offset="1" stop-color="rgba(217,184,116,0)"/></radialGradient>
+            <linearGradient id="rkFlameO" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFE7A8"/><stop offset=".35" stop-color="#F0A93B"/><stop offset=".75" stop-color="rgba(214,110,30,.45)"/><stop offset="1" stop-color="rgba(214,110,30,0)"/>
+            </linearGradient>
+            <linearGradient id="rkFlameI" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFF1C9"/><stop offset="1" stop-color="rgba(255,225,150,0)"/>
+            </linearGradient>
+          </defs>
+          <!-- flame -->
+          <path class="flame" d="M74 318 C 72 360, 92 400, 100 438 C 108 400, 128 360, 126 318 Z" fill="url(#rkFlameO)"/>
+          <path class="flame inner" d="M86 318 C 85 345, 95 370, 100 392 C 105 370, 115 345, 114 318 Z" fill="url(#rkFlameI)"/>
+          <!-- fins -->
+          <path d="M62 222 L 18 292 L 16 326 L 62 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
+          <path d="M138 222 L 182 292 L 184 326 L 138 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
+          <!-- body -->
+          <path d="M100 10 C 134 50, 140 112, 140 170 L 140 272 C 140 288, 131 298, 121 302 L 79 302 C 69 298, 60 288, 60 272 L 60 170 C 60 112, 66 50, 100 10 Z" fill="url(#rkBody)"/>
+          <!-- gold nose cone -->
+          <path d="M100 10 C 134 50, 140 112, 140 128 L 60 128 C 60 112, 66 50, 100 10 Z" fill="url(#rkGold)"/>
+          <rect x="60" y="128" width="80" height="6" fill="#2B251C"/>
+          <rect x="60" y="246" width="80" height="4" fill="url(#rkGold)" opacity=".85"/>
+          <!-- porthole -->
+          <circle cx="100" cy="180" r="22" fill="url(#rkGold)"/>
+          <circle cx="100" cy="180" r="17.5" fill="url(#rkGlass)"/>
+          <circle class="port-core" cx="100" cy="180" r="9" fill="url(#rkCore)"/>
+          <ellipse cx="93" cy="173" rx="6" ry="3.5" fill="#fff" opacity=".22" transform="rotate(-30 93 173)"/>
+          <!-- centre fin and nozzle -->
+          <path d="M96 262 L 104 262 L 104 326 L 96 326 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".5" stroke-width="1"/>
+          <path d="M79 302 L 121 302 L 127 320 L 73 320 Z" fill="#1B1814" stroke="#C9A35C" stroke-opacity=".4" stroke-width="1"/>
+          <!-- body highlight -->
+          <path d="M84 60 C 78 100, 76 150, 77 270" stroke="#fff" stroke-opacity=".14" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
       </div>
     </div>
   </div>
@@ -531,65 +562,72 @@
 </footer>
 
 <script>
-/* Hero: gold light trails orbiting the lens (long exposure look).
+/* Hero: gold light streaks rushing past the rocket, plus an exhaust trail.
    Pauses off screen; draws a single still frame for reduced motion. */
 (function(){
   const cv=document.getElementById('heroCv'); if(!cv) return;
   const hero=cv.parentElement, ctx=cv.getContext('2d');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const TILT=-0.32, SQUASH=0.58, BG='rgba(3,4,5,.042)';
-  let W=0,H=0,cx=0,cy=0,pts=[],visible=true,raf=0;
+  const ANG=40*Math.PI/180;                         /* rocket tilt, matches the CSS rotate */
+  const UX=Math.sin(ANG), UY=-Math.cos(ANG);        /* direction the rocket points */
+  const DX=-UX, DY=-UY;                             /* streaks and exhaust flow the other way */
+  let W=0,H=0,tx=0,ty=0,streaks=[],puffs=[],visible=true;
 
-  function focus(){
-    const lens=hero.querySelector('.lens-wrap');
-    const hr=hero.getBoundingClientRect(), lr=lens.getBoundingClientRect();
-    cx=lr.left+lr.width/2-hr.left; cy=lr.top+lr.height/2-hr.top;
-    if(!lr.width){cx=W*.72;cy=H*.48}
+  function tail(){
+    const r=hero.querySelector('.rocket-wrap'); const hr=hero.getBoundingClientRect(), rr=r.getBoundingClientRect();
+    const cx=rr.left+rr.width/2-hr.left, cy=rr.top+rr.height/2-hr.top, d=rr.height*.43;
+    tx=cx-UX*d; ty=cy-UY*d;
   }
-  function spawn(outer){
-    const R=Math.hypot(W,H)*.75;
-    return {a:Math.random()*Math.PI*2, r:outer?R*(.55+Math.random()*.45):40+Math.pow(Math.random(),1.7)*R,
-            s:.0016+Math.random()*.0034, dr:.03+Math.random()*.12,
-            lvl:Math.random()<.12?2:(Math.random()<.5?1:0)};
+  function streak(anywhere){
+    const v=3+Math.random()*11;
+    let x,y;
+    if(anywhere){x=Math.random()*W;y=Math.random()*H}
+    else if(Math.random()<.5){x=Math.random()*W*1.2;y=-20}else{x=W+20;y=Math.random()*H}
+    return {x,y,v,len:v*(7+Math.random()*9),lvl:v>10?2:(v>6?1:0)};
   }
-  function pos(p){
-    const x=Math.cos(p.a)*p.r, y=Math.sin(p.a)*p.r*SQUASH;
-    return [cx+x*Math.cos(TILT)-y*Math.sin(TILT), cy+x*Math.sin(TILT)+y*Math.cos(TILT)];
-  }
-  const STYLES=[['rgba(217,184,116,.28)',.55],['rgba(226,196,130,.55)',.7],['rgba(255,240,205,.85)',1]];
-  function step(){
-    ctx.fillStyle=BG; ctx.fillRect(0,0,W,H);
+  const S=[['rgba(217,184,116,.22)',.6],['rgba(226,196,130,.45)',.8],['rgba(255,240,205,.8)',1.1]];
+  function frame(){
+    ctx.fillStyle='rgba(3,4,5,.5)'; ctx.fillRect(0,0,W,H);
     for(let l=0;l<3;l++){
-      ctx.beginPath(); ctx.strokeStyle=STYLES[l][0]; ctx.lineWidth=STYLES[l][1];
-      for(const p of pts){
+      ctx.beginPath(); ctx.strokeStyle=S[l][0]; ctx.lineWidth=S[l][1];
+      for(const p of streaks){
         if(p.lvl!==l) continue;
-        const [x0,y0]=pos(p);
-        p.a+=p.s*(1+220/(p.r+30)); p.r-=p.dr;
-        if(p.r<36){Object.assign(p,spawn(true));continue}
-        const [x1,y1]=pos(p);
-        ctx.moveTo(x0,y0); ctx.lineTo(x1,y1);
+        p.x+=DX*p.v; p.y+=DY*p.v;
+        if(p.x<-p.len||p.y>H+p.len){Object.assign(p,streak(false));continue}
+        ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+UX*p.len,p.y+UY*p.len);
       }
       ctx.stroke();
     }
+    /* exhaust */
+    for(let i=0;i<3;i++) puffs.push({x:tx+(Math.random()-.5)*10,y:ty+(Math.random()-.5)*10,v:2.5+Math.random()*3.5,life:1,s:(Math.random()-.5)*.6});
+    ctx.globalCompositeOperation='lighter';
+    for(const q of puffs){
+      q.x+=DX*q.v+q.s*DY; q.y+=DY*q.v-q.s*DX; q.life-=.018;
+      if(q.life<=0) continue;
+      ctx.fillStyle='rgba(240,180,90,'+(q.life*.35).toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(q.x,q.y,1.2+(1-q.life)*3,0,6.283); ctx.fill();
+    }
+    ctx.globalCompositeOperation='source-over';
+    puffs=puffs.filter(q=>q.life>0);
   }
   function size(){
     const dpr=Math.min(window.devicePixelRatio||1,2);
     W=hero.clientWidth; H=hero.clientHeight;
     cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.fillStyle='#030405'; ctx.fillRect(0,0,W,H);
-    focus();
-    const n=Math.round(Math.min(1500,Math.max(500,W*H/800)));
-    pts=Array.from({length:n},()=>spawn(false));
-    for(let i=0;i<(reduce?320:160);i++) step();   // pre-warm so trails show immediately
+    tail();
+    const n=Math.round(Math.min(260,Math.max(90,W*H/5000)));
+    streaks=Array.from({length:n},()=>streak(true)); puffs=[];
+    for(let i=0;i<(reduce?80:40);i++) frame();
   }
-  function loop(){ if(visible) step(); raf=requestAnimationFrame(loop); }
+  function loop(){ if(visible) frame(); requestAnimationFrame(loop); }
   size();
   if(!reduce){
     new IntersectionObserver(([e])=>{visible=e.isIntersecting}).observe(hero);
     loop();
   }
   let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{
-    if(hero.clientWidth!==W||Math.abs(hero.clientHeight-H)>80) size(); else focus();
+    if(hero.clientWidth!==W||Math.abs(hero.clientHeight-H)>80) size(); else tail();
   },200)});
 })();
 
