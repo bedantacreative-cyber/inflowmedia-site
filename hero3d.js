@@ -42,13 +42,18 @@ function init() {
   /* ---- Lighting: hard key from the sun, cool bounce from the planet ---- */
   const SUN = new THREE.Vector3(8, 5, 5).normalize();
   const SUN_P = new THREE.Vector3(7, 2.5, -9).normalize();   // planet is backlit: night side faces us, crescent on the limb
-  const sun = new THREE.DirectionalLight(0xfff4ea, 3.2);
-  sun.position.copy(SUN).multiplyScalar(50);
+  const sun = new THREE.DirectionalLight(0xfff3e6, 3.8);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, {left: -3.4, right: 3.4, top: 3.4, bottom: -3.4, near: .5, far: 60});
+  sun.shadow.bias = -.0004; sun.shadow.normalBias = .015;
   scene.add(sun);
-  const bounce = new THREE.DirectionalLight(0x3a62c8, 0.55);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const bounce = new THREE.DirectionalLight(0x3a62c8, 0.45);
   bounce.position.set(-4, -7, 3);
   scene.add(bounce);
-  scene.add(new THREE.AmbientLight(0x0c1426, 0.6));
+  scene.add(new THREE.AmbientLight(0x0c1426, 0.25));
 
   /* ---- Deep space backdrop: nebula baked once into a cube map ---- */
   const nebScene = new THREE.Scene();
@@ -79,6 +84,19 @@ function init() {
   const cubeRT = new THREE.WebGLCubeRenderTarget(small ? 512 : 1024, {type: THREE.HalfFloatType});
   new THREE.CubeCamera(1, 1000, cubeRT).update(renderer, nebScene);
   scene.background = cubeRT.texture;
+
+  /* ---- Reflections: nebula, planet glow and the sun baked into an environment map ---- */
+  const envScene = new THREE.Scene();
+  const envNeb = new THREE.Mesh(nebScene.children[0].geometry, nebScene.children[0].material); envNeb.scale.setScalar(.5);
+  const envGlow = new THREE.Mesh(new THREE.PlaneGeometry(120, 40), new THREE.MeshBasicMaterial({color: new THREE.Color(.1, .2, .5), side: THREE.DoubleSide}));
+  envGlow.position.set(-4, -18, -10); envGlow.rotation.x = -1.2;
+  const envSun = new THREE.Mesh(new THREE.SphereGeometry(2.2, 16, 8), new THREE.MeshBasicMaterial({color: new THREE.Color(60, 56, 50)}));
+  envSun.position.copy(SUN).multiplyScalar(40);
+  envScene.add(envNeb, envGlow, envSun);
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(envScene, .02).texture;
+  scene.environmentIntensity = .55;
+  pmrem.dispose();
 
   /* ---- Stars: twinkling points, a few bright enough to bloom ---- */
   const NS = small ? 3200 : 7000;
@@ -158,85 +176,124 @@ function init() {
   });
   planet.add(new THREE.Mesh(new THREE.SphereGeometry(PR * 1.02, 160, 120), atmoMat));
 
-  /* ---- The rocket ---- */
-  const R = 0.32, Y0 = -2.36, Y1 = 3.0;
+  /* ---- The rocket: a modern two stage launcher ---- */
+  const R = 0.32, RF = 0.36, Y0 = -2.36, Y1 = 3.0;
   const rocketRoot = new THREE.Group();   // placed and tilted to fit the layout slot
   const rocket = new THREE.Group();       // rolls slowly around its own axis
   rocketRoot.add(rocket);
   scene.add(rocketRoot);
 
-  // Paint livery on a canvas and wrap it around the body
+  // Livery, roughness and bump maps painted on canvases and wrapped around the body
   const TW = 1024, TH = 2048;
-  const tc = document.createElement('canvas'); tc.width = TW; tc.height = TH;
-  const g = tc.getContext('2d');
+  const mk = fill => { const c = document.createElement('canvas'); c.width = TW; c.height = TH; const x = c.getContext('2d'); x.fillStyle = fill; x.fillRect(0, 0, TW, TH); return [c, x]; };
+  const [cC, g] = mk('#E2E1DD');            // colour
+  const [cR, gr] = mk('#6e6e6e');           // roughness (green channel)
+  const [cB, gb] = mk('#808080');           // bump (mid grey = flat)
   const row = y => (1 - (y - Y0) / (Y1 - Y0)) * TH;
-  g.fillStyle = '#D9DAD7'; g.fillRect(0, 0, TW, TH);
-  for (let i = 0; i < 900; i++) {           // faint paint streaks
-    g.fillStyle = `rgba(${Math.random() < .5 ? '0,0,0' : '255,255,255'},${(Math.random() * .035).toFixed(3)})`;
-    g.fillRect(Math.random() * TW, Math.random() * TH, 1 + Math.random() * 3, 20 + Math.random() * 260);
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const rect = (x, c, y0, y1, u0 = 0, u1 = 1) => { x.fillStyle = c; x.fillRect(u0 * TW, row(y1), (u1 - u0) * TW, row(y0) - row(y1)); };
+  // large scale tonal variation in the paint
+  for (let i = 0; i < 60; i++) {
+    const cx = rnd(0, TW), cy = rnd(0, TH), r = rnd(80, 380), q = g.createRadialGradient(cx, cy, 0, cx, cy, r);
+    q.addColorStop(0, `rgba(${Math.random() < .5 ? '90,88,84' : '255,255,255'},${rnd(.02, .06).toFixed(3)})`); q.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = q; g.fillRect(cx - r, cy - r, r * 2, r * 2);
   }
-  const band = (a, b, c) => { g.fillStyle = c; g.fillRect(0, row(b), TW, row(a) - row(b)); };
-  band(Y0, -1.95, '#23262B');               // thrust section
-  band(0.55, 0.86, '#1D2025');              // interstage
-  for (let k = 0; k < 4; k++) {             // roll pattern on the fairing base
-    g.fillStyle = '#16181C';
-    const lo = k % 2 ? 1.02 : 1.28;
-    g.fillRect(k * TW / 4, row(lo + .26), TW / 4, row(lo) - row(lo + .26));
+  // carbon interstage with stringers, dark base section
+  rect(g, '#17181B', .55, .95); rect(gr, '#a0a0a0', .55, .95);
+  for (let k = 0; k < 96; k++) { rect(gb, k % 2 ? '#9a9a9a' : '#707070', .55, .95, k / 96, (k + .5) / 96); rect(g, 'rgba(255,255,255,.035)', .55, .95, k / 96, (k + .3) / 96); }
+  rect(g, '#2A2B2E', Y0, -2.12); rect(gr, '#b4b4b4', Y0, -2.12);
+  // panel seams with rivet rows
+  const seams = [-1.62, -.9, -.18, 1.42];
+  for (const y of seams) {
+    rect(g, 'rgba(0,0,0,.16)', y - .004, y + .004); rect(gb, '#4a4a4a', y - .005, y + .005);
+    for (let u = 0; u < 1; u += 1 / 180) { gb.fillStyle = '#b8b8b8'; gb.beginPath(); gb.arc(u * TW, row(y + .03), 2.2, 0, 7); gb.arc(u * TW, row(y - .03), 2.2, 0, 7); gb.fill(); }
   }
-  g.fillStyle = 'rgba(0,0,0,.2)';           // panel seams
-  for (let y = -1.6; y < 2.9; y += .42) g.fillRect(0, row(y), TW, 2);
-  for (let k = 0; k < 8; k++) g.fillRect(k * TW / 8, 0, 2, TH);
-  const soot = g.createLinearGradient(0, row(Y0), 0, row(-1.2));
-  soot.addColorStop(0, 'rgba(18,16,14,.6)'); soot.addColorStop(1, 'rgba(18,16,14,0)');
-  g.fillStyle = soot; g.fillRect(0, row(-1.2), TW, row(Y0) - row(-1.2));
-  // wordmark running up the body; scale corrects the u and v texel ratio
+  for (const u of [0, .5]) { rect(g, 'rgba(0,0,0,.2)', 1.0, Y1, u, u + .003); rect(gb, '#404040', 1.0, Y1, u, u + .004); }  // fairing split line
+  // soot and exhaust staining rising from the base, drips under the interstage
+  const soot = g.createLinearGradient(0, row(Y0), 0, row(-.9));
+  soot.addColorStop(0, 'rgba(22,19,17,.8)'); soot.addColorStop(.35, 'rgba(40,35,30,.3)'); soot.addColorStop(1, 'rgba(40,35,30,0)');
+  g.fillStyle = soot; g.fillRect(0, row(-.9), TW, row(Y0) - row(-.9));
+  for (let i = 0; i < 260; i++) {
+    const u = Math.random(), top = rnd(-2.1, -.6), a = rnd(.03, .14);
+    rect(g, `rgba(30,26,22,${a.toFixed(3)})`, Y0, top, u, u + rnd(.002, .012));
+    rect(gr, `rgba(200,200,200,${(a * 1.4).toFixed(3)})`, Y0, top, u, u + .01);
+  }
+  for (let i = 0; i < 90; i++) { const u = Math.random(); rect(g, `rgba(25,25,28,${rnd(.03, .1).toFixed(3)})`, .55 - rnd(.1, .7), .55, u, u + rnd(.002, .008)); }
+  // speckle wear in the roughness map
+  for (let i = 0; i < 5000; i++) { gr.fillStyle = `rgba(${Math.random() < .5 ? '40,40,40' : '170,170,170'},.25)`; gr.fillRect(rnd(0, TW), rnd(0, TH), 2, 2); }
+  // placards and the wordmark
+  rect(g, '#1B1C20', -.62, -.42, .38, .4); rect(g, '#1B1C20', 1.9, 1.98, .56, .62);
   g.save();
-  g.translate(TW * .62, row(-0.55));
+  g.translate(TW * .64, row(-1.95));
   g.rotate(-Math.PI / 2);
   g.scale(1, (TW / (2 * Math.PI * R)) / (TH / (Y1 - Y0)));
-  g.fillStyle = '#1A1C21';
-  g.font = '700 118px Helvetica, Arial, sans-serif';
+  g.fillStyle = '#16171B';
+  g.font = '800 150px Helvetica, Arial, sans-serif';
   g.textBaseline = 'middle';
-  if ('letterSpacing' in g) g.letterSpacing = '14px';
+  if ('letterSpacing' in g) g.letterSpacing = '22px';
   g.fillText('INFLOW', 0, 0);
   g.restore();
-  const bodyTex = new THREE.CanvasTexture(tc);
-  bodyTex.colorSpace = THREE.SRGBColorSpace;
-  bodyTex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const tex = (c, srgb) => { const t = new THREE.CanvasTexture(c); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); return t; };
 
-  const prof = [new THREE.Vector2(0, Y0), new THREE.Vector2(.2, Y0), new THREE.Vector2(.26, -2.3), new THREE.Vector2(.3, -2.2), new THREE.Vector2(R, -2.05)];
-  for (let y = -1.9; y < 1.6; y += .25) prof.push(new THREE.Vector2(R, y));
-  const L = 1.4, rho = (R * R + L * L) / (2 * R);
-  for (let i = 0; i <= 30; i++) {           // tangent ogive nose
-    const t = Math.min(i / 30, .992);
-    prof.push(new THREE.Vector2(Math.max(Math.sqrt(rho * rho - (L * t) ** 2) + R - rho, 0), 1.6 + L * t));
+  // Body profile: first stage, interstage, flared payload fairing, ogive nose
+  const prof = [new THREE.Vector2(0, Y0), new THREE.Vector2(R - .015, Y0), new THREE.Vector2(R, Y0 + .02)];
+  for (let y = -2.2; y < .95; y += .2) prof.push(new THREE.Vector2(R, y));
+  prof.push(new THREE.Vector2(R, .95), new THREE.Vector2(RF, 1.12), new THREE.Vector2(RF, 1.4));
+  const L = 1.25, rho = (RF * RF + L * L) / (2 * RF);
+  for (let i = 0; i <= 36; i++) {           // tangent ogive nose
+    const t = Math.min(i / 36, .993);
+    prof.push(new THREE.Vector2(Math.max(Math.sqrt(rho * rho - (L * t) ** 2) + RF - rho, 0), Y1 - L + L * t));
   }
   prof.push(new THREE.Vector2(0, Y1));
-  const bodyGeo = new THREE.LatheGeometry(prof, 128);
+  const bodyGeo = new THREE.LatheGeometry(prof, 160);
   const pos = bodyGeo.attributes.position, uv = bodyGeo.attributes.uv;
   for (let i = 0; i < uv.count; i++) uv.setY(i, (pos.getY(i) - Y0) / (Y1 - Y0));
-  const paint = new THREE.MeshPhysicalMaterial({map: bodyTex, roughness: .46, metalness: .06, clearcoat: .35, clearcoatRoughness: .5});
+  const paint = new THREE.MeshPhysicalMaterial({
+    map: tex(cC, true), roughnessMap: tex(cR), bumpMap: tex(cB), bumpScale: 2,
+    roughness: 1, metalness: .04, clearcoat: .22, clearcoatRoughness: .35
+  });
   rocket.add(new THREE.Mesh(bodyGeo, paint));
 
-  const graphite = new THREE.MeshStandardMaterial({color: 0x2a2d33, roughness: .5, metalness: .35});
-  const finShape = new THREE.Shape();
-  finShape.moveTo(0, -1.35); finShape.lineTo(.5, -2.02); finShape.lineTo(.53, -2.44); finShape.lineTo(0, -2.3); finShape.closePath();
-  const finGeo = new THREE.ExtrudeGeometry(finShape, {depth: .04, bevelEnabled: true, bevelThickness: .008, bevelSize: .008, bevelSegments: 2});
-  finGeo.translate(0, 0, -.02);
+  // Folded landing legs, cable raceways, thruster pods
+  const carbon = new THREE.MeshStandardMaterial({color: 0x1c1d21, roughness: .62, metalness: .25});
+  const alloy = new THREE.MeshStandardMaterial({color: 0x8d9096, roughness: .38, metalness: .85});
+  const legGeo = new THREE.BoxGeometry(.03, 1.05, .1);
   for (let k = 0; k < 4; k++) {
     const pivot = new THREE.Group(); pivot.rotation.y = k * Math.PI / 2 + Math.PI / 4;
-    const fin = new THREE.Mesh(finGeo, graphite); fin.position.x = R - .02;
-    pivot.add(fin); rocket.add(pivot);
+    const leg = new THREE.Mesh(legGeo, carbon); leg.position.set(R + .016, -1.84, 0); pivot.add(leg);
+    const foot = new THREE.Mesh(new THREE.BoxGeometry(.05, .08, .14), alloy); foot.position.set(R + .03, -2.33, 0); pivot.add(foot);
+    const hinge = new THREE.Mesh(new THREE.BoxGeometry(.04, .05, .06), alloy); hinge.position.set(R + .03, -1.33, 0); pivot.add(hinge);
+    rocket.add(pivot);
   }
-  const raceway = new THREE.Mesh(new THREE.BoxGeometry(.035, 3.3, .07), new THREE.MeshStandardMaterial({color: 0xc4c6c8, roughness: .55, metalness: .1}));
-  raceway.position.set(R + .012, -.25, 0);
-  rocket.add(raceway);
+  const raceMat = new THREE.MeshPhysicalMaterial({color: 0xd6d5d1, roughness: .55, metalness: .05, clearcoat: .15});
+  const race = (ang, w, y0, y1) => {
+    const pivot = new THREE.Group(); pivot.rotation.y = ang;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(.032, y1 - y0, w), raceMat); m.position.set(R + .012, (y0 + y1) / 2, 0);
+    pivot.add(m); rocket.add(pivot);
+  };
+  race(0, .07, -2.1, .52); race(Math.PI, .045, -2.1, .52); race(0, .05, .97, 2.3);
+  for (let k = 0; k < 4; k++) {
+    const pivot = new THREE.Group(); pivot.rotation.y = k * Math.PI / 2;
+    const pod = new THREE.Mesh(new THREE.BoxGeometry(.05, .12, .08), carbon); pod.position.set(R + .02, .75, 0); pivot.add(pod);
+    rocket.add(pivot);
+  }
 
-  const bell = [];
-  for (let i = 0; i <= 20; i++) { const t = i / 20; bell.push(new THREE.Vector2(.11 + .16 * Math.pow(t, .65), Y0 - .5 * t)); }
-  rocket.add(new THREE.Mesh(new THREE.LatheGeometry(bell, 64),
-    new THREE.MeshStandardMaterial({color: 0x4a4440, roughness: .32, metalness: .9, side: THREE.DoubleSide})));
-  const NOZ = Y0 - .5;
+  // Engine section: heat shield plate and a nine engine cluster with hot throats
+  const shield = new THREE.Mesh(new THREE.CylinderGeometry(R - .01, R - .03, .05, 64), new THREE.MeshStandardMaterial({color: 0x2b2926, roughness: .8, metalness: .4}));
+  shield.position.y = Y0 - .02; rocket.add(shield);
+  const bellPts = [];
+  for (let i = 0; i <= 16; i++) { const t = i / 16; bellPts.push(new THREE.Vector2(.034 + .052 * Math.pow(t, .6), -.26 * t)); }
+  const bellGeo = new THREE.LatheGeometry(bellPts, 40);
+  const bellMat = new THREE.MeshStandardMaterial({color: 0x5b534c, roughness: .3, metalness: .95, side: THREE.FrontSide});
+  const throatMat = new THREE.MeshBasicMaterial({color: new THREE.Color(1.6, 1.8, 2.5), side: THREE.BackSide});
+  const spots = [[0, 0]];
+  for (let k = 0; k < 8; k++) spots.push([Math.cos(k * Math.PI / 4) * .2, Math.sin(k * Math.PI / 4) * .2]);
+  for (const [x, z] of spots) {
+    const b = new THREE.Mesh(bellGeo, bellMat); b.position.set(x, Y0 - .04, z); rocket.add(b);
+    const th = new THREE.Mesh(bellGeo, throatMat); th.scale.set(.94, 1, .94); th.position.copy(b.position); rocket.add(th);
+  }
+  const NOZ = Y0 - .3;
+  rocket.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
 
   /* ---- Exhaust plume: layered additive cones, white hot core fading to blue ---- */
   const plumeMats = [];
@@ -262,9 +319,9 @@ function init() {
     plumeMats.push(m);
     const mesh = new THREE.Mesh(geo, m); mesh.position.y = NOZ + .02; rocket.add(mesh);
   };
-  plume(1.5, .2, .06, 2.8);     // white hot core, tapering
-  plume(3.2, .24, .55, 1.5);
-  plume(6.5, .26, 1.3, .62);
+  plume(1.5, .24, .07, 2.1);    // white hot core, tapering
+  plume(3.2, .28, .6, 1.4);
+  plume(6.5, .3, 1.35, .6);
 
   const glowTex = (() => {
     const c = document.createElement('canvas'); c.width = c.height = 128;
@@ -274,7 +331,7 @@ function init() {
     return new THREE.CanvasTexture(c);
   })();
   const nozGlow = new THREE.Sprite(new THREE.SpriteMaterial({map: glowTex, color: 0xbad2ff, blending: THREE.AdditiveBlending, depthWrite: false, transparent: true}));
-  nozGlow.position.y = NOZ - .08; nozGlow.scale.setScalar(1);
+  nozGlow.position.y = NOZ - .12; nozGlow.scale.setScalar(.6);
   rocket.add(nozGlow);
   const engLight = new THREE.PointLight(0x8fb4ff, 6, 6, 2);
   engLight.position.y = NOZ - .4;
@@ -353,6 +410,7 @@ function init() {
     base.set(nx * HALF_H * cam.aspect, ny * HALF_H, 0);
     scale = (Math.min(sr.height, sr.width * 1.3) / H) * 2 * HALF_H * .9 / (Y1 - Y0);
     rocketRoot.scale.setScalar(scale);
+    sun.target = rocketRoot;
   }
 
   /* ---- Loop ---- */
@@ -370,11 +428,12 @@ function init() {
     rocketRoot.position.copy(base).addScaledVector(DIR, -2.2 * (1 - ease) * scale);
     rocketRoot.position.x += Math.sin(t * 1.7) * .006 * scale;
     rocketRoot.position.y += Math.cos(t * 2.3) * .006 * scale;
-    rocket.rotation.y = .9 + t * .1;
+    sun.position.copy(rocketRoot.position).addScaledVector(SUN, 25);
+    rocket.rotation.y = .9 + t * .06;
     rocket.rotation.z = Math.sin(t * .9) * .012;
     const on = .35 + .65 * ease;
     for (const m of plumeMats) { m.uniforms.uTime.value = t; m.uniforms.uOn.value = on; }
-    nozGlow.scale.setScalar((.95 + Math.sin(t * 37) * .06) * on);
+    nozGlow.scale.setScalar((.6 + Math.sin(t * 37) * .04) * on);
     engLight.intensity = (5 + Math.sin(t * 29) * .8) * on;
     stars.rotation.y = t * .004;
     starMat.uniforms.uTime.value = t;
