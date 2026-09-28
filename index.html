@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#FAFAFA">
+<meta name="theme-color" content="#030405">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inflow Media House | Content Infrastructure for Operators in Tech and Venture</title>
 <meta name="description" content="Content infrastructure for operators in tech and venture. We run the full pipeline, from production through distribution.">
@@ -17,30 +17,45 @@
 <style>
 /* === HOMEPAGE === */
 
-/* Hero */
-.hero-h{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:150px 24px 100px;position:relative;overflow:hidden}
-.hero-h::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(10,10,10,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(10,10,10,.055) 1px,transparent 1px);
-  background-size:64px 64px;
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 15%,transparent 72%);
-          mask-image:radial-gradient(ellipse 70% 60% at 50% 38%,#000 15%,transparent 72%)}
-.hero-h::after{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:
-  radial-gradient(720px 360px at 50% 0%,rgba(168,130,62,.16),transparent 70%),
-  radial-gradient(420px 320px at 12% 60%,rgba(201,163,92,.10),transparent 70%),
-  radial-gradient(420px 320px at 88% 55%,rgba(201,163,92,.08),transparent 70%)}
-.hero-h .h-con{max-width:1180px}
-.hero-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(34px,4.6vw,66px);line-height:1.04;letter-spacing:-.04em;color:var(--fg);opacity:0;animation:fup .9s var(--ease) forwards .15s}
-.hero-ttl .l1{display:block;white-space:nowrap}
-.hero-ttl .l2{display:block;white-space:nowrap;color:var(--acc)}
-.hero-h .h-sub{max-width:540px}
+/* Hero: dark, cinematic, animated (canvas streaks rushing past a rocket) */
+.hx{position:relative;min-height:100vh;min-height:100svh;background:#030405;color:#fff;overflow:hidden;display:flex;flex-direction:column;padding:130px max(24px,calc((100% - 1180px)/2)) 0}
+#heroCv{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+.hx::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  radial-gradient(ellipse 55% 60% at 72% 50%,transparent 35%,rgba(3,4,5,.5) 80%),
+  linear-gradient(180deg,rgba(3,4,5,.55),transparent 20%,transparent 70%,rgba(3,4,5,.92))}
+.hx-in{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px}
+.hx-copy{display:flex;flex-direction:column;align-items:flex-start}
+.hx .hero-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(32px,3.4vw,50px);line-height:1.08;letter-spacing:-.035em;color:#fff;opacity:0;animation:fup .9s var(--ease) forwards .15s}
+.hx .hero-ttl .l1{display:block;white-space:nowrap}
+.hx .hero-ttl .l2{display:block;white-space:nowrap;color:#D9B874}
+.hx .h-sub{margin:22px 0 0;max-width:470px;color:rgba(255,255,255,.72);text-align:left}
+.hx .h-ctas{justify-content:flex-start;margin-top:32px}
+.hx .btn-p{background:#fff;color:#141414;border-color:#fff}
+.hx .btn-p::after{background-color:rgba(10,10,10,.08);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
+.hx .btn-p:hover{background:#EFE9DD}
+.hx .btn-p:hover::after{background-color:#D9B874}
+.hx .btn-g{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.22);box-shadow:none}
+.hx .btn-g:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
 
-/* Trusted by */
-.trust{padding:40px 24px;background:var(--sur);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
-.trust-lbl{font-size:14px;font-weight:500;color:var(--fg3)}
-.logos{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 56px}
-.yc{display:inline-flex;align-items:center;gap:10px}
-.yc svg{width:36px;height:36px;border-radius:6px}
-.yc span{font-family:var(--ff-d);font-weight:600;font-size:26px;letter-spacing:-.025em;color:var(--fg)}
+/* The rocket */
+.hx-visual{display:flex;align-items:center;justify-content:center;opacity:0;animation:fi 1.4s forwards .35s}
+.rocket-wrap{position:relative;width:min(38vw,500px);aspect-ratio:1;margin:-40px -20px -40px 0;animation:rocketFloat 6s ease-in-out infinite}
+@keyframes rocketFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,-14px)}}
+.rocket{position:absolute;inset:0;width:100%;height:100%;transform:rotate(40deg);overflow:visible;animation:rumble .18s linear infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.7))}
+@keyframes rumble{0%,100%{translate:0 0}25%{translate:.4px -.3px}50%{translate:-.3px .4px}75%{translate:.3px .3px}}
+.flame{transform-box:fill-box;transform-origin:50% 0;animation:flicker .12s ease-in-out infinite alternate}
+.flame.inner{animation-duration:.09s}
+@keyframes flicker{from{transform:scaleY(.86) scaleX(1.04)}to{transform:scaleY(1.1) scaleX(.95)}}
+.port-core{animation:portPulse 3.2s ease-in-out infinite}
+@keyframes portPulse{0%,100%{opacity:.7}50%{opacity:1}}
+.rocket-glow{position:absolute;left:18%;bottom:10%;width:46%;height:46%;border-radius:50%;background:radial-gradient(circle,rgba(234,190,110,.38),transparent 65%);filter:blur(12px);pointer-events:none}
+
+/* Trusted by (bottom of hero) */
+.hx-trust{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px;padding:26px 0 32px;margin-top:36px;border-top:1px solid rgba(255,255,255,.09)}
+.hx-trust p{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.55)}
+.yc{display:inline-flex;align-items:center;gap:9px}
+.yc svg{width:30px;height:30px;border-radius:5px}
+.yc span{font-family:var(--ff-d);font-weight:600;font-size:22px;letter-spacing:-.025em;color:#fff}
 
 /* Stats: bare numbers, no boxes */
 .stats-sec{padding-top:88px;padding-bottom:88px}
@@ -78,6 +93,44 @@
 .tier-card .btn-p,.tier-card .btn-g{width:100%}
 .tier-card .btn-p{justify-content:space-between}
 
+/* Service previews: small illustrated UI at the top of each card */
+.tv{align-self:stretch;height:172px;margin-bottom:10px;border-radius:16px;position:relative;overflow:hidden;background:linear-gradient(160deg,#FBF6EC,#F2ECE1);border:1px solid rgba(168,130,62,.18)}
+/* A: founder posts fanning out */
+.tv-post{position:absolute;left:50%;top:50%;width:44%;height:64%;background:#fff;border-radius:12px;padding:12px;box-shadow:0 14px 30px -14px rgba(60,40,10,.35);border:1px solid rgba(10,10,10,.06);transition:transform .6s var(--ease);display:flex;flex-direction:column;gap:7px}
+.tv-post:nth-child(1){transform:translate(-112%,-46%) rotate(-9deg)}
+.tv-post:nth-child(2){transform:translate(-50%,-54%);z-index:2}
+.tv-post:nth-child(3){transform:translate(12%,-46%) rotate(9deg)}
+.tier-card:hover .tv-post:nth-child(1){transform:translate(-122%,-48%) rotate(-12deg)}
+.tier-card:hover .tv-post:nth-child(3){transform:translate(22%,-48%) rotate(12deg)}
+.tv-post .av{width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,#EAD29B,#A8823E)}
+.tv-post b{display:block;height:6px;border-radius:3px;background:#E7E3DC}
+.tv-post b.s{width:62%}
+.tv-post .pl{margin-top:auto;align-self:flex-start;display:grid;place-items:center;width:22px;height:22px;border-radius:6px;font:700 11px/1 var(--ff-b);color:#fff}
+.pl.li{background:#0A66C2}.pl.x{background:#141414}.pl.yt{background:#FF0000}
+.pl.yt::after{content:'';border-left:7px solid #fff;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;margin-left:2px}
+/* B: waveform becomes clips */
+.tv-pod{display:flex;align-items:center;justify-content:center;gap:14px;padding:0 18px}
+.wave{display:flex;align-items:center;gap:3px;height:70px}
+.wave i{display:block;width:4px;height:calc(var(--h)*100%);border-radius:3px;background:linear-gradient(180deg,#C9A35C,#8A6A2E);animation:wv 1.4s ease-in-out infinite;animation-delay:calc(var(--d)*-1s);transform-origin:center}
+@keyframes wv{0%,100%{transform:scaleY(.45)}50%{transform:scaleY(1)}}
+.tv-arrow{width:26px;height:26px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.08);flex-shrink:0}
+.tv-arrow::after{content:'';width:7px;height:7px;border-top:2px solid var(--acc-ink);border-right:2px solid var(--acc-ink);transform:rotate(45deg) translate(-1px,1px)}
+.clips{display:grid;grid-template-columns:repeat(3,22px);gap:5px}
+.clips i{display:block;height:39px;border-radius:5px;background:linear-gradient(170deg,#2A2218,#0E0C09);box-shadow:inset 0 0 0 1px rgba(217,184,116,.35);animation:clipIn 2.8s ease-in-out infinite;animation-delay:calc(var(--d)*.18s)}
+@keyframes clipIn{0%,100%{opacity:.55}40%,60%{opacity:1}}
+.tv-chip{position:absolute;right:12px;top:12px;font-size:11.5px;font-weight:600;color:var(--acc-ink);background:#fff;border-radius:999px;padding:4px 10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+/* C: launch film player */
+.tv-launch{display:grid;place-items:center}
+.player{width:78%;border-radius:12px;overflow:hidden;background:#0B0A08;box-shadow:0 18px 36px -18px rgba(0,0,0,.55)}
+.player .scr{position:relative;height:92px;display:grid;place-items:center;background:radial-gradient(ellipse 70% 90% at 50% 110%,rgba(217,184,116,.55),transparent 70%),linear-gradient(160deg,#1A150D,#050505)}
+.player .play{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.player .play::after{content:'';border-left:10px solid #141414;border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.tier-card:hover .player .play{transform:scale(1.12)}
+.player .tag{position:absolute;left:10px;top:9px;font-size:9px;font-weight:700;letter-spacing:.12em;color:#EAD29B}
+.player .bar{height:4px;background:rgba(255,255,255,.12);margin:10px 12px 12px;border-radius:2px;overflow:hidden}
+.player .bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,#C9A35C,#EAD29B);animation:scrub 5s ease-in-out infinite}
+@keyframes scrub{0%{width:8%}100%{width:96%}}
+
 /* One story, everywhere: orbit */
 .mech-sec{overflow:hidden}
 .mech{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
@@ -111,9 +164,13 @@
 .faq-side{position:sticky;top:120px;display:flex;flex-direction:column;align-items:flex-start;gap:28px}
 
 @media(max-width:900px){
-  .hero-h{min-height:auto;padding:128px 20px 80px}
-  .hero-ttl{font-size:clamp(32px,8vw,46px)}
-  .hero-ttl .l1,.hero-ttl .l2{white-space:normal}
+  .hx{min-height:auto;padding:110px 20px 0}
+  .hx-in{grid-template-columns:1fr;gap:26px}
+  .hx-visual{order:-1}
+  .rocket-wrap{width:min(62vw,260px)}
+  .hx .hero-ttl{font-size:clamp(30px,7.6vw,44px)}
+  .hx .hero-ttl .l1,.hx .hero-ttl .l2{white-space:normal}
+  .hx-trust{margin-top:44px}
   .stats-sec{padding-top:64px;padding-bottom:64px}
   .stat{padding:8px 10px}
   .marquee-track{grid-template-columns:repeat(3,180px);gap:20px}
@@ -140,7 +197,7 @@
 </head>
 <body>
 
-<nav id="nav">
+<nav id="nav" class="on-dark">
   <a href="/" class="n-logo">INFLOW<span>.</span></a>
   <ul class="n-links">
     <li><a href="/services">Services</a></li>
@@ -149,26 +206,78 @@
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
-<!-- HERO -->
-<section class="hero-h">
-  <div class="h-con">
-    <h1 class="hero-ttl">
-      <span class="l1">Content Infrastructure for Operators</span>
-      <span class="l2">in Tech and Venture.</span>
-    </h1>
-    <p class="h-sub">We run the full pipeline, from production through distribution, so what you make actually reaches the people worth reaching.</p>
-    <div class="h-ctas">
-      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
-      <a href="/work" class="btn-g">See Our Work</a>
+<!-- HERO: dark and cinematic. Canvas streaks rush past the rocket (see script at the bottom).
+     ✏️ ADD LOGOS: drop more logos inside .hx-trust (keep them ~30px tall) -->
+<section class="hx">
+  <canvas id="heroCv" aria-hidden="true"></canvas>
+  <div class="hx-in">
+    <div class="hx-copy">
+      <h1 class="hero-ttl">
+        <span class="l1">Content Infrastructure for Operators</span>
+        <span class="l2">in Tech and Venture.</span>
+      </h1>
+      <p class="h-sub">We run the full pipeline, from production through distribution, so what you make actually reaches the people worth reaching.</p>
+      <div class="h-ctas">
+        <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+        <a href="/work" class="btn-g">See Our Work</a>
+      </div>
+    </div>
+    <div class="hx-visual" aria-hidden="true">
+      <div class="rocket-wrap">
+        <div class="rocket-glow"></div>
+        <svg class="rocket" viewBox="0 0 200 440">
+          <defs>
+            <linearGradient id="rkBody" x1="0" x2="1">
+              <stop offset="0" stop-color="#121110"/><stop offset=".22" stop-color="#3B362F"/>
+              <stop offset=".42" stop-color="#9C978D"/><stop offset=".55" stop-color="#5A544B"/>
+              <stop offset=".82" stop-color="#26221D"/><stop offset="1" stop-color="#0D0C0A"/>
+            </linearGradient>
+            <linearGradient id="rkGold" x1="0" x2="1">
+              <stop offset="0" stop-color="#5E4720"/><stop offset=".35" stop-color="#F3E1B5"/>
+              <stop offset=".55" stop-color="#C9A35C"/><stop offset="1" stop-color="#4F3B1A"/>
+            </linearGradient>
+            <linearGradient id="rkFin" x1="0" x2="1">
+              <stop offset="0" stop-color="#1A1713"/><stop offset=".5" stop-color="#3C352C"/><stop offset="1" stop-color="#14120F"/>
+            </linearGradient>
+            <radialGradient id="rkGlass" cx=".38" cy=".35" r=".75">
+              <stop offset="0" stop-color="#3A2E18"/><stop offset=".55" stop-color="#0B0906"/><stop offset="1" stop-color="#020202"/>
+            </radialGradient>
+            <radialGradient id="rkCore"><stop offset="0" stop-color="#FFF6DD"/><stop offset=".4" stop-color="#EAC67C"/><stop offset="1" stop-color="rgba(217,184,116,0)"/></radialGradient>
+            <linearGradient id="rkFlameO" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFE7A8"/><stop offset=".35" stop-color="#F0A93B"/><stop offset=".75" stop-color="rgba(214,110,30,.45)"/><stop offset="1" stop-color="rgba(214,110,30,0)"/>
+            </linearGradient>
+            <linearGradient id="rkFlameI" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFF1C9"/><stop offset="1" stop-color="rgba(255,225,150,0)"/>
+            </linearGradient>
+          </defs>
+          <!-- flame -->
+          <path class="flame" d="M74 318 C 72 360, 92 400, 100 438 C 108 400, 128 360, 126 318 Z" fill="url(#rkFlameO)"/>
+          <path class="flame inner" d="M86 318 C 85 345, 95 370, 100 392 C 105 370, 115 345, 114 318 Z" fill="url(#rkFlameI)"/>
+          <!-- fins -->
+          <path d="M62 222 L 18 292 L 16 326 L 62 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
+          <path d="M138 222 L 182 292 L 184 326 L 138 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
+          <!-- body -->
+          <path d="M100 10 C 134 50, 140 112, 140 170 L 140 272 C 140 288, 131 298, 121 302 L 79 302 C 69 298, 60 288, 60 272 L 60 170 C 60 112, 66 50, 100 10 Z" fill="url(#rkBody)"/>
+          <!-- gold nose cone -->
+          <path d="M100 10 C 134 50, 140 112, 140 128 L 60 128 C 60 112, 66 50, 100 10 Z" fill="url(#rkGold)"/>
+          <rect x="60" y="128" width="80" height="6" fill="#2B251C"/>
+          <rect x="60" y="246" width="80" height="4" fill="url(#rkGold)" opacity=".85"/>
+          <!-- porthole -->
+          <circle cx="100" cy="180" r="22" fill="url(#rkGold)"/>
+          <circle cx="100" cy="180" r="17.5" fill="url(#rkGlass)"/>
+          <circle class="port-core" cx="100" cy="180" r="9" fill="url(#rkCore)"/>
+          <ellipse cx="93" cy="173" rx="6" ry="3.5" fill="#fff" opacity=".22" transform="rotate(-30 93 173)"/>
+          <!-- centre fin and nozzle -->
+          <path d="M96 262 L 104 262 L 104 326 L 96 326 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".5" stroke-width="1"/>
+          <path d="M79 302 L 121 302 L 127 320 L 73 320 Z" fill="#1B1814" stroke="#C9A35C" stroke-opacity=".4" stroke-width="1"/>
+          <!-- body highlight -->
+          <path d="M84 60 C 78 100, 76 150, 77 270" stroke="#fff" stroke-opacity=".14" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
   </div>
-</section>
-
-<!-- TRUSTED BY
-     ✏️ ADD LOGOS: drop more logos inside .logos (keep them ~32px tall) -->
-<section class="trust">
-  <p class="trust-lbl">Trusted by startups backed by</p>
-  <div class="logos">
+  <div class="hx-trust">
+    <p>Trusted by startups backed by</p>
     <span class="yc" role="img" aria-label="Y Combinator">
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="5" fill="#FB651E"/><path d="M9.3 7.5h3.1l3.6 7.1 3.6-7.1h3.1l-5.2 9.8v7.2h-3v-7.2z" fill="#fff"/></svg>
       <span>Combinator</span>
@@ -253,19 +362,19 @@
   </div>
   <div class="tier-grid">
     <div class="tier-card rv">
-      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div>
+      <div class="tv" aria-hidden="true"><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl li">in</span></div><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl x">X</span></div><div class="tv-post"><i class="av"></i><b></b><b class="s"></b><span class="pl yt"></span></div></div>
       <h3 class="tier-ttl">Founder-Led Content System and Distribution</h3>
       <p class="tier-for">Become the recognisable voice in your space.</p>
       <a href="/founders" class="btn-g">Explore Service</a>
     </div>
     <div class="tier-card rv" style="transition-delay:.1s">
-      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M8.5 22h7"/></svg></div>
+      <div class="tv tv-pod" aria-hidden="true"><span class="tv-chip">30+ clips / month</span><div class="wave"><i style="--h:0.35;--d:0.00"></i><i style="--h:0.6;--d:0.09"></i><i style="--h:0.9;--d:0.18"></i><i style="--h:0.5;--d:0.27"></i><i style="--h:0.75;--d:0.36"></i><i style="--h:1;--d:0.45"></i><i style="--h:0.55;--d:0.54"></i><i style="--h:0.8;--d:0.63"></i><i style="--h:0.4;--d:0.72"></i><i style="--h:0.95;--d:0.81"></i><i style="--h:0.65;--d:0.90"></i><i style="--h:0.45;--d:0.99"></i><i style="--h:0.85;--d:1.08"></i><i style="--h:0.5;--d:1.17"></i><i style="--h:0.7;--d:1.26"></i><i style="--h:0.3;--d:1.35"></i></div><span class="tv-arrow"></span><div class="clips"><i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i></div></div>
       <h3 class="tier-ttl">Podcast System and Distribution for VCs and GPs</h3>
       <p class="tier-for">Every episode becomes a full content engine.</p>
       <a href="/podcast" class="btn-g">Explore Service</a>
     </div>
     <div class="tier-card rv" style="transition-delay:.2s">
-      <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.2 6L3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M6.2 5.3l3.1 3.9M12.4 3.4l3.1 4"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+      <div class="tv tv-launch" aria-hidden="true"><div class="player"><div class="scr"><span class="tag">LAUNCH DAY</span><span class="play"></span></div><div class="bar"><i></i></div></div></div>
       <h3 class="tier-ttl">Product Launch Films and Motion Graphics</h3>
       <p class="tier-for">Launch videos built to actually convert.</p>
       <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
@@ -453,6 +562,82 @@
 </footer>
 
 <script>
+/* Hero: gold light streaks rushing past the rocket, plus an exhaust trail.
+   Pauses off screen; draws a single still frame for reduced motion. */
+(function(){
+  const cv=document.getElementById('heroCv'); if(!cv) return;
+  const hero=cv.parentElement, ctx=cv.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ANG=40*Math.PI/180;                         /* rocket tilt, matches the CSS rotate */
+  const UX=Math.sin(ANG), UY=-Math.cos(ANG);        /* direction the rocket points */
+  const DX=-UX, DY=-UY;                             /* streaks and exhaust flow the other way */
+  let W=0,H=0,tx=0,ty=0,streaks=[],puffs=[],visible=true;
+
+  function tail(){
+    const r=hero.querySelector('.rocket-wrap'); const hr=hero.getBoundingClientRect(), rr=r.getBoundingClientRect();
+    const cx=rr.left+rr.width/2-hr.left, cy=rr.top+rr.height/2-hr.top, d=rr.height*.43;
+    tx=cx-UX*d; ty=cy-UY*d;
+  }
+  function streak(anywhere){
+    const v=3+Math.random()*11;
+    let x,y;
+    if(anywhere){x=Math.random()*W;y=Math.random()*H}
+    else if(Math.random()<.5){x=Math.random()*W*1.2;y=-20}else{x=W+20;y=Math.random()*H}
+    return {x,y,v,len:v*(7+Math.random()*9),lvl:v>10?2:(v>6?1:0)};
+  }
+  const S=[['rgba(217,184,116,.22)',.6],['rgba(226,196,130,.45)',.8],['rgba(255,240,205,.8)',1.1]];
+  function frame(){
+    ctx.fillStyle='rgba(3,4,5,.5)'; ctx.fillRect(0,0,W,H);
+    for(let l=0;l<3;l++){
+      ctx.beginPath(); ctx.strokeStyle=S[l][0]; ctx.lineWidth=S[l][1];
+      for(const p of streaks){
+        if(p.lvl!==l) continue;
+        p.x+=DX*p.v; p.y+=DY*p.v;
+        if(p.x<-p.len||p.y>H+p.len){Object.assign(p,streak(false));continue}
+        ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+UX*p.len,p.y+UY*p.len);
+      }
+      ctx.stroke();
+    }
+    /* exhaust */
+    for(let i=0;i<3;i++) puffs.push({x:tx+(Math.random()-.5)*10,y:ty+(Math.random()-.5)*10,v:2.5+Math.random()*3.5,life:1,s:(Math.random()-.5)*.6});
+    ctx.globalCompositeOperation='lighter';
+    for(const q of puffs){
+      q.x+=DX*q.v+q.s*DY; q.y+=DY*q.v-q.s*DX; q.life-=.018;
+      if(q.life<=0) continue;
+      ctx.fillStyle='rgba(240,180,90,'+(q.life*.35).toFixed(3)+')';
+      ctx.beginPath(); ctx.arc(q.x,q.y,1.2+(1-q.life)*3,0,6.283); ctx.fill();
+    }
+    ctx.globalCompositeOperation='source-over';
+    puffs=puffs.filter(q=>q.life>0);
+  }
+  function size(){
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    W=hero.clientWidth; H=hero.clientHeight;
+    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.fillStyle='#030405'; ctx.fillRect(0,0,W,H);
+    tail();
+    const n=Math.round(Math.min(260,Math.max(90,W*H/5000)));
+    streaks=Array.from({length:n},()=>streak(true)); puffs=[];
+    for(let i=0;i<(reduce?80:40);i++) frame();
+  }
+  function loop(){ if(visible) frame(); requestAnimationFrame(loop); }
+  size();
+  if(!reduce){
+    new IntersectionObserver(([e])=>{visible=e.isIntersecting}).observe(hero);
+    loop();
+  }
+  let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{
+    if(hero.clientWidth!==W||Math.abs(hero.clientHeight-H)>80) size(); else tail();
+  },200)});
+})();
+
+/* Nav: dark glass while over the hero, light after */
+(function(){
+  const nav=document.getElementById('nav'), hero=document.querySelector('.hx');
+  if(!nav||!hero) return;
+  new IntersectionObserver(([e])=>nav.classList.toggle('on-dark',e.isIntersecting),{rootMargin:'0px 0px -92% 0px'}).observe(hero);
+})();
+
 /* Orbit wheel: rotate into place when scrolled into view */
 (function(){
   const wheel = document.getElementById('orbitWheel');
