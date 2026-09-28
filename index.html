@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/favicon.svg">
-<meta name="theme-color" content="#030405">
+<meta name="theme-color" content="#010207">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inflow Media House | Content Infrastructure for Operators in Tech and Venture</title>
 <meta name="description" content="Content infrastructure for operators in tech and venture. We run the full pipeline, from production through distribution.">
@@ -17,38 +17,32 @@
 <style>
 /* === HOMEPAGE === */
 
-/* Hero: dark, cinematic, animated (canvas streaks rushing past a rocket) */
-.hx{position:relative;min-height:100vh;min-height:100svh;background:#030405;color:#fff;overflow:hidden;display:flex;flex-direction:column;padding:130px max(24px,calc((100% - 1180px)/2)) 0}
-#heroCv{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block}
+/* Hero: deep space, a real-time 3D rocket (hero3d.js). The CSS sky shows until WebGL is ready. */
+.hx{position:relative;min-height:100vh;min-height:100svh;color:#fff;overflow:hidden;display:flex;flex-direction:column;padding:130px max(24px,calc((100% - 1180px)/2)) 0;background:
+  radial-gradient(ellipse 45% 40% at 78% 30%,rgba(60,70,160,.22),transparent 70%),
+  radial-gradient(ellipse 90% 35% at 40% 118%,rgba(50,110,230,.28),transparent 70%),
+  #010207}
+#heroGL{position:absolute;inset:0;width:100%;height:100%;z-index:0;display:block;opacity:0;transition:opacity 1.8s var(--ease)}
+.hx.gl-on #heroGL{opacity:1}
 .hx::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:
-  radial-gradient(ellipse 55% 60% at 72% 50%,transparent 35%,rgba(3,4,5,.5) 80%),
-  linear-gradient(180deg,rgba(3,4,5,.55),transparent 20%,transparent 70%,rgba(3,4,5,.92))}
+  linear-gradient(90deg,rgba(1,2,7,.72),rgba(1,2,7,.3) 42%,transparent 62%),
+  linear-gradient(180deg,rgba(1,2,7,.5),transparent 18%,transparent 78%,rgba(1,2,7,.85))}
 .hx-in{position:relative;z-index:2;flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:40px}
 .hx-copy{display:flex;flex-direction:column;align-items:flex-start}
 .hx .hero-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(32px,3.4vw,50px);line-height:1.08;letter-spacing:-.035em;color:#fff;opacity:0;animation:fup .9s var(--ease) forwards .15s}
 .hx .hero-ttl .l1{display:block;white-space:nowrap}
-.hx .hero-ttl .l2{display:block;white-space:nowrap;color:#D9B874}
-.hx .h-sub{margin:22px 0 0;max-width:470px;color:rgba(255,255,255,.72);text-align:left}
+.hx .hero-ttl .l2{display:block;white-space:nowrap;background:linear-gradient(90deg,#DCE6FF,#8FAEFF 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hx .h-sub{margin:22px 0 0;max-width:470px;color:rgba(255,255,255,.74);text-align:left}
 .hx .h-ctas{justify-content:flex-start;margin-top:32px}
 .hx .btn-p{background:#fff;color:#141414;border-color:#fff}
 .hx .btn-p::after{background-color:rgba(10,10,10,.08);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141414' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E")}
-.hx .btn-p:hover{background:#EFE9DD}
-.hx .btn-p:hover::after{background-color:#D9B874}
-.hx .btn-g{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.22);box-shadow:none}
+.hx .btn-p:hover{background:#E8EEFF}
+.hx .btn-p:hover::after{background-color:#A9C0FF}
+.hx .btn-g{background:rgba(255,255,255,.05);color:#fff;border-color:rgba(255,255,255,.22);box-shadow:none;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .hx .btn-g:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
 
-/* The rocket */
-.hx-visual{display:flex;align-items:center;justify-content:center;opacity:0;animation:fi 1.4s forwards .35s}
-.rocket-wrap{position:relative;width:min(38vw,500px);aspect-ratio:1;margin:-40px -20px -40px 0;animation:rocketFloat 6s ease-in-out infinite}
-@keyframes rocketFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(-6px,-14px)}}
-.rocket{position:absolute;inset:0;width:100%;height:100%;transform:rotate(40deg);overflow:visible;animation:rumble .18s linear infinite;filter:drop-shadow(0 30px 40px rgba(0,0,0,.7))}
-@keyframes rumble{0%,100%{translate:0 0}25%{translate:.4px -.3px}50%{translate:-.3px .4px}75%{translate:.3px .3px}}
-.flame{transform-box:fill-box;transform-origin:50% 0;animation:flicker .12s ease-in-out infinite alternate}
-.flame.inner{animation-duration:.09s}
-@keyframes flicker{from{transform:scaleY(.86) scaleX(1.04)}to{transform:scaleY(1.1) scaleX(.95)}}
-.port-core{animation:portPulse 3.2s ease-in-out infinite}
-@keyframes portPulse{0%,100%{opacity:.7}50%{opacity:1}}
-.rocket-glow{position:absolute;left:18%;bottom:10%;width:46%;height:46%;border-radius:50%;background:radial-gradient(circle,rgba(234,190,110,.38),transparent 65%);filter:blur(12px);pointer-events:none}
+/* Empty slot: hero3d.js frames the rocket inside it */
+.hx-visual{width:min(38vw,500px);aspect-ratio:1;margin:-40px -20px -40px 0}
 
 /* Trusted by (bottom of hero) */
 .hx-trust{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 18px;padding:26px 0 32px;margin-top:36px;border-top:1px solid rgba(255,255,255,.09)}
@@ -166,8 +160,8 @@
 @media(max-width:900px){
   .hx{min-height:auto;padding:110px 20px 0}
   .hx-in{grid-template-columns:1fr;gap:26px}
-  .hx-visual{order:-1}
-  .rocket-wrap{width:min(62vw,260px)}
+  .hx-visual{order:-1;width:100%;aspect-ratio:auto;height:min(64vw,300px);margin:0}
+  .hx::after{background:linear-gradient(180deg,rgba(1,2,7,.35),transparent 20%,rgba(1,2,7,.55) 55%,rgba(1,2,7,.85))}
   .hx .hero-ttl{font-size:clamp(30px,7.6vw,44px)}
   .hx .hero-ttl .l1,.hx .hero-ttl .l2{white-space:normal}
   .hx-trust{margin-top:44px}
@@ -194,6 +188,7 @@
   .lv{outline-width:3px;box-shadow:0 0 0 4px var(--bdr),0 16px 32px -18px rgba(0,0,0,.28)}
 }
 </style>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js" crossorigin>
 </head>
 <body>
 
@@ -206,10 +201,10 @@
   <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
 </nav>
 
-<!-- HERO: dark and cinematic. Canvas streaks rush past the rocket (see script at the bottom).
+<!-- HERO: deep space. A real-time 3D rocket renders into #heroGL (see hero3d.js).
      ✏️ ADD LOGOS: drop more logos inside .hx-trust (keep them ~30px tall) -->
 <section class="hx">
-  <canvas id="heroCv" aria-hidden="true"></canvas>
+  <canvas id="heroGL" aria-hidden="true"></canvas>
   <div class="hx-in">
     <div class="hx-copy">
       <h1 class="hero-ttl">
@@ -222,59 +217,7 @@
         <a href="/work" class="btn-g">See Our Work</a>
       </div>
     </div>
-    <div class="hx-visual" aria-hidden="true">
-      <div class="rocket-wrap">
-        <div class="rocket-glow"></div>
-        <svg class="rocket" viewBox="0 0 200 440">
-          <defs>
-            <linearGradient id="rkBody" x1="0" x2="1">
-              <stop offset="0" stop-color="#121110"/><stop offset=".22" stop-color="#3B362F"/>
-              <stop offset=".42" stop-color="#9C978D"/><stop offset=".55" stop-color="#5A544B"/>
-              <stop offset=".82" stop-color="#26221D"/><stop offset="1" stop-color="#0D0C0A"/>
-            </linearGradient>
-            <linearGradient id="rkGold" x1="0" x2="1">
-              <stop offset="0" stop-color="#5E4720"/><stop offset=".35" stop-color="#F3E1B5"/>
-              <stop offset=".55" stop-color="#C9A35C"/><stop offset="1" stop-color="#4F3B1A"/>
-            </linearGradient>
-            <linearGradient id="rkFin" x1="0" x2="1">
-              <stop offset="0" stop-color="#1A1713"/><stop offset=".5" stop-color="#3C352C"/><stop offset="1" stop-color="#14120F"/>
-            </linearGradient>
-            <radialGradient id="rkGlass" cx=".38" cy=".35" r=".75">
-              <stop offset="0" stop-color="#3A2E18"/><stop offset=".55" stop-color="#0B0906"/><stop offset="1" stop-color="#020202"/>
-            </radialGradient>
-            <radialGradient id="rkCore"><stop offset="0" stop-color="#FFF6DD"/><stop offset=".4" stop-color="#EAC67C"/><stop offset="1" stop-color="rgba(217,184,116,0)"/></radialGradient>
-            <linearGradient id="rkFlameO" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FFE7A8"/><stop offset=".35" stop-color="#F0A93B"/><stop offset=".75" stop-color="rgba(214,110,30,.45)"/><stop offset="1" stop-color="rgba(214,110,30,0)"/>
-            </linearGradient>
-            <linearGradient id="rkFlameI" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#FFF1C9"/><stop offset="1" stop-color="rgba(255,225,150,0)"/>
-            </linearGradient>
-          </defs>
-          <!-- flame -->
-          <path class="flame" d="M74 318 C 72 360, 92 400, 100 438 C 108 400, 128 360, 126 318 Z" fill="url(#rkFlameO)"/>
-          <path class="flame inner" d="M86 318 C 85 345, 95 370, 100 392 C 105 370, 115 345, 114 318 Z" fill="url(#rkFlameI)"/>
-          <!-- fins -->
-          <path d="M62 222 L 18 292 L 16 326 L 62 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
-          <path d="M138 222 L 182 292 L 184 326 L 138 294 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".55" stroke-width="1.2"/>
-          <!-- body -->
-          <path d="M100 10 C 134 50, 140 112, 140 170 L 140 272 C 140 288, 131 298, 121 302 L 79 302 C 69 298, 60 288, 60 272 L 60 170 C 60 112, 66 50, 100 10 Z" fill="url(#rkBody)"/>
-          <!-- gold nose cone -->
-          <path d="M100 10 C 134 50, 140 112, 140 128 L 60 128 C 60 112, 66 50, 100 10 Z" fill="url(#rkGold)"/>
-          <rect x="60" y="128" width="80" height="6" fill="#2B251C"/>
-          <rect x="60" y="246" width="80" height="4" fill="url(#rkGold)" opacity=".85"/>
-          <!-- porthole -->
-          <circle cx="100" cy="180" r="22" fill="url(#rkGold)"/>
-          <circle cx="100" cy="180" r="17.5" fill="url(#rkGlass)"/>
-          <circle class="port-core" cx="100" cy="180" r="9" fill="url(#rkCore)"/>
-          <ellipse cx="93" cy="173" rx="6" ry="3.5" fill="#fff" opacity=".22" transform="rotate(-30 93 173)"/>
-          <!-- centre fin and nozzle -->
-          <path d="M96 262 L 104 262 L 104 326 L 96 326 Z" fill="url(#rkFin)" stroke="#C9A35C" stroke-opacity=".5" stroke-width="1"/>
-          <path d="M79 302 L 121 302 L 127 320 L 73 320 Z" fill="#1B1814" stroke="#C9A35C" stroke-opacity=".4" stroke-width="1"/>
-          <!-- body highlight -->
-          <path d="M84 60 C 78 100, 76 150, 77 270" stroke="#fff" stroke-opacity=".14" stroke-width="3" fill="none" stroke-linecap="round"/>
-        </svg>
-      </div>
-    </div>
+    <div class="hx-visual" aria-hidden="true"></div>
   </div>
   <div class="hx-trust">
     <p>Trusted by startups backed by</p>
@@ -562,75 +505,6 @@
 </footer>
 
 <script>
-/* Hero: gold light streaks rushing past the rocket, plus an exhaust trail.
-   Pauses off screen; draws a single still frame for reduced motion. */
-(function(){
-  const cv=document.getElementById('heroCv'); if(!cv) return;
-  const hero=cv.parentElement, ctx=cv.getContext('2d');
-  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const ANG=40*Math.PI/180;                         /* rocket tilt, matches the CSS rotate */
-  const UX=Math.sin(ANG), UY=-Math.cos(ANG);        /* direction the rocket points */
-  const DX=-UX, DY=-UY;                             /* streaks and exhaust flow the other way */
-  let W=0,H=0,tx=0,ty=0,streaks=[],puffs=[],visible=true;
-
-  function tail(){
-    const r=hero.querySelector('.rocket-wrap'); const hr=hero.getBoundingClientRect(), rr=r.getBoundingClientRect();
-    const cx=rr.left+rr.width/2-hr.left, cy=rr.top+rr.height/2-hr.top, d=rr.height*.43;
-    tx=cx-UX*d; ty=cy-UY*d;
-  }
-  function streak(anywhere){
-    const v=3+Math.random()*11;
-    let x,y;
-    if(anywhere){x=Math.random()*W;y=Math.random()*H}
-    else if(Math.random()<.5){x=Math.random()*W*1.2;y=-20}else{x=W+20;y=Math.random()*H}
-    return {x,y,v,len:v*(7+Math.random()*9),lvl:v>10?2:(v>6?1:0)};
-  }
-  const S=[['rgba(217,184,116,.22)',.6],['rgba(226,196,130,.45)',.8],['rgba(255,240,205,.8)',1.1]];
-  function frame(){
-    ctx.fillStyle='rgba(3,4,5,.5)'; ctx.fillRect(0,0,W,H);
-    for(let l=0;l<3;l++){
-      ctx.beginPath(); ctx.strokeStyle=S[l][0]; ctx.lineWidth=S[l][1];
-      for(const p of streaks){
-        if(p.lvl!==l) continue;
-        p.x+=DX*p.v; p.y+=DY*p.v;
-        if(p.x<-p.len||p.y>H+p.len){Object.assign(p,streak(false));continue}
-        ctx.moveTo(p.x,p.y); ctx.lineTo(p.x+UX*p.len,p.y+UY*p.len);
-      }
-      ctx.stroke();
-    }
-    /* exhaust */
-    for(let i=0;i<3;i++) puffs.push({x:tx+(Math.random()-.5)*10,y:ty+(Math.random()-.5)*10,v:2.5+Math.random()*3.5,life:1,s:(Math.random()-.5)*.6});
-    ctx.globalCompositeOperation='lighter';
-    for(const q of puffs){
-      q.x+=DX*q.v+q.s*DY; q.y+=DY*q.v-q.s*DX; q.life-=.018;
-      if(q.life<=0) continue;
-      ctx.fillStyle='rgba(240,180,90,'+(q.life*.35).toFixed(3)+')';
-      ctx.beginPath(); ctx.arc(q.x,q.y,1.2+(1-q.life)*3,0,6.283); ctx.fill();
-    }
-    ctx.globalCompositeOperation='source-over';
-    puffs=puffs.filter(q=>q.life>0);
-  }
-  function size(){
-    const dpr=Math.min(window.devicePixelRatio||1,2);
-    W=hero.clientWidth; H=hero.clientHeight;
-    cv.width=W*dpr; cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.fillStyle='#030405'; ctx.fillRect(0,0,W,H);
-    tail();
-    const n=Math.round(Math.min(260,Math.max(90,W*H/5000)));
-    streaks=Array.from({length:n},()=>streak(true)); puffs=[];
-    for(let i=0;i<(reduce?80:40);i++) frame();
-  }
-  function loop(){ if(visible) frame(); requestAnimationFrame(loop); }
-  size();
-  if(!reduce){
-    new IntersectionObserver(([e])=>{visible=e.isIntersecting}).observe(hero);
-    loop();
-  }
-  let t; window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{
-    if(hero.clientWidth!==W||Math.abs(hero.clientHeight-H)>80) size(); else tail();
-  },200)});
-})();
-
 /* Nav: dark glass while over the hero, light after */
 (function(){
   const nav=document.getElementById('nav'), hero=document.querySelector('.hx');
@@ -663,6 +537,13 @@ document.querySelectorAll('.tier-card').forEach(card=>{
   });
 });
 </script>
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.min.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+}}
+</script>
+<script type="module" src="hero3d.js"></script>
 <script src="shared.js"></script>
 </body>
 </html>
