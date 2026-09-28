@@ -2,12 +2,36 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/work", "destination": "/work/index.html" },
-    { "source": "/results", "destination": "/results/index.html" },
-    { "source": "/contact", "destination": "/contact/index.html" },
-    { "source": "/podcast", "destination": "/podcast/index.html" },
-    { "source": "/founders", "destination": "/founders/index.html" },
-    { "source": "/case-studies/jeff", "destination": "/case-studies/jeff.html" }
+    {
+      "source": "/services",
+      "destination": "/services/index.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work/index.html"
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/podcast",
+      "destination": "/podcast/index.html"
+    },
+    {
+      "source": "/founders",
+      "destination": "/founders/index.html"
+    },
+    {
+      "source": "/case-studies/jeff",
+      "destination": "/case-studies/jeff.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/results",
+      "destination": "/work",
+      "permanent": true
+    }
   ]
 }
