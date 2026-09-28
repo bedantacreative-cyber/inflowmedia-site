@@ -21,15 +21,16 @@
     {
       "source": "/founders",
       "destination": "/founders/index.html"
-    },
-    {
-      "source": "/case-studies/jeff",
-      "destination": "/case-studies/jeff.html"
     }
   ],
   "redirects": [
     {
       "source": "/results",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies/:path*",
       "destination": "/work",
       "permanent": true
     }

@@ -34,39 +34,24 @@
 
 /* Case-study cards */
 .cs{display:grid;grid-template-columns:1fr 1fr;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .4s var(--ease),border-color .25s}
-a.cs:hover{box-shadow:var(--sh-h);border-color:var(--bdr2)}
-.cs.v9{grid-template-columns:340px 1fr}
 .cs.v16{grid-template-columns:1.4fr 1fr}
 .cs-info{padding:44px;display:flex;flex-direction:column;gap:16px;justify-content:center;align-items:flex-start}
 .badge{font-size:13px;font-weight:500;color:var(--acc-ink);background:var(--acc-soft);border:1px solid rgba(168,130,62,.25);border-radius:999px;padding:5px 14px}
 .cs-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(26px,3vw,40px);line-height:1.08;letter-spacing:-.03em;color:var(--fg)}
 .cs-d{font-size:15.5px;color:var(--fg2);line-height:1.7}
-.cs-au{display:flex;align-items:center;gap:14px;padding-top:18px;border-top:1px solid var(--bdr);align-self:stretch}
-.cs-av{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;background:var(--acc-soft);display:flex;align-items:center;justify-content:center;font-family:var(--ff-d);font-weight:600;font-size:18px;color:var(--acc-ink)}
-.cs-av img{width:100%;height:100%;object-fit:cover}
-.cs-nm{font-weight:600;font-size:15px;color:var(--fg)}
-.cs-ro{font-size:13px;color:var(--fg3);margin-top:2px}
-.cs-link{font-size:14px;font-weight:600;color:var(--fg)}
-.cs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);border-left:1px solid var(--bdr)}
-.cs-grid > div{background:var(--bg);padding:36px 28px;display:flex;flex-direction:column;justify-content:center}
-.cs-n{font-family:var(--ff-d);font-weight:600;font-size:clamp(36px,4vw,52px);letter-spacing:-.04em;color:var(--acc);line-height:1}
-.cs-l{font-size:13px;color:var(--fg3);margin-top:8px}
 .stat-row{display:flex;gap:32px;flex-wrap:wrap;padding-top:18px;border-top:1px solid var(--bdr);align-self:stretch}
 .sr-n{font-family:var(--ff-d);font-weight:600;font-size:32px;letter-spacing:-.03em;color:var(--acc);line-height:1}
 .sr-l{font-size:13px;color:var(--fg3);margin-top:6px}
 .cs-vid{position:relative;background:#EDECEA}
-.cs.v9 .cs-vid{aspect-ratio:9/16}
 .cs.v16 .cs-vid{aspect-ratio:16/9}
 .cs-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
 
 @media(max-width:1100px){.sf-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){
   .sf-grid,.saas-grid{grid-template-columns:repeat(2,1fr)}
-  .cs,.cs.v9,.cs.v16{grid-template-columns:1fr}
+  .cs,.cs.v16{grid-template-columns:1fr}
   .cs-info{padding:28px 24px}
-  .cs-grid{border-left:none;border-top:1px solid var(--bdr)}
-  .cs.v9 .cs-vid{max-width:340px;width:100%;margin:0 auto}
-}
+    }
 @media(max-width:600px){.saas-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -193,60 +178,6 @@ a.cs:hover{box-shadow:var(--sh-h);border-color:var(--bdr2)}
   </div>
 </section>
 
-<!-- JEFF CASE STUDY -->
-<section class="sec">
-  <div class="sec-hd">
-    <h2 class="s-ttl rv">Jeff Kloepping · <span class="ol">200K Followers</span></h2>
-  </div>
-  <a href="/case-studies/jeff" class="cs card rv">
-    <div class="cs-info">
-      <div class="badge">Case Study · Women's Fat Loss Coach</div>
-      <div class="cs-ttl">From 5K to 200K Followers in 10 Months</div>
-      <div class="cs-d">Done-for-you content system. Zero paid ads. Under an hour a week of his time.</div>
-      <div class="cs-au">
-        <div class="cs-av"><img src="../case-studies/jeff-photo.jpg" alt="Jeff Kloepping"></div>
-        <div>
-          <div class="cs-nm">Jeff Kloepping</div>
-          <div class="cs-ro">Women's Fat Loss Coach · @build4life_coaching</div>
-        </div>
-      </div>
-      <div class="cs-link">Read Full Case Study →</div>
-    </div>
-    <div class="cs-grid">
-      <div><div class="cs-n">200K</div><div class="cs-l">Followers</div></div>
-      <div><div class="cs-n">10M+</div><div class="cs-l">Organic Views</div></div>
-      <div><div class="cs-n">88+</div><div class="cs-l">Calls Booked</div></div>
-      <div><div class="cs-n">91%</div><div class="cs-l">Revenue Growth</div></div>
-    </div>
-  </a>
-</section>
-
-<!-- JOEY CASE STUDY -->
-<section class="sec alt">
-  <div class="sec-hd">
-    <h2 class="s-ttl rv">Joey · <span class="ol">3X Results</span></h2>
-  </div>
-  <div class="cs card rv">
-    <div class="cs-info">
-      <div class="badge">Client Case Study · Fitness Coach</div>
-      <div class="cs-ttl">How Joey Got 3X Results and 86K Views in 10 Days</div>
-      <div class="cs-d">Ad creative plus short form production. One reel hit 86K views in 10 days.</div>
-      <div class="cs-au">
-        <div class="cs-av"><img src="../case-studies/joey-photo.jpg" alt="Joey"></div>
-        <div>
-          <div class="cs-nm">Joey</div>
-          <div class="cs-ro">Fitness Coach · Client</div>
-        </div>
-      </div>
-    </div>
-    <div class="cs-grid">
-      <div><div class="cs-n">86K</div><div class="cs-l">Views · 10 Days</div></div>
-      <div><div class="cs-n">3X</div><div class="cs-l">Results</div></div>
-      <div style="grid-column:1/-1"><div class="cs-n">$0</div><div class="cs-l">Ad Spend</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- PODCAST: Brand Builders -->
 <section class="sec">
   <div class="sec-hd">
@@ -273,7 +204,7 @@ a.cs:hover{box-shadow:var(--sh-h);border-color:var(--bdr2)}
   </div>
 </section>
 
-<!-- CTA (dark band) -->
+<!-- CTA -->
 <section class="cta-sec">
   <canvas id="ctaCv"></canvas>
   <div class="cta-in rv">
