@@ -16,14 +16,57 @@
 <style>
 /* === WORK PAGE === */
 
-/* Short-form grid: 9:16 phone-shaped cards */
-.sf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.sf-wide{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
-.sf-wide .sf-card{aspect-ratio:16/9}
-.sf-card{position:relative;border-radius:var(--r);overflow:hidden;background:#E9E9E8;aspect-ratio:9/16;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.sf-card:hover{transform:translateY(-4px);box-shadow:var(--sh-h)}
-.sf-card .wistia-wrap{position:absolute;inset:0;width:100%;height:100%}
-.sf-card .wistia-wrap iframe,.sf-card .wistia-wrap wistia-player{width:100%;height:100%;border:none;display:block}
+/* Video portfolio: landscape + portrait grids, poster thumbnails, modal player */
+.vgroup+.vgroup{margin-top:56px}
+.vgroup-ttl{font-family:var(--ff-d);font-weight:600;font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;color:var(--fg);margin:0 0 20px}
+.vgrid{--vgap:20px;display:grid;gap:var(--vgap)}
+.vgrid>*{grid-column:span 2}
+/* landscape: 2 per row */
+.vgrid-land{grid-template-columns:repeat(4,1fr)}
+.vgrid-land>:last-child:nth-child(odd){grid-column:2/span 2}
+/* portrait: 3 per row, a short last row is centred */
+.vgrid-port{grid-template-columns:repeat(6,1fr)}
+.vgrid-port>:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}
+.vgrid-port>:last-child:nth-child(3n+2){grid-column:4/span 2}
+.vgrid-port>:last-child:nth-child(3n+1){grid-column:3/span 2}
+
+.vthumb{position:relative;display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E9E8;cursor:pointer;font:inherit;color:inherit;transition:transform .4s var(--ease),box-shadow .4s var(--ease);box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.vthumb.land{aspect-ratio:16/9}
+.vthumb.port{aspect-ratio:9/16}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vthumb:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(0,0,0,.1),0 10px 24px -16px rgba(0,0,0,.22)}
+.vthumb:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.vplay{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .25s}
+.vplay::before{content:'';width:0;height:0;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
+.vthumb:hover .vplay{transform:scale(1.06);background:rgba(10,10,10,.85)}
+
+/* Modal player */
+body.vm-open{overflow:hidden}
+.vm{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(10,10,10,.82)}
+.vm.open{display:flex}
+.vm-box{--rn:1.7778;position:relative;aspect-ratio:var(--rn);width:min(92vw,calc(84vh*var(--rn)));max-width:1280px;background:#000;border-radius:12px;overflow:hidden}
+.vm-box.port{--rn:.5625}
+.vm-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vm-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.7);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0}
+.vm-close::before,.vm-close::after{content:'';position:absolute;width:18px;height:2px;background:#fff;border-radius:2px}
+.vm-close::before{transform:rotate(45deg)}
+.vm-close::after{transform:rotate(-45deg)}
+.vm-close:hover{background:rgba(10,10,10,.9)}
+.vm-close:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+@media(max-width:900px){
+  .vgroup+.vgroup{margin-top:44px}
+}
+@media(max-width:700px){
+  .vgrid{--vgap:12px}
+  .vgrid-land{grid-template-columns:1fr}
+  .vgrid-land>*,.vgrid-land>:last-child:nth-child(odd){grid-column:1}
+  .vgrid-port{grid-template-columns:repeat(4,1fr)}
+  .vgrid-port>*,.vgrid-port>:nth-last-child(2):nth-child(3n+1),.vgrid-port>:last-child:nth-child(3n+2),.vgrid-port>:last-child:nth-child(3n+1){grid-column:span 2}
+  .vgrid-port>:last-child:nth-child(odd){grid-column:2/span 2}
+  .vplay{width:44px;height:44px;margin:-22px 0 0 -22px}
+  .vplay::before{margin-left:3px;border-width:7px 0 7px 11px}
+}
 
 /* SaaS / motion grid: 16:9 cards */
 .saas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -49,9 +92,7 @@
 .cs-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
 
 @media(max-width:900px){
-  .sf-grid{grid-template-columns:repeat(2,1fr)}
   .saas-grid{grid-template-columns:repeat(2,1fr)}
-  .sf-wide{grid-template-columns:1fr}
   .cs,.cs.v16{grid-template-columns:1fr}
   .cs-info{padding:28px 24px}
     }
@@ -77,67 +118,45 @@
   </div>
 </section>
 
-<!-- SHORT FORM VIDEOS -->
-<section class="sec">
+<!-- VIDEO PORTFOLIO -->
+<section class="sec" id="portfolio">
   <div class="sec-hd">
     <h2 class="s-ttl rv">Content That <span class="ol">Converts</span></h2>
   </div>
 
-  <script src="https://fast.wistia.com/player.js" async></script>
-
-  <div class="sf-grid">
-
-    <div class="sf-card rv">
-      <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/shkf73hlu3.js" async type="module"></script>
-        <style>wistia-player[media-id='shkf73hlu3']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/shkf73hlu3/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="shkf73hlu3" aspect="0.5625"></wistia-player>
-      </div>
+  <div class="vgroup">
+    <h3 class="vgroup-ttl">Launch films</h3>
+    <div class="vgrid vgrid-land">
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ac3e3e05599ef1e51a917ea" data-ratio="land" aria-label="Play launch film 1">
+        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ac3e3e05599ef1e51a917ea/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ae617a918a64b94382194ab" data-ratio="land" aria-label="Play launch film 2">
+        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae617a918a64b94382194ab/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6a8c444eb6df33640456c965" data-ratio="land" aria-label="Play launch film 3">
+        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6a8c444eb6df33640456c965/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
     </div>
-
-    <div class="sf-card rv" style="transition-delay:.07s">
-      <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/0z4hef9zy8.js" async type="module"></script>
-        <style>wistia-player[media-id='0z4hef9zy8']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/0z4hef9zy8/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="0z4hef9zy8" aspect="0.5625"></wistia-player>
-      </div>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.14s">
-      <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/2vlj9l31yc.js" async type="module"></script>
-        <style>wistia-player[media-id='2vlj9l31yc']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/2vlj9l31yc/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="2vlj9l31yc" aspect="0.5625"></wistia-player>
-      </div>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.21s">
-      <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/c8gfvtqz2t.js" async type="module"></script>
-        <style>wistia-player[media-id='c8gfvtqz2t']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/c8gfvtqz2t/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="c8gfvtqz2t" aspect="0.5625"></wistia-player>
-      </div>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.28s">
-      <iframe src="https://play.gumlet.io/embed/6ac3e3e05599ef1e51a917ea?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.35s">
-      <iframe src="https://play.gumlet.io/embed/6ae617a918a64b94382194aa?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-    </div>
-
-    <!-- ✏️ ADD MORE SHORT FORM VIDEOS HERE: copy a .sf-card block above per video -->
-
   </div>
 
-  <!-- Horizontal (16:9) videos -->
-  <div class="sf-wide">
-    <div class="sf-card rv">
-      <iframe src="https://play.gumlet.io/embed/6a8c444eb6df33640456c965?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-    </div>
-    <div class="sf-card rv" style="transition-delay:.07s">
-      <iframe src="https://play.gumlet.io/embed/6ae617a918a64b94382194ab?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+  <div class="vgroup">
+    <h3 class="vgroup-ttl">Founder content &amp; shorts</h3>
+    <div class="vgrid vgrid-port">
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="shkf73hlu3" data-ratio="port" aria-label="Play founder video 1">
+        <img src="https://embed-ssl.wistia.com/deliveries/8a38e0714d90aef174cef962b2f1088c884d3ba4.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="0z4hef9zy8" data-ratio="port" aria-label="Play founder video 2">
+        <img src="https://embed-ssl.wistia.com/deliveries/134fba909fbe814dcedaa0e35de748b1002d7b86.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="2vlj9l31yc" data-ratio="port" aria-label="Play founder video 3">
+        <img src="https://embed-ssl.wistia.com/deliveries/54c1ce6b380054fb3798b74c280aca4bdc996499.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="c8gfvtqz2t" data-ratio="port" aria-label="Play founder video 4">
+        <img src="https://embed-ssl.wistia.com/deliveries/17bbafe402c55617961c677bee0aa8dd5a91c529.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="vthumb port rv" data-provider="gumlet" data-id="6ae617a918a64b94382194aa" data-ratio="port" aria-label="Play founder video 5">
+        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae617a918a64b94382194aa/thumbnail-1-0.png?format=auto&w=540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
 </section>
@@ -206,6 +225,52 @@
     <span class="fc">@bedanta.exp</span>
   </div>
 </footer>
+
+<!-- Video modal (player loads only when opened) -->
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <span tabindex="0" id="vmStart" aria-hidden="true"></span>
+  <div class="vm-box" id="vmBox">
+    <button type="button" class="vm-close" id="vmClose" aria-label="Close video">Close</button>
+  </div>
+  <span tabindex="0" id="vmEnd" aria-hidden="true"></span>
+</div>
+<script>
+(function(){
+  var vm=document.getElementById('vm'),box=document.getElementById('vmBox'),closeBtn=document.getElementById('vmClose'),opener=null,frame=null;
+  function src(p,id){
+    if(p==='wistia')return 'https://fast.wistia.net/embed/iframe/'+id+'?autoPlay=true&playerColor=0a0a0a';
+    return 'https://play.gumlet.io/embed/'+id+'?embed_platform=gumlet&autoplay=true';
+  }
+  function open(btn){
+    opener=btn;
+    box.className='vm-box'+(btn.dataset.ratio==='port'?' port':'');
+    frame=document.createElement('iframe');
+    frame.src=src(btn.dataset.provider,btn.dataset.id);
+    frame.title='Video player';
+    frame.allow='accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.setAttribute('allowfullscreen','');
+    box.insertBefore(frame,closeBtn);
+    vm.hidden=false;vm.classList.add('open');document.body.classList.add('vm-open');
+    closeBtn.focus();
+  }
+  function close(){
+    if(!vm.classList.contains('open'))return;
+    if(frame){frame.src='about:blank';frame.remove();frame=null;}
+    vm.classList.remove('open');vm.hidden=true;document.body.classList.remove('vm-open');
+    if(opener){opener.focus();opener=null;}
+  }
+  document.querySelectorAll('.vthumb').forEach(function(b){b.addEventListener('click',function(){open(b)})});
+  closeBtn.addEventListener('click',close);
+  // focus sentinels: Tab / Shift+Tab out of the player wraps back into the dialog
+  document.getElementById('vmEnd').addEventListener('focus',function(){closeBtn.focus()});
+  document.getElementById('vmStart').addEventListener('focus',function(){(frame||closeBtn).focus()});
+  vm.addEventListener('click',function(e){if(e.target===vm)close()});
+  document.addEventListener('keydown',function(e){
+    if(!vm.classList.contains('open'))return;
+    if(e.key==='Escape'){e.preventDefault();close();}
+  });
+})();
+</script>
 
 <script src="../shared.js"></script>
 </body>
