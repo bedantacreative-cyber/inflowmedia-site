@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<meta name="theme-color" content="#FAFAFA">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Videos for Startups | Inflow Media House</title>
+<meta name="description" content="Script, motion graphics and a launch day plan, done for you. Launch videos for founders shipping software.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* === LAUNCH PAGE === */
+.lv-hero{position:relative;overflow:hidden;text-align:center;padding:168px 24px 40px;
+  background:radial-gradient(900px 420px at 50% -10%,rgba(168,130,62,.10),transparent 70%)}
+.lv-hero .h-con{margin:0 auto}
+.lv-hero .h-ttl .ol{color:var(--fg3)}
+.lv-proof{margin-top:28px;font-size:13.5px;font-weight:500;color:var(--fg3);opacity:0;animation:fup .9s var(--ease) forwards .75s}
+.lv-reel{width:min(100%,1040px);margin:56px auto 0;aspect-ratio:16/9;position:relative;border-radius:12px;overflow:hidden;background:#EDECEA;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 60px -32px rgba(0,0,0,.28)}
+.lv-reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.lv-hero-wrap{padding:0 24px 24px}
+
+.lv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 20px}
+.lv-cap{padding:14px 2px 0}
+.lv-name{font-family:var(--ff-d);font-weight:600;font-size:18px;letter-spacing:-.02em;color:var(--fg)}
+.lv-line{font-size:14.5px;color:var(--fg2);margin-top:3px}
+.lv-more{text-align:center;margin-top:48px}
+
+.vthumb{position:relative;display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#E9E9E8;cursor:pointer;font:inherit;color:inherit;transition:transform .4s var(--ease),box-shadow .4s var(--ease);box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+.vthumb.land{aspect-ratio:16/9}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vthumb:hover{transform:translateY(-2px);box-shadow:0 0 0 1px rgba(0,0,0,.1),0 10px 24px -16px rgba(0,0,0,.22)}
+.vthumb:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+.vplay{position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(10,10,10,.72);border:1px solid rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .25s}
+.vplay::before{content:'';width:0;height:0;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
+.vthumb:hover .vplay{transform:scale(1.06);background:rgba(10,10,10,.85)}
+
+.lv-need{max-width:720px;margin:48px auto 0;text-align:center;font-size:16px;line-height:1.65;color:var(--fg2)}
+.lv-need b{color:var(--fg);font-weight:600}
+.lv-by{margin-top:22px;display:flex;gap:18px;justify-content:center;font-size:14px;position:relative;z-index:2}
+.lv-by a{color:rgba(255,255,255,.75);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3)}
+.lv-by a:hover{color:#fff;border-color:#fff}
+
+body.vm-open{overflow:hidden}
+.vm{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(10,10,10,.82)}
+.vm.open{display:flex}
+.vm-box{position:relative;aspect-ratio:16/9;width:min(92vw,calc(84vh*1.7778));max-width:1280px;background:#000;border-radius:12px;overflow:hidden}
+.vm-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.vm-close{position:absolute;top:14px;right:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(10,10,10,.7);cursor:pointer;font-size:0}
+.vm-close::before,.vm-close::after{content:'';position:absolute;top:21px;left:12px;width:18px;height:2px;background:#fff;border-radius:2px}
+.vm-close::before{transform:rotate(45deg)}
+.vm-close::after{transform:rotate(-45deg)}
+.vm-close:hover{background:rgba(10,10,10,.9)}
+.vm-close:focus-visible{outline:2px solid #fff;outline-offset:2px}
+
+@media(max-width:900px){
+  .lv-hero{padding:132px 20px 24px}
+  .lv-hero-wrap{padding:0 20px 8px}
+  .lv-reel{margin-top:40px}
+}
+@media(max-width:700px){
+  .lv-grid{grid-template-columns:1fr;gap:28px}
+  .vplay{width:44px;height:44px;margin:-22px 0 0 -22px}
+  .vplay::before{margin-left:3px;border-width:7px 0 7px 11px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="n-logo">INFLOW<span>.</span></a>
+  <ul class="n-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Work</a></li>
+    <li><a href="/launch" class="active">Launch Videos</a></li>
+  </ul>
+  <a href="https://cal.com/inflowmediahouse/30min" class="n-cta">Book a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="lv-hero">
+  <div class="h-con">
+    <span class="h-eye">LAUNCH VIDEOS FOR STARTUPS</span>
+    <h1 class="h-ttl">Your product, <span class="ol">explained in 60 seconds.</span></h1>
+    <p class="h-sub">Script, motion graphics and a launch day plan, done for you. Built for founders shipping software.</p>
+    <div class="h-ctas">
+      <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+      <button type="button" class="btn-g" data-provider="wistia" data-id="crcr81oeg6" data-ratio="land">Watch the Reel</button>
+    </div>
+    <p class="lv-proof">Our AnswerThis (YC F25) launch video passed 100K views</p>
+  </div>
+</section>
+<div class="lv-hero-wrap">
+  <div class="lv-reel">
+    <iframe src="https://fast.wistia.net/embed/iframe/crcr81oeg6?autoPlay=true&muted=true&endVideoBehavior=loop&controlsVisibleOnLoad=false&playbar=false&fullscreenButton=false&volumeControl=false&playButton=false&settingsControl=false&smallPlayButton=false&playerColor=0a0a0a" title="Launch video reel" allow="autoplay; fullscreen" loading="eager"></iframe>
+  </div>
+</div>
+
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">Recent <span class="ol">work</span></h2>
+  </div>
+  <div class="lv-grid">
+      <div class="lv-card rv">
+        <button type="button" class="vthumb land" data-provider="wistia" data-id="d58oohs551" data-ratio="land" aria-label="Play Blackbox AI video">
+          <img src="https://embed-ssl.wistia.com/deliveries/70791cd8eaca1e733891d49b3c2ba16cd6e1b907.jpg?image_crop_resized=960x540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="lv-cap"><div class="lv-name">Blackbox AI</div><div class="lv-line">AI coding assistant</div></div>
+      </div>
+      <div class="lv-card rv" style="transition-delay:0.07s">
+        <button type="button" class="vthumb land" data-provider="wistia" data-id="737zf4a5ue" data-ratio="land" aria-label="Play Financial workflows video">
+          <img src="https://embed-ssl.wistia.com/deliveries/f7f22504e42a45202a3900b706085362a2a47865.jpg?image_crop_resized=960x540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="lv-cap"><div class="lv-name">Financial workflows</div><div class="lv-line">Motion design for financial software</div></div>
+      </div>
+      <div class="lv-card rv" style="transition-delay:0.14s">
+        <button type="button" class="vthumb land" data-provider="wistia" data-id="16o66aqxfu" data-ratio="land" aria-label="Play Product demo video">
+          <img src="https://embed-ssl.wistia.com/deliveries/856fd5aed8bdabff214fa0404dc8f1f9a53c4e03.jpg?image_crop_resized=960x540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="lv-cap"><div class="lv-name">Product demo</div><div class="lv-line">A product walkthrough in motion</div></div>
+      </div>
+      <div class="lv-card rv" style="transition-delay:0.21s">
+        <button type="button" class="vthumb land" data-provider="wistia" data-id="x8kxs06p0s" data-ratio="land" aria-label="Play SaaS explainer video">
+          <img src="https://embed-ssl.wistia.com/deliveries/0d2817a16bc105e505abddcc2b80ae7b906fec4a.jpg?image_crop_resized=960x540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="lv-cap"><div class="lv-name">SaaS explainer</div><div class="lv-line">The whole product, explained clearly</div></div>
+      </div>
+  </div>
+  <div class="lv-more rv">
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec" style="padding-top:40px">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">How it <span class="ol">works</span></h2>
+  </div>
+  <div class="steps rv">
+    <div class="step"><div class="step-n">01</div><div class="step-t">Call</div><p class="step-d">30 minutes. Show us the product and your launch date.</p></div>
+    <div class="step"><div class="step-n">02</div><div class="step-t">Script</div><p class="step-d">We write the story and storyboard. You approve it before we animate.</p></div>
+    <div class="step"><div class="step-n">03</div><div class="step-t">Production</div><p class="step-d">Motion graphics, editing, music and sound, built from your real product UI.</p></div>
+    <div class="step"><div class="step-n">04</div><div class="step-t">Launch day</div><p class="step-d">The final video, plus post copy and a posting plan for X and LinkedIn.</p></div>
+  </div>
+  <p class="lv-need rv"><b>What we need from you:</b> product access or screen recordings, plus your logo and brand colors. No filming needed.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="sec-hd">
+    <h2 class="s-ttl rv">Questions, <span class="ol">answered.</span></h2>
+  </div>
+  <div class="faq-wrap">
+    <details class="faq-item"><summary>How long does it take?</summary><p class="faq-a">Usually 1 to 2 weeks once the script is approved.</p></details>
+    <details class="faq-item"><summary>Do I need to be on camera?</summary><p class="faq-a">No. The video is built from your product and brand.</p></details>
+    <details class="faq-item"><summary>You're in India. Does the time zone work?</summary><p class="faq-a">Yes, in your favor. Send feedback at the end of your day and wake up to the next version.</p></details>
+    <details class="faq-item"><summary>How much does it cost?</summary><p class="faq-a">It depends on the video. You get a clear quote on the call.</p></details>
+  </div>
+</section>
+
+<!-- CTA (dark) -->
+<section class="cta-dark">
+  <div class="cta-in rv">
+    <h2 class="cta-ttl">Launching soon?</h2>
+    <p class="cta-sub">Book a 30 minute call with Bedanta, who runs every launch. Show us what you're building and when you launch.</p>
+    <a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Book a Call</a>
+    <div class="lv-by"><a href="https://x.com/BedantaHq" target="_blank" rel="noopener">X</a><a href="https://linkedin.com/in/bedanta-nath" target="_blank" rel="noopener">LinkedIn</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-log">INFLOW MEDIA HOUSE<span>.</span></div>
+      <p class="f-tag">Content infrastructure for operators in tech and venture.</p>
+    </div>
+    <div class="f-col"><h4>Services</h4><ul>
+      <li><a href="/launch">Launch Videos</a></li>
+      <li><a href="/founders">Founder Content</a></li>
+      <li><a href="/podcast">Podcast Distribution</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Company</h4><ul>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul></div>
+    <div class="f-col"><h4>Connect</h4><ul>
+      <li><a href="https://instagram.com/bedanta.exp" target="_blank">Instagram</a></li>
+      <li><a href="https://x.com/inflowMH" target="_blank">X / Twitter</a></li>
+    </ul></div>
+  </div>
+  <div class="fb">
+    <span class="fc">© 2026 Inflow Media House</span>
+    <span class="fc">@bedanta.exp</span>
+  </div>
+</footer>
+
+<!-- Video modal (player loads only when opened) -->
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+  <span tabindex="0" id="vmStart" aria-hidden="true"></span>
+  <div class="vm-box" id="vmBox">
+    <button type="button" class="vm-close" id="vmClose" aria-label="Close video">Close</button>
+  </div>
+  <span tabindex="0" id="vmEnd" aria-hidden="true"></span>
+</div>
+<script>
+(function(){
+  var vm=document.getElementById('vm'),box=document.getElementById('vmBox'),closeBtn=document.getElementById('vmClose'),opener=null,frame=null;
+  function open(btn){
+    opener=btn;
+    frame=document.createElement('iframe');
+    frame.src='https://fast.wistia.net/embed/iframe/'+btn.dataset.id+'?autoPlay=true&playerColor=0a0a0a';
+    frame.title='Video player';
+    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.setAttribute('allowfullscreen','');
+    box.insertBefore(frame,closeBtn);
+    vm.hidden=false;vm.classList.add('open');document.body.classList.add('vm-open');
+    closeBtn.focus();
+  }
+  function close(){
+    if(!vm.classList.contains('open'))return;
+    if(frame){frame.src='about:blank';frame.remove();frame=null;}
+    vm.classList.remove('open');vm.hidden=true;document.body.classList.remove('vm-open');
+    if(opener){opener.focus();opener=null;}
+  }
+  document.querySelectorAll('[data-id]').forEach(function(b){b.addEventListener('click',function(){open(b)})});
+  closeBtn.addEventListener('click',close);
+  document.getElementById('vmEnd').addEventListener('focus',function(){closeBtn.focus()});
+  document.getElementById('vmStart').addEventListener('focus',function(){(frame||closeBtn).focus()});
+  vm.addEventListener('click',function(e){if(e.target===vm)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&vm.classList.contains('open')){e.preventDefault();close()}});
+})();
+</script>
+<script src="../shared.js"></script>
+</body>
+</html>

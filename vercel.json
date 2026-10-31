@@ -21,6 +21,10 @@
     {
       "source": "/founders",
       "destination": "/founders/index.html"
+    },
+    {
+      "source": "/launch",
+      "destination": "/launch/index.html"
     }
   ],
   "redirects": [
