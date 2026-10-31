@@ -47,6 +47,10 @@
 .vplay::before{content:'';width:0;height:0;margin-left:4px;border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff}
 .vthumb:hover .vplay{transform:scale(1.06);background:rgba(10,10,10,.85)}
 
+.lv-scope{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.lv-sc{padding:28px;border:1px solid var(--bdr);border-radius:16px;background:var(--sur)}
+.lv-sc-t{font-family:var(--ff-d);font-weight:600;font-size:20px;letter-spacing:-.02em;color:var(--fg);margin:6px 0 8px}
+.lv-sc-d{font-size:15px;line-height:1.6;color:var(--fg2)}
 .lv-need{max-width:720px;margin:48px auto 0;text-align:center;font-size:16px;line-height:1.65;color:var(--fg2)}
 .lv-need b{color:var(--fg);font-weight:600}
 .lv-by{margin-top:22px;display:flex;gap:18px;justify-content:center;font-size:14px;position:relative;z-index:2}
@@ -70,7 +74,9 @@ body.vm-open{overflow:hidden}
   .lv-hero-wrap{padding:0 20px 8px}
   .lv-reel{margin-top:40px}
 }
+@media(max-width:900px){.lv-scope{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){
+  .lv-scope{grid-template-columns:1fr}
   .lv-grid{grid-template-columns:1fr;gap:28px}
   .vplay{width:44px;height:44px;margin:-22px 0 0 -22px}
   .vplay::before{margin-left:3px;border-width:7px 0 7px 11px}
@@ -161,16 +167,36 @@ body.vm-open{overflow:hidden}
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- SCOPE -->
 <section class="sec" style="padding-top:40px">
   <div class="sec-hd">
-    <h2 class="s-ttl rv">How it <span class="ol">works</span></h2>
+    <span class="eyebrow rv">From the first idea to the final export</span>
+    <h2 class="s-ttl rv">One story. <span class="ol">Every detail considered.</span></h2>
+    <p class="s-sub rv">We build the scope around your brief. Here is what we can bring to the project.</p>
+  </div>
+  <div class="lv-scope">
+    <div class="lv-sc rv"><div class="step-n">01</div><h3 class="lv-sc-t">Strategy &amp; concept</h3><p class="lv-sc-d">Product walkthrough, audience context, and a creative direction built around what makes you different.</p></div>
+    <div class="lv-sc rv"><div class="step-n">02</div><h3 class="lv-sc-t">Script &amp; storyboard</h3><p class="lv-sc-d">A clear narrative and visual plan, so you know what we are making before we make it.</p></div>
+    <div class="lv-sc rv"><div class="step-n">03</div><h3 class="lv-sc-t">Motion &amp; product visuals</h3><p class="lv-sc-d">Interface animation, motion graphics, and product demonstrations that make the value tangible.</p></div>
+    <div class="lv-sc rv"><div class="step-n">04</div><h3 class="lv-sc-t">Footage &amp; production</h3><p class="lv-sc-d">Founder footage, remote recording guidance, or a filming plan agreed around the concept.</p></div>
+    <div class="lv-sc rv"><div class="step-n">05</div><h3 class="lv-sc-t">Edit &amp; sound</h3><p class="lv-sc-d">Pacing, music, sound design, and finishing that bring the whole film together.</p></div>
+    <div class="lv-sc rv"><div class="step-n">06</div><h3 class="lv-sc-t">Launch-ready versions</h3><p class="lv-sc-d">Your main film and agreed cutdowns or aspect ratios, ready for the places you plan to share.</p></div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="sec" style="padding-top:40px">
+  <div class="sec-hd">
+    <span class="eyebrow rv">How we work</span>
+    <h2 class="s-ttl rv">A clear process. <span class="ol">A better final cut.</span></h2>
+    <p class="s-sub rv">You bring the product knowledge. We bring the story, creative direction, and production.</p>
+    <div class="rv" style="margin-top:28px"><a href="https://cal.com/inflowmediahouse/30min" class="btn-p">Talk through your project</a></div>
   </div>
   <div class="steps rv">
-    <div class="step"><div class="step-n">01</div><div class="step-t">Call</div><p class="step-d">30 minutes. Show us the product and your launch date.</p></div>
-    <div class="step"><div class="step-n">02</div><div class="step-t">Script</div><p class="step-d">We write the story and storyboard. You approve it before we animate.</p></div>
-    <div class="step"><div class="step-n">03</div><div class="step-t">Production</div><p class="step-d">Motion graphics, editing, music and sound, built from your real product UI.</p></div>
-    <div class="step"><div class="step-n">04</div><div class="step-t">Launch day</div><p class="step-d">The final video, plus post copy and a posting plan for X and LinkedIn.</p></div>
+    <div class="step"><div class="step-n">01</div><div class="step-t">Get inside the product</div><p class="step-d">We start with a walkthrough, your audience, and the one thing people need to understand.</p></div>
+    <div class="step"><div class="step-n">02</div><div class="step-t">Find the story</div><p class="step-d">We develop the concept, script, and visual direction before production begins.</p></div>
+    <div class="step"><div class="step-n">03</div><div class="step-t">Bring it to life</div><p class="step-d">Design, animation, footage, editing, and sound come together around the approved direction.</p></div>
+    <div class="step"><div class="step-n">04</div><div class="step-t">Get ready to launch</div><p class="step-d">We review the film together and deliver the agreed versions, ready for your channels.</p></div>
   </div>
   <p class="lv-need rv"><b>What we need from you:</b> product access or screen recordings, plus your logo and brand colors. No filming needed.</p>
 </section>
