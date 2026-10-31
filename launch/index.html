@@ -26,6 +26,8 @@
 .lv-hero-wrap{padding:0 24px 24px}
 
 .lv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 20px}
+.lv-feat{grid-column:1/-1}
+.lv-views{display:inline-block;margin-left:8px;padding:2px 10px;border-radius:999px;background:var(--acc-soft);color:var(--acc-ink);font-family:var(--ff-b);font-size:12.5px;font-weight:500;letter-spacing:0;vertical-align:2px}
 .lv-cap{padding:14px 2px 0}
 .lv-name{font-family:var(--ff-d);font-weight:600;font-size:18px;letter-spacing:-.02em;color:var(--fg)}
 .lv-line{font-size:14.5px;color:var(--fg2);margin-top:3px}
@@ -107,6 +109,12 @@ body.vm-open{overflow:hidden}
     <h2 class="s-ttl rv">Recent <span class="ol">work</span></h2>
   </div>
   <div class="lv-grid">
+      <div class="lv-card lv-feat rv">
+        <button type="button" class="vthumb land" data-provider="gumlet" data-id="6ae618a090944ced717e3b36" data-ratio="land" aria-label="Play AnswerThis launch video">
+          <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae618a090944ced717e3b36/thumbnail-1-0.png?format=auto&w=1280" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+        </button>
+        <div class="lv-cap"><div class="lv-name">AnswerThis (YC F25) <span class="lv-views">100K+ views</span></div><div class="lv-line">AI research assistant for literature reviews</div></div>
+      </div>
       <div class="lv-card rv">
         <button type="button" class="vthumb land" data-provider="wistia" data-id="d58oohs551" data-ratio="land" aria-label="Play Blackbox AI video">
           <img src="https://embed-ssl.wistia.com/deliveries/70791cd8eaca1e733891d49b3c2ba16cd6e1b907.jpg?image_crop_resized=960x540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
@@ -214,9 +222,9 @@ body.vm-open{overflow:hidden}
   function open(btn){
     opener=btn;
     frame=document.createElement('iframe');
-    frame.src='https://fast.wistia.net/embed/iframe/'+btn.dataset.id+'?autoPlay=true&playerColor=0a0a0a';
+    frame.src=btn.dataset.provider==='gumlet'?'https://play.gumlet.io/embed/'+btn.dataset.id+'?embed_platform=gumlet&autoplay=true':'https://fast.wistia.net/embed/iframe/'+btn.dataset.id+'?autoPlay=true&playerColor=0a0a0a';
     frame.title='Video player';
-    frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';
+    frame.allow='accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen';
     frame.setAttribute('allowfullscreen','');
     box.insertBefore(frame,closeBtn);
     vm.hidden=false;vm.classList.add('open');document.body.classList.add('vm-open');
