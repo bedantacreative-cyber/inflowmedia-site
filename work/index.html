@@ -26,6 +26,7 @@
 .vgrid-land>:last-child:nth-child(odd){grid-column:2/span 2}
 /* portrait: 3 per row, a short last row is centred */
 .vgrid-port{grid-template-columns:repeat(6,1fr)}
+.vgrid+.vgrid{margin-top:var(--vgap)}
 .vgrid-port>:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}
 .vgrid-port>:last-child:nth-child(3n+2){grid-column:4/span 2}
 .vgrid-port>:last-child:nth-child(3n+1){grid-column:3/span 2}
@@ -125,36 +126,32 @@ body.vm-open{overflow:hidden}
   </div>
 
   <div class="vgroup">
-    <h3 class="vgroup-ttl">Launch films</h3>
+    <h3 class="vgroup-ttl">Founder content &amp; shorts</h3>
     <div class="vgrid vgrid-land">
-      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ac3e3e05599ef1e51a917ea" data-ratio="land" aria-label="Play launch film 1">
-        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ac3e3e05599ef1e51a917ea/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ae61d6d569ab365102e9ab6" data-ratio="land" aria-label="Play short-form video 1">
+        <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae61d6d569ab365102e9ab6/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ae617a918a64b94382194ab" data-ratio="land" aria-label="Play launch film 2">
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6ae617a918a64b94382194ab" data-ratio="land" aria-label="Play short-form video 2">
         <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae617a918a64b94382194ab/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6a8c444eb6df33640456c965" data-ratio="land" aria-label="Play launch film 3">
+      <button type="button" class="vthumb land rv" data-provider="gumlet" data-id="6a8c444eb6df33640456c965" data-ratio="land" aria-label="Play short-form video 3">
         <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6a8c444eb6df33640456c965/thumbnail-1-0.png?format=auto&w=960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
     </div>
-  </div>
-
-  <div class="vgroup">
-    <h3 class="vgroup-ttl">Founder content &amp; shorts</h3>
     <div class="vgrid vgrid-port">
-      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="shkf73hlu3" data-ratio="port" aria-label="Play founder video 1">
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="shkf73hlu3" data-ratio="port" aria-label="Play short-form video 1">
         <img src="https://embed-ssl.wistia.com/deliveries/8a38e0714d90aef174cef962b2f1088c884d3ba4.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="0z4hef9zy8" data-ratio="port" aria-label="Play founder video 2">
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="0z4hef9zy8" data-ratio="port" aria-label="Play short-form video 2">
         <img src="https://embed-ssl.wistia.com/deliveries/134fba909fbe814dcedaa0e35de748b1002d7b86.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="2vlj9l31yc" data-ratio="port" aria-label="Play founder video 3">
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="2vlj9l31yc" data-ratio="port" aria-label="Play short-form video 3">
         <img src="https://embed-ssl.wistia.com/deliveries/54c1ce6b380054fb3798b74c280aca4bdc996499.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="c8gfvtqz2t" data-ratio="port" aria-label="Play founder video 4">
+      <button type="button" class="vthumb port rv" data-provider="wistia" data-id="c8gfvtqz2t" data-ratio="port" aria-label="Play short-form video 4">
         <img src="https://embed-ssl.wistia.com/deliveries/17bbafe402c55617961c677bee0aa8dd5a91c529.jpg?image_crop_resized=540x960" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
-      <button type="button" class="vthumb port rv" data-provider="gumlet" data-id="6ae617a918a64b94382194aa" data-ratio="port" aria-label="Play founder video 5">
+      <button type="button" class="vthumb port rv" data-provider="gumlet" data-id="6ae617a918a64b94382194aa" data-ratio="port" aria-label="Play short-form video 5">
         <img src="https://video.gumlet.io/6a8968dcc26d1274712ab8aa/6ae617a918a64b94382194aa/thumbnail-1-0.png?format=auto&w=540" alt="" loading="lazy" decoding="async"><span class="vplay" aria-hidden="true"></span>
       </button>
     </div>
