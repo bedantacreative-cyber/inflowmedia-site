@@ -17,7 +17,9 @@
 /* === WORK PAGE === */
 
 /* Short-form grid: 9:16 phone-shaped cards */
-.sf-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sf-wide{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}
+.sf-wide .sf-card{aspect-ratio:16/9}
 .sf-card{position:relative;border-radius:var(--r);overflow:hidden;background:#E9E9E8;aspect-ratio:9/16;box-shadow:var(--sh);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .sf-card:hover{transform:translateY(-4px);box-shadow:var(--sh-h)}
 .sf-card .wistia-wrap{position:absolute;inset:0;width:100%;height:100%}
@@ -46,9 +48,10 @@
 .cs.v16 .cs-vid{aspect-ratio:16/9}
 .cs-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:none;display:block}
 
-@media(max-width:1100px){.sf-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){
-  .sf-grid,.saas-grid{grid-template-columns:repeat(2,1fr)}
+  .sf-grid{grid-template-columns:repeat(2,1fr)}
+  .saas-grid{grid-template-columns:repeat(2,1fr)}
+  .sf-wide{grid-template-columns:1fr}
   .cs,.cs.v16{grid-template-columns:1fr}
   .cs-info{padding:28px 24px}
     }
@@ -110,42 +113,32 @@
 
     <div class="sf-card rv" style="transition-delay:.21s">
       <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/k663omfq1u.js" async type="module"></script>
-        <style>wistia-player[media-id='k663omfq1u']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/k663omfq1u/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="k663omfq1u" aspect="0.5625"></wistia-player>
-      </div>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.28s">
-      <div class="wistia-wrap">
-        <script src="https://fast.wistia.com/embed/eis0xc0z6o.js" async type="module"></script>
-        <style>wistia-player[media-id='eis0xc0z6o']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/eis0xc0z6o/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
-        <wistia-player media-id="eis0xc0z6o" aspect="0.5625"></wistia-player>
-      </div>
-    </div>
-
-    <div class="sf-card rv" style="transition-delay:.35s">
-      <div class="wistia-wrap">
         <script src="https://fast.wistia.com/embed/c8gfvtqz2t.js" async type="module"></script>
         <style>wistia-player[media-id='c8gfvtqz2t']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/c8gfvtqz2t/swatch'); display: block; filter: blur(5px); padding-top:177.78%; }</style>
         <wistia-player media-id="c8gfvtqz2t" aspect="0.5625"></wistia-player>
       </div>
     </div>
 
-    <div class="sf-card rv" style="transition-delay:.42s">
-      <iframe src="https://play.gumlet.io/embed/6a95425610199367b6c69b25?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    <div class="sf-card rv" style="transition-delay:.28s">
+      <iframe src="https://play.gumlet.io/embed/6ac3e3e05599ef1e51a917ea?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
     </div>
 
-    <div class="sf-card rv" style="transition-delay:.49s">
-      <iframe src="https://play.gumlet.io/embed/6a95434110199367b6c6be40?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
-    </div>
-
-    <div class="sf-card" style="grid-column:1/-1;aspect-ratio:16/9">
-      <iframe src="https://play.gumlet.io/embed/6a8c444eb6df33640456c965?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    <div class="sf-card rv" style="transition-delay:.35s">
+      <iframe src="https://play.gumlet.io/embed/6ae617a918a64b94382194aa?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
     </div>
 
     <!-- ✏️ ADD MORE SHORT FORM VIDEOS HERE: copy a .sf-card block above per video -->
 
+  </div>
+
+  <!-- Horizontal (16:9) videos -->
+  <div class="sf-wide">
+    <div class="sf-card rv">
+      <iframe src="https://play.gumlet.io/embed/6a8c444eb6df33640456c965?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
+    <div class="sf-card rv" style="transition-delay:.07s">
+      <iframe src="https://play.gumlet.io/embed/6ae617a918a64b94382194ab?embed_platform=gumlet" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 
